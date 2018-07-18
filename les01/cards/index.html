@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Find The Joker</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script src="code.js"></script>
+</head>
+<body>
+
+<h2>Find The Joker</h2>
+
+<p>
+    In this game, you need to find the Joker among the 3 covered cards.
+    Once you make your choice, the game will uncover 1 of the other 2 cards
+    that is not a Joker.
+    You will then be asked if you want to stick with your original choice, or
+    if your rather prefer to choose the other uncovered card.
+</p>
+
+<p>
+    What is the best strategy to play this game?
+    Always stick to your first choice?
+    Always change choice?
+    Change at random?
+    Regardless of your strategy, can you prove it is optimal?
+    The solution to this "riddle" is the HTML comments
+</p>
+
+
+<img id="img0" class="card" src="img/cover_card.jpg" onclick="clickCard(0)">
+<img id="img1" class="card" src="img/cover_card.jpg" onclick="clickCard(1)">
+<img id="img2" class="card" src="img/cover_card.jpg" onclick="clickCard(2)">
+
+<div>
+    <p id="firstSelectId">Choose a card to try to find the Joker by clicking on it.</p>
+    <p id="secondSelectId" style="display: none">
+        You can change your choice if you want.
+        Or confirm your current choice.
+        Just re-click on a covered card to find the Joker.
+    </p>
+    <p id="victoryId" style="display: none">YOU WON!!! Congratulation! The luck is strong in you!
+        Click <span onclick="newGame()" class="fakeLink">here</span> for a new game.
+    </p>
+    <p id="defeatId" style="display: none">You Lost! You need to work on your luck skills.
+        Click <span onclick="newGame()" class="fakeLink">here</span> for a new game.
+    </p>
+</div>
+
+<!--
+    Solution
+
+    The best strategy is to ALWAYS change choice.
+    When you first choose, you have a 1/3, i.e. 33%, probability of getting the Joker.
+    This will not change based on what the game decides to uncover.
+    However, if you change card, you will always win if your original choice
+    was NOT a Joker, as only 2 cards are left (and if the current is not a
+    Joker, then the other must be).
+    The probability of not getting the Joker at first choice is 2/3, i.e. 66%.
+    In other words, always choosing to switch card does DOUBLE your odds of success!!!
+-->
+
+<p>
+    Disclaimer: the card images are in the public domain, taken from
+    <a href="https://code.google.com/archive/p/vector-playing-cards/">here</a>.
+    License of the back-cover is of unclear license, and taken from
+    <a href="http://clipart-library.com/clipart/8cxrbGE6i.htm">here</a>.
+</p>
+
+<script>
+    newGame();
+</script>
+
+</body>
+</html>
