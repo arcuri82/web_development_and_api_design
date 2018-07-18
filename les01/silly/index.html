@@ -1,0 +1,68 @@
+<html>
+<head>
+    <title>A Silly Game</title>
+
+    <style>
+        .btn{
+            border: 2px solid rgb(30,30,30);
+            border-radius: 5px;
+            background-color: rgb(207, 205, 200);
+            color: rgb(71, 53, 25);
+            margin: 5px;
+            padding: 3px;
+            display: inline-block;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2> A Silly Game </h2>
+
+    <p>Are you silly?</p>
+    <div class="btn" id="btn0" onclick="showResult()" onmouseover="changeNo('btn1')"></div>
+    <div class="btn" id="btn1" onclick="showResult()" onmouseover="changeNo('btn0')"></div>
+
+
+    <!--
+        Putting the script at the end of the page means we can directly refer
+        to the HTML tags above without needing to worry if the page is loaded yet
+    -->
+    <script>
+        let no = undefined;
+
+        changeNo = function(id){
+            if(id === no){
+                //Nothing to do
+                return;
+            }
+
+            no = id;
+
+            let other;
+            if(id === "btn0"){
+                other = "btn1"
+            } else {
+                other = "btn0"
+            }
+
+            let divYes = document.getElementById(other);
+            let divNo = document.getElementById(no);
+
+            divYes.innerHTML = "Yes";
+            divNo.innerHTML = "No";
+        };
+
+        showResult = function(){
+            alert("Congratulation! You admitted that you are silly!");
+        };
+
+        changeNo("btn1")
+
+    </script>
+</body>
+</html>
