@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library Example</title>
+
+</head>
+<body>
+
+<h2>
+    Bundling JavaScript Code
+</h2>
+
+<h3>Used Tools</h3>
+<p>
+    We use <a href="https://www.npmjs.com/">NPM</a>
+    to download the library
+    <a href="https://lodash.com/">loadash</a>.
+    This is a very popular library providing several utility functions.
+    Here, we just use some of them related to arrays.
+    When NPM is run on a project, it will read the content of the
+    'package.json' configuration file.
+</p>
+
+<p>
+    Because 'loadash' is a library, it needs to be imported in this HTML file besides
+    our own JavaScript code.
+    We use <a href="https://webpack.js.org/">Webpack</a> to bundle all the JS code
+    together into a single 'bundle.js' file.
+    This also improves performance, as the browser needs to do only a single HTTP GET
+    call to get all the needed JS.
+</p>
+
+<p>
+    Note that, to properly use 'Webpack', we need to do some manual changes into the
+    'package.json' configuration file of NPM.
+    You could expect some comments directly in the 'package.json' to describe what needs
+    to be changed.
+    Unfortunately, this is not possible, because the JSON format does not support comments!!!
+    You might wonder why JSON was chosen as configuration format instead of more sane
+    options like YAML or XML (in this context XML is better than JSON)...
+    Yes, that is a big limitation of NPM (and its developers have no intention to fix it).
+    Note: there are some
+    <a href="https://stackoverflow.com/questions/14221579/how-do-i-add-comments-to-package-json-for-npm-install">
+        workarounds
+    </a>
+    to somehow simulate comments in JSON, but those are really awful, dirty hacks.
+</p>
+
+
+<h3>Example With Loadash</h3>
+
+<p>
+    Array value: <span id="arrayStringId"></span>
+</p>
+<ui>
+    <li>_.min(): <span id="minId"></span></li>
+    <li>_.max(): <span id="maxId"></span></li>
+    <li>_.mean(): <span id="meanId"></span></li>
+    <li>_.sum(): <span id="sumId"></span></li>
+</ui>
+
+
+<h3>Executed Commands</h3>
+
+<ui>
+    <li>
+        npm init -y
+        <br/>
+        To create a default 'package.json' file
+    </li>
+    <li>
+        npm install --save lodash
+        <br/>
+        To install 'loadash' library
+    </li>
+    <li>
+        npm install --save-dev webpack webpack-cli
+        <br/>
+        To install WebPack, but as a developer tool, and not as part of production deployment.
+    </li>
+</ui>
+
+<script src="bundle.js"></script>
+
+</body>
+</html>
