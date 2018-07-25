@@ -33,6 +33,8 @@ export class Board {
             this.renderer.updateStatus("X Won!");
         } else if (this.doesOWin()) {
             this.renderer.updateStatus("O Won!");
+        } else if(this.counter >= 8){
+            this.renderer.updateStatus("The Game Ended in a Tie!");
         } else {
             this.renderer.updateStatus("Next Player: " + (this.isXandNotO() ? O : X));
         }
