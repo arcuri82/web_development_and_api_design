@@ -27,10 +27,19 @@
     into JS before they can be used in a browser.
     To do that, we need to instruct WebPack to use Babel with React preset when
     building the <em>bundle.js</em> file.
-    Look at the configuration files <em>.babelrc</em> and <em>webpack.config.js</em>.
+    Look at the configuration files <em>.babelrc</em> and <em>webpack.config.js</em>
+    to see what settings are needed to achieve it.
     Meditate on the lack of comments there, and how it could have been helpful
     to have them directly there where the different configuration settings are added.
     Sorry, not going to write abominations like <em>"//": "..."</em>.
+</p>
+
+<p>
+    When you look at tutorials and examples online, you might notice that often
+    for JSX the file extension is <em>.js</em> instead of <em>.jsx</em>.
+    This does simplify some configuration settings (e.g., in WebPack), but I do not
+    like it. JSX is not JavaScript, and using <em>.js</em> would be confusing in
+    my opinion.
 </p>
 
 <div>
