@@ -23,18 +23,19 @@
 </p>
 
 <p>
-    Because 'loadash' is a library, it needs to be imported in this HTML file besides
+    Because <em>loadash</em> is a library, it needs to be imported in this HTML file besides
     our own JavaScript code.
-    We use <a href="https://webpack.js.org/">Webpack</a> to bundle all the JS code
-    together into a single 'bundle.js' file.
-    This also improves performance, as the browser needs to do only a single HTTP GET
+    We use <a href="https://webpack.js.org/">WebPack</a> to bundle all the JS code
+    together into a single <em>bundle.js</em> file.
+    This can also improve performance, as the browser needs to do only a single HTTP GET
     call to get all the needed JS.
+    <em>WebPack</em> is configured in a file called <em>webpack.config.js</em>.
 </p>
 
 <p>
-    Note that, to properly use 'Webpack', we need to do some manual changes into the
-    'package.json' configuration file of NPM.
-    You could expect some comments directly in the 'package.json' to describe what needs
+    Note that, to properly use <em>WebPack</em>, we need to do some manual changes into the
+    <em>package.json</em> configuration file of NPM.
+    You could expect some comments directly in the <em>package.json</em> to describe what needs
     to be changed.
     Unfortunately, this is not possible, because the JSON format does not support comments!!!
     You might wonder why JSON was chosen as configuration format instead of more sane
@@ -63,23 +64,64 @@
 
 <h3>Executed Commands</h3>
 
-<ui>
-    <li>
-        npm init -y
-        <br/>
-        To create a default 'package.json' file
-    </li>
-    <li>
-        npm install --save lodash
-        <br/>
-        To install 'loadash' library
-    </li>
-    <li>
-        npm install --save-dev webpack webpack-cli
-        <br/>
-        To install WebPack, but as a developer tool, and not as part of production deployment.
-    </li>
-</ui>
+<div>
+    <p>
+        To create a new project, we use <em>npm init -y</em>>, which will create
+        files like <em>package.json</em>.
+        This can be seen like a <em>pom.xml</em> file in Maven/Java.
+        Libraries need to be installed with <em>npm install</em>.
+        Here we need both <em>WebPack</em> and <em>loadash</em>.
+        When a library is "installed", not only it will be downloaded under
+        the <em>node_modules</em>, but also NPM will modify the <em>package.json</em>
+        file.
+        Note: it is very important to do NOT add such folder on Git.
+    </p>
+
+    <p>
+        <em>Loadash</em> will be part of our final code, whereas  <em>WebPack</em>
+        is just a tool/plugin to build the project.
+        And that is the reason why it is installed with the option <em>--save-dev</em>.
+        See the differences between <em>dependencies</em> and <em>devDependencies</em>
+        in the <em>package.json</em> file.
+    </p>
+
+    <p>
+        When you work on an existing project, where the <em>package.json</em>
+        and <em>package-lock.json</em> are already there in the Git repository,
+        you just need to run <em>npm install</em> to download all the libraries
+        defined in <em>package.json</em> into <em>node_modules</em>.
+    </p>
+
+    <p>
+        Finally, to build the <em>bundle.js</em> file, we run <em>npm run dev</em>.
+        The <em>npm run</em> does execute one of the commands defined in the
+        <em>scripts</em> section of the <em>package.json</em> file.
+        We need to manually modify it to enable  <em>WebPack</em>.
+        Note the 2 different versions: <em>dev</em> to use during development/debugging,
+        and <em>build</em> for the final version for production.
+        This latter does a few optimizations, which unfortunately
+        make the generated JavaScript hard to read.
+    </p>
+
+    <p>
+        When we run <em>npm run dev</em>, not only we generate the <em>bundle.js</em> file
+        in a more human-friendly format,
+        but also start a HTTP server for it, with the browser opening at that page.
+        Furthermore, <em>WebPack</em> will look at the changes in <em>./src</em>,
+        and rebuild automatically every time we do changes.
+        However, we still need to do a refresh in the browser to see the updates.
+    </p>
+
+
+    <ul>
+        <li><strong>npm install</strong></li>
+        <li><strong>npm init -y</strong></li>
+        <li><strong>npm install webpack webpack-cli webpack-dev-server --save-dev</strong></li>
+        <li><strong>npm install lodash</strong></li>
+        <li><strong>npm run dev</strong></li>
+    </ul>
+</div>
+
 
 <script src="bundle.js"></script>
 

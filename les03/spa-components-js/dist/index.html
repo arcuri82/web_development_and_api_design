@@ -14,17 +14,34 @@
 
 <h2>Important To Know</h2>
 
-TODO
+<p>
+    Here we introduce the concept of <em>components</em>.
+    A component is a JavaScript unit which is responsible to
+    draw HTML, and keep an internal state, with actions registered
+    for on the HTML tags.
+    When the state of the a component does change, then it should
+    <em>automatically</em> re-render itself, greatly simplifying the coding.
+</p>
 
-<div>
-    <h4>
-        NPM Commands
-    </h4>
-    <ul>
-        <li><strong>npm install webpack webpack-cli --save-dev</strong></li>
-    </ul>
-</div>
+<p>
+    A component can be instantiated more than once.
+    A component can have other components inside.
+    For example, here we have an "App" that contains 3 "Counter"
+    components.
+    A Counter keeps track of a numerical value, with buttons to increase
+    and decrease it by 1.
+</p>
 
+<p>
+    When dealing with components, we want to do it efficiently.
+    A change in a single displayed value should not trigger the re-rendering
+    of an entire HTML page.
+    To do that, we use existing libraries/frameworks.
+    One of the most popular is <a href="https://reactjs.org/">React</a>,
+    made by Facebook.
+    However, before digging into it, here we show how this could be (very inefficiently)
+    achieved by just using vanilla JavaScript.
+</p>
 
 <script src="bundle.js"></script>
 

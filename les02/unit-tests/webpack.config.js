@@ -7,5 +7,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         libraryTarget: 'var',
         library: 'EntryPoint'
+    },
+    devServer: {
+        contentBase: './dist'
     }
 };

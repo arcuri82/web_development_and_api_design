@@ -13,7 +13,7 @@ const App = () => {
                     NPM Commands
                 </h4>
                 <ul>
-                    <li><strong>npm install webpack webpack-cli --save-dev</strong></li>
+                    <li><strong>npm install webpack webpack-cli webpack-dev-server --save-dev</strong></li>
                     <li><strong>npm install react react-dom</strong></li>
                     <li><strong>npm install babel-core babel-loader  babel-preset-react  --save-dev</strong></li>
                     <li><strong>npm install jest babel-jest babel-preset-es2015 --save-dev</strong></li>

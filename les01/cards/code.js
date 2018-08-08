@@ -1,13 +1,13 @@
 let firstChoice = null;
 let gameFinished = true;
-
 let jokerPosition  = 0;
 
-let positions = [0, 1, 2];
+const positions = [0, 1, 2];
 
-let spadesImg = "img/2_of_spades.png";
-let jokerImg = "img/black_joker.png";
-let backcoverImg = "img/cover_card.jpg";
+const spadesImg = "img/2_of_spades.png";
+const jokerImg = "img/black_joker.png";
+const backcoverImg = "img/cover_card.jpg";
+
 
 newGame = function(){
 
@@ -19,6 +19,7 @@ newGame = function(){
     showBackCover(1);
     showBackCover(2);
 };
+
 
 clickCard = function(index){
 
@@ -33,15 +34,15 @@ clickCard = function(index){
 
         firstChoice = index;
 
-        let options = positions.filter(p => p !== index && p !== jokerPosition);
-        let toDisplay = options[Math.floor(Math.random() * options.length)];
+        const options = positions.filter(p => p !== index && p !== jokerPosition);
+        const toDisplay = options[Math.floor(Math.random() * options.length)];
 
         showSpades(toDisplay);
         showSecondMessage();
 
     } else {
 
-        if(index != firstChoice){
+        if(index !== firstChoice){
             document.getElementById("img"+firstChoice).classList.remove("selectedCard")
         }
 
@@ -88,14 +89,14 @@ showDefeat = function(){
 
 
 showSpades = function (index) {
-    let img = document.getElementById("img"+index);
+    const img = document.getElementById("img"+index);
     img.src = spadesImg;
     img.style.cursor = "default";
     img.classList.remove("backcover")
 };
 
 showJoker = function (index) {
-    let img = document.getElementById("img"+index);
+    const img = document.getElementById("img"+index);
     img.src = jokerImg;
     img.style.cursor = "default";
     img.classList.remove("backcover")
@@ -112,7 +113,7 @@ showAll = function(){
 }
 
 showBackCover = function (index) {
-    let img = document.getElementById("img"+index);
+    const img = document.getElementById("img"+index);
     img.src = backcoverImg;
     img.style.cursor = "pointer";
     if(! img.classList.contains("backcover")) {
