@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="mylib.css"/>
+    <title>Single-Page Application Router In Vanilla JavaScript</title>
+</head>
+<body>
+
+<div>
+
+    <div class="spaPage" path="/">
+        <h2>Single-Page Application Router In Vanilla JavaScript</h2>
+        <div>
+            <h4>My SPA Links</h4>
+            <ul>
+                <li><div class="spaLink" href="/">/</div></li>
+                <li><div class="spaLink" href="/#/first">/#/first</div></li>
+                <li><div class="spaLink" href="/#/second">/#/second</div></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Standard &lt;a&gt; Links</h4>
+            <ul>
+                <li><a href="/">/</a></li>
+                <li><a href="/#/first">/#/first</a></li>
+                <li><a href="/#/second">/#/second</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Standard &lt;a&gt; Links Marked With <em>spaLink</em></h4>
+            <ul>
+                <li><a class="spaLink" href="/">/</a></li>
+                <li><a class="spaLink" href="/#/first">/#/first</a></li>
+                <li><a class="spaLink" href="/#/second">/#/second</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <h4>Explanation</h4>
+            TODO
+        </div>
+    </div>
+
+    <div class="spaPage" path="/#/first">
+        <h3>First Page</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </p>
+        Link back to
+        <div class="spaLink" href="/">Home</div>
+        .
+    </div>
+
+    <div class="spaPage" path="/#/second">
+        <h3>Second Page</h3>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+            deserunt mollit anim id est laborum.
+        </p>
+        Link back to
+        <div class="spaLink" href="/">Home</div>
+        .
+    </div>
+</div>
+
+
+<script src="bundle.js"></script>
+
+</body>
+</html>

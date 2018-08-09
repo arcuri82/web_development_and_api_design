@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {BrowserRouter, HashRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import {Home} from "./home";
 import {First} from "./first";
@@ -8,9 +8,6 @@ import {Second} from "./second";
 import {NotFound} from "./not_found";
 
 const App = () => {
-
-    const hasHash = window.location.href.indexOf("#") >= 0;
-
 
     return (
         <BrowserRouter>

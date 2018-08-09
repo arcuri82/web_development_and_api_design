@@ -1,0 +1,11 @@
+
+
+.spaPage{
+    display: none
+}
+
+.spaLink{
+    color: blue;
+    cursor: pointer;
+    text-decoration: underline;
+}
