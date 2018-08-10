@@ -1,0 +1,12 @@
+.sillyBtn{
+    border: 2px solid rgb(30,30,30);
+    border-radius: 5px;
+    background-color: rgb(207, 205, 200);
+    color: rgb(71, 53, 25);
+    margin: 5px;
+    padding: 3px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}

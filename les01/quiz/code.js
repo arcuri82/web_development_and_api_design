@@ -1,4 +1,4 @@
-let quizzes = [
+const quizzes = [
     {
         question: "What kind of language is JavaScript?",
         answer_0: "Strongly and statically typed",
@@ -50,7 +50,7 @@ displayQuiz = function (quiz) {
     html += answerTag("C: ", quiz.answer_2, quiz.indexOfRightAnswer === 2);
     html += answerTag("D: ", quiz.answer_3, quiz.indexOfRightAnswer === 3);
 
-    let quizDiv = document.getElementById("quizDivId");
+    const quizDiv = document.getElementById("quizDivId");
 
     quizDiv.innerHTML = html;
 };
@@ -63,7 +63,7 @@ displayNewQuiz = function(){
         index = (index + 1) % quizzes.length;
     }
 
-    let quiz = quizzes[index];
+    const quiz = quizzes[index];
     currentQuizIndex = index;
 
     displayQuiz(quiz);

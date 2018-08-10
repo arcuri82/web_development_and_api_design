@@ -110,7 +110,7 @@ showAll = function(){
             showSpades(i);
         }
     }
-}
+};
 
 showBackCover = function (index) {
     const img = document.getElementById("img"+index);
