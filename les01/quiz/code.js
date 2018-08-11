@@ -37,7 +37,7 @@ answerTag = function (prefix, answer, correct) {
         onclick = "alert('Wrong answer');";
     }
 
-    let html = "<div class='gameBtn answer' onclick=\""+onclick+"\">" + prefix + answer + "</div>";
+    let html = "<div class='gameBtn' onclick=\""+onclick+"\">" + prefix + answer + "</div>";
 
     return html;
 };

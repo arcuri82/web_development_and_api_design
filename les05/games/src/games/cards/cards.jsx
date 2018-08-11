@@ -63,6 +63,7 @@ export class Cards extends React.Component {
                 <div>
                     {this.renderCards()}
                     {this.renderOutputMessage()}
+                    <MyHomeLink/>
                 </div>
 
                 <p>

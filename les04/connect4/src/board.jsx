@@ -110,11 +110,18 @@ export class Board extends React.Component{
         );
     }
 
+    renderIndex(index){
+        return(
+            <div className={"index"}>{index}</div>
+        );
+    }
+
     render(){
 
         return(
             <div>
                 {this.state.cells.map((e,i) => this.renderRow(i))}
+                {Array.from(Array(7)).map((e,i) => this.renderIndex(i))}
             </div>
         );
     }

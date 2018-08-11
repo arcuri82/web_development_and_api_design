@@ -1,7 +1,10 @@
 body{
-    margin: 30px;
+    background-color: green;
 }
 
+#root{
+    margin: 30px;
+}
 
 .cell {
     float: left;
@@ -15,7 +18,16 @@ body{
     width: 30px;
     margin-right: -1px;
     margin-top: -1px;
-    padding: 0;
+}
+
+.index {
+    float: left;
+    font-size: 12px;
+    text-align: center;
+    width: 30px;
+    border: 1px solid transparent;
+    margin-right: -1px;
+    margin-top: -1px;
 }
 
 
@@ -32,14 +44,18 @@ body{
 }
 
 .game-info {
+    margin-top: 30px;
     margin-left: 20px;
+    font-weight: bold;
 }
 
 
 .btn {
-    height: 30px;
+    width: 90px;
     background-color: rgb(207, 205, 200);
     font-size: 1em;
+    text-align: center;
+    padding: 5px;
     border: 2px solid black;
     border-radius: 5px;
     margin: 5px;

@@ -10,23 +10,15 @@ body{
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    line-height: 30px;
     height: 30px;
     width: 30px;
     margin-right: -1px;
     margin-top: -1px;
-    padding: 0;
-}
-
-
-.cell-row:after {
-    clear: both;
-    content: "";
-    display: table;
 }
 
 
 .game {
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
 }
@@ -37,11 +29,14 @@ body{
 
 
 .btn {
-    height: 30px;
     background-color: rgb(207, 205, 200);
     font-size: 1em;
+    text-align: center;
+    vertical-align: middle;
     border: 2px solid black;
     border-radius: 5px;
     margin: 5px;
+    margin-top: 20px;
+    padding: 3px;
     cursor: pointer;
 }

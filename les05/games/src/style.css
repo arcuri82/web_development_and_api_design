@@ -2,7 +2,10 @@ html, body {
     margin: 0px;
     background-color: rgb(243, 239, 231);
     color: rgb(71, 53, 25);
-    text-align: center;
     font-size: 1.2em;
     position: relative;
+}
+
+#root{
+    margin: 30px;
 }

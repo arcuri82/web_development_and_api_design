@@ -30,7 +30,7 @@ export class Quiz extends React.Component {
         }
 
         return (
-            <div className={"quizBtn quizAnswer"}
+            <div className={"quizBtn"}
                  onClick={onclick}>
                 {prefix + answer}
             </div>

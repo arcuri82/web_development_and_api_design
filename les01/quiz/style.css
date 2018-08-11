@@ -4,7 +4,6 @@ html, body {
     color: rgb(71, 53, 25);
     text-align: center;
     font-size: 1.2em;
-    position: relative;
 }
 
 .gameBtn {
@@ -15,9 +14,6 @@ html, body {
     border-radius: 5px;
     margin: 5px;
     cursor: pointer;
-}
-
-.answer {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -7,15 +7,13 @@
     border-radius: 5px;
     margin: 5px;
     cursor: pointer;
-}
-
-.quizAnswer {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 5%;
     margin-right: 5%;
 }
+
 
 .quizQuestion {
     display: inline-block;
