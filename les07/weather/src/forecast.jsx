@@ -83,51 +83,52 @@ export class Forecast extends React.Component {
     }
 
 
-    fetchWeather() {
+    async fetchWeather() {
 
         const city = this.state.term;
-
-        const ajax = new XMLHttpRequest();
-
-        ajax.onreadystatechange = () => {
-            if (ajax.readyState === XMLHttpRequest.DONE) {
-
-                const payload = JSON.parse(ajax.response)
-
-                if (ajax.status === 200) {
-
-                    const msg = "Forecast for " + city;
-
-                    const forecast = payload.list.map(f => (
-                        {
-                            temp: f.main.temp,
-                            time: f.dt_txt,
-                            weather: f.weather.map(w => w.main).join(", ")
-                        }
-                    ));
-
-                    this.setState({
-                        message: msg,
-                        forecast: forecast
-                    });
-
-                } else if (ajax.status === 404) {
-
-                    const msg = "Cannot find forecast for " + city;
-                    this.setState({message: msg, forecast: null});
-
-                } else {
-                    //something went wrong
-                    const msg = "ERROR when retrieving forecast for " + city + ": " + payload.message;
-                    this.setState({message: msg, forecast: null});
-                }
-            }
-        };
-
         const key = this.props.apiKey;
         const params = "&units=metric&q=" + city + ",no";
 
-        ajax.open("GET", BASE_URL + key + params, true);
-        ajax.send();
+        const url = BASE_URL + key + params;
+
+        let response = await fetch(url);
+        let payload = await response.json();
+
+        try {
+            response = await fetch(url);
+            payload = await response.json();
+        } catch (err) {
+            const msg = "ERROR when retrieving forecast for " + city + ": " + err;
+            this.setState({message: msg, forecast: null});
+        }
+
+        if (response.status === 200) {
+
+            const msg = "Forecast for " + city;
+
+            const forecast = payload.list.map(f => (
+                {
+                    temp: f.main.temp,
+                    time: f.dt_txt,
+                    weather: f.weather.map(w => w.main).join(", ")
+                }
+            ));
+
+            this.setState({
+                message: msg,
+                forecast: forecast
+            });
+
+        } else if (response.status === 404) {
+
+            const msg = "Cannot find forecast for " + city;
+            this.setState({message: msg, forecast: null});
+
+        } else {
+            //something went wrong
+            const msg = "ERROR when retrieving forecast for " + city + ": " + payload.message;
+            this.setState({message: msg, forecast: null});
+        }
     }
+
 }
