@@ -31,7 +31,9 @@ export class Forecast extends React.Component {
          */
         event.preventDefault();
 
-        this.fetchWeather();
+        //note: this returns a Promise, but we do not need to handle it
+        this.fetchWeather(this.state.term);
+
         this.setState({term: ""});
     }
 
@@ -83,23 +85,24 @@ export class Forecast extends React.Component {
     }
 
 
-    async fetchWeather() {
+    async fetchWeather(city) {
 
-        const city = this.state.term;
         const key = this.props.apiKey;
         const params = "&units=metric&q=" + city + ",no";
 
         const url = BASE_URL + key + params;
 
-        let response = await fetch(url);
-        let payload = await response.json();
+        let response;
+        let payload;
 
         try {
             response = await fetch(url);
             payload = await response.json();
         } catch (err) {
+            //Network error: eg, wrong URL, no internet, etc.
             const msg = "ERROR when retrieving forecast for " + city + ": " + err;
             this.setState({message: msg, forecast: null});
+            return;
         }
 
         if (response.status === 200) {
@@ -120,12 +123,12 @@ export class Forecast extends React.Component {
             });
 
         } else if (response.status === 404) {
-
+            //happens if we ask for a city that is not recognized
             const msg = "Cannot find forecast for " + city;
             this.setState({message: msg, forecast: null});
 
         } else {
-            //something went wrong
+            //something went wrong, but we got a response. eg, hit usage rate limit of the API
             const msg = "ERROR when retrieving forecast for " + city + ": " + payload.message;
             this.setState({message: msg, forecast: null});
         }
