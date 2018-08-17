@@ -15,6 +15,11 @@ Code for the PG6300 course on *Web Development and API Design*.
   Note: instead of installing libraries via NPM commandline, you
   can modify the *package.json* file manually.
 
+* **npm run X**
+
+  Execute the script called `X`  in the `scripts` section of
+  the the *package.json* file.
+
 * **npm install webpack webpack-cli webpack-dev-server --save-dev**
 
   To install WebPack.
