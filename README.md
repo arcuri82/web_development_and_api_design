@@ -5,6 +5,8 @@ Code for the PG6300 course on *Web Development and API Design*.
 
 * **Lesson 01**: Intro and JavaScript
 
+  Slides: [PDF](docs/slides/lesson_01.pdf)  
+
   Links:
   * [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
   * [YDNJS](https://github.com/getify/You-Dont-Know-JS) 
