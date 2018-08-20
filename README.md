@@ -1,6 +1,77 @@
 # PG6300
 Code for the PG6300 course on *Web Development and API Design*.
 
+## Lessons
+
+* **Lesson 01**: Intro and JavaScript
+
+  Links:
+  * [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
+  * [YDNJS](https://github.com/getify/You-Dont-Know-JS) 
+    sections *Up & Going* and *Scope & Closures*.  
+
+  Exercise: do JavaScript Koans, at least up to `about_arrays.js`.
+
+<br />
+
+* **Lesson 02**: NPM and Unit Tests
+
+  Links:
+  * [NodeJS](https://nodejs.org/en/)
+  * [NPM](https://www.npmjs.com/) 
+  * [YDNJS](https://github.com/getify/You-Dont-Know-JS):
+      sections *this & Object Prototypes* and *Types & Grammar*.
+  * [WebPack](https://webpack.js.org/guides/getting-started/#basic-setup)
+  * [Babel](https://babeljs.io/)
+  * [Jest](https://github.com/facebook/jest)
+  * [Loadash](https://lodash.com)
+
+  Exercises: complete the JavaScript Koans.
+  Add functionalities to *Tic-Tac-Toe*, like an AI for the opponent.
+
+<br />
+
+* **Lesson 03**: SPA Components and React
+
+    Links:
+    * [React](https://reactjs.org/docs/thinking-in-react.html):
+    but only up to *Main Concepts* section.
+    * [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
+    
+    Exercises: do the React Tutorial. 
+
+<br />
+
+* **Lesson 04**: Multi-component State and Component Tests 
+
+    Links:
+    * [Enzyme](https://github.com/airbnb/enzyme/blob/master/docs/api/mount.md)
+    * [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp)
+
+    Exercises: Add functionalities to *Connect4*, like an AI for the opponent 
+    (could start with a simple one choosing at random).
+    Add more tests.
+
+<br />
+
+* **Lesson 05**: SPA Routing
+
+    Links:
+    * [React-Router](https://reacttraining.com/react-router)
+
+    Exercises: create a new project similar to *Games*, where you use
+    React-Router between the *Tic-Tac-Toe* and *Connect4* you extended
+    in the previous exercises. 
+
+<br />
+
+* **Lesson 06**: Revision
+
+
+<br />
+
+
+TODO: rest of the classes
 
 ## Useful NPM Commands
 
