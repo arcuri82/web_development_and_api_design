@@ -9,7 +9,7 @@ Code for the PG6300 course on *Web Development and API Design*.
 
   Links:
   * [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
-  * [YDNJS](https://github.com/getify/You-Dont-Know-JS) 
+  * [YDKJS](https://github.com/getify/You-Dont-Know-JS)
     sections *Up & Going* and *Scope & Closures*.  
 
   Exercise: do JavaScript Koans, at least up to `about_arrays.js`.
@@ -21,7 +21,7 @@ Code for the PG6300 course on *Web Development and API Design*.
   Links:
   * [NodeJS](https://nodejs.org/en/)
   * [NPM](https://www.npmjs.com/) 
-  * [YDNJS](https://github.com/getify/You-Dont-Know-JS):
+  * [YDKJS](https://github.com/getify/You-Dont-Know-JS):
       sections *this & Object Prototypes* and *Types & Grammar*.
   * [WebPack](https://webpack.js.org/guides/getting-started/#basic-setup)
   * [Babel](https://babeljs.io/)
