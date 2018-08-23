@@ -1,4 +1,3 @@
-
 /*
     Just execute the callback after short amount of time
  */
@@ -7,20 +6,17 @@ const executeCallBack = function(callback){
     setTimeout(callback, 1);
 };
 
+function sleep(ms) {
 
-const blockingSleep = function (ms) {
-
-    ms += new Date().getTime();
-
-    while (new Date().getTime() < ms){}
-};
+    return new Promise( (resolve, reject) => setTimeout(resolve, ms));
+}
 
 
-const example = function(){
+const example = async function(){
 
     console.log("A");
 
-    executeCallBack(() => {
+    executeCallBack(async () => {
 
         console.log("B");
 
@@ -28,25 +24,24 @@ const example = function(){
             console.log("C");
         });
 
-        blockingSleep(100);
+        await sleep(100);
 
         console.log("D");
     });
 
-    blockingSleep(100);
+    await sleep(100);
 
     console.log("F");
 };
-
 
 example();
 
 /*
 A
-F
 B
-D
 C
+F
+D
 
 TODO explanation
  */
