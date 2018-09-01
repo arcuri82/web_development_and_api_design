@@ -34,6 +34,8 @@ function createNewBook(title, author, year){
     };
 
     books.set(id, book);
+
+    return id;
 }
 
 function deleteBook(id){
