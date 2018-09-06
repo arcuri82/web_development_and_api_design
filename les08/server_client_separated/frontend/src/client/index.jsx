@@ -3,9 +3,8 @@ import ReactDOM from "react-dom";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import {Home} from "./home";
+import {Create} from "./create"
 import {NotFound} from "./not_found";
-
-import "./style.css"
 
 const App = () => {
 
@@ -13,6 +12,7 @@ const App = () => {
         <BrowserRouter>
             <div>
                 <Switch>
+                    <Route exact path="/create" component={Create}/>
                     <Route exact path="/" component={Home}/>
                     <Route component={NotFound}/>
                 </Switch>

@@ -2,9 +2,10 @@
   "name": "rest",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server/server.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node src/server/server.js"
   },
   "keywords": [],
   "author": "",

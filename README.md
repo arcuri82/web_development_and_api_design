@@ -104,7 +104,7 @@ TODO: rest of the classes
   *NodeJS*. So, need to make sure to use *Babel* to transform the
   module import statements.
 
-* **npm install react react-dom**
+* **npm install react react-dom react-router-dom**
 
   To install *React* libraries.
 

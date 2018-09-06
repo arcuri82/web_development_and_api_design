@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 
 //to enable CORS filters
 app.use(cors({
-    origin: 'http://localhost'
+    origin: 'http://localhost:8080'
 }));
 
 
