@@ -2,9 +2,9 @@ import React from "react";
 import {Link} from 'react-router-dom'
 
 
-export class Home extends React.Component{
+export class Home extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -16,11 +16,11 @@ export class Home extends React.Component{
     }
 
 
-    componentDidMount(){
+    componentDidMount() {
         this.fetchBooks();
     }
 
-    async fetchBooks(){
+    async fetchBooks() {
 
         const url = "http://localhost:8081/books";
 
@@ -33,9 +33,9 @@ export class Home extends React.Component{
         } catch (err) {
             //Network error: eg, wrong URL, no internet, etc.
             this.setState({
-                    error: "ERROR when retrieving list of books: " + err,
-                    books: null
-                });
+                error: "ERROR when retrieving list of books: " + err,
+                books: null
+            });
             return;
         }
 
@@ -52,7 +52,7 @@ export class Home extends React.Component{
         }
     }
 
-    async deleteBook(id){
+    async deleteBook(id) {
 
         const url = "http://localhost:8081/books/" + id;
 
@@ -65,7 +65,7 @@ export class Home extends React.Component{
             return false;
         }
 
-        if(response.status !== 204){
+        if (response.status !== 204) {
             alert("Delete operation failed: status code " + response.status);
             return false;
         }
@@ -75,13 +75,13 @@ export class Home extends React.Component{
         return true;
     }
 
-    render(){
+    render() {
 
         let table;
 
-        if(this.state.error !== null){
+        if (this.state.error !== null) {
             table = <p>{this.state.error}</p>
-        } else if(this.state.books === null || this.state.books.length === 0){
+        } else if (this.state.books === null || this.state.books.length === 0) {
             table = <p>There is no book registered in the database</p>
         } else {
             table = <div>
@@ -101,7 +101,11 @@ export class Home extends React.Component{
                             <td>{b.title}</td>
                             <td>{b.year}</td>
                             <td>
-                                <button className="btn"><i className="fas fa-edit"></i></button>
+                                <Link to={"/edit?bookId=" + b.id}>
+                                    <button className="btn">
+                                        <i className="fas fa-edit"></i>
+                                    </button>
+                                </Link>
                                 <button className="btn" onClick={_ => this.deleteBook(b.id)}>
                                     <i className="fas fa-trash"></i>
                                 </button>
@@ -113,10 +117,12 @@ export class Home extends React.Component{
             </div>
         }
 
-        return(
+        return (
             <div>
                 <h2>Book List</h2>
-                <button className="btn"><Link to={"/create"}>New</Link></button>
+                <Link to={"/create"}>
+                    <button className="btn">New</button>
+                </Link>
                 {table}
             </div>
         );

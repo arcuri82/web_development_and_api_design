@@ -16,7 +16,6 @@ class Book extends React.Component {
         this.ok = this.props.ok ? this.props.ok : "Ok";
 
         this.onFormSubmit = this.onFormSubmit.bind(this);
-        // this.onCancel = this.onCancel.bind(this);
         this.onAuthorChange = this.onAuthorChange.bind(this);
         this.onTitleChange = this.onTitleChange.bind(this);
         this.onYearChange = this.onYearChange.bind(this);
@@ -24,8 +23,6 @@ class Book extends React.Component {
 
     async onFormSubmit(event) {
         event.preventDefault();
-
-        //TODO validate state
 
         const completed = await this.props.okCallback(
             this.state.author,
@@ -36,14 +33,9 @@ class Book extends React.Component {
         if(completed) {
             this.props.history.push('/');
         } else {
-            //TODO fix
             alert("Failed to create new Book")
         }
     }
-    //
-    // onCancel() {
-    //     this.props.history.push('/');
-    // }
 
     onAuthorChange(event) {
         this.setState({author: event.target.value});
@@ -58,8 +50,6 @@ class Book extends React.Component {
     }
 
     render() {
-
-        // TODO input validation, with error message
 
         return (
             <div>
