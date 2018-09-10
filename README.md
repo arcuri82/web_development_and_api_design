@@ -114,4 +114,8 @@ TODO: rest of the classes
   
 * **npm install express cors**
   
-  To install Express and CORS, needed to build REST APIs on NodeJS.   
+  To install Express and CORS, needed to build REST APIs on NodeJS.
+
+* **npm install socket.io socket.io-client**
+
+  To install support for WebSockets, both for servers and clients.
