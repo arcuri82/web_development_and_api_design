@@ -47,7 +47,7 @@ export class Connect4 extends React.Component {
                        isGameOn={this.state.result === 0}/>
                 <Info result={this.state.result}
                       xIsNext={this.state.xIsNext}
-                      resetHandler={() => this.resetBoard()}
+                      resetHandler={this.resetBoard}
                 />
             </div>
         );
