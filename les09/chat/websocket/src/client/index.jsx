@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import openSocket from 'socket.io-client';
+
 
 class App extends React.Component {
 
@@ -11,6 +13,8 @@ class App extends React.Component {
             text: "",
             messages: null
         };
+
+        this.socket = openSocket('http://localhost:8080');
 
         this.onNameChange = this.onNameChange.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
@@ -60,6 +64,17 @@ class App extends React.Component {
     componentDidMount() {
         this.fetchMessages();
 
+        this.socket.on('new message', msg => {
+            this.setState(
+                prev => {
+                    if(prev.messages === null){
+                        return {messages: [msg]};
+                    } else {
+                        return {messages: [...prev.messages, msg]};
+                    }
+                }
+            );
+        });
     }
 
 
@@ -115,7 +130,7 @@ class App extends React.Component {
 
         return (
             <div>
-                <h2>AJAX-based Chat</h2>
+                <h2>WebSocket-based Chat</h2>
                 <div>
                     <p className="inputName">Your name:</p>
                     <input type="text"

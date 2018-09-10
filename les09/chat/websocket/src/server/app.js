@@ -46,8 +46,7 @@ app.post('/api/messages', (req, res) => {
     res.status(201); //created
     res.send();
 
-    TODO
-    io.sockets.emit()
+    io.sockets.emit("new message", msg)
 });
 
 
