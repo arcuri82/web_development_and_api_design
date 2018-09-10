@@ -1,13 +1,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const app = express();
 
 //to handle JSON payloads
 app.use(bodyParser.json());
-
-//to enable CORS filters
-app.use(cors());
 
 //needed to server static files, like HTML, CSS and JS.
 app.use(express.static('public'));
