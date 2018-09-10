@@ -112,7 +112,7 @@ export class Board extends React.Component{
 
     renderIndex(index){
         return(
-            <div className={"index"}>{index}</div>
+            <div className={"index"} key={"unique_index_key_"+index}>{index}</div>
         );
     }
 
