@@ -14,14 +14,14 @@ app.use(express.static('public'));
 
 let counter = 0;
 
-const messages = new Map();
+const messages = [];
 
 
 app.get('/api/messages', (req, res) => {
 
     const since = req.query["since"];
 
-    const data = Array.from(messages.values());
+    const data = messages;
 
     if (since !== undefined && since !== null) {
         res.json(data.filter(m => m.id > since));
@@ -38,7 +38,7 @@ app.post('/api/messages', (req, res) => {
 
     const id = counter++;
 
-    messages.set(id, {id:id, author: dto.author, text: dto.text});
+    messages.push({id:id, author: dto.author, text: dto.text});
 
     res.status(201); //created
     res.send();
