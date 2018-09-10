@@ -111,3 +111,7 @@ TODO: rest of the classes
 * **npm install babel-core babel-loader  babel-preset-react  --save-dev**
 
   To install *Babel* to handle the JSX files used by *React*.
+  
+* **npm install express cors**
+  
+  To install Express and CORS, needed to build REST APIs on NodeJS.   
