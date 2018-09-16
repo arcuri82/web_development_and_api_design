@@ -9,12 +9,12 @@
 const users = new Map();
 
 
-export function getUser(id){
+function getUser(id){
 
     return users.get(id);
 }
 
-export function verifyUser(id, password){
+function verifyUser(id, password){
 
     const user = getUser(id);
 
@@ -25,10 +25,10 @@ export function verifyUser(id, password){
     return user.password === password;
 }
 
-export function createUser(id, password){
+function createUser(id, password){
 
-    if(getUser(id) !== null){
-        throw "User with id '" + id + "' already exists"
+    if(getUser(id) !== undefined ){
+        return false;
     }
 
     const user = {
@@ -38,10 +38,11 @@ export function createUser(id, password){
     };
 
     users.set(id, user);
+    return true;
 }
 
 
-export function transferMoney(senderId, receiverId, amount){
+function transferMoney(senderId, receiverId, amount){
 
     const sender = users.get(senderId);
     const receiver = users.get(receiverId);
@@ -59,3 +60,5 @@ export function transferMoney(senderId, receiverId, amount){
 
     return false;
 }
+
+module.exports = {getUser, verifyUser, createUser, transferMoney};

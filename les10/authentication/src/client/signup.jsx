@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import HeaderBar from "./headerbar";
+import {withRouter} from 'react-router-dom'
 
-
-export class SignUp extends React.Component{
+class SignUp extends React.Component{
 
     constructor(props){
         super(props);
@@ -10,7 +10,8 @@ export class SignUp extends React.Component{
         this.state = {
             userId: "",
             password: "",
-            confirm: ""
+            confirm: "",
+            errorMsg: null
         };
 
         this.onUserIdChange = this.onUserIdChange.bind(this);
@@ -20,24 +21,79 @@ export class SignUp extends React.Component{
     }
 
     onUserIdChange(event){
-        this.setState({userId: event.target.value});
+        this.setState({userId: event.target.value, errorMsg: null});
     }
 
     onPasswordChange(event){
-        this.setState({password: event.target.value});
+        this.setState({password: event.target.value, errorMsg: null});
     }
 
     onConfirmChange(event){
-        this.setState({confirm: event.target.value});
+        this.setState({confirm: event.target.value, errorMsg: null});
     }
 
-    doSignUp(){
-        //TODO
+    async doSignUp(){
+
+        const {userId, password, confirm} = this.state;
+
+        if(confirm !== password){
+            this.setState({errorMsg: "Passwords do not match"});
+            return;
+        }
+
+        const url = "/api/signup";
+
+        const payload = {userId: userId, password: password};
+
+        let response;
+
+        try {
+            response = await fetch(url, {
+                method: "post",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+        } catch (err) {
+            this.setState({errorMsg: "Failed to connect to server: "+ err});
+            return;
+        }
+
+
+        if(response.status === 400){
+            this.setState({errorMsg: "Invalid userId/password"});
+            return;
+        }
+
+        if(response.status !== 204){
+            this.setState({errorMsg: "Error when connecting to server: status code "+ response.status});
+            return;
+        }
+
+        this.setState({errorMsg: null});
+        this.props.updateLoggedInUserId(userId);
+        this.props.history.push('/');
     }
 
     render(){
+
+        let error = <div></div>;
+        if(this.state.errorMsg !== null){
+            //TODO css
+            error = <div className="errorMsg"><p>{this.state.errorMsg}</p></div>
+        }
+
+        let confirmMsg = "Ok";
+        if(this.state.confirm !== this.state.password){
+           confirmMsg = "Not matching";
+        }
+
         return(
             <div>
+                <HeaderBar userId={this.props.userId}
+                           updateLoggedInUserId={this.props.updateLoggedInUserId}/>
+
                 <div>
                     <p>User Id:</p>
                     <input type="text"
@@ -55,10 +111,15 @@ export class SignUp extends React.Component{
                     <input type="password"
                            value={this.state.confirm}
                            onChange={this.onConfirmChange}/>
+                    <div>{confirmMsg}</div>
                 </div>
 
-                <div className={btn} onClick={this.doSignUp}>Sign Up</div>
+                {error}
+
+                <div className="btn" onClick={this.doSignUp}>Sign Up</div>
             </div>
         );
     }
 }
+
+export default withRouter(SignUp);

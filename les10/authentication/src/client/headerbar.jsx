@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link, withRouter} from 'react-router-dom';
 
 
-export class HeaderBar extends React.Component{
+class HeaderBar extends React.Component{
 
     constructor(props){
         super(props);
@@ -10,8 +11,27 @@ export class HeaderBar extends React.Component{
     }
 
 
-    doLogout(){
-        //TODO
+    async doLogout(){
+
+        const url = "/api/logout";
+
+
+        let response;
+
+        try {
+            response = await fetch(url, {method: "post"});
+        } catch (err) {
+            alert("Failed to connect to server: "+ err);
+            return;
+        }
+
+        if(response.status !== 204){
+            alert("Error when connecting to server: status code "+ response.status);
+            return;
+        }
+
+        this.props.updateLoggedInUserId(null);
+        this.props.history.push('/');
     }
 
     renderLoggedIn(userId){
@@ -48,10 +68,12 @@ export class HeaderBar extends React.Component{
         }
 
         return(
-            <div>
+            <div className={"headerBar"}>
                 <Link to={"/"}>Home</Link>
                 {content}
             </div>
         );
     }
 }
+
+export default withRouter(HeaderBar);

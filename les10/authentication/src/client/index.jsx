@@ -1,14 +1,15 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import {Home} from "./home";
-import {Login} from "./login";
-import {SignUp} from "./signup";
+import Login from "./login";
+import SignUp from "./signup";
 
 
-export class App extends React.Component{
+export class App extends React.Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
         this.state = {
@@ -18,17 +19,17 @@ export class App extends React.Component{
         this.updateLoggedInUserId = this.updateLoggedInUserId.bind(this);
     }
 
-    updateLoggedInUserId (userId) {
+    updateLoggedInUserId(userId) {
         this.setState({userId: userId});
     }
 
-    isLoggedIn(){
+    isLoggedIn() {
         return this.state.userId !== null;
     }
 
-    notFound(){
+    notFound() {
 
-        return(
+        return (
             <div>
                 <h2>NOT FOUND: 404</h2>
                 <p>
@@ -39,19 +40,25 @@ export class App extends React.Component{
 
     };
 
-    render(){
+    render() {
 
 
-        return(
+        return (
             <BrowserRouter>
                 <div>
                     <Switch>
                         <Route exact path="/login"
-                               render={props => <Login {...props} userId={this.state.userId}/>}/>
+                               render={props => <Login {...props}
+                                                       userId={this.state.userId}
+                                                       updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
                         <Route exact path="/signup"
-                               render={props => <SignUp {...props} userId={this.state.userId}/>}/>
+                               render={props => <SignUp {...props}
+                                                        userId={this.state.userId}
+                                                        updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
                         <Route exact path="/"
-                               render={props => <Home {...props} userId={this.state.userId}/>}/>
+                               render={props => <Home {...props}
+                                                      userId={this.state.userId}
+                                                      updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
                         <Route component={this.notFound}/>
                     </Switch>
                 </div>
@@ -59,3 +66,6 @@ export class App extends React.Component{
         );
     }
 }
+
+
+ReactDOM.render(<App/>, document.getElementById("root"));

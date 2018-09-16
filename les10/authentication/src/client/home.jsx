@@ -1,7 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom';
-
-import {HeaderBar} from "./headerbar";
+import HeaderBar from "./headerbar";
 
 export class Home extends React.Component {
 
@@ -16,8 +14,61 @@ export class Home extends React.Component {
         this.transferMoney = this.transferMoney.bind(this);
     }
 
-    transferMoney() {
+    componentDidMount(){
+        if (this.props.userId !== null && this.props.userId !== undefined) {
+            this.updateBalance();
+        }
+    }
+
+    async transferMoney() {
+
+        if (this.props.userId === null && this.props.userId === undefined) {
+            return;
+        }
+
         //TODO
+
+
+        this.updateBalance();
+    }
+
+    async updateBalance(){
+
+        if (this.props.userId === null && this.props.userId === undefined) {
+            return;
+        }
+
+        const url = "/api/balance";
+
+        let response;
+        let payload;
+
+        try {
+            response = await fetch(url);
+            payload = await response.json();
+        } catch (err) {
+            this.setState({
+                errorMsg: "ERROR when retrieving balance: " + err,
+                balance: null
+            });
+            return;
+        }
+
+        if (response.status === 200) {
+            this.setState({
+                errorMsg: null,
+                balance: payload.balance
+            });
+        } else {
+            /*
+                Here, if we get a 401, could happen if the session did timeout.
+                We could automatically redirect to Login page.
+             */
+            this.setState({
+                errorMsg: "Issue with HTTP connection: status code " + response.status,
+                balance: null
+            });
+        }
     }
 
     renderLoggedIn() {
@@ -63,13 +114,14 @@ export class Home extends React.Component {
 
         return (
             <div>
+                <HeaderBar userId={this.props.userId}
+                           updateLoggedInUserId={this.props.updateLoggedInUserId}/>
+
                 <div>
                     <p className="header">Your Bank</p>
                 </div>
 
                 <div className="mainContent">
-
-                    <HeaderBar userId={this.props.userId}/>
                     {pageContent}
                 </div>
             </div>

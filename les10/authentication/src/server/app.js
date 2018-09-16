@@ -5,8 +5,8 @@ const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
 const cookieParser = require('cookie-parser');
 
-
-const Repository = require('./repository')
+const routes = require('./routes');
+const Repository = require('./repository');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use(cookieParser());
-app.use(session({ secret: 'a secret used to encrypt the session cookies' }));
+app.use(session({secret: 'a secret used to encrypt the session cookies'}));
 
 
 //needed to server static files, like HTML, CSS and JS.
@@ -26,6 +26,10 @@ app.use(express.static('public'));
 
 
 passport.use(new LocalStrategy(
+    {
+        usernameField: 'userId',
+        passwordField: 'password'
+    },
     function (userId, password, done) {
 
         const ok = Repository.verifyUser(userId, password);
@@ -40,18 +44,18 @@ passport.use(new LocalStrategy(
 ));
 
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function (id, done) {
 
     const user = Repository.getUser(id);
 
-    if(user !== null){
+    if (user !== null) {
         done(null, user);
     } else {
-        done(null , false);
+        done(null, false);
     }
 });
 
@@ -60,8 +64,7 @@ app.use(passport.session());
 
 
 //--- Routes -----------
-
-
+app.use('/', routes);
 
 
 
