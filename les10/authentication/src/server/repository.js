@@ -44,10 +44,16 @@ function createUser(id, password){
 
 function transferMoney(senderId, receiverId, amount){
 
+    amount = parseInt(amount);
+
+    if(amount <= 0){
+        return false;
+    }
+
     const sender = users.get(senderId);
     const receiver = users.get(receiverId);
 
-    if(sender === null || receiver === null){
+    if(sender === undefined || receiver === undefined){
         return false;
     }
 
@@ -58,7 +64,7 @@ function transferMoney(senderId, receiverId, amount){
     sender.balance -= amount;
     receiver.balance += amount;
 
-    return false;
+    return true;
 }
 
 module.exports = {getUser, verifyUser, createUser, transferMoney};

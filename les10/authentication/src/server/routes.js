@@ -47,7 +47,7 @@ router.get("/api/balance", (req, res) => {
 });
 
 
-router.post("/api/transfer", (req, res) => {
+router.post("/api/transfers", (req, res) => {
 
     if(! req.user){
         res.status(401).send();
@@ -61,13 +61,42 @@ router.post("/api/transfer", (req, res) => {
     const amount = dto.amount;
 
     const transferred = Repository.transferMoney(from, to, amount);
-    if(transferred){
-        res.status(204);
-    } else {
-        res.status(400);
-    }
 
-    res.send();
+    /*
+        In general, we would not need to support
+        both Form and JSON in the same App: just JSON.
+        Form-submissions are mainly used in server-side
+        rendering apps with no/limited JS.
+        However, here we support both just for
+        didactical reasons
+     */
+
+    const form = false; //TODO
+
+    if(form){
+        res.status(302);
+        if(transferred) {
+            res.location("/");
+        } else {
+            /*
+                Note: we do not support it in the GUI,
+                but the use of query params is what
+                usually employed when displaying errors
+                coming from a Form request.
+             */
+            res.location("/?error=true");
+        }
+        res.send();
+    } else {
+        //JSON
+        if (transferred) {
+            res.status(204);
+        } else {
+            res.status(400);
+        }
+
+        res.send();
+    }
 });
 
 
