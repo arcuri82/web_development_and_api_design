@@ -10,11 +10,11 @@ const App = () => {
     return(
         <div>
             <h2>Weather App</h2>
-            <div>
-                Weather:
-                <Current city={"Oslo"} apiKey = {API_KEY}/>,
-                <Current city={"Bergen"} apiKey = {API_KEY}/>,
-                <Current city={"Stavanger"} apiKey = {API_KEY}/>.
+            <div class="mainCitys">
+                Weather in main cities:<br/>
+                <Current city={"Oslo"} apiKey = {API_KEY}/><br/>
+                <Current city={"Bergen"} apiKey = {API_KEY}/><br/>
+                <Current city={"Stavanger"} apiKey = {API_KEY}/><br/>
             </div>
             <Forecast apiKey = {API_KEY}/>
         </div>
