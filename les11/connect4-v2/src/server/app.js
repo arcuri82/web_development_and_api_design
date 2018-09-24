@@ -6,15 +6,12 @@ const LocalStrategy = require('passport-local').Strategy;
 const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
-const Repository = require('./repository');
+const Users = require('./data/users');
 
 const app = express();
 
 //to handle JSON payloads
 app.use(bodyParser.json());
-
-//to handle Form POST
-app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.use(cookieParser());
@@ -32,13 +29,13 @@ passport.use(new LocalStrategy(
     },
     function (userId, password, done) {
 
-        const ok = Repository.verifyUser(userId, password);
+        const ok = Users.verifyUser(userId, password);
 
         if (!ok) {
             return done(null, false, {message: 'Invalid username/password'});
         }
 
-        const user = Repository.getUser(userId);
+        const user = Users.getUser(userId);
         return done(null, user);
     }
 ));
@@ -50,7 +47,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
 
-    const user = Repository.getUser(id);
+    const user = Users.getUser(id);
 
     if (user !== null) {
         done(null, user);
