@@ -30,7 +30,7 @@ export class Home extends React.Component {
                         Welcome to the Connect Four Game!
                         In this game, you alternate with an opponent in
                         adding coins (X or O) into a 6x7 grid.
-                        The goal of the game is to align 4 of you coins,
+                        The goal of the game is to align 4 of your coins,
                         either horizontally, vertically or diagonally.
                     </p>
                     <p>
@@ -43,12 +43,11 @@ export class Home extends React.Component {
 
                 <div>
                     <Link to={"/match/ai"} className={"btn"}>AI Match</Link>
-                    {if(loggedIn){
+                    {loggedIn ?
                         <Link to={"/match/online"} className={"btn"}>Online Match</Link>
-                    } else {
+                        :
                         //TODO
                         <div>Online Match</div>
-                    }
                     }
                 </div>
 

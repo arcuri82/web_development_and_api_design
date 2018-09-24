@@ -1,54 +1,25 @@
 import React from "react";
 import {Board} from "./board";
-import {Info} from "./info";
+import {OpponentAI} from "./opponent-ai";
+
 
 export class AiMatch extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {
-            /*
-               0: game still on
-               1: X won
-               2: O won
-               3: tie
-
-               Note that an enum would have been better, but JS does
-               not have good support for it (as it is a weakly/dynamically typed language).
-             */
-            result: 0,
-            xIsNext: true
-        };
-
         this.refToBoard = React.createRef();
 
-        this.updateAfterSelection = this.updateAfterSelection.bind(this);
-        this.resetBoard = this.resetBoard.bind(this);
+        this.refToBoard = React.createRef();
+        this.opponent = new OpponentAI(this.refToBoard);
     }
 
-    updateAfterSelection(res, xIsNext) {
-
-        this.setState({result: res.resultCode, xIsNext: xIsNext});
-    }
-
-    resetBoard(){
-        this.refToBoard.current.resetBoard();
-
-        this.setState({result:0, xIsNext: true});
-    }
 
     render() {
 
         return (
             <div>
-                <Board ref={this.refToBoard}
-                       resultHandler={(r, x) => this.updateAfterSelection(r, x)}
-                       isGameOn={this.state.result === 0}/>
-                <Info result={this.state.result}
-                      xIsNext={this.state.xIsNext}
-                      resetHandler={this.resetBoard}
-                />
+                <Board ref={this.refToBoard} opponent={this.opponent}/>
             </div>
         );
     }

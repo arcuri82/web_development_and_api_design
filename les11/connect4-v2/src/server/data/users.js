@@ -42,4 +42,4 @@ function createUser(id, password){
 
 
 
-module.exports = {getUser, verifyUser, createUser, transferMoney};
+module.exports = {getUser, verifyUser, createUser};
