@@ -73,6 +73,19 @@ Code for the PG6300 course on *Web Development and API Design*.
 <br />
 
 
+* **Lesson 07**: Accessing Web Services
+
+    Links:
+    * [YDKJS](https://github.com/getify/You-Dont-Know-JS):
+              section *Async & Performance*.
+
+    Exercises: look at [http://www.programmableweb.com/](http://www.programmableweb.com/).
+               Select one API of your choice.
+               Write a small React page in which you do a GET on an endpoint of such API
+               and display its results.  
+
+<br />
+
 TODO: rest of the classes
 
 ## Useful NPM Commands
