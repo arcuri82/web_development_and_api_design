@@ -10,7 +10,7 @@ const App = () => {
     return(
         <div>
             <h2>Weather App</h2>
-            <div class="mainCitys">
+            <div className="mainCities">
                 Weather in main cities:<br/>
                 <Current city={"Oslo"} apiKey = {API_KEY}/><br/>
                 <Current city={"Bergen"} apiKey = {API_KEY}/><br/>

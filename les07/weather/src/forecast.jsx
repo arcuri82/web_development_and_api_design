@@ -41,7 +41,7 @@ export class Forecast extends React.Component {
 
         let msg = <div/>;
         if (this.state.message !== null) {
-            msg = <div class="forcastMsg">{this.state.message}</div>;
+            msg = <div className="forecastMsg">{this.state.message}</div>;
         }
 
         let forecast = <div/>;
@@ -76,7 +76,7 @@ export class Forecast extends React.Component {
                         value={this.state.term}
                         onChange={this.onInputChange}
                     />
-                    <button class="submitBtn" type="submit">Submit</button>
+                    <button className="submitBtn" type="submit">Submit</button>
                 </form>
                 {msg}
                 {forecast}
