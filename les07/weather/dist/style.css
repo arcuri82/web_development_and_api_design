@@ -1,19 +1,50 @@
 body{
-    background-color: green;
+    background-color: rgb(230, 242, 255);
 }
 
 #root{
     margin: 30px;
 }
 
+#weatherTable{
+    border-collapse: collapse;
+    width: 50%;
+}
+#weatherTable td, #weatherTable th {
+    border: 1px solid rgb(0, 64, 128);
+    padding: 6px;
+}
 
-/*.btn {*/
-    /*width: 90px;*/
-    /*background-color: rgb(207, 205, 200);*/
-    /*text-align: center;*/
-    /*padding: 5px;*/
-    /*border: 2px solid black;*/
-    /*border-radius: 5px;*/
-    /*margin: 5px;*/
-    /*cursor: pointer;*/
-/*}*/
+#weatherTable tr:nth-child(even){background-color: rgb(77, 166, 255);}
+
+#weatherTable tr:hover {background-color: #ddd;}
+
+#weatherTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: rgb(51, 153, 255);
+    color: white;
+}
+.mainCitys{
+    font-size: 20px;
+    text-decoration-color: rgb(0, 64, 128);
+}
+
+.form-control{
+    width: 44%;
+    height: 25px;
+}
+
+.submitBtn{
+    height: 30px;
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.forcastMsg{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
