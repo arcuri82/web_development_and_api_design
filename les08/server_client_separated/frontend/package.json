@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
     "dev": "webpack-dev-server --open --mode development --port 8080",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "start": "npm run build && node src/server/server.js"
   },
   "keywords": [],
   "author": "",
