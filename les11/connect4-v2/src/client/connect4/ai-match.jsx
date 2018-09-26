@@ -1,6 +1,7 @@
 import React from "react";
 import {Board} from "./board";
 import {OpponentAI} from "./opponent-ai";
+import HeaderBar from "../headerbar";
 
 
 export class AiMatch extends React.Component {
@@ -19,7 +20,12 @@ export class AiMatch extends React.Component {
 
         return (
             <div>
-                <Board ref={this.refToBoard} opponent={this.opponent}/>
+                <HeaderBar userId={this.props.userId}
+                           updateLoggedInUserId={this.props.updateLoggedInUserId}/>
+
+                <Board ref={this.refToBoard}
+                       opponent={this.opponent}
+                       title={"Match against the AI"}/>
             </div>
         );
     }

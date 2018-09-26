@@ -47,7 +47,7 @@ export class Home extends React.Component {
                         <Link to={"/match/online"} className={"btn"}>Online Match</Link>
                         :
                         //TODO
-                        <div>Online Match</div>
+                        <div>Online Match (need to log in)</div>
                     }
                 </div>
 

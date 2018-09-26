@@ -220,6 +220,7 @@ export class Board extends React.Component {
 
         return (
             <div>
+                <h2>{this.props.title}</h2>
                 {this.state.board.cells.map((e, i) => this.renderRow(i))}
                 {Array.from(Array(7)).map((e, i) => this.renderIndex(i))}
 
