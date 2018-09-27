@@ -24,12 +24,12 @@ const example = async function(){
             console.log("C");
         });
 
-        await sleep(100);
+        await sleep(50);
 
         console.log("D");
     });
 
-    await sleep(100);
+    await sleep(200);
 
     console.log("F");
 };
@@ -37,11 +37,23 @@ const example = async function(){
 example();
 
 /*
+Output:
 A
 B
 C
-F
 D
+F
 
-TODO explanation
+Why?
+A: first one
+B: because example() is marked with async, on the event-loop thread it
+   will run till the first await. The Promise in that sleep is going
+   to be resolved only once a new task is pushed on the queue after at least
+   100 ms. Within that time, because the event-loop is free, the callback can
+   be executed.
+C: as the first callback itself is marked async, the second callback can be
+   executed while waiting for it, because the event-loop is free.
+D: when C is printed, the setTimeout has been called twice, and will push two
+   blocks back on the queue at the given times. The one for 50ms will come
+   before the one for 200ms, and so D is printed before F.
  */
