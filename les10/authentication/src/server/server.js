@@ -1,6 +1,8 @@
 const app = require("./app");
 
-app.listen(8080, () => {
-    console.log('Starting Chat');
+const port = 8080;
+
+app.listen(port, () => {
+    console.log('Starting server on port ' + port);
 });
 
