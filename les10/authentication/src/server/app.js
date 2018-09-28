@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 
 const routes = require('./routes');
 const Repository = require('./repository');
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(session({secret: 'a secret used to encrypt the session cookies'}));
 
 
@@ -52,7 +52,7 @@ passport.deserializeUser(function (id, done) {
 
     const user = Repository.getUser(id);
 
-    if (user !== null) {
+    if (user !== undefined) {
         done(null, user);
     } else {
         done(null, false);

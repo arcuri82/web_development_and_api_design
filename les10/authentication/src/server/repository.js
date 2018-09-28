@@ -18,7 +18,7 @@ function verifyUser(id, password){
 
     const user = getUser(id);
 
-    if(user === null){
+    if(user === undefined){
         return false;
     }
 
