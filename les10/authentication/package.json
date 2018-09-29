@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development && npm run start",
+    "cors": "webpack --mode development && CORS=true node src/server/server.js",
     "build": "webpack --mode production",
     "start": "node src/server/server.js"
   },
@@ -20,6 +21,7 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "passport": "^0.4.0",

@@ -36,10 +36,13 @@ router.post('/api/logout', function(req, res){
     res.status(204).send();
 });
 
-router.get("/api/balance", (req, res) => {
+router.get("/api/user", (req, res) => {
 
     if(req.user){
-        res.json({balance: req.user.balance});
+        res.json({
+            userId: req.user.id,
+            balance: req.user.balance
+        });
         return;
     }
 

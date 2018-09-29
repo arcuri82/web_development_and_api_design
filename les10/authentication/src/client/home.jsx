@@ -19,9 +19,7 @@ export class Home extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.userId !== null && this.props.userId !== undefined) {
-            this.updateBalance();
-        }
+        this.updateBalance();
     }
 
 
@@ -75,18 +73,12 @@ export class Home extends React.Component {
 
     async updateBalance() {
 
-        if (this.props.userId === null || this.props.userId === undefined) {
-            return;
-        }
-
-        const url = "/api/balance";
+        const url = "/api/user";
 
         let response;
-        let payload;
 
         try {
             response = await fetch(url);
-            payload = await response.json();
         } catch (err) {
             this.setState({
                 errorMsg: "ERROR when retrieving balance: " + err,
@@ -95,16 +87,24 @@ export class Home extends React.Component {
             return;
         }
 
+        if (response.status === 401) {
+            //we are not logged in, or session did timeout
+            this.props.updateLoggedInUserId(null);
+            return;
+        }
+
         if (response.status === 200) {
+
+            const payload = await response.json();
+
             this.setState({
                 errorMsg: null,
                 balance: payload.balance
             });
+
+            this.props.updateLoggedInUserId(payload.userId);
+
         } else {
-            /*
-                Here, if we get a 401, could happen if the session did timeout.
-                We could automatically redirect to Login page.
-             */
             this.setState({
                 errorMsg: "Issue with HTTP connection: status code " + response.status,
                 balance: null
