@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
 
 
 export class Home extends React.Component {
@@ -85,7 +85,7 @@ export class Home extends React.Component {
             table = <p>There is no book registered in the database</p>
         } else {
             table = <div>
-                <table>
+                <table className="allBooks">
                     <thead>
                     <tr>
                         <th>Author(s)</th>
@@ -96,7 +96,7 @@ export class Home extends React.Component {
                     </thead>
                     <tbody>
                     {this.state.books.map(b =>
-                        <tr key={"key_" + b.id}>
+                        <tr key={"key_" + b.id} className="oneBook" >
                             <td>{b.author}</td>
                             <td>{b.title}</td>
                             <td>{b.year}</td>

@@ -54,26 +54,29 @@ class Book extends React.Component {
         return (
             <div>
                 <form onSubmit={this.onFormSubmit}>
-                    <div>Author(s):</div>
+                    <div className="inputTitel">Author(s):</div>
                     <input
                         placeholder={"Type the author(s) of this book"}
                         value={this.state.author}
-                        onChange={this.onAuthorChange}
+                        onChange={this.onAuthorChange} 
+                        className="bookinput"
                     />
-                    <div>Title:</div>
+                    <div className="inputTitel">Title:</div>
                     <input
                         placeholder={"Type the title of this book"}
                         value={this.state.title}
                         onChange={this.onTitleChange}
+                        className="bookinput"
                     />
-                    <div>Year:</div>
+                    <div className="inputTitel">Year:</div>
                     <input
                         placeholder={"Type the year in which this book was published"}
                         value={this.state.year}
                         onChange={this.onYearChange}
+                        className="bookinput"
                     />
 
-                    <button type="submit">{this.ok}</button>
+                    <button type="submit" className={"btn"}>{this.ok}</button>
                     <Link to={"/"}><button className={"btn"}>Cancel</button></Link>
                 </form>
             </div>
