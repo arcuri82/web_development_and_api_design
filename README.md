@@ -86,6 +86,28 @@ Code for the PG6300 course on *Web Development and API Design*.
 
 <br />
 
+* **Lesson 08**: REST APIs
+
+    Links:
+    * [Express](http://expressjs.com/)
+    * [SuperTest](https://github.com/visionmedia/supertest)
+              
+    Exercises: write a small REST API using NodeJS/Express on a topic of your choice,
+               with endpoints for at least: GET, POST, PUT and DELETE.
+               Create a small React app that consumes such API. 
+
+
+* **Lesson 09**: WebSockets
+
+    Links:
+    * [Socket.io](https://socket.io/)
+
+    Exercises: on an app of your choice that you are building (e.g., any of the previous
+    exercises), add the following functionality: display in the frontend the total number
+    of users that are online. You will need to connect a WebSocket, intercept the events
+    for "connect" and "disconnect" of each user, and broadcast the number of users at
+    each new connect/disconnect.
+
 TODO: rest of the classes
 
 ## Useful NPM Commands
