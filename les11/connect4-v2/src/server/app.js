@@ -3,8 +3,10 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
+const path = require('path');
 
 const authApi = require('./routes/authApi');
+const matchApi = require('./routes/matchApi');
 const Users = require('./db/users');
 
 const app = express();
@@ -64,6 +66,7 @@ app.use(passport.session());
 
 //--- Routes -----------
 app.use('/api', authApi);
+app.use('/api', matchApi);
 
 //handling 404
 app.use((req, res, next) => {

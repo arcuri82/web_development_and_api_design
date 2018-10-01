@@ -36,7 +36,7 @@ function getSocket(userId){
 }
 
 function getUser(socketId){
-    return socketToUser(socketId);
+    return socketToUser.get(socketId);
 }
 
 module.exports = {registerSocket, removeSocket, removeUser, isActive, getSocket, getUser};

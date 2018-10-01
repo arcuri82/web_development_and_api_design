@@ -18,8 +18,6 @@ export class OnlineMatch extends React.Component {
 
         this.refToBoard = React.createRef();
         this.opponent = new OpponentOnline(this.refToBoard);
-
-        //TODO matchId
     }
 
     componentDidMount() {
@@ -32,7 +30,7 @@ export class OnlineMatch extends React.Component {
 
         this.socket = openSocket(window.location.origin);
 
-        this.socket.on("update", function (dto) {
+        this.socket.on("update",  (dto) => {
 
             if (dto === null || dto === undefined) {
                 this.setState({errorMsg: "Invalid response from server."});
@@ -51,6 +49,8 @@ export class OnlineMatch extends React.Component {
                 opponentId: data.opponentId
             });
 
+            this.opponent.setMatchId(data.matchId);
+
             const boardCmp = this.refToBoard.current;
             boardCmp.setIsX(data.isX);
             boardCmp.setBoardState(new BoardState(data.boardDto));
@@ -60,30 +60,26 @@ export class OnlineMatch extends React.Component {
             this.setState({errorMsg: "Disconnected from Server."});
         });
 
-        this.doLogInWebSocket(userId).then(
-            () => {}
-        );
 
-        //TODO new match
+        this.opponent.setSocket(this.socket);
+
+        this.doLogInWebSocket(userId).then(
+            this.startNewMatch
+        );
     }
 
     componentWillUnmount() {
-
         this.socket.disconnect();
     }
 
-    async doLogInWebSocket(userId) {
-
-        const url = "/api/wstoken";
+    async startNewMatch() {
+        const url = "/api/matches";
 
         let response;
 
         try {
             response = await fetch(url, {
-                method: "post",
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                method: "post"
             });
         } catch (err) {
             this.setState({errorMsg: "Failed to connect to server: " + err});
@@ -93,6 +89,37 @@ export class OnlineMatch extends React.Component {
 
         if (response.status === 401) {
             this.setState({errorMsg: "You should log in first"});
+            //TODO update logout
+            return;
+        }
+
+        if (response.status !== 201) {
+            this.setState({errorMsg: "Error when connecting to server: status code " + response.status});
+            return;
+        }
+
+    };
+
+
+    async doLogInWebSocket(userId) {
+
+        const url = "/api/wstoken";
+
+        let response;
+
+        try {
+            response = await fetch(url, {
+                method: "post"
+            });
+        } catch (err) {
+            this.setState({errorMsg: "Failed to connect to server: " + err});
+            return;
+        }
+
+
+        if (response.status === 401) {
+            this.setState({errorMsg: "You should log in first"});
+            //TODO update logout
             return;
         }
 
@@ -104,7 +131,7 @@ export class OnlineMatch extends React.Component {
         const payload = await response.json();
 
         this.socket.emit('login', payload);
-    }
+    };
 
 
     render() {
@@ -115,14 +142,16 @@ export class OnlineMatch extends React.Component {
 
         if (this.state.matchId === null) {
 
-            return <div><p>Search for a worthy opponent</p></div>
+            return <div><h3>Searching for a worthy opponent</h3></div>
         }
 
         return (
             <div>
                 <Board ref={this.refToBoard}
-                       opponent={this.opponentId}
-                       title={"Match against " + this.state.opponentId}/>
+                       opponent={this.opponent}
+                       title={"Match against " + this.state.opponentId}
+                       newMatchHandler={this.startNewMatch}
+                />
             </div>
         );
     }

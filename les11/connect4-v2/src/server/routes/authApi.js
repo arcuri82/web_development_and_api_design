@@ -49,6 +49,15 @@ router.post('/wstoken', function (req, res) {
     res.status(201).json({wstoken: t});
 });
 
+router.get('/user', function (req, res) {
+
+    if(! req.user){
+        res.status(401).send();
+        return;
+    }
+
+    res.status(200).json({userId: req.user.id});
+});
 
 
 module.exports = router;

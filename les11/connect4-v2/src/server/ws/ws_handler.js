@@ -11,7 +11,7 @@ const start = (server) => {
 
     io.on('connection', function(socket){
 
-        socket.on('login', function(data){
+        socket.on('login', (data) => {
 
             if(data === null || data === undefined){
                 socket.emit("update", {error: "No payload provided"});
@@ -32,15 +32,19 @@ const start = (server) => {
             }
 
             ActivePlayers.registerSocket(socket, userId);
+
+            console.log("User '"+userId+"' is now connected with a websocket.");
         });
 
         //disconnect is treated specially
-        socket.on('disconnect', function () {
+        socket.on('disconnect',  () => {
 
             const userId = ActivePlayers.getUser(socket.id);
 
             ActivePlayers.removeSocket(socket.id);
             OngoingMatches.forfeit(userId);
+
+            console.log("User '"+userId+"' is disconnected.");
         });
     });
 };

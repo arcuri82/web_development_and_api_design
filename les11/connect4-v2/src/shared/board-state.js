@@ -1,4 +1,4 @@
-import {createMatrix, cloneMatrix} from "./utils";
+const {createMatrix, cloneMatrix} = require('./utils');
 
 const X = "X";
 const O = "O";
@@ -6,7 +6,7 @@ const O = "O";
 const ROWS = 6;
 const COLUMNS = 7;
 
-export default class BoardState {
+class BoardState {
 
     constructor(dto) {
         if(dto === undefined || dto === null){
@@ -202,3 +202,6 @@ export default class BoardState {
         return null;
     }
 }
+
+
+module.exports = BoardState;

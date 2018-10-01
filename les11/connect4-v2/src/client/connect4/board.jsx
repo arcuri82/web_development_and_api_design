@@ -226,6 +226,8 @@ export class Board extends React.Component {
 
         const msg = this.getInfoMessage(this.state.board.result);
 
+        const handler = this.props.newMatchHandler ? this.props.newMatchHandler : this.resetBoard
+
         return (
             <div>
                 <h2>{this.props.title}</h2>
@@ -234,7 +236,7 @@ export class Board extends React.Component {
 
                 <div className="game-info">
                     <div className="status">{msg}</div>
-                    <div className="btn" onClick={this.resetBoard}>New Match</div>
+                    <div className="btn" onClick={handler}>New Match</div>
                 </div>
             </div>
         );

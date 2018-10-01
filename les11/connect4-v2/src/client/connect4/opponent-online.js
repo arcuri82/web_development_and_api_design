@@ -2,17 +2,22 @@
 
 export  class OpponentOnline{
 
-    constructor(boardRef, socket){
-        this.handleNextMove = this.handleNextMove.bind(this);
+    constructor(boardRef){
         this.boardRef = boardRef;
+    }
+
+    setSocket(socket){
         this.socket = socket;
-        this.matchId = null;
+    }
+
+    setMatchId(matchId){
+        this.matchId = matchId;
     }
 
     playNext(lastInsertedColumn){
 
         const boardCmp = this.boardRef.current;
-        const boardState = boardCmp.state.getBoardState();
+        const boardState = boardCmp.getBoardState();
 
         this.socket.emit('insertion', {
             counter: boardState.counter,

@@ -34,7 +34,7 @@ export  class OpponentAI{
         const chosen = options[Math.floor(options.length * Math.random())];
 
         const copy = state.copy();
-        copy.selectCell(chosen);
+        copy.selectColumn(chosen);
 
         board.setBoardState(copy);
     }

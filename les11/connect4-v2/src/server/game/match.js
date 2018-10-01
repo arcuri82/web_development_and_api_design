@@ -2,7 +2,7 @@ const crypto = require("crypto");
 
 const BoardState = require('../../shared/board-state');
 const ActivePlayers = require('../online/active_players');
-
+const OngoingMatches = require('../online/ongoing_matches');
 
 class Match{
 
@@ -16,8 +16,8 @@ class Match{
 
         this.sockets = new Map();
 
-        this.sockets.put(firstPlayerId, ActivePlayers.getSocket(firstPlayerId));
-        this.sockets.put(secondPlayerId, ActivePlayers.getSocket(secondPlayerId));
+        this.sockets.set(firstPlayerId, ActivePlayers.getSocket(firstPlayerId));
+        this.sockets.set(secondPlayerId, ActivePlayers.getSocket(secondPlayerId));
 
         this.xId = this.playerIds[Math.floor(Math.random() * 2)];
     }
@@ -51,8 +51,17 @@ class Match{
             const position = data.position;
             const matchId = data.matchId;
 
-            if(counter !== (this.board.counter + 1) || matchId !== this.matchId){
+            const expectedCounter = this.board.counter + 1;
+
+            if(counter !== expectedCounter){
                 socket.emit("update", {error: "Invalid operation"});
+                console.log("Invalid counter: "+counter+" !== " + expectedCounter);
+                return;
+            }
+
+            if(matchId !== this.matchId){
+                socket.emit("update", {error: "Invalid operation"});
+                console.log("Invalid matchId: "+matchId+" !== " + this.matchId);
                 return;
             }
 
@@ -61,6 +70,10 @@ class Match{
             this.board.selectColumn(position);
 
             this.sendState(this.opponentId(userId));
+
+            if(this.board.isGameFinished()){
+                OngoingMatches.matchIsFinished(this.matchId);
+            }
         });
     }
 
@@ -72,6 +85,8 @@ class Match{
     }
 
     sendState(userId){
+
+        console.log("Sending update to '" +userId+"'");
 
         const payload = {
             data: {
@@ -89,7 +104,11 @@ class Match{
 
     sendForfeit(userId){
 
-        this.board
+        this.board.doForfeit();
+        this.sendState(this.opponentId(userId));
+
+        //FIXME
+        //OngoingMatches.matchIsFinished(this.matchId);
     }
 }
 
