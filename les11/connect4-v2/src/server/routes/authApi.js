@@ -1,7 +1,8 @@
 const express = require('express')
 const passport = require('passport');
 
-const Users = require('./data/users');
+const Users = require('../db/users');
+const Tokens = require('../ws/tokens');
 
 const router = express.Router();
 
@@ -35,6 +36,19 @@ router.post('/logout', function(req, res){
     req.logout();
     res.status(204).send();
 });
+
+router.post('/wstoken', function (req, res) {
+
+    if(! req.user){
+        res.status(401).send();
+        return;
+    }
+
+    const t = Tokens.createToken(req.user.id);
+
+    res.status(201).json({wstoken: t});
+});
+
 
 
 module.exports = router;

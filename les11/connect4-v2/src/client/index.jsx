@@ -6,6 +6,7 @@ import {Home} from "./home";
 import Login from "./login";
 import SignUp from "./signup";
 import {AiMatch} from "./connect4/ai-match";
+import HeaderBar from "./headerbar";
 
 export class App extends React.Component {
 
@@ -46,6 +47,9 @@ export class App extends React.Component {
         return (
             <BrowserRouter>
                 <div>
+                    <HeaderBar userId={this.state.userId}
+                               updateLoggedInUserId={this.updateLoggedInUserId}/>
+
                     <Switch>
                         <Route exact path="/match/ai"
                                render={props => <AiMatch {...props}

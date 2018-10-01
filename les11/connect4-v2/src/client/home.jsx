@@ -1,7 +1,6 @@
 import React from "react";
 import {Link, withRouter} from 'react-router-dom';
 
-import HeaderBar from "./headerbar";
 
 export class Home extends React.Component {
 
@@ -20,8 +19,6 @@ export class Home extends React.Component {
 
         return (
             <div>
-                <HeaderBar userId={this.props.userId}
-                           updateLoggedInUserId={this.props.updateLoggedInUserId}/>
 
                 <div>
                     <h2>Connect Four Game</h2>
@@ -50,8 +47,6 @@ export class Home extends React.Component {
                         <div>Online Match (need to log in)</div>
                     }
                 </div>
-
-                {/* TODO LeaderBoard on the side */}
             </div>
         );
     }

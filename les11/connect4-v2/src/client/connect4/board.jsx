@@ -16,14 +16,15 @@ export class Board extends React.Component {
 
     getDefaultState() {
 
+        //choose at random whether starting or not. X starts first.
         const isX = Math.random() >= 0.5;
 
         return {
             board: new BoardState(),
             posToInsert: null,
-            //choose at random whether starting or not
             isX: isX,
-            needHandleOpponent: ! isX
+            needHandleOpponent: ! isX,
+            lastInsertedColumn: null
         };
     }
 
@@ -38,6 +39,10 @@ export class Board extends React.Component {
 
     setBoardState(board){
         this.setState({board: board})
+    }
+
+    setIsX(b){
+        this.setState({isX: b});
     }
 
     playerIsNext() {
@@ -60,11 +65,12 @@ export class Board extends React.Component {
         this.setState(prevState => {
 
             const copy = prevState.board.copy();
-            copy.selectCell(column);
+            copy.selectColumn(column);
 
             return {
                 board: copy,
-                needHandleOpponent: true
+                needHandleOpponent: true,
+                lastInsertedColumn: column
             };
         });
     }
@@ -88,7 +94,7 @@ export class Board extends React.Component {
     handleOpponent(){
         this.setState({needHandleOpponent: false});
 
-        this.props.opponent.playNext();
+        this.props.opponent.playNext(this.state.lastInsertedColumn);
     }
 
     renderCell(row, column) {
@@ -206,7 +212,9 @@ export class Board extends React.Component {
             msg = "You Lost!"
         } else if (res === 3) {
             msg = "The Game Ended in a Tie!"
-        } else {
+        } else if (res === 4) {
+            msg = "The opponent has forfeited. You won the game!"
+        }else {
             throw "Invalid result code: " + res;
         }
 

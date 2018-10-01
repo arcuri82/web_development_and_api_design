@@ -3,10 +3,9 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
-const cookieParser = require('cookie-parser');
 
-const routes = require('./routes');
-const Users = require('./data/users');
+const authApi = require('./routes/authApi');
+const Users = require('./db/users');
 
 const app = express();
 
@@ -14,8 +13,11 @@ const app = express();
 app.use(bodyParser.json());
 
 
-app.use(cookieParser());
-app.use(session({secret: 'a secret used to encrypt the session cookies'}));
+app.use(session({
+    secret: 'a secret used to encrypt the session cookies',
+    resave: false,
+    saveUninitialized: false
+}));
 
 
 //needed to server static files, like HTML, CSS and JS.
@@ -61,8 +63,11 @@ app.use(passport.session());
 
 
 //--- Routes -----------
-app.use('/api', routes);
+app.use('/api', authApi);
 
-
+//handling 404
+app.use((req, res, next) => {
+    res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'index.html'));
+});
 
 module.exports = app;

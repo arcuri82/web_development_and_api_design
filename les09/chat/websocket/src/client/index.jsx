@@ -14,7 +14,7 @@ class App extends React.Component {
             messages: null
         };
 
-        this.socket = openSocket('http://localhost:8080');
+        this.socket = openSocket(window.location.origin);
 
         this.onNameChange = this.onNameChange.bind(this);
         this.onTextChange = this.onTextChange.bind(this);

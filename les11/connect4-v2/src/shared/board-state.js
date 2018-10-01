@@ -41,6 +41,7 @@ export default class BoardState {
         1: X won
         2: O won
         3: tie
+        4: forfeit
 
         Note that an enum would have been better, but JS does
         not have good support for it (as it is a weakly/dynamically typed language).
@@ -56,6 +57,10 @@ export default class BoardState {
         return COLUMNS;
     }
 
+    doForfeit(){
+        this.result = 4;
+    }
+
     isFreeCell(row, column) {
 
         const v = this.cells[row][column];
@@ -63,11 +68,15 @@ export default class BoardState {
         return v !== X && v !== O;
     }
 
+    isFreeColumn(column){
+        return this.isFreeCell(0, column)
+    }
+
     freeColumns(){
 
         return Array.from(Array(COLUMNS))
             .map((e,i) => i) // [0, 1, ..., 5, 6]
-            .filter(e => this.isFreeCell(0, e))
+            .filter(e => this.isFreeColumn(e))
     }
 
     isXandNotO() {
@@ -82,7 +91,7 @@ export default class BoardState {
         }
     }
 
-    selectCell(column) {
+    selectColumn(column) {
 
         const bottomRow = this.findBottom(column);
         if (bottomRow < 0) {

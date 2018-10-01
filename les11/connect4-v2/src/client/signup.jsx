@@ -91,9 +91,6 @@ class SignUp extends React.Component{
 
         return(
             <div>
-                <HeaderBar userId={this.props.userId}
-                           updateLoggedInUserId={this.props.updateLoggedInUserId}/>
-
                 <div>
                     <p>User Id:</p>
                     <input type="text"

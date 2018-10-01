@@ -7,7 +7,7 @@ export  class OpponentAI{
         this.boardRef = boardRef;
     }
 
-    playNext(){
+    playNext(lastInsertedColumn){
 
         const board = this.boardRef.current;
         const state = board.getBoardState();
@@ -17,7 +17,7 @@ export  class OpponentAI{
             return;
         }
 
-        const delay = 4000 * Math.random();
+        const delay = 2000 * Math.random();
         setTimeout(() => this.handleNextMove(board), delay);
     }
 
