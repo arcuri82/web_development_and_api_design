@@ -2,11 +2,10 @@ const crypto = require("crypto");
 
 const BoardState = require('../../shared/board-state');
 const ActivePlayers = require('../online/active_players');
-const OngoingMatches = require('../online/ongoing_matches');
 
 class Match{
 
-    constructor(firstPlayerId, secondPlayerId){
+    constructor(firstPlayerId, secondPlayerId, callbackWhenFinished){
 
         this.board = new BoardState();
 
@@ -20,6 +19,8 @@ class Match{
         this.sockets.set(secondPlayerId, ActivePlayers.getSocket(secondPlayerId));
 
         this.xId = this.playerIds[Math.floor(Math.random() * 2)];
+
+        this.callbackWhenFinished = callbackWhenFinished;
     }
 
 
@@ -40,6 +41,8 @@ class Match{
 
         const socket = this.sockets.get(userId);
 
+        socket.removeAllListeners('insertion');
+
         socket.on('insertion', data => {
 
             if (data === null || data === undefined) {
@@ -51,6 +54,8 @@ class Match{
             const position = data.position;
             const matchId = data.matchId;
 
+            console.log("Handling message from '" + userId+"' for counter " + counter + " in match " + this.matchId);
+
             const expectedCounter = this.board.counter + 1;
 
             if(counter !== expectedCounter){
@@ -60,7 +65,7 @@ class Match{
             }
 
             if(matchId !== this.matchId){
-                socket.emit("update", {error: "Invalid operation"});
+                //socket.emit("update", {error: "Invalid operation"});
                 console.log("Invalid matchId: "+matchId+" !== " + this.matchId);
                 return;
             }
@@ -72,7 +77,7 @@ class Match{
             this.sendState(this.opponentId(userId));
 
             if(this.board.isGameFinished()){
-                OngoingMatches.matchIsFinished(this.matchId);
+                this.callbackWhenFinished(this.matchId);
             }
         });
     }
@@ -86,7 +91,7 @@ class Match{
 
     sendState(userId){
 
-        console.log("Sending update to '" +userId+"'");
+        console.log("Sending update to '" +userId+"' for match " + this.matchId);
 
         const payload = {
             data: {
@@ -106,9 +111,6 @@ class Match{
 
         this.board.doForfeit();
         this.sendState(this.opponentId(userId));
-
-        //FIXME
-        //OngoingMatches.matchIsFinished(this.matchId);
     }
 }
 

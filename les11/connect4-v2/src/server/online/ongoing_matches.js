@@ -11,18 +11,26 @@ const matchIdToMatch = new Map();
 
 function startMatch(firstId, secondId){
 
-    console.log("Starting a new match: '"+firstId+"' vs. '"+secondId+"'");
 
-    // forfeit(firstId);
-    // forfeit(secondId);
+    const match = new Match(firstId, secondId, deleteMatch);
 
-    const match = new Match(firstId, secondId);
+    console.log("Starting a new match: '"+firstId+"' vs. '"+secondId+"', id = " + match.matchId);
 
     userIdToMatch.set(firstId, match);
     userIdToMatch.set(secondId, match);
     matchIdToMatch.set(match.matchId, match);
 
     match.start();
+}
+
+function deleteMatch(matchId){
+    const match = matchIdToMatch.get(matchId);
+    if(match === undefined){
+        return;
+    }
+
+    match.playerIds.forEach(id => userIdToMatch.delete(id));
+    matchIdToMatch.delete(match.matchId);
 }
 
 function forfeit(userId){
@@ -39,19 +47,5 @@ function forfeit(userId){
 }
 
 
-function matchIsFinished(matchId){
 
-    const match = matchIdToMatch.get(matchId);
-    if(match === undefined){
-        return;
-    }
-
-    match.playerIds.forEach(id => userIdToMatch.delete(id));
-    matchIdToMatch.delete(match.matchId);
-}
-
-function isMatchGoingOn(matchId){
-    return matchIdToMatch.has(matchId);
-}
-
-module.exports = {startMatch, forfeit, matchIsFinished};
+module.exports = {startMatch, forfeit};

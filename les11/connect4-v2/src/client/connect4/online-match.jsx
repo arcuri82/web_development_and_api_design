@@ -17,7 +17,9 @@ export class OnlineMatch extends React.Component {
         };
 
         this.refToBoard = React.createRef();
-        this.opponent = new OpponentOnline(this.refToBoard);
+        // this.opponent = new OpponentOnline(this.refToBoard);
+        this.opponent = new OpponentOnline();
+        this.startNewMatch = this.startNewMatch.bind(this);
     }
 
     componentDidMount() {
@@ -73,6 +75,13 @@ export class OnlineMatch extends React.Component {
     }
 
     async startNewMatch() {
+
+        this.setState({
+            matchId: null,
+            opponentId: null,
+            errorMsg: null
+        });
+
         const url = "/api/matches";
 
         let response;
@@ -93,7 +102,7 @@ export class OnlineMatch extends React.Component {
             return;
         }
 
-        if (response.status !== 201) {
+        if (response.status !== 201 && response.status !== 204) {
             this.setState({errorMsg: "Error when connecting to server: status code " + response.status});
             return;
         }

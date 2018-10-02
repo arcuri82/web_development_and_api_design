@@ -2,14 +2,14 @@
 
 export  class OpponentAI{
 
-    constructor(boardRef){
-        this.handleNextMove = this.handleNextMove.bind(this);
-        this.boardRef = boardRef;
-    }
+    // constructor(boardRef){
+    //     this.handleNextMove = this.handleNextMove.bind(this);
+    //     this.boardRef = boardRef;
+    // }
 
-    playNext(lastInsertedColumn){
+    playNext(lastInsertedColumn, board){
 
-        const board = this.boardRef.current;
+        // const board = this.boardRef.current;
         const state = board.getBoardState();
 
         if(state.isGameFinished()){
@@ -17,7 +17,7 @@ export  class OpponentAI{
             return;
         }
 
-        const delay = 2000 * Math.random();
+        const delay = 1000 * Math.random();
         setTimeout(() => this.handleNextMove(board), delay);
     }
 
@@ -25,9 +25,9 @@ export  class OpponentAI{
         TODO need to handle cancellation of task, via a Promise
      */
 
-    handleNextMove(){
+    handleNextMove(board){
 
-        const board = this.boardRef.current;
+        // const board = this.boardRef.current;
         const state = board.getBoardState();
 
         const options = state.freeColumns();

@@ -18,6 +18,9 @@ function size(){
     return queue.length;
 }
 
+function hasUser(id){
+    return queue.includes(id);
+}
 
 function takeUser(){
 
@@ -29,5 +32,5 @@ function takeUser(){
 }
 
 
-module.exports = {addUser, size, takeUser};
+module.exports = {addUser, size, takeUser, hasUser};
 

@@ -2,9 +2,9 @@
 
 export  class OpponentOnline{
 
-    constructor(boardRef){
-        this.boardRef = boardRef;
-    }
+    // constructor(boardRef){
+    //     this.boardRef = boardRef;
+    // }
 
     setSocket(socket){
         this.socket = socket;
@@ -14,9 +14,14 @@ export  class OpponentOnline{
         this.matchId = matchId;
     }
 
-    playNext(lastInsertedColumn){
+    playNext(lastInsertedColumn, boardCmp){
 
-        const boardCmp = this.boardRef.current;
+        if(lastInsertedColumn === null || lastInsertedColumn=== undefined){
+            //first round, no need to inform server
+            return;
+        }
+
+        // const boardCmp = this.boardRef.current;
         const boardState = boardCmp.getBoardState();
 
         this.socket.emit('insertion', {

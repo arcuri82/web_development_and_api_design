@@ -14,6 +14,13 @@ router.post('/matches', (req, res) => {
         return;
     }
 
+    if(PlayerQueue.hasUser(req.user.id)){
+        //already in the queue, nothing to do
+        res.status(204).send();
+        return;
+    }
+
+    OngoingMatches.forfeit(req.user.id);
 
     while (PlayerQueue.size() > 0) {
 

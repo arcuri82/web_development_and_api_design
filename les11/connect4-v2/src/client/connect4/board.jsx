@@ -12,6 +12,7 @@ export class Board extends React.Component {
         this.resetBoard = this.resetBoard.bind(this);
         this.onMouseEnterCell = this.onMouseEnterCell.bind(this);
         this.onMouseLeaveCell = this.onMouseLeaveCell.bind(this);
+        this.handleOpponent = this.handleOpponent.bind(this);
     }
 
     getDefaultState() {
@@ -94,7 +95,7 @@ export class Board extends React.Component {
     handleOpponent(){
         this.setState({needHandleOpponent: false});
 
-        this.props.opponent.playNext(this.state.lastInsertedColumn);
+        this.props.opponent.playNext(this.state.lastInsertedColumn, this);
     }
 
     renderCell(row, column) {
