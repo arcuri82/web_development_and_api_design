@@ -9,7 +9,6 @@ export class AiMatch extends React.Component {
         super(props);
 
         this.refToBoard = React.createRef();
-        // this.opponent = new OpponentAI(this.refToBoard);
         this.opponent = new OpponentAI();
     }
 

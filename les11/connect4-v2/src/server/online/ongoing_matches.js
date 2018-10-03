@@ -6,11 +6,13 @@ const Match = require('../game/match');
  */
 const userIdToMatch = new Map();
 
+/*
+    Map from match id to ongoing match
+ */
 const matchIdToMatch = new Map();
 
 
 function startMatch(firstId, secondId){
-
 
     const match = new Match(firstId, secondId, deleteMatch);
 

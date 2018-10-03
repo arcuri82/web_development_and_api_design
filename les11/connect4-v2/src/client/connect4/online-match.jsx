@@ -17,12 +17,16 @@ export class OnlineMatch extends React.Component {
         };
 
         this.refToBoard = React.createRef();
-        // this.opponent = new OpponentOnline(this.refToBoard);
         this.opponent = new OpponentOnline();
         this.startNewMatch = this.startNewMatch.bind(this);
     }
 
     componentDidMount() {
+
+        /*
+            Every time we enter in this page, we open a WebSocket, and
+            close it when we leave.
+         */
 
         const userId = this.props.userId;
         if (userId === null) {
@@ -32,6 +36,10 @@ export class OnlineMatch extends React.Component {
 
         this.socket = openSocket(window.location.origin);
 
+        /*
+            Here, we register a callback. Every time the server is sending
+            a message with topic "update", such callback is executed
+         */
         this.socket.on("update",  (dto) => {
 
             if (dto === null || dto === undefined) {
@@ -46,6 +54,10 @@ export class OnlineMatch extends React.Component {
 
             const data = dto.data;
 
+            /*
+                Info about the game: eg the unique match id, and
+                the id of the opponent
+             */
             this.setState({
                 matchId: data.matchId,
                 opponentId: data.opponentId
@@ -53,11 +65,24 @@ export class OnlineMatch extends React.Component {
 
             this.opponent.setMatchId(data.matchId);
 
+            /*
+                After the opponent has done its move, or this is the
+                first one, we update the state of the board.
+                The state of the board in the client (ie the Browser) is
+                only used to display (eg building the HTML).
+                The actual state that matters is the one on the server.
+                Each time a client does an action, the server must verify that
+                the action is valid, and a user is not trying to cheat.
+             */
             const boardCmp = this.refToBoard.current;
-            boardCmp.setIsX(data.isX);
+            boardCmp.setIsX(data.isX); //who is starting is decided by the server
             boardCmp.setBoardState(new BoardState(data.boardDto));
         });
 
+        /*
+            This happens when the socket is closed, either by the client, or
+            the server.
+         */
         this.socket.on('disconnect', () => {
             this.setState({errorMsg: "Disconnected from Server."});
         });
@@ -65,6 +90,10 @@ export class OnlineMatch extends React.Component {
 
         this.opponent.setSocket(this.socket);
 
+        /*
+            Once a WebSocket is established, we need to authenticate it.
+            Once authenticated, we can ask the server to start a new match.
+         */
         this.doLogInWebSocket(userId).then(
             this.startNewMatch
         );
@@ -76,6 +105,10 @@ export class OnlineMatch extends React.Component {
 
     async startNewMatch() {
 
+        /*
+            When we try to start a new match, the current one (if any)
+            should be deleted.
+         */
         this.setState({
             matchId: null,
             opponentId: null,
@@ -97,8 +130,9 @@ export class OnlineMatch extends React.Component {
 
 
         if (response.status === 401) {
+            //this could happen if the session has expired
             this.setState({errorMsg: "You should log in first"});
-            //TODO update logout
+            this.props.updateLoggedInUserId(null);
             return;
         }
 
@@ -106,11 +140,21 @@ export class OnlineMatch extends React.Component {
             this.setState({errorMsg: "Error when connecting to server: status code " + response.status});
             return;
         }
-
     };
 
 
     async doLogInWebSocket(userId) {
+
+        /*
+            WebSockets do not have direct support for authentication.
+            So, here we first do an authenticated AJAX call to get a unique
+            token associated with the current logged in user via the session
+            cookie. Then, we emit such tokens on the WS connection to tell the
+            server that such connection is coming from the logged in user, and
+            not someone else.
+            Note: this works because there is going to be a different WS socket
+            on the server for each user.
+         */
 
         const url = "/api/wstoken";
 
@@ -127,8 +171,9 @@ export class OnlineMatch extends React.Component {
 
 
         if (response.status === 401) {
+            //this could happen if the session has expired
             this.setState({errorMsg: "You should log in first"});
-            //TODO update logout
+            this.props.updateLoggedInUserId(null);
             return;
         }
 

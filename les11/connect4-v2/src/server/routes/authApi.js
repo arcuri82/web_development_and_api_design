@@ -37,6 +37,10 @@ router.post('/logout', function(req, res){
     res.status(204).send();
 });
 
+/*
+    Create a one-time random token associated with the current
+    logged in user, which is defined by the provided session cookie.
+ */
 router.post('/wstoken', function (req, res) {
 
     if(! req.user){
@@ -49,6 +53,10 @@ router.post('/wstoken', function (req, res) {
     res.status(201).json({wstoken: t});
 });
 
+/*
+    Just return the id of the user, if the request is
+    authenticated with a valid session cookie
+ */
 router.get('/user', function (req, res) {
 
     if(! req.user){

@@ -1,5 +1,4 @@
 import React from 'react';
-import HeaderBar from "./headerbar";
 import {withRouter} from 'react-router-dom'
 
 class SignUp extends React.Component{

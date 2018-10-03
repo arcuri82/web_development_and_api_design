@@ -92,6 +92,15 @@ export class Board extends React.Component {
         }
     }
 
+    /*
+        Once we do our move, we need to wait for the opponent to do its move.
+        To do that, we need to inform the opponent's object to play the next
+        move.
+        This needs to be done only once per turn.
+        However, if it is the opponent which is starting, we still need to handle
+        this code. And that is the reason why we call it even from the mounting
+        of the component when the current user has not done any action yet.
+     */
     handleOpponent(){
         this.setState({needHandleOpponent: false});
 
@@ -123,6 +132,10 @@ export class Board extends React.Component {
             highlight = "cell-to-insert";
         }
 
+        /*
+            If the game is finished in a Win/Defeat, we are going to display the
+            winning 4 cells with a different color, based on whether we won or lost.
+         */
         const winningPos = board.winningPositions;
         if (winningPos !== null) {
 
@@ -151,6 +164,10 @@ export class Board extends React.Component {
         );
     }
 
+    /*
+        Handle having special color to represent on which row a new coin
+        will be inserted when we click on a column.
+     */
     onMouseEnterCell(row, column) {
 
         const bottomRow = this.state.board.findBottom(column);
@@ -227,7 +244,7 @@ export class Board extends React.Component {
 
         const msg = this.getInfoMessage(this.state.board.result);
 
-        const handler = this.props.newMatchHandler ? this.props.newMatchHandler : this.resetBoard
+        const handler = this.props.newMatchHandler ? this.props.newMatchHandler : this.resetBoard;
 
         return (
             <div>

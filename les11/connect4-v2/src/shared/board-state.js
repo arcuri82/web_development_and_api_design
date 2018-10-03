@@ -19,6 +19,14 @@ class BoardState {
         }
     }
 
+    /*
+        When online multi-player, the state of the board has to be sent
+        by the server to update a user with the opponent's movement.
+        So, we need to extract a DTO (Data-Transfer-Object) in JSON format
+        which can be sent via a WebSocket.
+        Such DTO should contain the info to be able to re-instantiate a BoardState
+        from it.
+     */
     extractDto() {
         return {
             cells: cloneMatrix(this.cells),

@@ -2,14 +2,9 @@
 
 export  class OpponentAI{
 
-    // constructor(boardRef){
-    //     this.handleNextMove = this.handleNextMove.bind(this);
-    //     this.boardRef = boardRef;
-    // }
 
     playNext(lastInsertedColumn, board){
 
-        // const board = this.boardRef.current;
         const state = board.getBoardState();
 
         if(state.isGameFinished()){
@@ -17,17 +12,27 @@ export  class OpponentAI{
             return;
         }
 
+        /*
+            Just simulate a delay for the AI, instead of doing
+            an insertion immediately.
+         */
         const delay = 1000 * Math.random();
         setTimeout(() => this.handleNextMove(board), delay);
     }
 
     /*
-        TODO need to handle cancellation of task, via a Promise
+        WARNING:
+        what happens if a user start a new game before the callback
+        of the setTimeout is executed?
+        We would have to handle such case.
      */
 
     handleNextMove(board){
 
-        // const board = this.boardRef.current;
+        /*
+            For simplicity, the "AI" will just choose at random
+            among the available columns
+         */
         const state = board.getBoardState();
 
         const options = state.freeColumns();

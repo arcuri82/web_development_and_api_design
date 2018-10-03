@@ -1,4 +1,8 @@
 
+/*
+    For each active player that is currently online, we need to keep
+    track of their WS sockets.
+ */
 
 const socketToUser = new Map();
 
