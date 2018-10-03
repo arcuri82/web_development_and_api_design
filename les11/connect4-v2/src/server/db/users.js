@@ -18,7 +18,7 @@ function verifyUser(id, password){
 
     const user = getUser(id);
 
-    if(user === null){
+    if(user === undefined){
         return false;
     }
 
@@ -40,6 +40,9 @@ function createUser(id, password){
     return true;
 }
 
+function resetAllUsers(){
+    users.clear();
+}
 
 
-module.exports = {getUser, verifyUser, createUser};
+module.exports = {getUser, verifyUser, createUser, resetAllUsers};
