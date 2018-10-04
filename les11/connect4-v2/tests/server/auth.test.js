@@ -127,4 +127,69 @@ test("Test login with wrong password", async () =>{
 });
 
 
+test("Test logout", async () =>{
+
+    const payload = {userId: "foo", password: "123"};
+
+    let response = await request(app)
+        .post('/api/signup')
+        .send(payload);
+    expect(response.statusCode).toBe(204);
+    const cookie = response.headers['set-cookie'];
+
+    //now we should be able to get it
+    response = await request(app)
+        .get('/api/user')
+        .set('cookie', cookie);
+    expect(response.statusCode).toBe(200);
+
+    await  request(app)
+        .post('/api/logout')
+        .set('cookie', cookie)
+        .send();
+
+    //the cookie is no longer valid now after a logout
+    response = await request(app)
+        .get('/api/user')
+        .set('cookie', cookie);
+    expect(response.statusCode).toBe(401);
+});
+
+
+test("Test get token", async () =>{
+
+    let response = await request(app)
+        .post('/api/signup')
+        .send({userId: "foo", password: "123"});
+    expect(response.statusCode).toBe(204);
+    const cookie = response.headers['set-cookie'];
+
+    //can't get token without cookie
+    response = await request(app)
+        .post('/api/wstoken');
+        //no cookie
+    expect(response.statusCode).toBe(401);
+
+
+    response = await request(app)
+        .post('/api/wstoken')
+        .set('cookie', cookie);
+    expect(response.statusCode).toBe(201);
+    expect(response.body.wstoken).toBeDefined();
+    const first = response.body.wstoken;
+
+    response = await request(app)
+        .post('/api/wstoken')
+        .set('cookie', cookie);
+    expect(response.statusCode).toBe(201);
+    expect(response.body.wstoken).toBeDefined();
+    const second = response.body.wstoken;
+
+    //each time should get a new token
+    expect(first).not.toBe(second);
+});
+
+
+
+
 
