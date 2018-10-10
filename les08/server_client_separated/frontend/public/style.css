@@ -31,14 +31,14 @@ body {
     padding: 4px;
 }
 
-.bookinput {
+.bookInput {
     width: 50%;
     padding: 5px;
     display: block;
     margin-bottom: 15px;
 }
 
-.inputTitel {
+.inputTitle {
     color: #85582e;
     display: inline;
 }
