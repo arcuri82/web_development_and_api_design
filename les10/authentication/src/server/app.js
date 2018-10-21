@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
-//const cookieParser = require('cookie-parser');
 const path = require('path');
 const cors = require('cors');
 const routes = require('./routes');
@@ -12,7 +11,7 @@ const Repository = require('./repository');
 const app = express();
 
 if(process.env.CORS){
-    console.log("Using CORS to allow all origins")
+    console.log("Using CORS to allow all origins");
     app.use(cors());
 
     /*
@@ -38,8 +37,6 @@ app.use(bodyParser.json());
 //to handle Form POST
 app.use(bodyParser.urlencoded({extended: true}));
 
-
-//app.use(cookieParser());
 app.use(session({
     secret: 'a secret used to encrypt the session cookies',
     resave: false,

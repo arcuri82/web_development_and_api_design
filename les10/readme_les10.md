@@ -27,6 +27,9 @@ To run these examples, you need:
 * You should verify that both `index_ajax.form.html` and
   `index_ajax.form.html` do fail to steal money.
   Check in the console logs that this is due to CORS.
-  However, `index_form.html` should manage to steal money.
+  However, `index_form_post.html` should manage to steal money.
   To see the stolen money, you will need to refresh the home
   page (and log in again) in both `A` and `B`.
+  On the other hand, `index_form_get.html` can display sensitive
+  information, but such info cannot be read by JS (and so attacker
+  cannot access it).

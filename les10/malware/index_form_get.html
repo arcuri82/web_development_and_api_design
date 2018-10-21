@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cute Cat!!!</title>
+
+</head>
+
+<body>
+    <h2>What a Cute Cat!!!</h2>
+
+    <iframe id="responseFrame" name="responseFrame" style="display:block"></iframe>
+
+    <img src="cat.jpg" />
+
+
+    <form name="hiddenForm"
+          style="display:none"
+          action="http://localhost:8080/api/user"
+          method="GET"
+          target="responseFrame"
+    >
+    </form>
+
+    <script>
+
+        function waitForElementToDisplay(selector, time) {
+
+            const tag = document.querySelector(selector);
+
+            if(tag!==null) {
+                /*
+                    Here, I could send this info via AJAX to a malicious
+                    server. But it will fail.
+                    "tag.contentWindow.document" would throw an exception.
+                    Using ".innerHTML" would not work either, because the
+                    tags are inside a "#document", which prevents us to read
+                    it from JS, so we just get an empty "".
+                 */
+                alert("Stolen info: " + tag.innerHTML);
+            } else {
+                setTimeout(function() {
+                    waitForElementToDisplay(selector, time);
+                }, time);
+            }
+        }
+
+        (function(){
+            document.forms["hiddenForm"].submit();
+            waitForElementToDisplay("iframe", 2000)
+        }());
+    </script>
+
+</body>
+
+</html>
+
