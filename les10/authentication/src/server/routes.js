@@ -5,6 +5,11 @@ const passport = require('passport');
 const Repository = require('./repository');
 
 
+/*
+    The login will apply the Passport filter to check if provided
+    username/password are correct.
+    See "passport.use(new LocalStrategy" in app.js
+ */
 router.post('/api/login', passport.authenticate('local'), (req, res) => {
 
     res.status(204).send();
@@ -19,6 +24,11 @@ router.post('/api/signup', function(req, res){
         return;
     }
 
+    /*
+        The incoming HTTP request was not authenticated. However, once we
+        create a valid new user, we should manually authenticate the request.
+        Otherwise, user would need to make a separate "/api/login" call.
+     */
     passport.authenticate('local')(req, res, () => {
         req.session.save((err) => {
             if (err) {
@@ -36,7 +46,16 @@ router.post('/api/logout', function(req, res){
     res.status(204).send();
 });
 
+/*
+    Provide info on logged in user
+ */
 router.get("/api/user", (req, res) => {
+
+    /*
+        If a user is logged in by providing the right session cookie,
+        then Passport will automatically instantiate a valid User object
+        and add it to the incoming "req" object
+     */
 
     if(req.user){
         res.json({
@@ -70,15 +89,15 @@ router.post("/api/transfers", (req, res) => {
         both Form and JSON in the same App: just JSON.
         Form-submissions are mainly used in server-side
         rendering apps with no/limited JS.
-        However, here we support both just for
-        didactical reasons
+        However, here we support both just for didactical reasons.
      */
 
-    const form = false; //TODO
+    const form = req.is("application/x-www-form-urlencoded");
 
     if(form){
         res.status(302);
         if(transferred) {
+            //back to home page
             res.location("/");
         } else {
             /*

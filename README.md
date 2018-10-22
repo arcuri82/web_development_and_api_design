@@ -108,6 +108,13 @@ Code for the PG6300 course on *Web Development and API Design*.
     for "connect" and "disconnect" of each user, and broadcast the number of users at
     each new connect/disconnect.
 
+<br />
+
+* **Lesson 10**: Authentication and CSRF
+
+    Links:
+    * [Passport](http://www.passportjs.org/)
+
 TODO: rest of the classes
 
 ## Exam

@@ -10,6 +10,10 @@ const Repository = require('./repository');
 
 const app = express();
 
+/*
+    We use an environment variable to decide if allowing all origins
+    or not
+ */
 if(process.env.CORS){
     console.log("Using CORS to allow all origins");
     app.use(cors());
@@ -34,9 +38,14 @@ if(process.env.CORS){
 //to handle JSON payloads
 app.use(bodyParser.json());
 
-//to handle Form POST
+//to handle Form POST. "extended" is just to be able to parse all kinds of objects
 app.use(bodyParser.urlencoded({extended: true}));
 
+/*
+    As we are going to use session-based authentication with
+    cookies, we need to tell Express to create new sessions.
+    The cookie will store user info, encrypted.
+ */
 app.use(session({
     secret: 'a secret used to encrypt the session cookies',
     resave: false,
@@ -49,6 +58,10 @@ app.use(express.static('public'));
 
 
 passport.use(new LocalStrategy(
+    /*
+        Need to tell which fields represent the  "username" and which the "password".
+        This fields will be in a Form or JSON data sent by user when authenticating.
+     */
     {
         usernameField: 'userId',
         passwordField: 'password'
@@ -66,7 +79,13 @@ passport.use(new LocalStrategy(
     }
 ));
 
-
+/*
+    In our server, a user will be represented with some User object,
+    which we store in a database, together with its (should-be-hashed) password.
+    But, when doing authentication via HTTP, we only use the user id.
+    So, we need a way to "serialize" from a User object into a string id,
+    and vice-versa (ie, deserialize from string id to User object).
+ */
 passport.serializeUser(function (user, done) {
     done(null, user.id);
 });
