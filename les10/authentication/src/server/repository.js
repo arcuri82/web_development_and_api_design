@@ -46,7 +46,7 @@ function transferMoney(senderId, receiverId, amount){
 
     amount = parseInt(amount);
 
-    if(amount <= 0){
+    if(isNaN(amount) || amount <= 0 || senderId === receiverId){
         return false;
     }
 
