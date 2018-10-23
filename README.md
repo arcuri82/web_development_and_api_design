@@ -108,7 +108,18 @@ Code for the PG6300 course on *Web Development and API Design*.
     for "connect" and "disconnect" of each user, and broadcast the number of users at
     each new connect/disconnect.
 
+<br />
+
+* **Lesson 10**: Authentication and CSRF
+
+    Links:
+    * [Passport](http://www.passportjs.org/)
+
 TODO: rest of the classes
+
+## Exam
+
+A PDF of a mock exam for this course can be found [here](docs/pg6300_mock_exam.pdf). 
 
 ## Useful NPM Commands
 
