@@ -1,79 +1,84 @@
-import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import React from "react";
+import { Link, withRouter } from "react-router-dom";
 
+class HeaderBar extends React.Component {
+  constructor(props) {
+    super(props);
 
-class HeaderBar extends React.Component{
+    this.doLogout = this.doLogout.bind(this);
+  }
 
-    constructor(props){
-        super(props);
+  async doLogout() {
+    const url = "/api/logout";
 
-        this.doLogout = this.doLogout.bind(this);
+    let response;
+
+    try {
+      response = await fetch(url, { method: "post" });
+    } catch (err) {
+      alert("Failed to connect to server: " + err);
+      return;
     }
 
-
-    async doLogout(){
-
-        const url = "/api/logout";
-
-
-        let response;
-
-        try {
-            response = await fetch(url, {method: "post"});
-        } catch (err) {
-            alert("Failed to connect to server: "+ err);
-            return;
-        }
-
-        if(response.status !== 204){
-            alert("Error when connecting to server: status code "+ response.status);
-            return;
-        }
-
-        this.props.updateLoggedInUserId(null);
-        this.props.history.push('/');
+    if (response.status !== 204) {
+      alert("Error when connecting to server: status code " + response.status);
+      return;
     }
 
-    renderLoggedIn(userId){
-        return(
-            <div >
+    this.props.updateLoggedInUserId(null);
+    this.props.history.push("/");
+  }
 
-                <h3>Welcome {userId}!!!</h3>
+  renderLoggedIn(userId) {
+    return (
+      <div className="header">
+        <h3 className="notLoggedInMsg">
+          Welcome {userId}
+          !!!
+        </h3>
 
-                <div className="btn" onClick={this.doLogout}>Logout</div>
-            </div>
-        );
+        <div className="logOutBtn" onClick={this.doLogout}>
+          Logout
+        </div>
+      </div>
+    );
+  }
+
+  renderNotLoggedIn() {
+    return (
+      <div className="header">
+        <div className="notLoggedInMsg">You are not logged in</div>
+        <div className="btnPart">
+          <Link className="btn" to="/login">
+            LogIn
+          </Link>
+          <Link className="btn" to="/signup">
+            SignUp
+          </Link>
+        </div>
+      </div>
+    );
+  }
+
+  render() {
+    const userId = this.props.userId;
+
+    let content;
+    if (userId === null || userId === undefined) {
+      content = this.renderNotLoggedIn();
+    } else {
+      content = this.renderLoggedIn(userId);
     }
 
-    renderNotLoggedIn(){
-        return(
-            <div>
-                <p>You are not logged in</p>
-
-                <Link to="/login">LogIn</Link>
-                <Link to="/signup">SignUp</Link>
-            </div>
-
-        );
-    }
-
-    render(){
-        const userId = this.props.userId;
-
-        let content;
-        if(userId === null || userId === undefined){
-            content = this.renderNotLoggedIn();
-        } else {
-            content = this.renderLoggedIn(userId);
-        }
-
-        return(
-            <div className={"headerBar"}>
-                <Link to={"/"}>Home</Link>
-                {content}
-            </div>
-        );
-    }
+    return (
+      <div className={"headerBar"}>
+        <Link className="home btn" to={"/"}>
+          Home
+        </Link>
+        {content}
+      </div>
+    );
+  }
 }
 
 export default withRouter(HeaderBar);
