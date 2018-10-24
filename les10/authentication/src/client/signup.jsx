@@ -79,7 +79,6 @@ class SignUp extends React.Component {
   render() {
     let error = <div />;
     if (this.state.errorMsg !== null) {
-      //TODO css
       error = (
         <div className="errorMsg">
           <p>{this.state.errorMsg}</p>
