@@ -166,7 +166,6 @@ export class Home extends React.Component {
 
     let error = <div />;
     if (this.state.errorMsg !== null) {
-      //TODO css
       error = (
         <div className="errorMsg">
           <p>{this.state.errorMsg}</p>
