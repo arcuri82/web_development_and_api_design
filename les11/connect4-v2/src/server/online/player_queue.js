@@ -9,7 +9,7 @@
 
     We could be more sophisticated. For example, we could try to match players
     with same skills (computed based on number of past victories).
-    And, so, let some uses wait on the queue for some seconds until a better opponent appears,
+    And, so, let some users wait on the queue for some seconds until a better opponent appears,
     even if the queue is not empty.
     However, to keep it simple, here we match against the first available opponent.
  */

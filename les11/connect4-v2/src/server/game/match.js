@@ -121,8 +121,8 @@ class Match{
                 This is a issue. For example, this game is NOT secure, even if we
                 are using authentication on the WS socket channels.
                 For example, it can be "easy" for a user to CHEAT.
-                When a user send its move via the socket, it can craft immediately
-                a second message representing the move of the opponents, by just
+                When a user sends its move via the socket, it can craft immediately
+                a second message representing the move of the opponent, by just
                 using "counter+1" in data.counter.
 
                 This problem can be fixed here by checking if the move for action with
