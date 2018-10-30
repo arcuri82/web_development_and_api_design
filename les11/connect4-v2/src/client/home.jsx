@@ -37,7 +37,6 @@ export class Home extends React.Component {
               Online Match
             </Link>
           ) : (
-            //TODO
             <div className="btnDeActive">Online Match</div>
           )}
         </div>
