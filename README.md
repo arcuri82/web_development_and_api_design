@@ -115,6 +115,10 @@ Code for the PG6300 course on *Web Development and API Design*.
     Links:
     * [Passport](http://www.passportjs.org/)
 
+<br />
+
+* **Lesson 11**: Online Multi-Player Game
+
 TODO: rest of the classes
 
 ## Exam
