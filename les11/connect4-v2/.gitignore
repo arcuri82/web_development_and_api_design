@@ -1,0 +1,9 @@
+# Needed for running:
+# heroku builds:create -a <app>
+
+node_modules
+coverage
+test
+.idea
+.git
+
