@@ -119,7 +119,11 @@ Code for the PG6300 course on *Web Development and API Design*.
 
 * **Lesson 11**: Online Multi-Player Game
 
-TODO: rest of the classes
+<br />
+
+* **Lesson 12**: On Bash, Docker, Databases and Cloud Deployment
+
+    Slides: [PDF](docs/slides/lesson_12.pdf)
 
 ## Exam
 
