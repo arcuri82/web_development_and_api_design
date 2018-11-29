@@ -15,7 +15,7 @@ export class Counter extends React.Component{
             The following could be considered very confusing.
             Both "increase" and "decrease" are methods in this class.
             These will be used as callbacks in the button click even handlers.
-            However, there the keyword "this" would not resolve against this
+            However, on a regular function, the keyword "this" would not resolve against this
             Counter object, because in a different context.
             So, to force the call on the Counter regardless of the context in
             which the functions are called, we need to explicitly "bind" them
@@ -23,9 +23,14 @@ export class Counter extends React.Component{
 
             Recall that JS does not have "real" support for OO.
             The "class" keyword is just syntactic sugar.
+
+            To avoid this issue, we can declare functions with the arrow notation,
+            ie "() => {}". As we did it for decrease(), then we only need to bind
+            increase().
+            In general, we will prefer to use the arrow notation.
+            However, we will need to use transform-class-properties in Babel to support it.
          */
         this.increase = this.increase.bind(this);
-        this.decrease = this.decrease.bind(this);
     }
 
     increase(){
@@ -43,11 +48,11 @@ export class Counter extends React.Component{
             for the update, by passing the previous state as input
          */
         this.setState(
-            (prevState, props) => ({ value: prevState.value + 1})
+            (prevState) => ({ value: prevState.value + 1})
         );
     }
 
-    decrease(){
+    decrease = () => {
         /*
          *  This is technically wrong, as we should not read "this.state.value"
          *  directly. Recall comments from increase().
@@ -57,7 +62,7 @@ export class Counter extends React.Component{
          *  asynchronous update.
          */
         this.setState({ value: this.state.value - 1});
-    }
+    };
 
     render(){
 
