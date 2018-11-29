@@ -78,18 +78,6 @@ export const Home = () => {
                     Again, this is important for SEO and search engine web crawlers.
                 </p>
             </div>
-
-
-            <div>
-                <h4>
-                    NPM Commands
-                </h4>
-                <ul>
-                    <li><strong>npm install webpack webpack-cli webpack-dev-server --save-dev</strong></li>
-                    <li><strong>npm install react react-dom react-router-dom</strong></li>
-                    <li><strong>npm install babel-core babel-loader babel-preset-react --save-dev</strong></li>
-                </ul>
-            </div>
         </div>
     );
 };

@@ -16,8 +16,6 @@ export class Quiz extends React.Component {
         this.state = {
             currentQuizIndex: 0
         };
-
-        this.displayNewQuiz = this.displayNewQuiz.bind(this);
     }
 
     answerTag(prefix, answer, correct) {
@@ -37,7 +35,7 @@ export class Quiz extends React.Component {
         );
     }
 
-    displayNewQuiz() {
+    displayNewQuiz = () => {
 
         let index = Math.floor(Math.random() * quizzes.length);
 
