@@ -22,21 +22,18 @@ export class Connect4 extends React.Component {
         };
 
         this.refToBoard = React.createRef();
-
-        this.updateAfterSelection = this.updateAfterSelection.bind(this);
-        this.resetBoard = this.resetBoard.bind(this);
     }
 
-    updateAfterSelection(res, xIsNext) {
+    updateAfterSelection = (res, xIsNext) => {
 
         this.setState({result: res, xIsNext: xIsNext});
-    }
+    };
 
-    resetBoard(){
+    resetBoard = () => {
         this.refToBoard.current.resetBoard();
 
         this.setState({result:0, xIsNext: true});
-    }
+    };
 
     render() {
 

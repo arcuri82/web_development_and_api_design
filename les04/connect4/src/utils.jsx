@@ -1,9 +1,9 @@
 
-export const createMatrix = function(rows, columns, value){
+export function createMatrix(rows, columns, value){
     return Array(rows).fill(null).map(() => Array(columns).fill(value));
 };
 
 
-export const cloneMatrix = function(matrix){
+export function cloneMatrix(matrix){
     return matrix.map(e => e.slice());
 };

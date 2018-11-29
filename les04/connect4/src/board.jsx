@@ -16,8 +16,6 @@ export class Board extends React.Component{
             cells: createMatrix(ROWS,COLUMNS,""),
             counter: 0
         };
-
-        this.selectCell = this.selectCell.bind(this);
     }
 
     resetBoard(){
@@ -38,7 +36,7 @@ export class Board extends React.Component{
         return (this.state.counter % 2) === 0;
     }
 
-    selectCell(row, column){
+    selectCell = (row, column) => {
 
         if(! this.isFreeCell(row, column)){
             //already selected
@@ -77,7 +75,7 @@ export class Board extends React.Component{
                 counter: counter
             };
         });
-    }
+    };
 
     renderCell(row, column){
 
