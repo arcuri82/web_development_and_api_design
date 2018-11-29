@@ -9,7 +9,7 @@ const jokerImg = "img/black_joker.png";
 const backcoverImg = "img/cover_card.jpg";
 
 
-newGame = function(){
+function newGame(){
 
     gameFinished = false;
     firstChoice = null;
@@ -18,16 +18,16 @@ newGame = function(){
     showBackCover(0);
     showBackCover(1);
     showBackCover(2);
-};
+}
 
 
-clickCard = function(index){
+function clickCard(index){
 
     if(gameFinished){
         return;
     }
 
-    document.getElementById("img"+index).classList.add("selectedCard")
+    document.getElementById("img"+index).classList.add("selectedCard");
 
     if(firstChoice === null){
         //New game
@@ -58,51 +58,51 @@ clickCard = function(index){
         }
 
     }
-};
+}
 
-hideParagraphs = function(){
+function hideParagraphs(){
     document.getElementById("firstSelectId").style.display="none";
     document.getElementById("secondSelectId").style.display="none";
     document.getElementById("victoryId").style.display="none";
     document.getElementById("defeatId").style.display="none";
-};
+}
 
-showFirstMessage = function(){
+function showFirstMessage(){
     hideParagraphs();
     document.getElementById("firstSelectId").style.display="block";
-};
+}
 
-showSecondMessage = function(){
+function showSecondMessage(){
     hideParagraphs();
     document.getElementById("secondSelectId").style.display="block";
-};
+}
 
-showVictory = function(){
+function showVictory(){
     hideParagraphs();
     document.getElementById("victoryId").style.display="block";
-};
+}
 
-showDefeat = function(){
+function showDefeat(){
     hideParagraphs();
     document.getElementById("defeatId").style.display="block";
-};
+}
 
 
-showSpades = function (index) {
+function showSpades(index) {
     const img = document.getElementById("img"+index);
     img.src = spadesImg;
     img.style.cursor = "default";
     img.classList.remove("backcover")
-};
+}
 
-showJoker = function (index) {
+function showJoker(index) {
     const img = document.getElementById("img"+index);
     img.src = jokerImg;
     img.style.cursor = "default";
     img.classList.remove("backcover")
-};
+}
 
-showAll = function(){
+function showAll(){
     for(let i=0; i< positions.length; i++){
         if(i === jokerPosition){
             showJoker(i);
@@ -110,9 +110,9 @@ showAll = function(){
             showSpades(i);
         }
     }
-};
+}
 
-showBackCover = function (index) {
+function showBackCover(index) {
     const img = document.getElementById("img"+index);
     img.src = backcoverImg;
     img.style.cursor = "pointer";
@@ -120,7 +120,7 @@ showBackCover = function (index) {
         img.classList.add("backcover")
     }
     img.classList.remove("selectedCard")
-};
+}
 
 
 

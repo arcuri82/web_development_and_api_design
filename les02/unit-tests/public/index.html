@@ -56,7 +56,7 @@
 <p>
     To run tests in JS, we use the popular library
     <a href="https://jestjs.io/">Jest</a>.
-    The test will be executed by NPM (this needs to be configured in the <em>package.json</em> file).
+    The test will be executed by YARN (this needs to be configured in the <em>package.json</em> file).
     There is one problem though: to run the tests, we need an environment that can execute JS code.
     To do that, NodeJS (which is used for server-side JS) is automatically setup.
     However, there are some differences between client-side (what we have done so far) and
@@ -70,26 +70,8 @@
     <a href="https://babeljs.io/">Babel</a>, and tell Jest to apply it before running the
     tests (this is done with the <em>babel-jest</em> library).
     See its configuration file called <em>.babelrc</em>.
+    Also look at <em>scripts</em> and <em>jest</em> configurations in <em>package.json</em> file.
 </p>
-
-
-<div>
-    <h4>
-        NPM Commands
-    </h4>
-    <ul>
-        <li><strong>npm install</strong></li>
-        <li><strong>npm init -y</strong></li>
-        <li><strong>npm install webpack webpack-cli webpack-dev-server --save-dev</strong></li>
-        <li><strong>npm install babel-cli babel-core babel-preset-es2015 --save-dev</strong></li>
-        <li><strong>npm install jest babel-jest --save-dev</strong></li>
-        <li><strong>npm run test</strong></li>
-        <li><strong>npm run dev</strong></li>
-    </ul>
-
-    Look at <em>scripts</em> and <em>jest</em> configurations in <em>package.json</em> file.
-</div>
-
 
 <script src="bundle.js"></script>
 <script>
