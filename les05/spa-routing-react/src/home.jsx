@@ -56,8 +56,6 @@ export const Home = () => {
                     client-side rendering based on URL change in the browser), or extend
                     your web application to also do server-side rendering (if your backend
                     can run JS).
-                    But as both solutions require configuring the server, we will look at them
-                    only later on in the course.
                 </p>
                 <p>
                     It is interesting to look at the resource <em>/doesNotExist</em>, which
