@@ -1,6 +1,11 @@
 # PG6300
 Code for the PG6300 course on *Web Development and API Design*.
 
+
+![](docs/img/stephen-leonardi-369733-unsplash-compressed.jpg "Photo by Stephen Leonardi on Unsplash")
+
+
+
 ## Lessons
 
 * **Lesson 01**: Intro and JavaScript
