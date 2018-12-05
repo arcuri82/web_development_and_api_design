@@ -42,6 +42,6 @@ app.use((req, res, next) => {
 const port = 8080;
 
 app.listen(port, () => {
-    console.log('Starting Server on port ' + port);
+    console.log('Started Server on port ' + port);
 });
 

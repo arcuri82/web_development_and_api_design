@@ -11,8 +11,6 @@ export class Home extends React.Component {
             books: null,
             error: null
         };
-
-        this.deleteBook = this.deleteBook.bind(this);
     }
 
 
@@ -52,7 +50,7 @@ export class Home extends React.Component {
         }
     }
 
-    async deleteBook(id) {
+    deleteBook = async (id) => {
 
         const url = "http://localhost:8081/books/" + id;
 
@@ -73,7 +71,7 @@ export class Home extends React.Component {
         this.fetchBooks();
 
         return true;
-    }
+    };
 
     render() {
 

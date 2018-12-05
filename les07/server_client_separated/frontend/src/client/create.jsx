@@ -5,11 +5,9 @@ export class Create extends React.Component{
 
     constructor(props){
         super(props);
-
-        this.onOk = this.onOk.bind(this);
     }
 
-    async onOk(author, title, year, bookId){
+    onOk = async (author, title, year, bookId) => {
 
         const url = "http://localhost:8081/books";
 
@@ -31,7 +29,7 @@ export class Create extends React.Component{
         }
 
         return response.status === 201;
-    }
+    };
 
 
     render(){

@@ -11,7 +11,6 @@ export class Edit extends React.Component{
             error: null
         };
 
-        this.onOk = this.onOk.bind(this);
         this.bookId = new URLSearchParams(window.location.search).get("bookId");
 
         if(this.bookId === null){
@@ -58,7 +57,7 @@ export class Edit extends React.Component{
     }
 
 
-    async onOk(author, title, year, id){
+    onOk = async (author, title, year, id) => {
 
         const url = "http://localhost:8081/books/"+id;
 
@@ -79,7 +78,7 @@ export class Edit extends React.Component{
         }
 
         return response.status === 204;
-    }
+    };
 
 
     render(){

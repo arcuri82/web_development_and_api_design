@@ -14,14 +14,9 @@ class Book extends React.Component {
         };
 
         this.ok = this.props.ok ? this.props.ok : "Ok";
-
-        this.onFormSubmit = this.onFormSubmit.bind(this);
-        this.onAuthorChange = this.onAuthorChange.bind(this);
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onYearChange = this.onYearChange.bind(this);
     }
 
-    async onFormSubmit(event) {
+     onFormSubmit = async (event) => {
         event.preventDefault();
 
         const completed = await this.props.okCallback(
@@ -35,19 +30,19 @@ class Book extends React.Component {
         } else {
             alert("Failed to create new Book")
         }
-    }
+    };
 
-    onAuthorChange(event) {
+    onAuthorChange = (event) => {
         this.setState({author: event.target.value});
-    }
+    };
 
-    onTitleChange(event) {
+    onTitleChange = (event) => {
         this.setState({title: event.target.value});
-    }
+    };
 
-    onYearChange(event) {
+    onYearChange = (event) => {
         this.setState({year: event.target.value});
-    }
+    };
 
     render() {
 
