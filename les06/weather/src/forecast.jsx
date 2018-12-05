@@ -12,16 +12,13 @@ export class Forecast extends React.Component {
             message: null,
             forecast: null
         };
-
-        this.onInputChange = this.onInputChange.bind(this);
-        this.onFormSubmit = this.onFormSubmit.bind(this);
     }
 
-    onInputChange(event) {
+    onInputChange = (event) => {
         this.setState({term: event.target.value});
-    }
+    };
 
-    onFormSubmit(event) {
+    onFormSubmit = (event) => {
         /*
             Prevent the default action of submitting a form,
             which would be a POST request to the server we got
@@ -35,7 +32,7 @@ export class Forecast extends React.Component {
         this.fetchWeather(this.state.term);
 
         this.setState({term: ""});
-    }
+    };
 
     render() {
 
