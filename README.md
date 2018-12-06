@@ -26,6 +26,8 @@ other repository: [Testing, Security and Development of Enterprise Systems](http
 
 The course is divided in 12 lessons, each one lasting between 2 and 4 hours.
 Each lesson contains slides and full working code examples. 
+Slides just give high level overviews: most of the explanations will be directly in
+the code as comments. 
 
 ## Lessons
 
