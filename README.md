@@ -29,116 +29,102 @@ Each lesson contains slides and full working code examples.
 
 ## Lessons
 
-* **Lesson 01**: Intro and JavaScript
+* **Lesson 01**: Intro to JavaScript, basic HTML/CSS and SPAs
 
-  Slides: [PDF](docs/slides/lesson_01.pdf)  
+  Code in the [les01](les01) folder. Slides here: [PDF](docs/slides/lesson_01.pdf)  
 
   Exercise: 
 
 <br />
 
-* **Lesson 02**: NPM and Unit Tests
+* **Lesson 02**: Build Tools and Unit Testing
 
-  Links:
-  * [NPM](https://www.npmjs.com/) 
-  * [YDKJS](https://github.com/getify/You-Dont-Know-JS):
-      sections *this & Object Prototypes* and *Types & Grammar*.
-  
-  Exercises: complete the JavaScript Koans.
-  Add functionalities to *Tic-Tac-Toe*, like an AI for the opponent.
-
-<br />
-
-* **Lesson 03**: SPA Components and React
-
-    Links:
+  Code in the [les02](les02) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-    but only up to *Main Concepts* section.
-    * [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
-    
-    Exercises: do the React Tutorial. 
+  Exercises: 
+  
+<br />
+
+* **Lesson 03**: SPA Components
+
+  Code in the [les03](les03) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 04**: Multi-component State and Component Tests 
+* **Lesson 04**: SPA State Handling
 
-    Links:
-    
-
-    Exercises: Add functionalities to *Connect4*, like an AI for the opponent 
-    (could start with a simple one choosing at random).
-    Add more tests.
+  Code in the [les04](les04) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
 * **Lesson 05**: SPA Routing
 
-    Links:
-    
-
-    Exercises: create a new project similar to *Games*, where you use
-    React-Router between the *Tic-Tac-Toe* and *Connect4* you extended
-    in the previous exercises. 
+  Code in the [les05](les05) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 06**: Revision
+* **Lesson 06**: Async Calls to Web Services
 
-
-<br />
-
-
-* **Lesson 07**: Accessing Web Services
-
-    Links:
-    :
-              section *Async & Performance*.
-
-    Exercises: look at (http://www.programmableweb.com/).
-               Select one API of your choice.
-               Write a small React page in which you do a GET on an endpoint of such API
-               and display its results.  
+  Code in the [les06](les06) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 08**: REST APIs
 
-    Links:
-    
-              
-    Exercises: write a small REST API using NodeJS/Express on a topic of your choice,
-               with endpoints for at least: GET, POST, PUT and DELETE.
-               Create a small React app that consumes such API. 
+* **Lesson 07**: RESTful APIs
 
+  Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
+<br />
+
+* **Lesson 08**: GraphQL APIs
+
+  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
+<br />
 
 * **Lesson 09**: WebSockets
 
-    Links:
-    
-
-    Exercises: on an app of your choice that you are building (e.g., any of the previous
-    exercises), add the following functionality: display in the frontend the total number
-    of users that are online. You will need to connect a WebSocket, intercept the events
-    for "connect" and "disconnect" of each user, and broadcast the number of users at
-    each new connect/disconnect.
+  Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
 * **Lesson 10**: Authentication and CSRF
 
-    Links:
+  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
     
 
 <br />
 
-* **Lesson 11**: Online Multi-Player Game
+* **Lesson 11**: JWT/OAuth and XSS
+
+  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
 
 <br />
 
-* **Lesson 12**: On Bash, Docker, Databases and Cloud Deployment
+* **Lesson 12**: Online Multi-Player Game
 
-    Slides: [PDF](docs/slides/lesson_12.pdf)
+  Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)
 
+  Exercises: 
 
 ## Useful Links
 
