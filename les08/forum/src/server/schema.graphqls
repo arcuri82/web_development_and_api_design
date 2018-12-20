@@ -1,0 +1,35 @@
+
+# A GraphQL API to handle News
+type Query{
+    getNews: [News!]
+    getNewsById(id: String!) : News
+    createNews(title: String!, text: String!, authorId: String!): String
+
+    getUserById(id: String!) : User
+    createUser(id: String!, name: String!, middlename: String, surname: String!, email: String!) : Boolean!
+
+    addComment(text: String!, newsId: String!, authorId: String!): Boolean!
+}
+
+
+type News{
+    id: String
+    title: String
+    text: String
+    author: User
+    comments: [Comment!]
+}
+
+type Comment{
+    id: String
+    text: String
+    author: User
+}
+
+type User{
+    id: String,
+    name: String
+    middlename: String
+    surname: String,
+    email: String
+}
