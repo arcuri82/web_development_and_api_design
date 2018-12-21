@@ -3,8 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "jest --coverage",
+    "dev": "webpack --mode development && npm run start",
+    "build": "webpack --mode production",
+    "start": "node src/server/server.js"
+  },
   "dependencies": {
     "apollo-server": "^2.3.1",
+    "graphql": "^14.0.2",
     "react": "^16.5.0",
     "react-dom": "^16.5.0"
   },
