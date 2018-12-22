@@ -1,13 +1,13 @@
-const { ApolloServer } = require('apollo-server');
-const { importSchema } = require('graphql-import');
+const express = require('express');
+const { ApolloServer} = require('apollo-server-express');
 
 const resolvers = require('./resolvers');
 const typeDefs =  require('./schema');
 
+const app = express();
 
-const app = new ApolloServer({
-    typeDefs,
-    resolvers
-});
+const apollo = new ApolloServer({ typeDefs, resolvers });
+apollo.applyMiddleware({ app , path:"/graphql"});
+
 
 module.exports = app;
