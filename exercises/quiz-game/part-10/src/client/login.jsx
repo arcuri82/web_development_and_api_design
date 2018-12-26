@@ -12,21 +12,17 @@ class Login extends React.Component{
             password: "",
             errorMsg: null
         };
-
-        this.onUserIdChange = this.onUserIdChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.doLogIn = this.doLogIn.bind(this);
     }
 
-    onUserIdChange(event){
+    onUserIdChange = (event) =>{
         this.setState({userId: event.target.value});
-    }
+    };
 
-    onPasswordChange(event){
+    onPasswordChange = (event) => {
         this.setState({password: event.target.value});
-    }
+    };
 
-    async doLogIn(){
+    doLogIn = async () => {
         const {userId, password} = this.state;
 
         const url = "/api/login";
@@ -60,9 +56,10 @@ class Login extends React.Component{
         }
 
         this.setState({errorMsg: null});
-        this.props.updateLoggedInUserId(userId);
+        await this.props.fetchAndUpdateUserInfo();
         this.props.history.push('/');
-    }
+    };
+
 
     render(){
 

@@ -8,11 +8,9 @@ import { Link, withRouter } from "react-router-dom";
 class HeaderBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.doLogout = this.doLogout.bind(this);
   }
 
-  async doLogout() {
+  doLogout = async () => {
     const url = "/api/logout";
 
     let response;
@@ -29,9 +27,9 @@ class HeaderBar extends React.Component {
       return;
     }
 
-    this.props.updateLoggedInUserId(null);
+    this.props.updateLoggedInUser(null);
     this.props.history.push("/");
-  }
+  };
 
   renderLoggedIn(userId) {
     return (
@@ -68,7 +66,7 @@ class HeaderBar extends React.Component {
     const userId = this.props.userId;
 
     let content;
-    if (userId === null || userId === undefined) {
+    if (! userId) {
       content = this.renderNotLoggedIn();
     } else {
       content = this.renderLoggedIn(userId);

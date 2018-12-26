@@ -5,8 +5,8 @@ const session = require("express-session");
 const LocalStrategy = require('passport-local').Strategy;
 const path = require('path');
 
-const authApi = require('./routes/authApi');
-const matchApi = require('./routes/matchApi');
+const authApi = require('./routes/auth-api');
+const matchApi = require('./routes/match-api');
 const Users = require('./db/users');
 
 const app = express();

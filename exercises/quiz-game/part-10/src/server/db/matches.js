@@ -1,5 +1,5 @@
-import {reportEndOfMatch} from "./users";
-import quizzes from "./quizzes";
+const {reportEndOfMatch} = require("./users");
+const {quizzes} = require("./quizzes");
 
 /**
  * Key -> User Id
@@ -10,24 +10,23 @@ const matches = new Map();
 let counter = 0;
 
 
-
-function createMatch(userId, numberOfQuizzes){
+function createMatch(userId, numberOfQuizzes) {
 
     const ongoing = matches.get(userId);
-    if(ongoing){
+    if (ongoing) {
         reportEndOfMatch(userId, false);
     }
 
     const id = counter;
     counter++;
 
-    const selection = Array.from(Array(numberOfQuizzes));
+    const selection = Array(numberOfQuizzes);
 
     let i = 0;
-    while(i < numberOfQuizzes){
+    while (i < numberOfQuizzes) {
 
         const k = Math.floor(quizzes.length * Math.random());
-        if(k in selection){
+        if (k in selection) {
             continue;
         }
 
@@ -38,7 +37,9 @@ function createMatch(userId, numberOfQuizzes){
     const match = {
         id: id,
         current: 0,
-        quizzes: selection.map(e => {quizzes[e]})
+        quizzes: Array.from(selection).map(e => quizzes[e]),
+        victory: false,
+        defeat: false
     };
 
     matches.set(userId, match);
@@ -46,7 +47,9 @@ function createMatch(userId, numberOfQuizzes){
     return match;
 }
 
-function getMatch(userId){
+function getMatch(userId) {
     return matches.get(userId);
 }
 
+
+module.exports = {getMatch, createMatch};

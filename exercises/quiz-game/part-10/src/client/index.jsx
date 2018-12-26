@@ -17,15 +17,13 @@ class App extends React.Component {
         /*
             As whether we are logged in or not will impact the rendering of
             all pages, such state info as to be stored here in the root component.
-            If a user is logged in, then we stored its userId here.
+            If a user is logged in, then we store its data here.
             A null value means the user is not logged in.
          */
 
         this.state = {
-            userId: null
+            user: null
         };
-
-        this.updateLoggedInUserId = this.updateLoggedInUserId.bind(this);
     }
 
     /*
@@ -40,12 +38,12 @@ class App extends React.Component {
         So, here we do a AJAX call to the server. If such call is authenticated,
         then will we get the user id, and so update the component's state.
      */
-    componentDidMount(){
-        this.checkIfAlreadyLoggedIn();
+    componentDidMount() {
+        this.fetchAndUpdateUserInfo();
     }
 
 
-    async checkIfAlreadyLoggedIn() {
+    fetchAndUpdateUserInfo = async () => {
 
         const url = "/api/user";
 
@@ -62,7 +60,7 @@ class App extends React.Component {
 
         if (response.status === 401) {
             //that is ok
-            this.updateLoggedInUserId(null);
+            this.updateLoggedInUser(null);
             return;
         }
 
@@ -70,13 +68,13 @@ class App extends React.Component {
             //TODO here could have some warning message in the page.
         } else {
             const payload = await response.json();
-            this.updateLoggedInUserId(payload.userId);
+            this.updateLoggedInUser(payload);
         }
     };
 
-    updateLoggedInUserId(userId) {
-        this.setState({userId: userId});
-    }
+    updateLoggedInUser = (user) => {
+        this.setState({user: user});
+    };
 
 
     notFound() {
@@ -99,25 +97,30 @@ class App extends React.Component {
             to use the attribute "render".
          */
 
+        const id = this.state.user ? this.state.user.id : null;
+
         return (
             <BrowserRouter>
                 <div>
-                    <HeaderBar userId={this.state.userId}
-                               updateLoggedInUserId={this.updateLoggedInUserId}/>
+                    <HeaderBar userId={id}
+                               updateLoggedInUser={this.updateLoggedInUser}/>
                     <Switch>
                         <Route exact path="/match"
-                               render={props => <Match {...props} userId={this.state.userId}
-                                                             updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
+                               render={props => <Match {...props}
+                                                       user={this.state.user}
+                                                       updateLoggedInUser={this.updateLoggedInUser}
+                                                       fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
+                               />}/>
                         <Route exact path="/login"
                                render={props => <Login {...props}
-                                                       userId={this.state.userId}
-                                                       updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
+                                                       fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}/>}/>
                         <Route exact path="/signup"
                                render={props => <SignUp {...props}
-                                                        userId={this.state.userId}
-                                                        updateLoggedInUserId={this.updateLoggedInUserId}/>}/>
+                                                        fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}/>}/>
                         <Route exact path="/"
-                               render={props => <Home {...props} userId={this.state.userId}/>}/>
+                               render={props => <Home {...props}
+                                                      user={this.state.user}
+                                                      fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}/>}/>
                         <Route component={this.notFound}/>
                     </Switch>
                 </div>
@@ -126,4 +129,4 @@ class App extends React.Component {
     }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App/>, document.getElementById("root"));

@@ -2,16 +2,20 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 
-
-
 export class Home extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount() {
+        if(this.props.user) {
+            this.props.fetchAndUpdateUserInfo();
+        }
+    }
+
     render() {
-        const userId = this.props.userId;
-        const loggedIn = userId !== null && userId !== undefined;
+        const user = this.props.user;
+        const loggedIn = user !== null && user !== undefined;
 
         return (
             <div>
@@ -27,15 +31,19 @@ export class Home extends React.Component {
 
 
                 {loggedIn ? (
-                    <div className="btnPart">
-                        <Link to={"/match"} className={"btn"}>
-                            Start New Match
-                        </Link>
+                    <div>
+                        <div className="btnPart">
+                            <Link to={"/match"} className={"btn"}>
+                                Play
+                            </Link>
+                        </div>
+                        <p>Victories: {user.victories}</p>
+                        <p>Defeats: {user.defeats}</p>
                     </div>
                 ) : (
-                   <p>
-                       You need to log-in to start playing!
-                   </p>
+                    <p>
+                        You need to log-in to start playing!
+                    </p>
                 )}
 
             </div>
