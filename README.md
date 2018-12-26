@@ -38,7 +38,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les01](les01) folder. Slides here: [PDF](docs/slides/lesson_01.pdf)  
 
-  Exercise: 
+  Exercise: [quiz-game-part-01](docs/exercises/quiz-game/part-01.md)
 
 <br />
 
