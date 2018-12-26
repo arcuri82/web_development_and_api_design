@@ -46,7 +46,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les02](les02) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-02](docs/exercises/quiz-game/part-02.md)
   
 <br />
 
@@ -54,7 +54,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les03](les03) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-03](docs/exercises/quiz-game/part-03.md)
 
 <br />
 
@@ -62,7 +62,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les04](les04) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-04](docs/exercises/quiz-game/part-04.md)
 
 <br />
 
@@ -70,7 +70,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les05](les05) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-05](docs/exercises/quiz-game/part-05.md)
 
 <br />
 
@@ -78,7 +78,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les06](les06) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-06](docs/exercises/quiz-game/part-06.md)
 
 <br />
 
@@ -87,7 +87,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-07](docs/exercises/quiz-game/part-07.md)
 
 <br />
 
@@ -95,7 +95,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-08](docs/exercises/quiz-game/part-08.md)
 
 <br />
 
@@ -103,7 +103,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-09](docs/exercises/quiz-game/part-09.md)
 
 <br />
 
@@ -111,7 +111,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-10](docs/exercises/quiz-game/part-10.md)
     
 
 <br />
@@ -120,7 +120,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
-  Exercises: 
+  Exercises: [quiz-game-part-11](docs/exercises/quiz-game/part-11.md)
 
 
 <br />
@@ -129,7 +129,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)
 
-  Exercises: 
+  Exercises: [quiz-game-part-12](docs/exercises/quiz-game/part-12.md)
 
 ## Useful Links
 

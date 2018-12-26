@@ -29,3 +29,5 @@ On the other hand, clicking on a wrong answer should display an error message.
 To manipulate the DOM, you will likely need to use *document.getElementById()*
 to refer to element-tags in the HTML, and then manipulate their content by changing
 their *innerHTML*.
+
+Solutions to this exercise can be found under the *exercise-solutions* folder.
