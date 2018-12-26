@@ -13,20 +13,18 @@ export class Silly extends React.Component {
         super(props);
 
         this.state = {first: true};
-
-        this.changeNo = this.changeNo.bind(this);
     }
 
     static showResult() {
         alert("Congratulation! You admitted that you are silly!");
     };
 
-    changeNo(isLeft){
+    changeNo = (isLeft) => {
 
         if(isLeft !== this.state.first){
             this.setState((prev) => ({first: ! prev.first}));
         }
-    }
+    };
 
     render() {
 

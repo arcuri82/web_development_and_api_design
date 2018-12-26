@@ -1,4 +1,8 @@
 
+/*
+    On each tag marked with the CSS class "spaLink" we do
+    dynamically add a "onClick" handler
+ */
 const bindSpaLinks = function () {
 
     const links = document.getElementsByClassName("spaLink");
@@ -12,6 +16,11 @@ const bindSpaLinks = function () {
     }
 };
 
+/*
+    Change the content on the address bar in the browser, by updating
+    the fragment content # of the URL.
+    Then, re-draw the page based on the URL.
+ */
 const toPage = function(fragment){
 
     const url = window.location.href;
@@ -30,6 +39,10 @@ const toPage = function(fragment){
     routePages();
 };
 
+/*
+    Given a URL, return the content of the # fragment part,
+    or an empty string otherwise
+ */
 const extractFragment = function (url) {
 
     const sharp = url.indexOf("#");
@@ -41,6 +54,10 @@ const extractFragment = function (url) {
     }
 };
 
+/*
+    Use JavaScript to decide which components in the page should
+    be displayed based on the # fragment in the URL
+ */
 const routePages = function () {
 
     const pages = document.getElementsByClassName("spaPage");
@@ -64,6 +81,9 @@ const routePages = function () {
     }
 };
 
-
+/*
+    Start by binding all the links, and display page based
+    on the URL in the address bar (dynamically with JavaScript)
+ */
 bindSpaLinks();
 routePages();

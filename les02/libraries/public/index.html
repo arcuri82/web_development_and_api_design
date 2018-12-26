@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Library Example</title>
+
+</head>
+<body>
+
+<h2>
+    Bundling JavaScript Code
+</h2>
+
+<h3>Used Tools</h3>
+<p>
+    We use <a href="https://yarnpkg.com/en/">YARN</a>
+    to download the library
+    <a href="https://lodash.com/">loadash</a>.
+    This is a very popular library providing several utility functions.
+    Here, we just use some of them related to arrays.
+    When YARN is run on a project, it will read the content of the
+    'package.json' configuration file.
+</p>
+
+<p>
+    Because <em>loadash</em> is a library, it needs to be imported in this HTML file besides
+    our own JavaScript code.
+    We use <a href="https://webpack.js.org/">WebPack</a> to bundle all the JS code
+    together into a single <em>bundle.js</em> file.
+    This can also improve performance, as the browser needs to do only a single HTTP GET
+    call to get all the needed JS.
+    <em>WebPack</em> is configured in a file called <em>webpack.config.js</em>.
+</p>
+
+<p>
+    Note that, to properly use <em>WebPack</em>, we need to do some manual changes into the
+    <em>package.json</em> configuration file of YARN.
+    You could expect some comments directly in the <em>package.json</em> to describe what needs
+    to be changed.
+    Unfortunately, this is not possible, because the JSON format does not support comments!!!
+    You might wonder why JSON was chosen as configuration format instead of more sane
+    options like YAML or XML (in this context XML is better than JSON)...
+    Yes, that is a big limitation of YARN/NPM (and its developers have no intention to fix it).
+    Note: there are some
+    <a href="https://stackoverflow.com/questions/14221579/how-do-i-add-comments-to-package-json-for-npm-install">
+        workarounds
+    </a>
+    to somehow simulate comments in JSON, but those are really awful, dirty hacks.
+</p>
+
+
+<h3>Example With Loadash</h3>
+
+<p>
+    Array value: <span id="arrayStringId"></span>
+</p>
+<ui>
+    <li>_.min(): <span id="minId"></span></li>
+    <li>_.max(): <span id="maxId"></span></li>
+    <li>_.mean(): <span id="meanId"></span></li>
+    <li>_.sum(): <span id="sumId"></span></li>
+</ui>
+
+
+<h3>Executed Commands</h3>
+
+<div>
+    <p>
+        To create a new project, we use <em>yarn init</em>, which will create
+        files like <em>package.json</em>.
+        This can be seen like a <em>pom.xml</em> file in Maven/Java.
+        Libraries need to be installed with <em>yarn install</em>.
+        Here we need both <em>WebPack</em> and <em>loadash</em>.
+        When a library is "installed", it will be downloaded under
+        the <em>node_modules</em> folder (and also cached on your home folder).
+        Note: it is very important to do NOT add such folder on Git.
+    </p>
+
+    <p>
+        <em>Loadash</em> will be part of our final code, whereas  <em>WebPack</em>
+        is just a tool/plugin to build the project.
+        See the differences between <em>dependencies</em> and <em>devDependencies</em>
+        in the <em>package.json</em> file.
+    </p>
+
+    <p>
+        When you work on an existing project, where the <em>package.json</em>
+        and <em>yarn.lock</em> are already there in the Git repository,
+        you just need to run <em>npm install</em> to download all the libraries
+        defined in <em>package.json</em> into <em>node_modules</em>.
+    </p>
+
+    <p>
+        Finally, to build the <em>bundle.js</em> file and start a server, we run <em>yarn dev</em>.
+        The <em>yarn</em> does execute one of the commands defined in the
+        <em>scripts</em> section of the <em>package.json</em> file.
+        We need to manually modify it to enable  <em>WebPack</em>.
+        Note the 2 different versions: <em>dev</em> to use during development/debugging
+        (which also starts a server with hot-reload),
+        and <em>build</em> for the final version for production.
+        This latter does a few optimizations, which unfortunately
+        make the generated JavaScript hard to read.
+    </p>
+
+    <p>
+        When we run <em>yarn dev</em>, not only we generate the <em>bundle.js</em> file
+        in a more human-friendly format,
+        but also start a HTTP server for it, with the browser opening at that page.
+        Furthermore, <em>WebPack</em> will look at the changes in <em>./src</em>,
+        and rebuild automatically every time we do changes.
+        However, we still need to do a refresh in the browser to see the updates.
+    </p>
+
+</div>
+
+
+<script src="bundle.js"></script>
+
+</body>
+</html>

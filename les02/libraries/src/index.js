@@ -2,7 +2,7 @@ import _ from 'lodash';
 import {computeMin, computeMax, computeMean, computeSum} from "./my-math.js";
 
 
-const initValues = function () {
+function initValues() {
 
     const array = [8,1,5,1,1,2,3];
 

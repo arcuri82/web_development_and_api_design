@@ -1,175 +1,171 @@
-# PG6300
-Code for the PG6300 course on *Web Development and API Design*.
+# Web Development and API Design
+
+
+![](docs/img/stephen-leonardi-369733-unsplash-compressed.jpg "Photo by Stephen Leonardi on Unsplash")
+
+## Summary
+
+This repository contains all the material used in the PG6300 course 
+on *Web Development and API Design*, taught at 
+the university college [Høyskolen Kristiania](https://kristiania.no/), Oslo, Norway.
+
+The goal of this course is to teach the principles of *Single-Page-Applications* (SPA)
+and the basics of web services (e.g., *REST* and *GraphQL*) and *web-sockets*.
+
+The programming language used in this course is *JavaScript*, with *NodeJS* as runtime.
+Some of the used technologies are: *YARN*, *WebPack*, *Babel*, *React*, *React-Router*, 
+*Jest*, *Express*, *Apollo*, *Socket.io* and *Passport*. 
+
+This course puts particular emphasis on **testing** and **security**, but not on 
+frontend *design* (i.e., UI/UX).
+
+This course focuses on the *frontend* side of web development, albeit
+we will build full-stack applications (but no databases).
+To learn more about *backend* development (e.g., using *Java/Kotlin*), you can see this
+other repository: [Testing, Security and Development of Enterprise Systems](https://github.com/arcuri82/testing_security_development_enterprise_systems).
+
+The course is divided in 12 lessons, each one lasting between 2 and 4 hours.
+Each lesson contains slides and full working code examples. 
+Slides just give high level overviews: most of the explanations will be directly in
+the code as comments. 
 
 ## Lessons
 
-* **Lesson 01**: Intro and JavaScript
+* **Lesson 01**: Intro to JavaScript, basic HTML/CSS and SPAs
 
-  Slides: [PDF](docs/slides/lesson_01.pdf)  
+  Code in the [les01](les01) folder. Slides here: [PDF](docs/slides/lesson_01.pdf)  
 
-  Links:
-  * [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
-  * [YDKJS](https://github.com/getify/You-Dont-Know-JS)
-    sections *Up & Going* and *Scope & Closures*.  
-
-  Exercise: do JavaScript Koans, at least up to `about_arrays.js`.
+  Exercise: 
 
 <br />
 
-* **Lesson 02**: NPM and Unit Tests
+* **Lesson 02**: Build Tools and Unit Testing
 
-  Links:
-  * [NodeJS](https://nodejs.org/en/)
-  * [NPM](https://www.npmjs.com/) 
-  * [YDKJS](https://github.com/getify/You-Dont-Know-JS):
-      sections *this & Object Prototypes* and *Types & Grammar*.
-  * [WebPack](https://webpack.js.org/guides/getting-started/#basic-setup)
-  * [Babel](https://babeljs.io/)
-  * [Jest](https://github.com/facebook/jest)
-  * [Loadash](https://lodash.com)
+  Code in the [les02](les02) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+  
+<br />
 
-  Exercises: complete the JavaScript Koans.
-  Add functionalities to *Tic-Tac-Toe*, like an AI for the opponent.
+* **Lesson 03**: SPA Components
+
+  Code in the [les03](les03) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 03**: SPA Components and React
+* **Lesson 04**: SPA State Handling
 
-    Links:
-    * [React](https://reactjs.org/docs/thinking-in-react.html):
-    but only up to *Main Concepts* section.
-    * [React Tutorial](https://reactjs.org/tutorial/tutorial.html)
-    
-    Exercises: do the React Tutorial. 
-
-<br />
-
-* **Lesson 04**: Multi-component State and Component Tests 
-
-    Links:
-    * [Enzyme](https://github.com/airbnb/enzyme/blob/master/docs/api/mount.md)
-    * [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp)
-
-    Exercises: Add functionalities to *Connect4*, like an AI for the opponent 
-    (could start with a simple one choosing at random).
-    Add more tests.
+  Code in the [les04](les04) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
 * **Lesson 05**: SPA Routing
 
-    Links:
-    * [React-Router](https://reacttraining.com/react-router)
-
-    Exercises: create a new project similar to *Games*, where you use
-    React-Router between the *Tic-Tac-Toe* and *Connect4* you extended
-    in the previous exercises. 
+  Code in the [les05](les05) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 06**: Revision
+* **Lesson 06**: Async Calls to Web Services
 
-
-<br />
-
-
-* **Lesson 07**: Accessing Web Services
-
-    Links:
-    * [YDKJS](https://github.com/getify/You-Dont-Know-JS):
-              section *Async & Performance*.
-
-    Exercises: look at [http://www.programmableweb.com/](http://www.programmableweb.com/).
-               Select one API of your choice.
-               Write a small React page in which you do a GET on an endpoint of such API
-               and display its results.  
+  Code in the [les06](les06) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
-* **Lesson 08**: REST APIs
 
-    Links:
-    * [Express](http://expressjs.com/)
-    * [SuperTest](https://github.com/visionmedia/supertest)
-              
-    Exercises: write a small REST API using NodeJS/Express on a topic of your choice,
-               with endpoints for at least: GET, POST, PUT and DELETE.
-               Create a small React app that consumes such API. 
+* **Lesson 07**: RESTful APIs
 
+  Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
+<br />
+
+* **Lesson 08**: GraphQL APIs
+
+  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
+<br />
 
 * **Lesson 09**: WebSockets
 
-    Links:
-    * [Socket.io](https://socket.io/)
-
-    Exercises: on an app of your choice that you are building (e.g., any of the previous
-    exercises), add the following functionality: display in the frontend the total number
-    of users that are online. You will need to connect a WebSocket, intercept the events
-    for "connect" and "disconnect" of each user, and broadcast the number of users at
-    each new connect/disconnect.
+  Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
 
 <br />
 
 * **Lesson 10**: Authentication and CSRF
 
-    Links:
-    * [Passport](http://www.passportjs.org/)
+  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+    
 
 <br />
 
-* **Lesson 11**: Online Multi-Player Game
+* **Lesson 11**: JWT/OAuth and XSS
+
+  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+   
+  Exercises: 
+
 
 <br />
 
-* **Lesson 12**: On Bash, Docker, Databases and Cloud Deployment
+* **Lesson 12**: Online Multi-Player Game
 
-    Slides: [PDF](docs/slides/lesson_12.pdf)
+  Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)
+
+  Exercises: 
+
+## Useful Links
+
+* [You Don't Know JavaScript](https://github.com/getify/You-Dont-Know-JS)
+* [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
+* [NodeJS](https://nodejs.org/)
+* [YARN](https://yarnpkg.com)
+* [WebPack](https://webpack.js.org)
+* [Babel](https://babeljs.io/)
+* [Loadash](https://lodash.com)
+* [React](https://reactjs.org):
+* [React-Router](https://reacttraining.com/react-router)
+* [Jest](https://github.com/facebook/jest)
+* [Enzyme](https://github.com/airbnb/enzyme)
+* [SuperTest](https://github.com/visionmedia/supertest)
+* [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp)
+* [Express](http://expressjs.com/)
+* [Socket.io](https://socket.io/)
+* [Passport](http://www.passportjs.org/)
+* [ProgrammableWeb](http://www.programmableweb.com/)
+
 
 ## Exam
 
 A PDF of a mock exam for this course can be found [here](docs/pg6300_mock_exam.pdf). 
 
-## Useful NPM Commands
+## License & Copyright
 
-* **npm init -y**
+The materials herein are all Copyright (c) of [Andrea Arcuri](http://www.arcuriandrea.org) 
+and contributors.
+The material was/is produced while working at 
+Westerdals Oslo ACT and Høyskolen Kristiania.
 
-  To create a new project, in particular the *package.json* file.
+All the source code in this repository is released under 
+[LGPL version 3 license](LICENSE).
 
-* **npm install**
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+<img alt="Creative Commons License" style="border-width:0" 
+src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a>
+<br />
+The documentation is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivs 4.0 Unported License</a>.
 
-  To download and install under *node_modules* all the needed libraries
-  specified in the *package.json* file.
-  Note: instead of installing libraries via NPM commandline, you
-  can modify the *package.json* file manually.
-
-* **npm run X**
-
-  Execute the script called `X`  in the `scripts` section of
-  the the *package.json* file.
-
-* **npm install webpack webpack-cli webpack-dev-server --save-dev**
-
-  To install WebPack.
-
-* **npm install jest babel-jest babel-cli babel-core babel-preset-es2015 --save-dev**
-
-  To install *Jest* with *Babel* support.
-  Needed when writing frontend code, but then tests are run on
-  *NodeJS*. So, need to make sure to use *Babel* to transform the
-  module import statements.
-
-* **npm install react react-dom react-router-dom**
-
-  To install *React* libraries.
-
-* **npm install babel-core babel-loader  babel-preset-react  --save-dev**
-
-  To install *Babel* to handle the JSX files used by *React*.
-  
-* **npm install express cors**
-  
-  To install Express and CORS, needed to build REST APIs on NodeJS.
-
-* **npm install socket.io socket.io-client**
-
-  To install support for WebSockets, both for servers and clients.

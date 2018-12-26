@@ -27,7 +27,7 @@ const quizzes = [
 
 let currentQuizIndex = 0;
 
-answerTag = function (prefix, answer, correct) {
+function answerTag(prefix, answer, correct) {
 
     let onclick;
 
@@ -37,12 +37,12 @@ answerTag = function (prefix, answer, correct) {
         onclick = "alert('Wrong answer');";
     }
 
-    let html = "<div class='gameBtn' onclick=\""+onclick+"\">" + prefix + answer + "</div>";
+    const html = "<div class='gameBtn' onclick=\""+onclick+"\">" + prefix + answer + "</div>";
 
     return html;
-};
+}
 
-displayQuiz = function (quiz) {
+function displayQuiz (quiz) {
 
     let html = "<p class='question'>Question: \"" + quiz.question + "\"</p>";
     html += answerTag("A: ", quiz.answer_0, quiz.indexOfRightAnswer === 0);
@@ -53,9 +53,9 @@ displayQuiz = function (quiz) {
     const quizDiv = document.getElementById("quizDivId");
 
     quizDiv.innerHTML = html;
-};
+}
 
-displayNewQuiz = function(){
+function displayNewQuiz(){
 
     let index = Math.floor(Math.random() * quizzes.length);
 
@@ -67,4 +67,4 @@ displayNewQuiz = function(){
     currentQuizIndex = index;
 
     displayQuiz(quiz);
-};
+}

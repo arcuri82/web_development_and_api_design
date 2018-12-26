@@ -56,8 +56,6 @@ export const Home = () => {
                     client-side rendering based on URL change in the browser), or extend
                     your web application to also do server-side rendering (if your backend
                     can run JS).
-                    But as both solutions require configuring the server, we will look at them
-                    only later on in the course.
                 </p>
                 <p>
                     It is interesting to look at the resource <em>/doesNotExist</em>, which
@@ -77,18 +75,6 @@ export const Home = () => {
                     (as long as you enable server-side rendering).
                     Again, this is important for SEO and search engine web crawlers.
                 </p>
-            </div>
-
-
-            <div>
-                <h4>
-                    NPM Commands
-                </h4>
-                <ul>
-                    <li><strong>npm install webpack webpack-cli webpack-dev-server --save-dev</strong></li>
-                    <li><strong>npm install react react-dom react-router-dom</strong></li>
-                    <li><strong>npm install babel-core babel-loader babel-preset-react --save-dev</strong></li>
-                </ul>
             </div>
         </div>
     );

@@ -4,9 +4,7 @@ module.exports = {
     entry: './src/index.jsx',
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        libraryTarget: 'var',
-        library: 'EntryPoint'
+        path: path.resolve(__dirname, 'public')
     },
     module: {
         rules: [
@@ -23,6 +21,6 @@ module.exports = {
         extensions: ['.js', '.jsx']
     },
     devServer: {
-        contentBase: './dist'
+        contentBase: './public'
     }
 };

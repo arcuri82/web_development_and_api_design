@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Writing Unit Tests</title>
+
+</head>
+<body>
+
+<h2>
+    Dynamic Updates Based on Input Typing
+</h2>
+
+<p>
+    In this page, we enable the user to directly type a list of numeric
+    values separated by "," commas.
+    For example: 1, 3, -2.
+    Every time the array is changed, statistics like mean and max are recomputed.
+</p>
+
+<p>
+    Numeric values (separated by "," commas): <input id="inputId"/>
+</p>
+
+<ui>
+    <li>Min value: <span id="minId"></span></li>
+    <li>Max value: <span id="maxId"></span></li>
+    <li>Mean value: <span id="meanId"></span></li>
+    <li>Sum value: <span id="sumId"></span></li>
+</ui>
+
+
+<h2>
+    Writing Unit Tests
+</h2>
+
+<p>
+    We have a page that displays some information, and has some client-side updates based
+    on some business logic.
+    We want to make sure that such business logic is correct.
+    However, we do not want to rebuild the whole JS and fire up a browser each time we
+    do a modification to check if correct.
+    To address this problem, we will use <em>unit tests</em>.
+</p>
+
+<p>
+    A unit test will execute the function we want to check, and see if its output
+    does match the expected one.
+    If there is a mismatch, then the test will fail, and we know there is a bug.
+    Test cases are also very useful for <em>regression testing</em>: when you do modifications
+    in your code, you do not want to break any existing functionality.
+    So, before pushing your changes on Git, you could re-run all the tests to check if
+    any regression bug was introduced.
+</p>
+
+<p>
+    To run tests in JS, we use the popular library
+    <a href="https://jestjs.io/">Jest</a>.
+    The test will be executed by YARN (this needs to be configured in the <em>package.json</em> file).
+    There is one problem though: to run the tests, we need an environment that can execute JS code.
+    To do that, NodeJS (which is used for server-side JS) is automatically setup.
+    However, there are some differences between client-side (what we have done so far) and
+    server-side JS.
+    For example, the handling of JS modules is different.
+    In client-side JS, we use keywords like <em>import</em> and <em>export</em> which
+    would not be recognized in NodeJS.
+    To overcome this problem, we need to automatically modify our JS code before it is run
+    from the unit tests.
+    To do this, we use
+    <a href="https://babeljs.io/">Babel</a>, and tell Jest to apply it before running the
+    tests (this is done with the <em>babel-jest</em> library).
+    See its configuration file called <em>.babelrc</em>.
+    Also look at <em>scripts</em> and <em>jest</em> configurations in <em>package.json</em> file.
+</p>
+
+<script src="bundle.js"></script>
+<script>
+    /*
+       Note: we need to configure 'libraryTarget' and 'library' in
+       'webpack.config.js' to be able to access the bundle.js from the
+       HTML here.
+     */
+    EntryPoint.updatePage();
+</script>
+
+</body>
+</html>

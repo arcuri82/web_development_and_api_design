@@ -21,9 +21,6 @@ export class Cards extends React.Component {
 
         this.state = this.defaultState();
         this.startGame();
-
-        this.startGame = this.startGame.bind(this);
-        this.clickCard = this.clickCard.bind(this);
     }
 
     defaultState(){
@@ -35,9 +32,9 @@ export class Cards extends React.Component {
         };
     }
 
-    startGame() {
+    startGame = () => {
         this.setState(this.defaultState());
-    }
+    };
 
     render() {
         return (
@@ -159,7 +156,7 @@ export class Cards extends React.Component {
         );
     }
 
-    clickCard(index) {
+    clickCard = (index) => {
 
         if (this.state.secondChoice !== null) {
             //game is finished, nothing to do
@@ -179,7 +176,7 @@ export class Cards extends React.Component {
                 return {secondChoice: index};
             }
         });
-    }
+    };
 }
 
 

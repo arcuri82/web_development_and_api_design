@@ -1,14 +1,14 @@
 import {computeMax, computeMin, computeMean, computeSum} from "./my-math";
 
 
-export const validateInput = function (input) {
+export function validateInput(input) {
 
     if (typeof(input) !== 'string') {
         return false;
     }
 
     return input.match(/^\s*-?[0-9]+(\s*,\s*-?[0-9]+)*\s*$/) !== null;
-};
+}
 
 
 export function updatePage() {

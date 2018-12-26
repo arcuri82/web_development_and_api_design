@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Example of Single-Page Application Components with React</title>
+</head>
+<body>
+
+
+<!-- The dynamic components in React will be appended to this div -->
+<div id="root"></div>
+
+
+<h2>Important To Know</h2>
+
+<p>
+    To use React we need to import it as a library.
+    However, we no longer write JS, but rather JSX.
+    JSX is a format in which HTML and JS can be easily mixed together.
+    That is the reason why all the files now ends in <em>.jsx</em>
+    instead of <em>.js</em>.
+</p>
+
+<p>
+    The browser has no clue of JSX, and all these files need to be transformed
+    into JS before they can be used in a browser.
+    To do that, we need to instruct WebPack to use Babel with React preset when
+    building the <em>bundle.js</em> file.
+    Look at the configuration files <em>.babelrc</em> and <em>webpack.config.js</em>
+    to see what settings are needed to achieve it.
+    Meditate on the lack of comments there, and how it could have been helpful
+    to have them directly there where the different configuration settings are added.
+    Sorry, not going to write abominations like <em>"//": "..."</em>.
+</p>
+
+<p>
+    When you look at tutorials and examples online, you might notice that often
+    for JSX the file extension is <em>.js</em> instead of <em>.jsx</em>.
+    This does simplify some configuration settings (e.g., in WebPack), but I do not
+    like it. JSX is not JavaScript, and using <em>.js</em> would be confusing in
+    my opinion.
+</p>
+
+
+<script src="bundle.js"></script>
+
+</body>
+</html>
