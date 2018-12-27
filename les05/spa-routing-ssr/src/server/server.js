@@ -17,7 +17,7 @@ app.use((req, res) => {
     res.send(Renderer.serverSideRender(req.url));
 });
 
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
     console.log('Started server on port ' + port);

@@ -4,8 +4,9 @@ const WsHandler = require('./ws/ws-handler');
 const server = require('http').Server(app);
 WsHandler.start(server);
 
+const port = process.env.PORT || 8080;
 
-server.listen(process.env.PORT || 8080, () => {
-    console.log('Starting NodeJS server');
+server.listen(port, () => {
+    console.log('Started NodeJS server on port ' + port);
 });
 
