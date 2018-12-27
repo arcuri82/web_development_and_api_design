@@ -22,7 +22,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "jest": {
-    "testRegex": "tests/.*\\.test\\.(js|jsx)$",
+    "testRegex": "tests/.*-test\\.(js|jsx)$",
     "collectCoverageFrom": [
       "src/**.(js|jsx)"
     ]
