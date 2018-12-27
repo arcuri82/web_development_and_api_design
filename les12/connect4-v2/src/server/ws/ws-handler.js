@@ -1,7 +1,7 @@
 const socketIo = require('socket.io');
 const Tokens = require('./tokens');
-const ActivePlayers = require('../online/active_players');
-const OngoingMatches = require('../online/ongoing_matches');
+const ActivePlayers = require('../online/active-players');
+const OngoingMatches = require('../online/ongoing-matches');
 
 let io;
 

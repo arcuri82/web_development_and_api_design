@@ -15,22 +15,33 @@ class App extends React.Component {
         };
 
         this.socket = openSocket(window.location.origin);
-
-        this.onNameChange = this.onNameChange.bind(this);
-        this.onTextChange = this.onTextChange.bind(this);
-        this.sendMsg = this.sendMsg.bind(this);
-        this.fetchMessages = this.fetchMessages.bind(this);
     }
 
-    onNameChange(event) {
+    componentDidMount() {
+        this.fetchMessages();
+
+        this.socket.on('new message', msg => {
+            this.setState(
+                prev => {
+                    if(prev.messages === null){
+                        return {messages: [msg]};
+                    } else {
+                        return {messages: [...prev.messages, msg]};
+                    }
+                }
+            );
+        });
+    }
+
+    onNameChange = (event) => {
         this.setState({name: event.target.value});
-    }
+    };
 
-    onTextChange(event){
+    onTextChange = (event) => {
         this.setState({text: event.target.value});
-    }
+    };
 
-    async sendMsg(){
+    sendMsg = async () => {
 
         const url = "http://localhost:8080/api/messages";
 
@@ -58,27 +69,10 @@ class App extends React.Component {
 
         //reset text after sending a message
         this.setState({text: ""});
-    }
+    };
 
 
-    componentDidMount() {
-        this.fetchMessages();
-
-        this.socket.on('new message', msg => {
-            this.setState(
-                prev => {
-                    if(prev.messages === null){
-                        return {messages: [msg]};
-                    } else {
-                        return {messages: [...prev.messages, msg]};
-                    }
-                }
-            );
-        });
-    }
-
-
-    async fetchMessages(){
+    fetchMessages = async () => {
 
         let since = "";
         if(this.state.messages !== null && this.state.messages.length !== 0){
@@ -113,7 +107,7 @@ class App extends React.Component {
         } else {
             alert("Error when connecting to server: status code "+ response.status);
         }
-    }
+    };
 
 
     render() {

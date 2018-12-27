@@ -4,11 +4,9 @@ import { Link, withRouter } from "react-router-dom";
 class HeaderBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.doLogout = this.doLogout.bind(this);
   }
 
-  async doLogout() {
+  doLogout = async () => {
     const url = "/api/logout";
 
     let response;
@@ -27,7 +25,7 @@ class HeaderBar extends React.Component {
 
     this.props.updateLoggedInUserId(null);
     this.props.history.push("/");
-  }
+  };
 
   renderLoggedIn(userId) {
     return (

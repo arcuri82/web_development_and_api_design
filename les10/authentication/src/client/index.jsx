@@ -15,17 +15,11 @@ export class App extends React.Component {
         this.state = {
             userId: null
         };
-
-        this.updateLoggedInUserId = this.updateLoggedInUserId.bind(this);
     }
 
-    updateLoggedInUserId(userId) {
+    updateLoggedInUserId = (userId) => {
         this.setState({userId: userId});
-    }
-
-    isLoggedIn() {
-        return this.state.userId !== null;
-    }
+    };
 
     notFound() {
 

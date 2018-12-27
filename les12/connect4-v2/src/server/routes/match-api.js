@@ -1,8 +1,8 @@
 const express = require('express');
 
-const PlayerQueue = require('../online/player_queue');
-const ActivePlayers = require('../online/active_players');
-const OngoingMatches = require('../online/ongoing_matches');
+const PlayerQueue = require('../online/player-queue');
+const ActivePlayers = require('../online/active-players');
+const OngoingMatches = require('../online/ongoing-matches');
 
 const router = express.Router();
 

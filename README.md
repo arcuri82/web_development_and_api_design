@@ -34,7 +34,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 ## Lessons
 
-* **Lesson 01**: Intro to JavaScript, basic HTML/CSS and SPAs
+* **Lesson 01**: Intro to JavaScript and basic HTML/CSS
 
   Code in the [les01](les01) folder. Slides here: [PDF](docs/slides/lesson_01.pdf)  
 

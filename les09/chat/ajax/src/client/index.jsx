@@ -11,22 +11,26 @@ class App extends React.Component {
             text: "",
             messages: null
         };
-
-        this.onNameChange = this.onNameChange.bind(this);
-        this.onTextChange = this.onTextChange.bind(this);
-        this.sendMsg = this.sendMsg.bind(this);
-        this.fetchMessages = this.fetchMessages.bind(this);
     }
 
-    onNameChange(event) {
+    componentDidMount() {
+        this.fetchMessages();
+        this.interval = setInterval(() => this.fetchMessages(), 2000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    onNameChange = (event) => {
         this.setState({name: event.target.value});
-    }
+    };
 
-    onTextChange(event){
+    onTextChange = (event) => {
         this.setState({text: event.target.value});
-    }
+    };
 
-    async sendMsg(){
+    sendMsg = async () => {
 
         const url = "http://localhost:8080/api/messages";
 
@@ -54,19 +58,9 @@ class App extends React.Component {
 
         //reset text after sending a message
         this.setState({text: ""});
-    }
+    };
 
-
-    componentDidMount() {
-        this.fetchMessages();
-        this.interval = setInterval(() => this.fetchMessages(), 2000);
-    }
-
-    componentWillUnmount() {
-        clearInterval(this.interval);
-    }
-
-    async fetchMessages(){
+    fetchMessages = async () => {
 
         let since = "";
         if(this.state.messages !== null && this.state.messages.length !== 0){

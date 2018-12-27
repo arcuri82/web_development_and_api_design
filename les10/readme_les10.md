@@ -6,9 +6,9 @@ The application simulates a trivial Bank, in which you can
 open a new account and transfer money to someone else.
 
 
-The `malware` module has different example pages of malicious
+The `csrf` module has different example pages of malicious
 sites aimed at stealing money from Bank
-via CSRF.
+via CSRF (Cross-Site Request Forgery).
 To run these examples, you need:
 
 * Start `authentication` server.
@@ -24,12 +24,12 @@ To run these examples, you need:
 * On `B`, while still logged in, open the malware pages
   via a HTTP server. For example, in WebStorm, right-click
   on those HTML files and choose "Open in Browser".
-* You should verify that both `index_ajax.form.html` and
-  `index_ajax.form.html` do fail to steal money.
+* You should verify that both `index-ajax.form.html` and
+  `index-ajax.form.html` do fail to steal money.
   Check in the console logs that this is due to CORS.
-  However, `index_form_post.html` should manage to steal money.
+  However, `index_form-post.html` should manage to steal money.
   To see the stolen money, you will need to refresh the home
   page (and log in again) in both `A` and `B`.
-  On the other hand, `index_form_get.html` can display sensitive
+  On the other hand, `index-form-get.html` can display sensitive
   information, but such info cannot be read by JS (and so attacker
   cannot access it).

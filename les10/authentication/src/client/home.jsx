@@ -11,25 +11,21 @@ export class Home extends React.Component {
       balance: null,
       errorMsg: null
     };
-
-    this.transferMoney = this.transferMoney.bind(this);
-    this.onAmountToSendChange = this.onAmountToSendChange.bind(this);
-    this.onSendToChange = this.onSendToChange.bind(this);
   }
 
   componentDidMount() {
     this.updateBalance();
   }
 
-  onSendToChange(event) {
+  onSendToChange = (event) => {
     this.setState({ sendTo: event.target.value });
-  }
+  };
 
-  onAmountToSendChange(event) {
+  onAmountToSendChange = (event) => {
     this.setState({ amountToSend: event.target.value });
-  }
+  };
 
-  async transferMoney() {
+  transferMoney = async () => {
     if (this.props.userId === null || this.props.userId === undefined) {
       return;
     }

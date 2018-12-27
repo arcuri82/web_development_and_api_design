@@ -13,25 +13,21 @@ class SignUp extends React.Component {
       errorMsg: null
     };
 
-    this.onUserIdChange = this.onUserIdChange.bind(this);
-    this.onPasswordChange = this.onPasswordChange.bind(this);
-    this.onConfirmChange = this.onConfirmChange.bind(this);
-    this.doSignUp = this.doSignUp.bind(this);
   }
 
-  onUserIdChange(event) {
+  onUserIdChange = (event) => {
     this.setState({ userId: event.target.value, errorMsg: null });
-  }
+  };
 
-  onPasswordChange(event) {
+  onPasswordChange = (event) => {
     this.setState({ password: event.target.value, errorMsg: null });
-  }
+  };
 
-  onConfirmChange(event) {
+  onConfirmChange = (event) => {
     this.setState({ confirm: event.target.value, errorMsg: null });
-  }
+  };
 
-  async doSignUp() {
+  doSignUp = async () => {
     const { userId, password, confirm } = this.state;
 
     if (confirm !== password) {
@@ -74,7 +70,7 @@ class SignUp extends React.Component {
     this.setState({ errorMsg: null });
     this.props.updateLoggedInUserId(userId);
     this.props.history.push("/");
-  }
+  };
 
   render() {
     let error = <div />;

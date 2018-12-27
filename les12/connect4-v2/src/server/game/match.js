@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
 const BoardState = require('../../shared/board-state');
-const ActivePlayers = require('../online/active_players');
+const ActivePlayers = require('../online/active-players');
 
 /*
     Class used to represent a Match between two players.
