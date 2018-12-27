@@ -2,7 +2,7 @@
   "name": "spa-routing-index-404",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT",
+  "license": "LGPL-3.0",
   "scripts": {
     "build": "webpack --mode production",
     "start": "node src/server/server.js",

@@ -11,7 +11,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "LGPL-3.0",
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.0.2",

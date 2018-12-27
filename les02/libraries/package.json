@@ -10,7 +10,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "LGPL-3.0",
   "dependencies": {
     "lodash": "^4.17.10"
   },
