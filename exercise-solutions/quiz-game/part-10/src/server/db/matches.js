@@ -1,5 +1,5 @@
 const {reportEndOfMatch} = require("./users");
-const {quizzes} = require("./quizzes");
+const {getRandomQuizzes} = require("./quizzes");
 
 /**
  * Key -> User Id
@@ -20,24 +20,10 @@ function createMatch(userId, numberOfQuizzes) {
     const id = counter;
     counter++;
 
-    const selection = Array(numberOfQuizzes);
-
-    let i = 0;
-    while (i < numberOfQuizzes) {
-
-        const k = Math.floor(quizzes.length * Math.random());
-        if (k in selection) {
-            continue;
-        }
-
-        selection[i] = k;
-        i++;
-    }
-
     const match = {
         id: id,
         current: 0,
-        quizzes: Array.from(selection).map(e => quizzes[e]),
+        quizzes: getRandomQuizzes(numberOfQuizzes),
         victory: false,
         defeat: false
     };

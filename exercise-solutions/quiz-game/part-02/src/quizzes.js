@@ -52,7 +52,7 @@ const quizzes = [
 ];
 
 
-function getRandomQuizzes(numberOfQuizzes){
+export function getRandomQuizzes(numberOfQuizzes){
 
     if(numberOfQuizzes < 1){
         throw "Invalid number of requested quizzes: " + n;
@@ -80,4 +80,3 @@ function getRandomQuizzes(numberOfQuizzes){
 }
 
 
-module.exports = {getRandomQuizzes};

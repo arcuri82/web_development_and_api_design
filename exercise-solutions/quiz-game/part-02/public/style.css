@@ -1,0 +1,28 @@
+html, body {
+    margin: 0px;
+    background-color: rgb(243, 239, 231);
+    color: rgb(71, 53, 25);
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.gameBtn {
+    height: 50px;
+    background-color: rgb(207, 205, 200);
+    font-size: 1em;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.question {
+    display: inline-block;
+    font-size: 1em;
+    font-weight: bold;
+}

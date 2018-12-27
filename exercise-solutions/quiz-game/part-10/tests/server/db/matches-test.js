@@ -5,7 +5,7 @@ const Matches = require('../../../src/server/db/matches');
 
 beforeEach(() => {Users.resetAllUsers();});
 
-test("Test get single quiz", async () =>{
+test("Test get single quiz", () =>{
 
     const  id = "foo";
     Users.createUser(id, "123");
