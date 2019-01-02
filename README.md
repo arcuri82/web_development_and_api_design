@@ -5,7 +5,7 @@
 
 ## Summary
 
-This repository contains all the material used in the PG6300 course 
+This repository contains all the material used in the PG6301 course 
 on *Web Development and API Design*, taught at 
 the university college [Høyskolen Kristiania](https://kristiania.no/), Oslo, Norway.
 
