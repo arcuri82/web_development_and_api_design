@@ -140,7 +140,7 @@ are still missing (e.g., PDFs of slides and exercises).
 * [WebPack](https://webpack.js.org)
 * [Babel](https://babeljs.io/)
 * [Loadash](https://lodash.com)
-* [React](https://reactjs.org):
+* [React](https://reactjs.org)
 * [React-Router](https://reacttraining.com/react-router)
 * [Jest](https://github.com/facebook/jest)
 * [Enzyme](https://github.com/airbnb/enzyme)
