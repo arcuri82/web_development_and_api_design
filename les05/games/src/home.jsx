@@ -13,7 +13,6 @@ export const Home = () => {
 
             <ul>
                 <li><Link to={"/silly"}>Silly</Link></li>
-                <li><Link to={"/quiz"}>Quiz</Link></li>
                 <li><Link to={"/cards"}>Cards</Link></li>
             </ul>
         </div>
