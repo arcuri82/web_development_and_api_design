@@ -7,16 +7,7 @@ export class Home extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        if(this.props.user) {
-            this.props.fetchAndUpdateUserInfo();
-        }
-    }
-
     render() {
-        const user = this.props.user;
-        const loggedIn = user !== null && user !== undefined;
-
         return (
             <div>
                 <div>
@@ -31,22 +22,13 @@ export class Home extends React.Component {
                     </p>
                 </div>
 
-
-                {loggedIn ? (
-                    <div>
-                        <div className="btnPart">
-                            <Link to={"/match"} className={"btn"}>
-                                Play
-                            </Link>
-                        </div>
-                        <p>Victories: {user.victories}</p>
-                        <p>Defeats: {user.defeats}</p>
+                <div>
+                    <div className="btnPart">
+                        <Link to={"/match"} className={"btn"}>
+                            Play
+                        </Link>
                     </div>
-                ) : (
-                    <p>
-                        You need to log-in to start playing!
-                    </p>
-                )}
+                </div>
 
             </div>
         );
