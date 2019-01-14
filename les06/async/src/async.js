@@ -6,8 +6,17 @@ const executeCallBack = function(callback){
     setTimeout(callback, 1);
 };
 
-function sleep(ms) {
 
+function sleep(ms) {
+    /*
+        To create a Promise, we need to give it as input a function.
+        Such function will take two inputs from the Promise: a function "resolve",
+        and a function "reject".
+        The Promise is successfully completed when "resolve()" is called.
+        On the other hand, it fails when "reject()" is called.
+        In this example, it never fails, and we schedule the execution of the function "resolve()"
+        after ms milliseconds.
+     */
     return new Promise( (resolve, reject) => setTimeout(resolve, ms));
 }
 

@@ -66,14 +66,14 @@ export class Forecast extends React.Component {
         return (
             <div>
                 <h3>Search Forecast for a Norwegian City</h3>
-                <form onSubmit={this.onFormSubmit}>
-                    <input
+                <form id='formId' onSubmit={this.onFormSubmit}>
+                    <input id={'formInputId'}
                         placeholder="Get a five-day forecast in a Norwegian City"
                         className="form-control"
                         value={this.state.term}
                         onChange={this.onInputChange}
                     />
-                    <button className="submitBtn" type="submit">Submit</button>
+                    <button id='submitBtnId' className="submitBtn" type="submit">Submit</button>
                 </form>
                 {msg}
                 {forecast}
