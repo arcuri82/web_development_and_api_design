@@ -8,7 +8,7 @@ export function validateInput(input) {
     }
 
     /*
-        JS regular expression are inside / /
+        JS regular expressions are inside / /
         ^: match beginning of the string
         $: match end of the string
         \s: empty space
@@ -16,7 +16,7 @@ export function validateInput(input) {
         ?: optional (0 or 1)
         -?: the character '-' is optional
         [0-9]: any single digit between 0 and 9
-        [0-9]+: 1 or more digits, so a number
+        [0-9]+: 1 or more digits, ie a number
         \s*,\s*: any number of spaces, then a ',', followed by any number of spaces
         (\s*,\s*-?[0-9]+)*:  the match (comma ',' followed by a number, with possibly spaces)
                              repeated 0, 1 or more times
