@@ -7,6 +7,22 @@ export function validateInput(input) {
         return false;
     }
 
+    /*
+        JS regular expression are inside / /
+        ^: match beginning of the string
+        $: match end of the string
+        \s: empty space
+        \s*: any number of empty spaces (0, 1 or more)
+        ?: optional (0 or 1)
+        -?: the character '-' is optional
+        [0-9]: any single digit between 0 and 9
+        [0-9]+: 1 or more digits, so a number
+        \s*,\s*: any number of spaces, then a ',', followed by any number of spaces
+        (\s*,\s*-?[0-9]+)*:  the match (comma ',' followed by a number, with possibly spaces)
+                             repeated 0, 1 or more times
+        \s*$: string ends with any number of spaces (0, 1 or more)
+     */
+
     return input.match(/^\s*-?[0-9]+(\s*,\s*-?[0-9]+)*\s*$/) !== null;
 }
 
