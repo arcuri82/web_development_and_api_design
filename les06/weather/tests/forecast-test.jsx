@@ -115,11 +115,10 @@ test("Test fetch and render weather", async () => {
     await flushPromises();
 
     const html = driver.html();
-    console.log(html);
 
     //here we just check those values do appear somewhere in the updated HTML
-    expect(html.includes(city)).toBe(true);
-    expect(html.includes(temp)).toBe(true);
-    expect(html.includes(weather)).toBe(true);
-    expect(html.includes(time)).toBe(true);
+    expect(html).toMatch(city);
+    expect(html).toMatch(temp);
+    expect(html).toMatch(weather);
+    expect(html).toMatch(time);
 });
