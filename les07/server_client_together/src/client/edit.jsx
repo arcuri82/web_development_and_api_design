@@ -26,7 +26,7 @@ export class Edit extends React.Component{
 
     async fetchBook(){
 
-        const url = "/books/" + this.bookId;
+        const url = "/api/books/" + this.bookId;
 
         let response;
         let payload;
@@ -59,7 +59,7 @@ export class Edit extends React.Component{
 
     onOk = async (author, title, year, id) => {
 
-        const url = "http://localhost:8081/books/"+id;
+        const url = "/api/books/"+id;
 
         const payload = {id, author, title, year};
 

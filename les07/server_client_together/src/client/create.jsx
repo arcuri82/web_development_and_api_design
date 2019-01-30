@@ -9,7 +9,7 @@ export class Create extends React.Component{
 
     onOk = async (author, title, year, bookId) => {
 
-        const url = "/books";
+        const url = "/api/books";
 
         //note: here bookId is ignored
         const payload = {author, title, year};

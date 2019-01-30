@@ -6,7 +6,7 @@ beforeEach(() => {rep.initWithSomeBooks();});
 
 test("Test get all", async () =>{
 
-    const response = await request(app).get('/books');
+    const response = await request(app).get('/api/books');
 
     expect(response.statusCode).toBe(200);
     expect(response.body.length).toBe(5);
@@ -15,14 +15,14 @@ test("Test get all", async () =>{
 
 test("Test not found book", async () => {
 
-    const response = await request(app).get('/books/-3');
+    const response = await request(app).get('/api/books/-3');
     expect(response.statusCode).toBe(404);
 });
 
 
 test("Test retrieve each single book", async () => {
 
-    const responseAll = await request(app).get('/books');
+    const responseAll = await request(app).get('/api/books');
     expect(responseAll.statusCode).toBe(200);
 
     const books = responseAll.body;
@@ -30,7 +30,7 @@ test("Test retrieve each single book", async () => {
 
     for(let i=0; i<books.length; i++){
 
-        const res = await request(app).get('/books/'+books[i].id);
+        const res = await request(app).get('/api/books/'+books[i].id);
         const book = res.body;
 
         expect(book.title).toBe(books[i].title)
@@ -40,13 +40,13 @@ test("Test retrieve each single book", async () => {
 
 test("Test create book", async () => {
 
-    let responseAll = await request(app).get('/books');
+    let responseAll = await request(app).get('/api/books');
     const n = responseAll.body.length;
 
     const title = "foo";
 
     const resPost = await request(app)
-        .post('/books')
+        .post('/api/books')
         .send({title:title, author:"bar", year: 2018})
         .set('Content-Type', 'application/json');
 
@@ -54,7 +54,7 @@ test("Test create book", async () => {
     const location = resPost.header.location;
 
     //should had been increased by 1
-    responseAll = await request(app).get('/books');
+    responseAll = await request(app).get('/api/books');
     expect(responseAll.body.length).toBe(n + 1);
 
     const resGet = await request(app).get(location);
@@ -65,7 +65,7 @@ test("Test create book", async () => {
 
 test("Delete all books", async () =>{
 
-    let responseAll = await request(app).get('/books');
+    let responseAll = await request(app).get('/api/books');
     expect(responseAll.statusCode).toBe(200);
 
     const books = responseAll.body;
@@ -73,11 +73,11 @@ test("Delete all books", async () =>{
 
     for(let i=0; i<books.length; i++){
 
-        const res = await request(app).delete('/books/'+books[i].id);
+        const res = await request(app).delete('/api/books/'+books[i].id);
         expect(res.statusCode).toBe(204);
     }
 
-    responseAll = await request(app).get('/books');
+    responseAll = await request(app).get('/api/books');
     expect(responseAll.statusCode).toBe(200);
     expect(responseAll.body.length).toBe(0);
 });
@@ -89,7 +89,7 @@ test("Update book", async () => {
 
     //create a book
     const resPost = await request(app)
-        .post('/books')
+        .post('/api/books')
         .send({title:title, author:"bar", year: 2018})
         .set('Content-Type', 'application/json');
     expect(resPost.statusCode).toBe(201);

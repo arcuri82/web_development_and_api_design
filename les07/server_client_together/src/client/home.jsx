@@ -20,7 +20,7 @@ export class Home extends React.Component {
 
     async fetchBooks() {
 
-        const url = "/books";
+        const url = "/api/books";
 
         let response;
         let payload;
@@ -52,7 +52,7 @@ export class Home extends React.Component {
 
     deleteBook = async (id) => {
 
-        const url = "http://localhost:8081/books/" + id;
+        const url = "/api/books/" + id;
 
         let response;
 

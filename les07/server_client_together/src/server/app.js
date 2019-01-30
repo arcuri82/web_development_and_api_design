@@ -1,6 +1,8 @@
 const express = require('express');
 const repository = require("./repository");
 const bodyParser = require('body-parser');
+const path = require('path');
+
 const app = express();
 
 //to handle JSON payloads
@@ -11,7 +13,7 @@ app.use(bodyParser.json());
     Can filter by publication year using the query parameter "since".
     The books will be returned as a list of JSON objects.
  */
-app.get('/books', (req, res) => {
+app.get('/api/books', (req, res) => {
 
     /*
         Read the query parameters, if any, eg:
@@ -32,7 +34,7 @@ app.get('/books', (req, res) => {
     Here we return a specific book with a specific id, eg
     "http://localhost:8080/books/42"
  */
-app.get('/books/:id', (req, res) => {
+app.get('/api/books/:id', (req, res) => {
 
     const book = repository.getBook(req.params["id"]);
 
@@ -53,7 +55,7 @@ app.get('/books/:id', (req, res) => {
 /*
     Handle HTTP DELETE request on a book specified by id
  */
-app.delete('/books/:id', (req, res) => {
+app.delete('/api/books/:id', (req, res) => {
 
     const deleted = repository.deleteBook(req.params.id);
     if (deleted) {
@@ -70,14 +72,14 @@ app.delete('/books/:id', (req, res) => {
     Such method should return the "location" header telling
     where such book can be retrieved (ie its URL)
  */
-app.post('/books', (req, res) => {
+app.post('/api/books', (req, res) => {
 
     const dto = req.body;
 
     const id = repository.createNewBook(dto.title, dto.author, dto.year);
 
     res.status(201); //created
-    res.header("location", "/books/" + id);
+    res.header("location", "/api/books/" + id);
     res.send();
 });
 
@@ -86,7 +88,7 @@ app.post('/books', (req, res) => {
     Handle PUT request, which completely replace the resource
     with a new one
  */
-app.put('/books/:id', (req, res) => {
+app.put('/api/books/:id', (req, res) => {
 
     if(req.params.id !== req.body.id){
         res.status(409);
@@ -103,6 +105,22 @@ app.put('/books/:id', (req, res) => {
         res.status(404);
     }
     res.send();
+});
+
+/*
+    requests for API should return 404 if not previously handled,
+    and not index.html
+ */
+app.all('/api*', (req,res) => {
+    res.status(404);
+    res.send();
+});
+
+
+app.use(express.static('public'));
+
+app.use((req, res, next) => {
+    res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'index.html'));
 });
 
 
