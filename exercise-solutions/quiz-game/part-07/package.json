@@ -1,12 +1,14 @@
 {
-  "name": "part-06",
+  "name": "part-07",
   "version": "1.0.0",
   "main": "index.js",
   "repository": {},
   "license": "LGPL-3.0",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "webpack-dev-server --open --mode development",
+    "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"",
+    "watch:client": "webpack --watch --mode development",
+    "watch:server": "nodemon src/server/server.js --watch src/server --watch public/bundle.js",
     "build": "webpack --mode production",
     "start": "node src/server/server.js"
   },

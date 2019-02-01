@@ -23,3 +23,29 @@ test("Test failed fetch", async () => {
     //here we just check it appears somewhere in the updated HTML
     expect(html).toMatch("Issue");
 });
+
+
+test("Test display 1 book", async () => {
+
+    const title = "The Hitchhiker's Guide to the Galaxy";
+
+    stubFetch(
+        200,
+        [{id:0, title: title, year: 1979, author: "Douglas Adams"}],
+        (url) => url.endsWith("/api/books")
+    );
+
+
+    const driver = mount(
+        <MemoryRouter initialEntries={["/home"]}>
+            <Home/>
+        </MemoryRouter>
+    );
+
+    await flushPromises();
+
+    const html = driver.html();
+
+    //here we just check it appears somewhere in the updated HTML
+    expect(html).toMatch(title);
+});
