@@ -1,4 +1,4 @@
-export const quizzes = [
+const quizzes = [
     {
         question: "What kind of language is JavaScript?",
         answers: [
@@ -57,7 +57,7 @@ export const quizzes = [
 ];
 
 
-export function getRandomQuizzes(numberOfQuizzes){
+function getRandomQuizzes(numberOfQuizzes){
 
     if(numberOfQuizzes < 1){
         throw "Invalid number of requested quizzes: " + n;
@@ -85,3 +85,4 @@ export function getRandomQuizzes(numberOfQuizzes){
 }
 
 
+module.exports = {quizzes, getRandomQuizzes};

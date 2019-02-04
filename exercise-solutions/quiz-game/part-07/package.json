@@ -27,7 +27,9 @@
     "react-addons-test-utils": "^15.6.2",
     "webpack": "^4.16.2",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
   },
   "dependencies": {
     "react": "^16.4.2",

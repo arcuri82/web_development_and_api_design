@@ -1,8 +1,5 @@
 import React from "react";
 
-import {getRandomQuizzes} from './quizzes';
-
-
 export class Match extends React.Component {
     constructor(props) {
         super(props);
@@ -41,6 +38,30 @@ export class Match extends React.Component {
         );
 
     };
+
+    getRandomQuizzes = async (numberOfQuizzes) => {
+        if (numberOfQuizzes < 1) {
+            throw "Invalid number of requested quizzes: " + n;
+        }
+
+        const url = "/api/matches";
+        let response;
+        let payload;
+
+        try {
+            response = await fetch(url, {method: "post"});
+            payload = await response.json();
+        } catch (err) {
+            return null;
+        }
+
+        if (response.status !== 201) {
+            return null;
+        }
+
+        return payload;
+    };
+
 
     handleClick = (correct) => {
         if (correct) {

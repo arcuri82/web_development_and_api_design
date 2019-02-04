@@ -1,4 +1,4 @@
-const {getRandomQuizzes} = require("../../src/client/quizzes");
+const {getRandomQuizzes} = require("../../src/server/db/quizzes");
 
 
 test("Test invalid n", () =>{
