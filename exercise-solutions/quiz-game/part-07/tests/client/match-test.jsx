@@ -2,6 +2,9 @@ const React = require('react');
 const {mount} = require('enzyme');
 const {Match} = require("../../src/client/match");
 const {quizzes} = require("../../src/server/db/quizzes");
+const {stubFetch, flushPromises} = require('./mytest-utils');
+
+
 
 function checkQuizIsDisplayed(driver) {
 
