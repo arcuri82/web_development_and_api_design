@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
 
-const {matchApi} = require('./routes/match-api');
+const matchApi = require('./routes/match-api');
 
 const app = express();
 

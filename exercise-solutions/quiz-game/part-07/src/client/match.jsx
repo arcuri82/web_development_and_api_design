@@ -17,7 +17,7 @@ export class Match extends React.Component {
     startNewMatch = async () => {
 
         //because getRandomQuizzes is async, it does return a Promise we can await on
-        const quizzes = await getRandomQuizzes(3);
+        const quizzes = await this.getRandomQuizzes(3);
 
         this.setState(
             quizzes === null ?
