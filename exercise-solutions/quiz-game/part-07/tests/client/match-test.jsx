@@ -2,20 +2,18 @@ const React = require('react');
 const {mount} = require('enzyme');
 const {Match} = require("../../src/client/match");
 const {quizzes} = require("../../src/server/db/quizzes");
-const {stubFetch, flushPromises} = require('./mytest-utils');
+const {overrideFetch, asyncCheckCondition} = require('./mytest-utils');
+const app = require('../../src/server/app');
 
 
 
-function checkQuizIsDisplayed(driver) {
+function isQuizDisplayed(driver) {
 
     const quiz = driver.find('.quiz');
-    expect(quiz.length).toEqual(1);
-
     const questions = driver.find('.question');
-    expect(questions.length).toEqual(1);
-
     const answers = driver.find('.gameBtn');
-    expect(answers.length).toEqual(4);
+
+    return quiz.length === 1 && questions.length === 1 && answers.length === 4;
 }
 
 function getDisplayedQuiz(driver) {
@@ -28,18 +26,35 @@ function getDisplayedQuiz(driver) {
     return quiz;
 }
 
-test("Test rendered quiz", () => {
+async function waitForQuizDisplayed(driver){
+
+    const displayed = await asyncCheckCondition(()=>{
+        driver.update();
+        return isQuizDisplayed(driver);
+    }, 2000 ,200);
+
+    return displayed;
+}
+
+test("Test rendered quiz", async () => {
+
+    overrideFetch(app);
 
     const driver = mount(<Match/>);
-    checkQuizIsDisplayed(driver);
+
+    const displayed = await waitForQuizDisplayed(driver);
+
+    expect(displayed).toEqual(true);
 });
 
 
-test("Test do answer wrongly", () => {
+test("Test do answer wrongly", async () => {
+
+    overrideFetch(app);
 
     const driver = mount(<Match/>);
 
-    checkQuizIsDisplayed(driver);
+    await waitForQuizDisplayed(driver);
 
     const quiz = getDisplayedQuiz(driver);
     const wrong = (quiz.indexOfRightAnswer + 1) % 4;
@@ -56,11 +71,13 @@ test("Test do answer wrongly", () => {
 
 
 
-test("Test do answer correctly", () => {
+test("Test do answer correctly", async () => {
+
+    overrideFetch(app);
 
     const driver = mount(<Match/>);
 
-    checkQuizIsDisplayed(driver);
+    await waitForQuizDisplayed(driver);
 
     const quiz = getDisplayedQuiz(driver);
     const correct = quiz.indexOfRightAnswer ;
@@ -75,21 +92,32 @@ test("Test do answer correctly", () => {
     expect(won).toEqual(false);
 
     //game still on
-    checkQuizIsDisplayed(driver);
+    const displayed = await waitForQuizDisplayed(driver);
+    expect(displayed).toEqual(true);
 });
 
-test("Test win match", () => {
+test("Test win match", async () => {
+
+    overrideFetch(app);
 
     const driver = mount(<Match/>);
 
-    for(let i=0; i<3; i++) {
-        checkQuizIsDisplayed(driver);
+    await waitForQuizDisplayed(driver);
 
+    for(let i=0; i<3; i++) {
         const quiz = getDisplayedQuiz(driver);
         const correct = quiz.indexOfRightAnswer;
 
         const first = driver.find('.gameBtn').at(correct);
         first.simulate('click');
+
+        driver.update();
+        /*
+            Note: to be precise, here we should wait until a new Quiz
+            is displayed, or the Win/Lose page.
+            However, as those do not require any async operation in the app,
+            then we should still be fine in this case even without an explicit wait
+         */
     }
 
     const lost = driver.html().includes("Lost");

@@ -11,4 +11,6 @@ adding
 
 Move quizzes.js to server, but the one from Les05
 
-connection to REST to get quizzes    
+connection to REST to get quizzes
+
+tests: leave open what kind of tests to add    
