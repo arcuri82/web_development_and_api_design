@@ -91,7 +91,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 <br />
 
-* **Lesson 08**: GraphQL APIs
+* **Lesson 08**: Authentication and CSRF 
 
   Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
@@ -107,7 +107,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 <br />
 
-* **Lesson 10**: Authentication and CSRF
+* **Lesson 10**: Online Multi-Player Game
 
   Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
@@ -116,7 +116,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 <br />
 
-* **Lesson 11**: JWT/OAuth and XSS
+* **Lesson 11**: GraphQL APIs
 
   Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
    
@@ -125,11 +125,8 @@ are still missing (e.g., PDFs of slides and exercises).
 
 <br />
 
-* **Lesson 12**: Online Multi-Player Game
+* **Lesson 12**: Revision
 
-  Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)
-
-  Exercises: [quiz-game-part-12](docs/exercises/quiz-game/part-12.md)
 
 ## Useful Links
 
