@@ -43,7 +43,7 @@ next exercises.
 Add at least one test for your REST API using the `SuperTest` library.    
 Update all your frontend tests in a way that, when they need to do a `fetch` to the 
 backend, then they should use `SuperTest` to connect to the backend (i.e., by using the utils
-shown in class to define behavior of `fetch` when running tests in the backend).
+shown in class to define behavior of `fetch` when running tests in NodeJS).
 Add enough tests to obtain an overall statement coverage of at least 70%.
 
 
