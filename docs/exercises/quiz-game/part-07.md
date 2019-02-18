@@ -29,6 +29,9 @@ All these tools need to be added as `devDependencies`.
 In your backend, you need to write a REST API to deal with quizzes. Given a list of existing
 quizzes, at this point you just need to have a `POST` endpoint dealing with the selection
 and retrieval of a random sample of quizzes (e.g., 3).
+When in the frontend React app you need to start a new match, you will need to connect
+to the REST API to get a random sample of quizzes for such match.
+
 
 Note 0: that most of the code you had in the frontend in `quizze.js` will now need to be
 moved to the backend (e.g., the list of existing quizzes).
@@ -38,12 +41,11 @@ There are valid arguments for both options. We are not always "getting" the same
 quizzes, but rather we "create" a sample (which we can directly return in the payload of the `POST`
 response). Another option could be to create the sample as its own "resource", with the `POST` doing
 a 302 redirection to it. 
-If instead we go directly for a `GET` endpoint, then we need to make sure to properly handle its _caching_.
+If instead we go directly for a `GET` endpoint, then we need to make sure to properly handle its
+ proper lack of _caching_.
 
-When in the frontend React app you need to start a new match, you will need to connect
-to the REST API to get a random sample of quizzes for such match.
 
-Note: at this point, it is still easy to cheat, as the JSON you get back would still
+Note 2: at this point, it is still easy to cheat, as the JSON you get back would still
 need to contain the indices of the right answers (and a user could just use the Developer
 Tools in the browser to read such values). We will deal with this problem in the 
 next exercises. 
