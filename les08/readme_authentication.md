@@ -21,13 +21,15 @@ To run these examples, you need:
   account with a username of your choice.
   Note: it is important to use a different browser to not
   share authentication cookies.
-* On `B`, while still logged in, open the malware pages
+* On `B`, while still logged in, open the CSRF pages
   via a HTTP server. For example, in WebStorm, right-click
   on those HTML files and choose "Open in Browser".
-* You should verify that both `index-ajax.form.html` and
-  `index-ajax.form.html` do fail to steal money.
+* You should verify that both `index-ajax-json.html` 
+   does fail to steal money.
   Check in the console logs that this is due to CORS.
-  However, `index_form-post.html` should manage to steal money.
+  However, `index-form-post.html` and `index-ajax-form.html` should manage to steal money.
+  (Note: in the past, old browsers preflighted all AJAX requests, so 
+  `index-ajax-form.html` was blocked.)
   To see the stolen money, you will need to refresh the home
   page (and log in again) in both `A` and `B`.
   On the other hand, `index-form-get.html` can display sensitive

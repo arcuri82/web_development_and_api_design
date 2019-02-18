@@ -11,10 +11,9 @@ const Repository = require('./repository');
 const app = express();
 
 /*
-    We use an environment variable to decide if allowing all origins
-    or not
+   Note: this could be controlled with an environmental variable
  */
-if(process.env.CORS){
+if(false){
     console.log("Using CORS to allow all origins");
     app.use(cors());
 

@@ -63,7 +63,7 @@ export class Home extends React.Component {
     }
 
     this.updateBalance();
-  }
+  };
 
   async updateBalance() {
     const url = "/api/user";

@@ -26,7 +26,7 @@
 
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState === XMLHttpRequest.DONE) {
-                    if (xmlhttp.status === 200) {
+                    if (xmlhttp.status === 200 || xmlhttp.status === 302) {
                         alert("Thank you!!! I just stole your money...");
                     } else {
                         alert("Damn... I tried to steal your money but something went wrong");
