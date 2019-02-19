@@ -33,7 +33,7 @@ When in the frontend React app you need to start a new match, you will need to c
 to the REST API to get a random sample of quizzes for such match.
 
 
-Note 0: that most of the code you had in the frontend in `quizze.js` will now need to be
+Note 0: most of the code you had in the frontend in `quizze.js` will now need to be
 moved to the backend (e.g., the list of existing quizzes).
 
 Note 1: it could be argued that the endpoint could be a `GET` instead of a `POST`.
