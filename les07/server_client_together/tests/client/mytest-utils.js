@@ -44,18 +44,24 @@ function stubFetch(
  */
 function overrideFetch(app){
 
+    const agent = request.agent(app);
+
     global.fetch = async (url, init) => {
 
         let response;
 
         if(!init || !init.method || init.method.toUpperCase() === "GET"){
-            response = await request(app).get(url);
+            response = await agent.get(url);
         } else if(init.method.toUpperCase() === "POST"){
-            response = await request(app).post(url);
+            response = await agent.post(url)
+                .send(init.body)
+                .set('Content-Type', init.headers ? init.headers['Content-Type'] : "application/json");
         } else if(init.method.toUpperCase() === "PUT"){
-            response = await request(app).put(url);
+            response = await agent.put(url)
+                .send(init.body)
+                .set('Content-Type', init.headers ? init.headers['Content-Type'] : "application/json");
         } else if(init.method.toUpperCase() === "DELETE"){
-            response = await request(app).delete(url);
+            response = await agent.delete(url);
         } else {
             throw "Unhandled HTTP method: " + init.method;
         }

@@ -24,4 +24,6 @@ adding
 
 update app.js with passport
 
+fix tests with signup
+
 Solutions to this exercise can be found under the *exercise-solutions* folder. 

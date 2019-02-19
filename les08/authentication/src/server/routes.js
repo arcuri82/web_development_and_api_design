@@ -1,4 +1,4 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 
@@ -35,7 +35,7 @@ router.post('/api/signup', function(req, res){
                 return next(err);
             }
 
-            res.status(204).send();
+            res.status(201).send();
         });
     });
 });

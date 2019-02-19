@@ -59,7 +59,7 @@ class SignUp extends React.Component {
       return;
     }
 
-    if (response.status !== 204) {
+    if (response.status !== 201) {
       this.setState({
         errorMsg:
           "Error when connecting to server: status code " + response.status
