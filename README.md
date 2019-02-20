@@ -44,7 +44,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 02**: Build Tools and Unit Testing
 
-  Code in the [les02](les02) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les02](les02) folder. Slides here: [PDF](docs/slides/lesson_02.pdf)  
    
   Exercises: [quiz-game-part-02](docs/exercises/quiz-game/part-02.md)
   
@@ -52,7 +52,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 03**: SPA Components
 
-  Code in the [les03](les03) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les03](les03) folder. Slides here: [PDF](docs/slides/lesson_03.pdf)  
    
   Exercises: [quiz-game-part-03](docs/exercises/quiz-game/part-03.md)
 
@@ -60,7 +60,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 04**: SPA State Handling
 
-  Code in the [les04](les04) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les04](les04) folder. Slides here: [PDF](docs/slides/lesson_04.pdf)  
    
   Exercises: [quiz-game-part-04](docs/exercises/quiz-game/part-04.md)
 
@@ -68,7 +68,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 05**: SPA Routing
 
-  Code in the [les05](les05) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les05](les05) folder. Slides here: [PDF](docs/slides/lesson_05.pdf)  
    
   Exercises: [quiz-game-part-05](docs/exercises/quiz-game/part-05.md)
 
@@ -76,7 +76,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 06**: Async Calls to Web Services
 
-  Code in the [les06](les06) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les06](les06) folder. Slides here: [PDF](docs/slides/lesson_06.pdf)  
    
   Exercises: [quiz-game-part-06](docs/exercises/quiz-game/part-06.md)
 
@@ -85,7 +85,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 07**: RESTful APIs
 
-  Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_07.pdf)  
    
   Exercises: [quiz-game-part-07](docs/exercises/quiz-game/part-07.md)
 
@@ -93,7 +93,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 08**: Authentication and CSRF 
 
-  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_08.pdf)  
    
   Exercises: [quiz-game-part-08](docs/exercises/quiz-game/part-08.md)
 
@@ -101,7 +101,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 09**: WebSockets
 
-  Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_09.pdf)  
    
   Exercises: [quiz-game-part-09](docs/exercises/quiz-game/part-09.md)
 
@@ -109,7 +109,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 10**: Online Multi-Player Game
 
-  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_10.pdf)  
    
   Exercises: [quiz-game-part-10](docs/exercises/quiz-game/part-10.md)
     
@@ -118,7 +118,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 * **Lesson 11**: GraphQL APIs
 
-  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_0.pdf)  
+  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_11.pdf)  
    
   Exercises: [quiz-game-part-11](docs/exercises/quiz-game/part-11.md)
 
