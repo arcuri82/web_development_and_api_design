@@ -24,14 +24,15 @@ To run these examples, you need:
 * On `B`, while still logged in, open the CSRF pages
   via a HTTP server. For example, in WebStorm, right-click
   on those HTML files and choose "Open in Browser".
-* You should verify that both `index-ajax-json.html` 
+* You should verify that `index-ajax-post-json.html` 
    does fail to steal money.
   Check in the console logs that this is due to CORS.
-  However, `index-form-post.html` and `index-ajax-form.html` should manage to steal money.
-  (Note: in the past, old browsers preflighted all AJAX requests, so 
-  `index-ajax-form.html` was blocked.)
+  However, `index-form-post.html` and `index-ajax-post-form.html` should manage to steal money.
   To see the stolen money, you will need to refresh the home
   page (and log in again) in both `A` and `B`.
   On the other hand, `index-form-get.html` can display sensitive
   information, but such info cannot be read by JS (and so attacker
   cannot access it).
+  In `index-ajax-get.html`, the AJAX GET request will be made, but then
+  JS will not be able to read the response, not even the status code (which
+  will get a 0 default value).
