@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage",
-    "dev": "webpack --mode development && npm run start",
+    "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"",
+    "watch:client": "webpack --watch --mode development",
+    "watch:server": "nodemon src/server/server.js --watch src/server --watch public/bundle.js",
     "build": "webpack --mode production",
     "start": "node src/server/server.js"
   },
@@ -27,7 +29,9 @@
     "react-addons-test-utils": "^15.6.2",
     "webpack": "^4.16.4",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "webpack-dev-server": "^3.1.5",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.9"
   },
   "dependencies": {
     "express": "^4.16.3",
