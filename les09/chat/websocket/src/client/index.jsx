@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import openSocket from 'socket.io-client';
 
 
 class App extends React.Component {
@@ -14,13 +13,18 @@ class App extends React.Component {
             messages: null
         };
 
-        this.socket = openSocket(window.location.origin);
+
     }
 
     componentDidMount() {
         this.fetchMessages();
 
-        this.socket.on('new message', msg => {
+        this.socket = new WebSocket("ws://" + window.location.host);
+
+        this.socket.onmessage = ( event => {
+
+            const msg = JSON.parse(event.data);
+
             this.setState(
                 prev => {
                     if(prev.messages === null){
