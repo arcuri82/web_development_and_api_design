@@ -23,10 +23,11 @@ router.post('/signup', function(req, res){
     passport.authenticate('local')(req, res, () => {
         req.session.save((err) => {
             if (err) {
-                return next(err);
+                //shouldn't really happen
+                res.status(500).send();
+            } else {
+                res.status(201).send();
             }
-
-            res.status(204).send();
         });
     });
 });
