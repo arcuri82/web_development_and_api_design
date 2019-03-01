@@ -1,5 +1,5 @@
 {
-  "name": "websocket",
+  "name": "websocket-rest",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
