@@ -63,4 +63,11 @@ app.ws('/', function(ws, req) {
     console.log('Established a new WS connection');
 });
 
-module.exports = app;
+
+function clearMessages(){
+    //yep, that's how you "clear" an array in JS...
+    messages.length = 0;
+}
+
+
+module.exports = {app, clearMessages};
