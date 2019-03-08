@@ -143,6 +143,11 @@ function checkConnectedWS(ws, timeoutMs){
     let id;
 
     const timedOut = new Promise(resolve => {
+        /*
+            if the WS opens within the timeout, then we will need to
+            cancel this callaback. To do that, we need to know its
+            id, and so we store it in a variable.
+         */
         id = setTimeout(() => resolve(false), timeoutMs);
     });
 
@@ -158,11 +163,17 @@ function checkConnectedWS(ws, timeoutMs){
         the race is resolved only once), but it is good for debugging and avoiding
         having dangling timeout callbacks on the event-loop.
         Also notice that this "then()" Promise has to return the same result
-        resolved in the race (ie, a boolean).
+        resolved in the race (ie, a boolean "x" coming from "resolve(x)").
      */
 
     return Promise.race([opened, timedOut])
-        .then(result => {clearTimeout(id); return result;});
+        .then(result => {
+            if(result) {
+                //if WS was opened, and so result===resolve(true), then clear the timeout
+                clearTimeout(id);
+            }
+            return result;
+        });
 }
 
 

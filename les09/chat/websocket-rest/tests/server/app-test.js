@@ -4,14 +4,31 @@ const WebSocket = require('ws');
 
 const {asyncCheckCondition, checkConnectedWS} = require('../mytest-utils');
 
+
 /*
     As for WS we are not using SuperTest directly, we need to start
     the server manually, binding it on an ephemeral port;
  */
-const server = app.listen(0);
-const port = server.address().port;
 
+let server;
+let port;
+
+beforeAll(done => {
+
+    server = app.listen(0, ()=> {
+        port = server.address().port;
+        done();
+    });
+});
+
+afterAll(() => {
+    server.close();
+});
+
+
+//let's remember that we need to clean the state before running any test
 beforeEach(clearMessages);
+
 
 
 test("Test get none", async () =>{
@@ -110,3 +127,5 @@ test("Test notify 2 users with WS", async () =>{
     expect(resGet.statusCode).toBe(200);
     expect(resGet.body.length).toBe(1);
 });
+
+
