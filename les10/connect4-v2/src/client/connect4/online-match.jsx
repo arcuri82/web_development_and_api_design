@@ -32,7 +32,12 @@ export class OnlineMatch extends React.Component {
             return;
         }
 
-        this.socket = new WebSocket("ws://" + window.location.host);
+        let protocol = "ws:";
+        if(window.location.protocol.toLowerCase() === "https:"){
+            protocol = "wss:";
+        }
+
+        this.socket = new WebSocket(protocol + "//" + window.location.host);
 
         /*
             Here, we register a callback. Every time the server is sending

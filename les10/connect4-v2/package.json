@@ -49,5 +49,8 @@
     "collectCoverageFrom": [
       "src/**.(js|jsx)"
     ]
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
