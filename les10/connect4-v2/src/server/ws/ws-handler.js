@@ -1,74 +1,50 @@
-const socketIo = require('socket.io');
+const express_ws = require('express-ws');
+
 const Tokens = require('./tokens');
 const ActivePlayers = require('../online/active-players');
 const OngoingMatches = require('../online/ongoing-matches');
 
-let io;
+let ews;
 
-const start = (server) => {
+function init(app) {
 
-    //start a WebSocket server besides the REST API from Express
-    io = socketIo(server);
+    ews = express_ws(app);
 
-    /*
-        Every time a new user connects, a "connect" even is sent to the server,
-        and we can obtain the "socket" object associated with such new user.
-        On such object, we will register a series of event listeners using
-        ".on".
-     */
-    io.on('connection', function(socket){
+    app.ws('/', function (socket, req) {
+        console.log('Established a new WS connection');
 
-        /*
-            WebSockets do not have a native concept of authentication.
-            As WS is over HTTP, we could re-use the same session cookies,
-            which will be sent together with the WS requests.
-            But there are some limitations with such approach.
-            You can see more details at:
+        socket.messageHandlers = new Map();
+        socket.addMessageHandler = (topic, handler) => {socket.messageHandlers.set(topic, handler)};
+        socket.addMessageHandler("login", handleLogin);
 
-            https://devcenter.heroku.com/articles/websocket-security
+        socket.on('message', (data) => {
 
-            Here, for simplicity, we use a general approach of token-based
-            authentication.
-            Once the user is authenticated via regular HTTP protocol, then
-            it can query for a specific endpoint returning a token associated
-            with the logged in user.
-            Such token can then be sent as part of handshake when the first WS
-            message is sent.
-         */
-        socket.on('login', (data) => {
-
-            if(data === null || data === undefined){
-                socket.emit("update", {error: "No payload provided"});
+            if (data === null || data === undefined) {
+                socket.send(JSON.stringify({topic: "update", error: "No payload provided"}));
                 return;
             }
 
-            const token = data.wstoken;
+            const dto = JSON.parse(data);
 
-            if(token === null || token === undefined){
-                socket.emit("update", {error: "Missing token"});
+            const topic = dto.topic;
+
+            if(topic === null || topic === undefined){
+                socket.send(JSON.stringify({topic: "update", error: "No defined topic"}));
                 return;
             }
 
-            //token can be used only once to authenticate only a single socket
-            const userId = Tokens.consumeToken(token);
+            const handler = socket.messageHandlers.get(topic);
 
-            if(userId === null || userId === undefined){
-                socket.emit("update", {error: "Invalid token"});
+            if(handler === null || handler === undefined){
+                socket.send(JSON.stringify({topic: "update", error: "Unrecognized topic: " + topic}));
                 return;
             }
 
-            /*
-                if token was valid, then we can create an authenticated
-                association with the given user for that token and the
-                current socket
-             */
-            ActivePlayers.registerSocket(socket, userId);
-
-            console.log("User '"+userId+"' is now connected with a websocket.");
+            handler(dto, socket);
         });
 
-        //disconnect is treated specially
-        socket.on('disconnect',  () => {
+        //close is treated specially
+        socket.on('close', () => {
 
             const userId = ActivePlayers.getUser(socket.id);
 
@@ -82,10 +58,54 @@ const start = (server) => {
              */
             OngoingMatches.forfeit(userId);
 
-            console.log("User '"+userId+"' is disconnected.");
+            console.log("User '" + userId + "' is disconnected.");
         });
     });
-};
+}
 
 
-module.exports = {start};
+/*
+   WebSockets do not have a native concept of authentication.
+   As first WS message is over HTTP, we could re-use the same session cookies,
+   which will be sent together with the WS first request.
+   But there are some limitations with such approach.
+   You can see more details at:
+
+   https://devcenter.heroku.com/articles/websocket-security
+
+   Here, for simplicity, we use a general approach of token-based authentication.
+   Once the user is authenticated via regular HTTP protocol, then
+   it can query for a specific endpoint returning a token associated
+   with the logged in user.
+   Such token can then be sent as part of handshake when the first WS
+   message is sent.
+*/
+function handleLogin(dto, socket) {
+
+    const token = dto.wstoken;
+
+    if (token === null || token === undefined) {
+        socket.send(JSON.stringify({topic: "update", error: "Missing token"}));
+        return;
+    }
+
+    //token can be used only once to authenticate only a single socket
+    const userId = Tokens.consumeToken(token);
+
+    if (userId === null || userId === undefined) {
+        socket.send(JSON.stringify({topic: "update", error: "Invalid token"}));
+        return;
+    }
+
+    /*
+        if token was valid, then we can create an authenticated
+        association with the given user for that token and the
+        current socket
+     */
+    ActivePlayers.registerSocket(socket, userId);
+
+    console.log("User '" + userId + "' is now connected with a websocket.");
+}
+
+
+module.exports = {init};

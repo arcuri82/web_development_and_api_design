@@ -35,11 +35,14 @@ export  class OpponentOnline{
             if matchId/counter do not match for the current ongoing game.
          */
 
-        this.socket.emit('insertion', {
+        const payload = JSON.stringify({
+            topic:'insertion',
             counter: boardState.counter,
             position: lastInsertedColumn,
             matchId: this.matchId
         });
+
+        this.socket.send(payload);
     }
 
 }

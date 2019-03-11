@@ -9,10 +9,16 @@ const authApi = require('./routes/auth-api');
 const matchApi = require('./routes/match-api');
 const Users = require('./db/users');
 
+const WsHandler = require('./ws/ws-handler');
+
+
 const app = express();
 
 //to handle JSON payloads
 app.use(bodyParser.json());
+
+WsHandler.init(app);
+
 
 
 app.use(session({
@@ -68,9 +74,15 @@ app.use(passport.session());
 app.use('/api', authApi);
 app.use('/api', matchApi);
 
-//handling 404
-app.use((req, res, next) => {
+//handling 404 for /api calls
+app.all('/api*', (req,res) => {
+    res.status(404);
+    res.send();
+});
+
+//handling 404 for all others
+app.use((req, res) => {
     res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'index.html'));
 });
 
-module.exports = app;
+module.exports = {app};

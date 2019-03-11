@@ -14,7 +14,7 @@ and the basics of web services (e.g., *REST* and *GraphQL*) and *web-sockets*.
 
 The programming language used in this course is *JavaScript*, with *NodeJS* as runtime.
 Some of the used technologies are: *YARN*, *WebPack*, *Babel*, *React*, *React-Router*, 
-*Jest*, *Express*, *Apollo*, *Socket.io* and *Passport*. 
+*Jest*, *Express*, *Apollo*, and *Passport*. 
 
 This course puts particular emphasis on **testing** and **security**, but not on 
 frontend *design* (i.e., UI/UX).
@@ -99,7 +99,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 <br />
 
-* **Lesson 09**: WebSockets
+* **Lesson 09**: WebSockets and XSS
 
   Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_09.pdf)  
    
@@ -144,7 +144,6 @@ are still missing (e.g., PDFs of slides and exercises).
 * [SuperTest](https://github.com/visionmedia/supertest)
 * [CSS Selectors](https://www.w3schools.com/cssref/css_selectors.asp)
 * [Express](http://expressjs.com/)
-* [Socket.io](https://socket.io/)
 * [Passport](http://www.passportjs.org/)
 * [ProgrammableWeb](http://www.programmableweb.com/)
 

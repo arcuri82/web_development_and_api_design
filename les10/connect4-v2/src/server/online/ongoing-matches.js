@@ -49,5 +49,4 @@ function forfeit(userId){
 }
 
 
-
 module.exports = {startMatch, forfeit};

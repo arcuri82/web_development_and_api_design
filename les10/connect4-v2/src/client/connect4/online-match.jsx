@@ -1,5 +1,4 @@
 import React from "react";
-import openSocket from 'socket.io-client';
 
 import {Board} from "./board";
 import {OpponentOnline} from "./opponent-online";
@@ -33,15 +32,17 @@ export class OnlineMatch extends React.Component {
             return;
         }
 
-        this.socket = openSocket(window.location.origin);
+        this.socket = new WebSocket("ws://" + window.location.host);
 
         /*
             Here, we register a callback. Every time the server is sending
-            a message with topic "update", such callback is executed
+            a message , such callback is executed
          */
-        this.socket.on("update",  (dto) => {
+        this.socket.onmessage = ( event => {
 
-            if (dto === null || dto === undefined) {
+            const dto = JSON.parse(event.data);
+
+            if (dto === null || dto === undefined || dto.topic !== "update") {
                 this.setState({errorMsg: "Invalid response from server."});
                 return;
             }
@@ -82,9 +83,9 @@ export class OnlineMatch extends React.Component {
             This happens when the socket is closed, either by the client, or
             the server.
          */
-        this.socket.on('disconnect', () => {
+        this.socket.onclose = () => {
             this.setState({errorMsg: "Disconnected from Server."});
-        });
+        };
 
 
         this.opponent.setSocket(this.socket);
@@ -93,13 +94,13 @@ export class OnlineMatch extends React.Component {
             Once a WebSocket is established, we need to authenticate it.
             Once authenticated, we can ask the server to start a new match.
          */
-        this.doLogInWebSocket(userId).then(
-            this.startNewMatch
-        );
+        this.socket.onopen = () => {
+            this.doLogInWebSocket(userId).then(this.startNewMatch);
+        }
     }
 
     componentWillUnmount() {
-        this.socket.disconnect();
+        this.socket.close();
     }
 
     startNewMatch = async () => {
@@ -181,9 +182,12 @@ export class OnlineMatch extends React.Component {
             return;
         }
 
-        const payload = await response.json();
+        const json = await response.json();
 
-        this.socket.emit('login', payload);
+        const payload = json;
+        payload.topic =  'login';
+
+        this.socket.send(JSON.stringify(payload));
     };
 
 
