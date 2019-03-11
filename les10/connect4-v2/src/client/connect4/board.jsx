@@ -7,12 +7,6 @@ export class Board extends React.Component {
         super(props);
 
         this.state = this.getDefaultState();
-
-        this.selectCell = this.selectCell.bind(this);
-        this.resetBoard = this.resetBoard.bind(this);
-        this.onMouseEnterCell = this.onMouseEnterCell.bind(this);
-        this.onMouseLeaveCell = this.onMouseLeaveCell.bind(this);
-        this.handleOpponent = this.handleOpponent.bind(this);
     }
 
     getDefaultState() {
@@ -30,9 +24,9 @@ export class Board extends React.Component {
     }
 
 
-    resetBoard() {
+    resetBoard = () => {
         this.setState(this.getDefaultState());
-    }
+    };
 
     getBoardState(){
         return this.state.board;
@@ -51,7 +45,7 @@ export class Board extends React.Component {
             && !this.state.board.isGameFinished()
     }
 
-    selectCell(row, column) {
+    selectCell = (row, column) => {
 
         if (!this.state.board.isFreeCell(row, column)) {
             //already selected
@@ -74,7 +68,7 @@ export class Board extends React.Component {
                 lastInsertedColumn: column
             };
         });
-    }
+    };
 
     /*
         React life-cycle method called after component is re-rendered
@@ -101,11 +95,11 @@ export class Board extends React.Component {
         this code. And that is the reason why we call it even from the mounting
         of the component when the current user has not done any action yet.
      */
-    handleOpponent(){
+    handleOpponent = () => {
         this.setState({needHandleOpponent: false});
 
         this.props.opponent.playNext(this.state.lastInsertedColumn, this);
-    }
+    };
 
     renderCell(row, column) {
 
@@ -168,14 +162,14 @@ export class Board extends React.Component {
         Handle having special color to represent on which row a new coin
         will be inserted when we click on a column.
      */
-    onMouseEnterCell(row, column) {
+    onMouseEnterCell = (row, column) => {
 
         const bottomRow = this.state.board.findBottom(column);
 
         this.setState({posToInsert: [bottomRow, column]});
-    }
+    };
 
-    onMouseLeaveCell(row, column) {
+    onMouseLeaveCell = (row, column) => {
 
         this.setState(prevState => {
             if (prevState.posToInsert === null) {
@@ -194,7 +188,7 @@ export class Board extends React.Component {
                 return;
             }
         });
-    }
+    };
 
     renderRow(row) {
         return (

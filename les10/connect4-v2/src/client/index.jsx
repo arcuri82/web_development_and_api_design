@@ -24,8 +24,6 @@ class App extends React.Component {
         this.state = {
             userId: null
         };
-
-        this.updateLoggedInUserId = this.updateLoggedInUserId.bind(this);
     }
 
     /*
@@ -74,9 +72,9 @@ class App extends React.Component {
         }
     };
 
-    updateLoggedInUserId(userId) {
+    updateLoggedInUserId = (userId) => {
         this.setState({userId: userId});
-    }
+    };
 
 
     notFound() {

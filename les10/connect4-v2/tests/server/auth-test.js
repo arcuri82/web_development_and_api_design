@@ -32,7 +32,7 @@ test("Test sign up", async () =>{
         .post('/api/signup')
         .send({userId: 'foo', password: '123'});
 
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
 });
 
 
@@ -43,7 +43,7 @@ test("Test fail sign up twice", async () =>{
     let response = await request(app)
         .post('/api/signup')
         .send(payload);
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
 
     //can't sign up twice with same userId
     response = await request(app)
@@ -64,7 +64,7 @@ test("Test logged in when signing up", async () =>{
     response = await request(app)
         .post('/api/signup')
         .send(payload);
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
     const cookie = response.headers['set-cookie'];
 
     //now we should be able to get it
@@ -86,7 +86,7 @@ test("Test sign up, and then login", async () =>{
     response = await request(app)
         .post('/api/signup')
         .send(payload);
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
 
 
     response = await request(app)
@@ -113,7 +113,7 @@ test("Test login with wrong password", async () =>{
     let response = await request(app)
         .post('/api/signup')
         .send(payload);
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
 
     response = await request(app)
         .post('/api/login')
@@ -134,7 +134,7 @@ test("Test logout", async () =>{
     let response = await request(app)
         .post('/api/signup')
         .send(payload);
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
     const cookie = response.headers['set-cookie'];
 
     //now we should be able to get it
@@ -161,7 +161,7 @@ test("Test get token", async () =>{
     let response = await request(app)
         .post('/api/signup')
         .send({userId: "foo", password: "123"});
-    expect(response.statusCode).toBe(204);
+    expect(response.statusCode).toBe(201);
     const cookie = response.headers['set-cookie'];
 
     //can't get token without cookie

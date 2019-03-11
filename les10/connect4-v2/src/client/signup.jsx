@@ -12,26 +12,21 @@ class SignUp extends React.Component{
             confirm: "",
             errorMsg: null
         };
-
-        this.onUserIdChange = this.onUserIdChange.bind(this);
-        this.onPasswordChange = this.onPasswordChange.bind(this);
-        this.onConfirmChange = this.onConfirmChange.bind(this);
-        this.doSignUp = this.doSignUp.bind(this);
     }
 
-    onUserIdChange(event){
+    onUserIdChange = (event) => {
         this.setState({userId: event.target.value, errorMsg: null});
-    }
+    };
 
-    onPasswordChange(event){
+    onPasswordChange = (event) => {
         this.setState({password: event.target.value, errorMsg: null});
-    }
+    };
 
-    onConfirmChange(event){
+    onConfirmChange = (event) => {
         this.setState({confirm: event.target.value, errorMsg: null});
-    }
+    };
 
-    async doSignUp(){
+    doSignUp = async () => {
 
         const {userId, password, confirm} = this.state;
 
@@ -65,7 +60,7 @@ class SignUp extends React.Component{
             return;
         }
 
-        if(response.status !== 204){
+        if(response.status !== 201){
             this.setState({errorMsg: "Error when connecting to server: status code "+ response.status});
             return;
         }
@@ -73,7 +68,7 @@ class SignUp extends React.Component{
         this.setState({errorMsg: null});
         this.props.updateLoggedInUserId(userId);
         this.props.history.push('/');
-    }
+    };
 
     render(){
 

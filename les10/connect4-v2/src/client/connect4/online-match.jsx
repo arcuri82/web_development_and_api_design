@@ -18,7 +18,6 @@ export class OnlineMatch extends React.Component {
 
         this.refToBoard = React.createRef();
         this.opponent = new OpponentOnline();
-        this.startNewMatch = this.startNewMatch.bind(this);
     }
 
     componentDidMount() {
@@ -103,7 +102,7 @@ export class OnlineMatch extends React.Component {
         this.socket.disconnect();
     }
 
-    async startNewMatch() {
+    startNewMatch = async () => {
 
         /*
             When we try to start a new match, the current one (if any)
