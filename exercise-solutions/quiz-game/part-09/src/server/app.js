@@ -9,10 +9,15 @@ const authApi = require('./routes/auth-api');
 const matchApi = require('./routes/match-api');
 const Users = require('./db/users');
 
+const WsHandler = require('./ws-handler');
+
+
 const app = express();
 
 //to handle JSON payloads
 app.use(bodyParser.json());
+
+WsHandler.init(app);
 
 
 app.use(session({
@@ -73,4 +78,4 @@ app.use((req, res, next) => {
     res.sendFile(path.resolve(__dirname, '..', '..', 'public', 'index.html'));
 });
 
-module.exports = app;
+module.exports = {app};
