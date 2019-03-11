@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {getMatch, createMatch} = require('../db/matches');
+const {getMatch, createMatch, removeMatch} = require('../db/matches');
 const {reportEndOfMatch} = require('../db/users');
 
 const router = express.Router();
@@ -81,11 +81,13 @@ router.post('/matches/ongoing', (req, res) => {
     if(dto.answerIndex !== quiz.indexOfRightAnswer){
         match.defeat = true;
         reportEndOfMatch(req.user.id, false);
+        removeMatch(req.user.id);
     } else {
         match.current++;
         if(match.current === match.quizzes.length){
             match.victory = true;
             reportEndOfMatch(req.user.id, true);
+            removeMatch(req.user.id);
         }
     }
 

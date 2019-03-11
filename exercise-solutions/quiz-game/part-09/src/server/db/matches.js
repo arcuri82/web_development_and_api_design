@@ -37,5 +37,9 @@ function getMatch(userId) {
     return matches.get(userId);
 }
 
+function removeMatch(userId){
+    matches.delete(userId);
+}
 
-module.exports = {getMatch, createMatch};
+
+module.exports = {getMatch, createMatch, removeMatch};

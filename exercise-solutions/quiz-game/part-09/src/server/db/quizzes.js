@@ -1,4 +1,4 @@
-export const quizzes = [
+const quizzes = [
     {
         question: "What kind of language is JavaScript?",
         answers: [
@@ -85,4 +85,4 @@ function getRandomQuizzes(numberOfQuizzes){
 }
 
 
-module.exports = {getRandomQuizzes};
+module.exports = {quizzes, getRandomQuizzes};
