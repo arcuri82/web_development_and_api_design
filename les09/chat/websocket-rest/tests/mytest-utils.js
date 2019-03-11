@@ -1,5 +1,5 @@
 const request = require('supertest');
-
+const WS = require('ws');
 
 /*
     Here, we stub away the calls to "fetch", as not available in NodeJS (ie, they
@@ -177,5 +177,26 @@ function checkConnectedWS(ws, timeoutMs){
 }
 
 
+class WsStub extends WS{
 
-module.exports = {stubFetch, flushPromises, overrideFetch, asyncCheckCondition, checkConnectedWS};
+    constructor(url){
+        super(url);
+
+        this.on('message', data => {
+            this.onmessage({data});
+        });
+
+        this.on('open', data => {
+            this.onopen({data});
+        });
+    }
+}
+
+
+function overrideWebSocket(){
+    global.WebSocket = WsStub;
+}
+
+
+
+module.exports = {stubFetch, flushPromises, overrideFetch, asyncCheckCondition, checkConnectedWS, overrideWebSocket};

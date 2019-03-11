@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 const ews = require('express-ws')(app);
-const WebSocket = require('ws');
+const WS = require('ws');
 
 
 //to handle JSON payloads
@@ -48,7 +48,7 @@ app.post('/api/messages', (req, res) => {
     console.log("Going to broadcast message to " + nclients +" clients");
 
     ews.getWss().clients.forEach((client) => {
-        if (client.readyState === WebSocket.OPEN) {
+        if (client.readyState === WS.OPEN) {
             const json = JSON.stringify(msg);
             console.log("Broadcasting to client: " + JSON.stringify(msg));
             client.send(json);

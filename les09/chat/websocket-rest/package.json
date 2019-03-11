@@ -42,6 +42,7 @@
     "testRegex": "tests/.*-test\\.(js|jsx)$",
     "collectCoverageFrom": [
       "src/**.(js|jsx)"
-    ]
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js"
   }
 }

@@ -1,6 +1,6 @@
 const request = require('supertest');
 const {app, clearMessages} = require('../../src/server/app');
-const WebSocket = require('ws');
+const WS = require('ws');
 
 const {asyncCheckCondition, checkConnectedWS} = require('../mytest-utils');
 
@@ -65,7 +65,7 @@ test("Test notify 1 user with WS", async () =>{
     expect(resGet.body.length).toBe(0);
 
 
-    const ws = new WebSocket('ws://localhost:' + port);
+    const ws = new WS('ws://localhost:' + port);
     const connected = await checkConnectedWS(ws, 2000);
     expect(connected).toBe(true);
 
@@ -94,11 +94,11 @@ test("Test notify 2 users with WS", async () =>{
     expect(resGet.body.length).toBe(0);
 
     //register 2 different clients using WS
-    const first = new WebSocket('ws://localhost:' + port);
+    const first = new WS('ws://localhost:' + port);
     let connected = await checkConnectedWS(first, 2000);
     expect(connected).toBe(true);
 
-    const second = new WebSocket('ws://localhost:' + port);
+    const second = new WS('ws://localhost:' + port);
     connected = await checkConnectedWS(second, 2000);
     expect(connected).toBe(true);
 
