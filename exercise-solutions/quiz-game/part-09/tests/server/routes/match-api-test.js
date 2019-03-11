@@ -23,5 +23,4 @@ test("Test create match with auth", async () =>{
     const response = await user.post('/api/matches');
 
     expect(response.statusCode).toBe(201);
-    expect(response.body.length).toBe(3);
 });
