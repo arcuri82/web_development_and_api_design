@@ -22,6 +22,12 @@ function verifyUser(id, password){
         return false;
     }
 
+    /*
+        WARNING: remember that those passwords should be hashed,
+        with salt and pepper...
+        But we are not dealing with backend details
+        in this course, like secure storage of passwords
+     */
     return user.password === password;
 }
 
