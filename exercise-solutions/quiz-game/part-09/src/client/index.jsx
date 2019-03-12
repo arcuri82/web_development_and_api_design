@@ -22,7 +22,8 @@ class App extends React.Component {
          */
 
         this.state = {
-            user: null
+            user: null,
+            userCount: 1
         };
     }
 
@@ -40,8 +41,31 @@ class App extends React.Component {
      */
     componentDidMount() {
         this.fetchAndUpdateUserInfo();
+
+
+        let protocol = "ws:";
+        if(window.location.protocol.toLowerCase() === "https:"){
+            protocol = "wss:";
+        }
+
+        this.socket = new WebSocket(protocol + "//" + window.location.host);
+
+        this.socket.onmessage = ( event => {
+
+            const dto = JSON.parse(event.data);
+
+            if (dto === null || dto === undefined || !dto.userCount) {
+                this.setState({userCount: "ERROR"});
+                return;
+            }
+
+            this.setState({userCount: dto.userCount});
+        });
     }
 
+    componentWillUnmount() {
+        this.socket.close();
+    }
 
     fetchAndUpdateUserInfo = async () => {
 
@@ -120,6 +144,7 @@ class App extends React.Component {
                         <Route exact path="/"
                                render={props => <Home {...props}
                                                       user={this.state.user}
+                                                      userCount={this.state.userCount}
                                                       fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}/>}/>
                         <Route component={this.notFound}/>
                     </Switch>

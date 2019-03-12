@@ -5,40 +5,12 @@ import {Link} from "react-router-dom";
 export class Home extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            userCount: 1
-        }
     }
 
     componentDidMount() {
         if(this.props.user) {
             this.props.fetchAndUpdateUserInfo();
         }
-
-
-        let protocol = "ws:";
-        if(window.location.protocol.toLowerCase() === "https:"){
-            protocol = "wss:";
-        }
-
-        this.socket = new WebSocket(protocol + "//" + window.location.host);
-
-        this.socket.onmessage = ( event => {
-
-            const dto = JSON.parse(event.data);
-
-            if (dto === null || dto === undefined || !dto.userCount) {
-                this.setState({userCount: "ERROR"});
-                return;
-            }
-
-            this.setState({userCount: dto.userCount});
-        });
-    }
-
-    componentWillUnmount() {
-        this.socket.close();
     }
 
 
@@ -60,7 +32,7 @@ export class Home extends React.Component {
                     </p>
 
                     <p>
-                        Number of online players: {this.state.userCount}
+                        Number of online players: {this.props.userCount}
                     </p>
                 </div>
 
