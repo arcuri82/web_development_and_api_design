@@ -150,7 +150,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
 ## Exam
 
-A PDF of a mock exam for this course can be found [here](docs/pg6300_mock_exam.pdf). 
+A PDF of a mock exam for this course can be found [here](docs/exams/mock_exam_0.pdf). 
 
 ## License & Copyright
 
