@@ -90,7 +90,12 @@ router.post("/api/transfers", (req, res) => {
         both Form and JSON in the same App: just JSON.
         Form-submissions are mainly used in server-side
         rendering apps with no/limited JS.
-        However, here we support both just for didactical reasons.
+        However, here we support both just for didactic reasons.
+
+        As in the GUI we have possibility to submit an actual HTML form (without AJAX),
+        we need to tell the browser what to do after the POST is sent.
+        In this case, we do a 302 redirect toward the homepage (which will do a GET).
+        Note: this is not needed when using AJAX, as we do not reload a whole HTML page.
      */
 
     const form = req.is("application/x-www-form-urlencoded");

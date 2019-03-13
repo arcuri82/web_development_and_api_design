@@ -24,7 +24,14 @@
         if (xmlhttp.readyState === XMLHttpRequest.DONE) {
             if (xmlhttp.status === 200 || xmlhttp.status === 302) {
                 alert("Thank you!!! I just stole your money...");
-            } else {
+            } else if (xmlhttp.status === 0){
+                /*
+                    This might happen if the browser does not allow us to read the response
+                    of the request, although the request has gone through, and likely
+                    the transfer was made
+                 */
+                alert("Check your bank account... a 'nice' surprise is waiting for you!!!");
+            }else {
                 alert("Damn... I tried to steal your money but something went wrong");
             }
         }
