@@ -1,5 +1,5 @@
 const request = require('supertest');
-const app = require('../../../src/server/app');
+const {app} = require('../../../src/server/app');
 
 
 let counter = 0;

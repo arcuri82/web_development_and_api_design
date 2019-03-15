@@ -171,7 +171,7 @@ export class Match extends React.Component {
         const count = "" + (match.currentIndex+1) + "/" + match.numberOfQuizzes;
 
         return (
-            <div>
+            <div className={"quiz"} id={"quiz_" + match.currentQuiz.id}>
                 <p className={"quizQuestion"}>
                     Question {count}: {match.currentQuiz.question}
                 </p>
