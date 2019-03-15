@@ -1,7 +1,7 @@
 import React from 'react';
 import {withRouter} from 'react-router-dom'
 
-class SignUp extends React.Component{
+export class SignUp extends React.Component{
 
     constructor(props){
         super(props);
@@ -88,25 +88,31 @@ class SignUp extends React.Component{
                     <p>User Id:</p>
                     <input type="text"
                            value={this.state.userId}
-                           onChange={this.onUserIdChange}/>
+                           onChange={this.onUserIdChange}
+                           id="userIdInput"
+                    />
                 </div>
                 <div>
                     <p>Password:</p>
                     <input type="password"
                            value={this.state.password}
-                           onChange={this.onPasswordChange}/>
+                           onChange={this.onPasswordChange}
+                           id="passwordInput"
+                    />
                 </div>
                 <div>
                     <p>Confirm:</p>
                     <input type="password"
                            value={this.state.confirm}
-                           onChange={this.onConfirmChange}/>
+                           onChange={this.onConfirmChange}
+                           id="confirmInput"
+                    />
                     <div>{confirmMsg}</div>
                 </div>
 
                 {error}
 
-                <div className="btn" onClick={this.doSignUp}>Sign Up</div>
+                <div className="btn" onClick={this.doSignUp} id="signUpBtn">Sign Up</div>
             </div>
         );
     }
