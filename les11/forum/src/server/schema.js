@@ -4,8 +4,14 @@ const { gql } = require('apollo-server-express');
 const typeDefs = gql`
     # A GraphQL API to handle News
     type Query{
+        
+        #Get all the news
         getNews: [News!]
+        
+        #Get a single news, specified by id
         getNewsById(id: String!) : News
+        
+        #Get a single user, specified by id
         getUserById(id: String!) : User
     }
 
