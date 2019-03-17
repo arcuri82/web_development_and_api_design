@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
 
 
-class Login extends React.Component{
+export class Login extends React.Component{
 
     constructor(props){
         super(props);
@@ -75,18 +75,22 @@ class Login extends React.Component{
                     <p>User Id:</p>
                     <input type="text"
                            value={this.state.userId}
-                           onChange={this.onUserIdChange}/>
+                           onChange={this.onUserIdChange}
+                           id="userIdInput"
+                    />
                 </div>
                 <div>
                     <p>Password:</p>
                     <input type="password"
                            value={this.state.password}
-                           onChange={this.onPasswordChange}/>
+                           onChange={this.onPasswordChange}
+                           id="passwordInput"
+                    />
                 </div>
 
                 {error}
 
-                <div className="btn" onClick={this.doLogIn}>Log In</div>
+                <div className="btn" onClick={this.doLogIn} id="loginBtn">Log In</div>
                 <Link to={"/signup"}>Register</Link>
             </div>);
     }

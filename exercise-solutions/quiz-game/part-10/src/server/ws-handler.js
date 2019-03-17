@@ -10,16 +10,16 @@ function init(app) {
     app.ws('/', function (socket, req) {
         console.log('Established a new WS connection');
 
-        broadCastCount();
+        broadcastCount();
 
         //close is treated specially
         socket.on('close', () => {
-            broadCastCount();
+            broadcastCount();
         });
     });
 }
 
-function broadCastCount() {
+function broadcastCount() {
     const n = ews.getWss().clients.size;
 
     ews.getWss().clients.forEach((client) => {

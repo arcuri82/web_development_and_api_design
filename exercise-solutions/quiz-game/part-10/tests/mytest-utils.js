@@ -189,6 +189,8 @@ class WsStub extends WS{
         this.on('open', data => {
             this.onopen({data});
         });
+
+        this.close = () => this.terminate();
     }
 }
 
