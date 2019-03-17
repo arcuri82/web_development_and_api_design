@@ -120,7 +120,7 @@ are still missing (e.g., PDFs of slides and exercises).
 
   Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_11.pdf)  
    
-  Exercises: [quiz-game-part-11](docs/exercises/quiz-game/part-11.md)
+  Exercises: none
 
 
 <br />
