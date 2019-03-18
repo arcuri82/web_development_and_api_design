@@ -1,6 +1,14 @@
 const { gql } = require('apollo-server-express');
 
 
+/*
+    gql`...` is a tagged template literal, where we define the schema as
+    multi-line string. This string is validated for syntactic correctness.
+
+    Note that the types are "nullable" by default.
+    To specify that a value MUST be present, you need to use a "!".
+ */
+
 const typeDefs = gql`
     # A GraphQL API to handle News
     type Query{
@@ -35,6 +43,7 @@ const typeDefs = gql`
         id: String
         text: String
         author: User
+        news: News
     }
 
     type User{

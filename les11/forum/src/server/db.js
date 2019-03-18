@@ -69,8 +69,9 @@ module.exports = {
         }
 
         const id = createId();
+        const comment = {id, text, newsId, authorId, newsId};
 
-        news.get(newsId).comments.push({id, text, newsId, authorId});
+        news.get(newsId).comments.push(comment);
 
         return true;
     }

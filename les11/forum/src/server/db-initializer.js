@@ -3,7 +3,7 @@ const DB = require('./db');
 
 module.exports = {
 
-    init: _ => {
+    initDB: () => {
 
         const smith = "Smith";
         const rossi = "Rossi";

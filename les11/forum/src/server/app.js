@@ -12,6 +12,11 @@ const typeDefs =  require('./schema');
 
 const app = express();
 
+/*
+    A GraphQL API is defined by:
+    1) a schema, specifying what is available
+    2) resolvers: to map from schema to our domain model (eg, data in databases)
+ */
 const apollo = new ApolloServer({ typeDefs, resolvers });
 apollo.applyMiddleware({ app , path:"/graphql"});
 

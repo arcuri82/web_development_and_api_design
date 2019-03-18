@@ -20,6 +20,12 @@ export class Home extends React.Component {
 
     async fetchData() {
 
+        /*
+            Note: there are libraries that help you to query a GraphQL API.
+            However, here, for didactic reasons, we just do a basic "fetch",
+            to show that in the end a GraphQL query is just an input to a HTTP request.
+         */
+
         const query = "query=" + encodeURIComponent("{getNews{id,title,author{id}}}");
 
         const url = "/graphql?" + query;

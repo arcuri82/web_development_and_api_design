@@ -29,8 +29,6 @@ Each lesson contains slides and full working code examples.
 Slides just give high level overviews: most of the explanations will be directly in
 the code as comments. 
 
-*WARNING*: this repository is currently under major restructuring, and several resources
-are still missing (e.g., PDFs of slides and exercises).
 
 ## Lessons
 

@@ -1,7 +1,7 @@
 const app = require("./app");
-const {init} = require('./db-initializer');
+const {initDB} = require('./db-initializer');
 
-init();
+initDB();
 
 const port = process.env.PORT || 8080;
 

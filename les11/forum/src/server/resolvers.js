@@ -26,6 +26,15 @@ module.exports = {
         }
     },
 
+    /*
+        When fields in the schema do not match 1-to-1 the fields in our domain models,
+        we need to specify how to "resolve" them.
+        In our case, types like News, Author and Comment in the schema are objects, ie
+        nodes in the GraphQL graph.
+        But, in our domain model, those are just ids.
+        So, we need to map from id to object.
+     */
+
     News: {
         author: (parent, args, context, info) => {
             return DB.getUserById(parent.authorId);
@@ -38,6 +47,9 @@ module.exports = {
     Comment: {
         author: (parent, args, context, info) => {
             return DB.getUserById(parent.authorId);
+        },
+        news: (parent, args, context, info) => {
+            return DB.getNewsById(parent.newsId);
         }
     }
 };
