@@ -1,31 +1,33 @@
 {
-  "name": "spa-routing-ssr",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "LGPL-3.0",
-  "scripts": {
-    "build:client": "webpack --mode production",
-    "build:server": "babel ./src -d build",
-    "start": "node build/server/server.js",
-    "dev": "yarn build:client && yarn build:server && yarn start"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-router-dom": "^4.3.1"
-  },
-  "babel": {
-        "presets": ["env","react"]
-
-    }
+    "babel": {
+        "presets": [
+            "env",
+            "react"
+        ]
+    },
+    "dependencies": {
+        "react": "16.12.0",
+        "react-dom": "16.12.0",
+        "react-router-dom": "^4.3.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0"
+    },
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "spa-routing-ssr",
+    "scripts": {
+        "build:client": "webpack --mode production",
+        "build:server": "babel ./src -d build",
+        "dev": "yarn build:client && yarn build:server && yarn start",
+        "start": "node build/server/server.js"
+    },
+    "version": "1.0.0"
 }

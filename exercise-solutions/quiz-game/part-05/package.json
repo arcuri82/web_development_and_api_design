@@ -1,49 +1,54 @@
 {
-  "name": "part-05",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {},
-  "license": "LGPL-3.0",
-  "scripts": {
-    "test": "jest --coverage",
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production",
-    "start": "node src/server/server.js"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.0",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "jest": "^23.4.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jsdom": "^11.12.0",
-    "react-addons-test-utils": "^15.6.2",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
-    "react-router": "^4.3.1",
-    "react-router-dom": "^4.3.1",
-    "express": "^4.16.4"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
-    "testRegex": "tests/.*-test\\.(js|jsx)$",
-    "collectCoverageFrom": [
-      "src/**.(js|jsx)"
-    ]
-  },
     "babel": {
-        "presets": ["env", "react"],
-        "plugins": ["transform-class-properties"]
-    }
+        "plugins": [
+            "transform-class-properties"
+        ],
+        "presets": [
+            "env",
+            "react"
+        ]
+    },
+    "dependencies": {
+        "express": "^4.16.4",
+        "react": "16.12.0",
+        "react-dom": "16.12.0",
+        "react-router": "^4.3.1",
+        "react-router-dom": "^4.3.1"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.3",
+        "babel-jest": "^23.4.0",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "jest": "^23.4.1",
+        "jsdom": "^11.12.0",
+        "react-addons-test-utils": "^15.6.2",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**.(js|jsx)"
+        ],
+        "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
+        "testEnvironment": "node",
+        "testRegex": "tests/.*-test\\.(js|jsx)$"
+    },
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "part-05",
+    "repository": {},
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
+        "start": "node src/server/server.js",
+        "test": "jest --coverage"
+    },
+    "version": "1.0.0"
 }

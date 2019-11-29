@@ -1,29 +1,34 @@
 {
-  "name": "state-lift-up",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "LGPL-3.0",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
-  },
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "webpack": "^4.16.4",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
-  "babel": {
-        "presets": ["env","react"],
-        "plugins": ["transform-class-properties"]
-    }
+    "babel": {
+        "plugins": [
+            "transform-class-properties"
+        ],
+        "presets": [
+            "env",
+            "react"
+        ]
+    },
+    "dependencies": {
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
+    },
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0"
+    },
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "state-lift-up",
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "version": "1.0.0"
 }

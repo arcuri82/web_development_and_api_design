@@ -1,46 +1,51 @@
 {
-  "name": "connect4",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest --coverage",
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "LGPL-3.0",
-  "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.2",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest": "^23.4.2",
-    "jsdom": "^11.12.0",
-    "react-addons-test-utils": "^15.6.2",
-    "webpack": "^4.16.4",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
-    "testRegex": "tests/.*-test\\.(js|jsx)$",
-    "collectCoverageFrom": [
-      "src/**.(js|jsx)"
-    ]
-  },
-  "babel": {
-        "presets": ["env","react"],
-        "plugins": ["transform-class-properties"]
-    }
+    "author": "",
+    "babel": {
+        "plugins": [
+            "transform-class-properties"
+        ],
+        "presets": [
+            "env",
+            "react"
+        ]
+    },
+    "dependencies": {
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
+    },
+    "description": "",
+    "devDependencies": {
+        "babel-core": "^6.26.3",
+        "babel-jest": "^23.4.2",
+        "babel-loader": "^7.1.5",
+        "babel-plugin-transform-class-properties": "^6.24.1",
+        "babel-preset-env": "^1.7.0",
+        "babel-preset-react": "^6.24.1",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "jest": "^23.4.2",
+        "jsdom": "^11.12.0",
+        "react-addons-test-utils": "^15.6.2",
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**.(js|jsx)"
+        ],
+        "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
+        "testEnvironment": "node",
+        "testRegex": "tests/.*-test\\.(js|jsx)$"
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "connect4",
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
+        "test": "jest --coverage"
+    },
+    "version": "1.0.0"
 }

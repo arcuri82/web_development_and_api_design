@@ -1,9 +1,17 @@
 {
     "author": "",
+    "babel": {
+        "plugins": [
+            "transform-class-properties"
+        ],
+        "presets": [
+            "react"
+        ]
+    },
     "dependencies": {
         "lodash": "4.17.15",
-        "react": "^16.4.2",
-        "react-dom": "^16.4.2"
+        "react": "16.12.0",
+        "react-dom": "16.12.0"
     },
     "description": "",
     "devDependencies": {
@@ -11,9 +19,9 @@
         "babel-loader": "^7.1.5",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-react": "^6.24.1",
-        "webpack": "^4.16.4",
-        "webpack-cli": "^3.1.0",
-        "webpack-dev-server": "^3.1.5"
+        "webpack": "4.41.2",
+        "webpack-cli": "3.3.10",
+        "webpack-dev-server": "3.9.0"
     },
     "keywords": [],
     "license": "LGPL-3.0",
@@ -24,9 +32,5 @@
         "dev": "webpack-dev-server --open --mode development",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "1.0.0",
-    "babel": {
-        "presets": ["react"],
-        "plugins": ["transform-class-properties"]
-    }
+    "version": "1.0.0"
 }

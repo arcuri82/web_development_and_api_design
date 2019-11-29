@@ -46,6 +46,11 @@ def analyze_json(path):
     with open(path) as json_file:
         data = json.load(json_file)
         updated |= handle_dependency(data, "lodash", "4.17.15")
+        updated |= handle_dependency(data, "react", "16.12.0")
+        updated |= handle_dependency(data, "react-dom", "16.12.0")
+        updated |= handle_devDependency(data, "webpack", "4.41.2")
+        updated |= handle_devDependency(data, "webpack-cli", "3.3.10")
+        updated |= handle_devDependency(data, "webpack-dev-server", "3.9.0")
 
     if updated:
         with open(path, 'w') as outfile:
