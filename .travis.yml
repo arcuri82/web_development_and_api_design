@@ -8,7 +8,7 @@ notifications:
 
 jobs:
   include:
-    - script: cd les02/unit-tests                          && yarn install && yarn build
+    - script: cd les02/libraries                           && yarn install && yarn build
     - script: cd les02/unit-tests                          && yarn install && yarn test
     - script: cd les02/tic-tac-toe                         && yarn install && yarn test
     - script: cd les03/puzzle15                            && yarn install && yarn build
@@ -27,7 +27,7 @@ jobs:
     - script: cd les07/server_client_together              && yarn install && yarn test
     - script: cd les08/authentication                      && yarn install && yarn test
     - script: cd les09/chat/ajax                           && yarn install && yarn build
-    - script: cd les09/chat/server-side                    && yarn install && yarn build
+    - script: cd les09/chat/server-side                    && yarn install
     - script: cd les09/chat/websocket-full                 && yarn install && yarn test
     - script: cd les09/chat/websocket-rest                 && yarn install && yarn test
     - script: cd les09/xss/react-href                      && yarn install && yarn build

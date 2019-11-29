@@ -26,7 +26,8 @@
     "scripts": {
         "build:client": "webpack --mode production",
         "build:server": "babel ./src -d build",
-        "dev": "yarn build:client && yarn build:server && yarn start",
+        "build": "yarn build:client && yarn build:server",
+        "dev": "yarn build && yarn start",
         "start": "node build/server/server.js"
     },
     "version": "1.0.0"
