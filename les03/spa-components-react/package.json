@@ -23,5 +23,9 @@
   "dependencies": {
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
-  }
+  },
+  "babel": {
+        "presets": ["react"],
+        "plugins": ["transform-class-properties"]
+    }
 }

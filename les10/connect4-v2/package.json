@@ -52,5 +52,9 @@
   },
   "engines": {
     "node": "10.x"
-  }
+  },
+    "babel": {
+        "presets": [["env", {"targets": {"node": "current"}}], "react"],
+        "plugins": ["transform-class-properties"]
+    }
 }

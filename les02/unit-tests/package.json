@@ -26,5 +26,8 @@
     "collectCoverageFrom": [
       "src/**.(js|jsx)"
     ]
+  },
+  "babel": {
+    "presets": ["env"]
   }
 }

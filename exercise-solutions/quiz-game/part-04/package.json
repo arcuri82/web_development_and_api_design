@@ -37,5 +37,9 @@
     "collectCoverageFrom": [
       "src/**.(js|jsx)"
     ]
-  }
+  },
+    "babel": {
+        "presets": ["env", "react"],
+        "plugins": ["transform-class-properties"]
+    }
 }
