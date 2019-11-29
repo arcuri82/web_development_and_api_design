@@ -1,0 +1,9 @@
+language: node_js
+
+node_js:
+  - "10"
+
+jobs:
+  include:
+    - script: cd les02/unit-tests && yarn install && yarn test
+    - script: cd les02/tic-tac-toe && yarn install && yarn test
