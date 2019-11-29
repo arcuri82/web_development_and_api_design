@@ -11,7 +11,7 @@ let counter = 0;
 
 function initWithSomeBooks(){
 
-    books.clear()
+    books.clear();
     counter = 0;
 
     createNewBook("The Hitchhiker's Guide to the Galaxy", "Douglas Adams", 1979);

@@ -1,22 +1,22 @@
 {
-  "name": "basics",
-  "version": "1.0.0",
-  "description": "",
-  "private": true,
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "LGPL-3.0",
-  "dependencies": {
-    "lodash": "^4.17.10"
-  },
-  "devDependencies": {
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  }
+    "author": "",
+    "dependencies": {
+        "lodash": "4.17.15"
+    },
+    "description": "",
+    "devDependencies": {
+        "webpack": "^4.16.5",
+        "webpack-cli": "^3.1.0",
+        "webpack-dev-server": "^3.1.5"
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "name": "basics",
+    "private": true,
+    "scripts": {
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "version": "1.0.0"
 }
