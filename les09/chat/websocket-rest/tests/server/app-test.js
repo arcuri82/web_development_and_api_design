@@ -73,6 +73,7 @@ test("Test notify 1 user with WS", async () =>{
     ws.on('message', data => {
         received.push(data);
     });
+    ws.on('error', () => {});
 
     const resPost = await request(app)
         .post('/api/messages')
@@ -112,6 +113,8 @@ test("Test notify 2 users with WS", async () =>{
     second.on('message', data => {
         received.push(data);
     });
+    first.on('error', () => {});
+    second.on('error', () => {});
 
     //create 1 single message
     const resPost = await request(app)

@@ -2,7 +2,7 @@
 
 import os
 import json
-
+from shutil import copyfile
 
 def scan_folder(folder):
     if folder.endswith("node_modules"):
@@ -109,4 +109,19 @@ def analyze_json(path):
             json.dump(data, outfile, sort_keys=True, indent=4)
 
 
+def copyShared():
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-04/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-05/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-07/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-08/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-09/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-10/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les04/connect4/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les06/weather/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les07/server_client_together/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les09/chat/websocket-full/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les09/chat/websocket-rest/tests/jest-setup.js")
+
+
 scan_folder(".")
+copyShared()

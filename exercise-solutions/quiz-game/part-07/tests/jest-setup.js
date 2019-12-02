@@ -1,3 +1,5 @@
+// Origin: shared/jest-setup.js
+
 const {configure } = require('enzyme');
 const jsdom = require('jsdom');
 const Adapter = require('enzyme-adapter-react-16');
