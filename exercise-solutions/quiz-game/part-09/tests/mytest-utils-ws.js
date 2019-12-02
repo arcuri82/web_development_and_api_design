@@ -21,7 +21,7 @@ export function checkConnectedWS(ws, timeoutMs){
     const timedOut = new Promise(resolve => {
         /*
             if the WS opens within the timeout, then we will need to
-            cancel this callaback. To do that, we need to know its
+            cancel this callback. To do that, we need to know its
             id, and so we store it in a variable.
          */
         id = setTimeout(() => resolve(false), timeoutMs);
