@@ -2,10 +2,10 @@
     "author": "",
     "babel": {
         "plugins": [
-            "transform-class-properties"
+            "@babel/plugin-proposal-class-properties"
         ],
         "presets": [
-            "react"
+            "@babel/react"
         ]
     },
     "dependencies": {
@@ -15,10 +15,10 @@
     },
     "description": "",
     "devDependencies": {
-        "babel-core": "^6.26.3",
+        "@babel/core": "7.7.4",
+        "@babel/plugin-proposal-class-properties": "7.7.4",
+        "@babel/preset-react": "7.7.4",
         "babel-loader": "8.0.6",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "babel-preset-react": "^6.24.1",
         "css-loader": "^1.0.0",
         "style-loader": "^0.22.1",
         "webpack": "4.41.2",

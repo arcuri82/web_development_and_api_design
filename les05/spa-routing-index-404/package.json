@@ -1,7 +1,7 @@
 {
     "babel": {
         "presets": [
-            "react"
+            "@babel/react"
         ]
     },
     "dependencies": {
@@ -10,9 +10,9 @@
         "react-router-dom": "5.1.2"
     },
     "devDependencies": {
-        "babel-core": "^6.26.3",
-        "babel-loader": "8.0.6",
-        "babel-preset-react": "^6.24.1",
+        "@babel/core": "7.7.4",
+        "@babel/loader": "8.0.6",
+        "@babel/preset-react": "7.7.4",
         "webpack": "4.41.2",
         "webpack-cli": "3.3.10",
         "webpack-dev-server": "3.9.0"

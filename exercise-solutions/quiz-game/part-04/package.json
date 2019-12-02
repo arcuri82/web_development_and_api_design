@@ -1,11 +1,11 @@
 {
     "babel": {
         "plugins": [
-            "transform-class-properties"
+            "@babel/plugin-proposal-class-properties"
         ],
         "presets": [
-            "env",
-            "react"
+            "@babel/env",
+            "@babel/react"
         ]
     },
     "dependencies": {
@@ -13,13 +13,13 @@
         "react-dom": "16.12.0"
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
+        "@babel/cli": "7.7.4",
+        "@babel/core": "7.7.4",
+        "@babel/preset-env": "7.7.4",
         "babel-jest": "24.9.0",
         "babel-loader": "8.0.6",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "babel-preset-env": "^1.7.0",
-        "babel-preset-react": "^6.24.1",
+        "@babel/plugin-proposal-class-properties": "7.7.4",
+        "@babel/preset-react": "7.7.4",
         "enzyme": "3.10.0",
         "enzyme-adapter-react-16": "1.15.1",
         "jest": "24.9.0",

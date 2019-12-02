@@ -5,7 +5,6 @@ import json
 
 
 def scan_folder(folder):
-
     if folder.endswith("node_modules"):
         return
 
@@ -38,6 +37,19 @@ def handle_library(data, group, name, version):
     return True
 
 
+def transform_property(data, group, source_name, target_name):
+    if data.get(group) is None or data[group].get(source_name) is None:
+        return False
+
+    print("Changing " + source_name + " into " + target_name)
+    del data[group][source_name]
+
+    if data[group].get(target_name) is None:
+        data[group][target_name] = ""
+
+    return True
+
+
 def analyze_json(path):
     print("Analyzing " + path)
 
@@ -45,6 +57,12 @@ def analyze_json(path):
 
     with open(path) as json_file:
         data = json.load(json_file)
+
+        # Babel is not really backward-compatible friendly when it comes to dependency names...
+        updated |= transform_property(data, "devDependencies",
+                                      "babel-plugin-transform-class-properties",
+                                      "@babel/plugin-proposal-class-properties")
+
         # for checking updates, use "yarn outdated"
 
         # Frontend
@@ -66,6 +84,11 @@ def analyze_json(path):
         updated |= handle_devDependency(data, "webpack-dev-server", "3.9.0")
 
         # Babel
+        updated |= handle_devDependency(data, "@babel/core", "7.7.4")
+        updated |= handle_devDependency(data, "@babel/cli", "7.7.4")
+        updated |= handle_devDependency(data, "@babel/preset-env", "7.7.4")
+        updated |= handle_devDependency(data, "@babel/preset-react", "7.7.4")
+        updated |= handle_devDependency(data, "@babel/plugin-proposal-class-properties", "7.7.4")
         updated |= handle_devDependency(data, "babel-loader", "8.0.6")
         updated |= handle_devDependency(data, "babel-jest", "24.9.0")
 

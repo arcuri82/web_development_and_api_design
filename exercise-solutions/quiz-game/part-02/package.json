@@ -1,14 +1,14 @@
 {
     "babel": {
         "presets": [
-            "env"
+            "@babel/env"
         ]
     },
     "devDependencies": {
-        "babel-cli": "^6.26.0",
-        "babel-core": "^6.26.3",
+       "@babel/cli": "7.7.4",
+        "@babel/core": "7.7.4",
+        "@babel/preset-env": "7.7.4",
         "babel-jest": "24.9.0",
-        "babel-preset-env": "^1.7.0",
         "jest": "24.9.0",
         "webpack": "4.41.2",
         "webpack-cli": "3.3.10",
