@@ -134,7 +134,7 @@ the code as comments.
 * [YARN](https://yarnpkg.com)
 * [WebPack](https://webpack.js.org)
 * [Babel](https://babeljs.io/)
-* [Loadash](https://lodash.com)
+* [Lodash](https://lodash.com)
 * [React](https://reactjs.org)
 * [React-Router](https://reacttraining.com/react-router)
 * [Jest](https://github.com/facebook/jest)
