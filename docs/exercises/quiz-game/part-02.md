@@ -26,7 +26,7 @@ use them from the HTML.
 Configure *Jest* in `package.json`.
 Add a *Jest* test file called `quizzes-test.js` in the `tests` folder.
 Add tests to it to achieve 100% code coverage on `quizzes.js`.
-You need to add *Babel* (i.e., `.babelrc`) with `env` preset to be able to run the tests in NodeJS.
+You need to add *Babel* (i.e., in `package.json`) with `env` preset to be able to run the tests in NodeJS.
 
 In the `package.json`, besides adding all the needed dependencies
 (e.g., *WebPack*, *Jest* and *Babel*), add the following 3 commands under `scripts`:
