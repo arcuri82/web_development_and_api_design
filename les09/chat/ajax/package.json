@@ -17,20 +17,20 @@
         ]
     },
     "dependencies": {
-        "express": "^4.16.3",
+        "express": "4.17.1",
         "react": "16.12.0",
         "react-dom": "16.12.0"
     },
     "description": "",
     "devDependencies": {
         "babel-core": "^6.26.3",
-        "babel-jest": "^23.4.0",
-        "babel-loader": "^7.0.2",
+        "babel-jest": "24.9.0",
+        "babel-loader": "8.0.6",
         "babel-plugin-transform-class-properties": "^6.24.1",
         "babel-preset-env": "^1.7.0",
         "babel-preset-react": "^6.24.1",
-        "concurrently": "^4.1.0",
-        "nodemon": "^1.18.9",
+        "concurrently": "5.0.0",
+        "nodemon": "2.0.1",
         "webpack": "4.41.2",
         "webpack-cli": "3.3.10",
         "webpack-dev-server": "3.9.0"
