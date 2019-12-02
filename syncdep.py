@@ -110,6 +110,7 @@ def analyze_json(path):
 
 
 def copyShared():
+    # jest-setup.js
     copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-04/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-05/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-07/tests/jest-setup.js")
@@ -121,6 +122,19 @@ def copyShared():
     copyfile("shared/jest-setup.js", "les07/server_client_together/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les09/chat/websocket-full/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les09/chat/websocket-rest/tests/jest-setup.js")
+
+    # mytest-utils.js
+    copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-07/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-08/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-09/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les07/server_client_together/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les09/chat/websocket-rest/tests/mytest-utils.js")
+
+    # mytest-utils-ws.js
+    copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-09/tests/mytest-utils-ws.js")
+    copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils-ws.js")
+    copyfile("shared/mytest-utils-ws.js", "les09/chat/websocket-rest/tests/mytest-utils-ws.js")
 
 
 scan_folder(".")

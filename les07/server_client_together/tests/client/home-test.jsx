@@ -3,7 +3,7 @@ const {mount} = require('enzyme');
 const {MemoryRouter} = require('react-router-dom');
 
 const {Home} = require('../../src/client/home');
-const {stubFetch, flushPromises, overrideFetch, asyncCheckCondition} = require('./mytest-utils');
+const {stubFetch, flushPromises, overrideFetch, asyncCheckCondition} = require('../mytest-utils');
 const rep = require('../../src/server/repository');
 const app = require('../../src/server/app');
 

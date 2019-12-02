@@ -1,7 +1,8 @@
 const React = require('react');
 const {mount} = require('enzyme');
 
-const {overrideWebSocket, overrideFetch, asyncCheckCondition} = require('../mytest-utils');
+const {overrideFetch, asyncCheckCondition} = require('../mytest-utils');
+const {overrideWebSocket} = require('../mytest-utils-ws');
 
 const {Home} = require('../../src/client/home');
 const {app} = require('../../src/server/app');

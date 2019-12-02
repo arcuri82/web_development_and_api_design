@@ -2,8 +2,8 @@ const request = require('supertest');
 const {app, clearMessages} = require('../../src/server/app');
 const WS = require('ws');
 
-const {asyncCheckCondition, checkConnectedWS} = require('../mytest-utils');
-
+const {asyncCheckCondition} = require('../mytest-utils');
+const {checkConnectedWS} = require('../mytest-utils-ws');
 
 /*
     As for WS we are not using SuperTest directly, we need to start
@@ -73,7 +73,6 @@ test("Test notify 1 user with WS", async () =>{
     ws.on('message', data => {
         received.push(data);
     });
-    ws.on('error', () => {});
 
     const resPost = await request(app)
         .post('/api/messages')
@@ -113,8 +112,6 @@ test("Test notify 2 users with WS", async () =>{
     second.on('message', data => {
         received.push(data);
     });
-    first.on('error', () => {});
-    second.on('error', () => {});
 
     //create 1 single message
     const resPost = await request(app)

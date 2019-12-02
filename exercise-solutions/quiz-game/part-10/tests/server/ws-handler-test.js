@@ -2,7 +2,8 @@ const request = require('supertest');
 const {app} = require('../../src/server/app');
 const WS = require('ws');
 
-const {asyncCheckCondition, checkConnectedWS} = require('../mytest-utils');
+const {asyncCheckCondition} = require('../mytest-utils');
+const {checkConnectedWS} = require('../mytest-utils-ws');
 
 let server;
 let port;

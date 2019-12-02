@@ -2,7 +2,7 @@ const React = require('react');
 const {mount} = require('enzyme');
 const {Match} = require("../../src/client/match");
 const {quizzes} = require("../../src/server/db/quizzes");
-const {overrideFetch, asyncCheckCondition} = require('./mytest-utils');
+const {overrideFetch, asyncCheckCondition} = require('../mytest-utils');
 const app = require('../../src/server/app');
 const {resetAllUsers} = require('../../src/server/db/users');
 
