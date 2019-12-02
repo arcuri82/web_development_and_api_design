@@ -7,6 +7,8 @@ const {overrideWebSocket} = require('../mytest-utils-ws');
 const {Home} = require('../../src/client/home');
 const {app} = require('../../src/server/app');
 
+const {setUpDomEnvironment} = require('../jest-setup');
+
 /*
     As for WS we are not using SuperTest directly, we need to start
     the server manually, binding it on an ephemeral port;
@@ -20,6 +22,7 @@ beforeAll(done => {
 
     server = app.listen(0, ()=> {
         port = server.address().port;
+        setUpDomEnvironment(port);
         done();
     });
 });
@@ -48,11 +51,8 @@ test("Test new messages", async () => {
     //message shouldn't be there... notice that this means this test will always run up to the timeout
     let displayedMessage;
 
-    //FIXME: this seems to crash Jest on Mac, but works on Windows 10...
-    //       but before investigating this issue further (and possibly report a bug)
-    //       would need to upgrade to latest Jest version
-    // displayedMessage = await asyncCheckCondition(predicate, 500, 100);
-    // expect(displayedMessage).toBe(false);
+    displayedMessage = await asyncCheckCondition(predicate, 500, 100);
+    expect(displayedMessage).toBe(false);
 
 
     //create a new message
@@ -68,4 +68,6 @@ test("Test new messages", async () => {
     //if WS is working correctly, now the message should appear
     displayedMessage = await asyncCheckCondition(predicate, 3000, 100);
     expect(displayedMessage).toBe(true);
+
+    driver.unmount();
 });

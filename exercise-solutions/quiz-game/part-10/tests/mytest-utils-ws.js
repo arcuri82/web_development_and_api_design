@@ -58,15 +58,42 @@ export class WsStub extends WS{
     constructor(url){
         super(url);
 
+        /*
+            The WS library takes "data" as input, whereas WebSocket in
+            browser expect an event object with a field called "data".
+            That is the reason why we pass it as input with "{data}",
+            which is equivalent to "{data: data}"
+         */
+
         this.on('message', data => {
-            this.onmessage({data});
+            if(this.onmessage) {
+                this.onmessage({data});
+            }
         });
 
         this.on('open', data => {
-            this.onopen({data});
+            if(this.onopen) {
+                this.onopen({data});
+            }
         });
 
-        this.close = () => this.terminate();
+        this.on('error', data => {
+            if(this.onerror) {
+                this.onerror({data});
+            }
+        });
+
+        this.on('close', data => {
+            if(this.onclose) {
+                this.onclose({data});
+            }
+        });
+
+        this.close = (code, reason) => {
+            this.terminate();
+        };
+
+        // this.send() does not need to be changed, as same signature
     }
 }
 
