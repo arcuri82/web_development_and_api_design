@@ -75,6 +75,7 @@ def analyze_json(path):
         # Backend
         updated |= handle_dependency(data, "express", "4.17.1")
         updated |= handle_dependency(data, "express-session", "1.17.0")
+        updated |= handle_dependency(data, "express-ws", "4.0.0")  # is this dead?
         updated |= handle_dependency(data, "graphql", "14.5.8")
         updated |= handle_dependency(data, "apollo-server-express", "2.9.12")
 

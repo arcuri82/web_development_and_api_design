@@ -23,8 +23,8 @@ beforeAll(done => {
     });
 });
 
-afterAll(() => {
-    server.close();
+afterAll(done => {
+    server && server.close(done);
 });
 
 
