@@ -50,7 +50,7 @@
         "collectCoverageFrom": [
             "src/**.(js|jsx)"
         ],
-        "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
+        "setupFilesAfterEnv": ["<rootDir>/tests/jest-setup.js"],
         "testEnvironment": "node",
         "testRegex": "tests/.*-test\\.(js|jsx)$"
     },
