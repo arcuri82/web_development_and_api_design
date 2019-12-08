@@ -1,6 +1,7 @@
 let firstChoice = null;
 let gameFinished = true;
 let jokerPosition  = 0;
+let revealed = null;
 
 const positions = [0, 1, 2];
 
@@ -13,6 +14,7 @@ function newGame(){
 
     gameFinished = false;
     firstChoice = null;
+    revealed = null;
     jokerPosition = Math.floor(Math.random() * 3);
     showFirstMessage();
     showBackCover(0);
@@ -23,7 +25,7 @@ function newGame(){
 
 function clickCard(index){
 
-    if(gameFinished){
+    if(gameFinished || index === revealed){
         return;
     }
 
@@ -39,6 +41,7 @@ function clickCard(index){
 
         showSpades(toDisplay);
         showSecondMessage();
+        revealed = toDisplay;
 
     } else {
 
