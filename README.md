@@ -130,6 +130,7 @@ the code as comments.
 
 * [You Don't Know JavaScript](https://github.com/getify/You-Dont-Know-JS)
 * [JavaScript Koans](https://github.com/liammclennan/JavaScript-Koans)      
+* [What the f*ck JavaScript?](https://github.com/denysdovhan/wtfjs)
 * [NodeJS](https://nodejs.org/)
 * [YARN](https://yarnpkg.com)
 * [WebPack](https://webpack.js.org)
