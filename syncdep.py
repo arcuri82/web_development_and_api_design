@@ -46,6 +46,14 @@ def add_or_override_subproperty(data, property, subproperty, value):
 
     return False
 
+def add_or_override_property(data, property, value):
+
+    if data.get(property) is None or data[property] != value:
+        data[property] = value
+        return True
+
+    return False
+
 
 def transform_property(data, group, source_name, target_name):
     if data.get(group) is None or data[group].get(source_name) is None:
@@ -74,7 +82,12 @@ def analyze_json(path):
                                       "@babel/plugin-proposal-class-properties")
 
 
+        # make properties the same in all modules
         updated |= add_or_override_subproperty(data, "engines", "node", "^12.0.0")
+        updated |= add_or_override_property(data, "author", "Andrea Arcuri")
+        updated |= add_or_override_property(data, "license", "LGPL-3.0")
+        updated |= add_or_override_property(data, "version", "1.0.0")
+
 
         # for checking updates, use "yarn outdated"
 

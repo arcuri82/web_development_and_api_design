@@ -1,5 +1,5 @@
 {
-    "author": "", 
+    "author": "Andrea Arcuri", 
     "babel": {
         "presets": [
             "@babel/env"

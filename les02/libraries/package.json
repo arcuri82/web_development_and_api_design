@@ -1,5 +1,5 @@
 {
-    "author": "", 
+    "author": "Andrea Arcuri", 
     "dependencies": {
         "lodash": "4.17.15"
     }, 
