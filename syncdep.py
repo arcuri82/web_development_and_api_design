@@ -74,7 +74,7 @@ def analyze_json(path):
                                       "@babel/plugin-proposal-class-properties")
 
 
-        updated |= add_or_override_subproperty(data, "engines", "node", "^10.0.0")
+        updated |= add_or_override_subproperty(data, "engines", "node", "^12.0.0")
 
         # for checking updates, use "yarn outdated"
 
