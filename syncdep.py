@@ -36,6 +36,16 @@ def handle_library(data, group, name, version):
     data[group][name] = version
     return True
 
+def add_or_override_subproperty(data, property, subproperty, value):
+    if data.get(property) is None:
+        data[property] = {}
+
+    if data[property].get(subproperty) is None or data[property][subproperty] != value:
+        data[property][subproperty] = value
+        return True
+
+    return False
+
 
 def transform_property(data, group, source_name, target_name):
     if data.get(group) is None or data[group].get(source_name) is None:
@@ -62,6 +72,9 @@ def analyze_json(path):
         updated |= transform_property(data, "devDependencies",
                                       "babel-plugin-transform-class-properties",
                                       "@babel/plugin-proposal-class-properties")
+
+
+        updated |= add_or_override_subproperty(data, "engines", "node", "^10.0.0")
 
         # for checking updates, use "yarn outdated"
 

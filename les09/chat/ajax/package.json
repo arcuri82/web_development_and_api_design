@@ -1,51 +1,54 @@
 {
-    "author": "",
+    "author": "", 
     "babel": {
         "plugins": [
             "@babel/plugin-proposal-class-properties"
-        ],
+        ], 
         "presets": [
             [
-                "@babel/env",
+                "@babel/env", 
                 {
                     "targets": {
                         "node": "current"
                     }
                 }
-            ],
+            ], 
             "@babel/react"
         ]
-    },
+    }, 
     "dependencies": {
-        "express": "4.17.1",
-        "react": "16.12.0",
+        "express": "4.17.1", 
+        "react": "16.12.0", 
         "react-dom": "16.12.0"
-    },
-    "description": "",
+    }, 
+    "description": "", 
     "devDependencies": {
-        "@babel/core": "7.7.4",
-        "@babel/plugin-proposal-class-properties": "7.7.4",
-        "@babel/preset-env": "7.7.4",
-        "@babel/preset-react": "7.7.4",
-        "babel-jest": "24.9.0",
-        "babel-loader": "8.0.6",
-        "concurrently": "5.0.0",
-        "nodemon": "2.0.1",
-        "webpack": "4.41.2",
-        "webpack-cli": "3.3.10",
+        "@babel/core": "7.7.4", 
+        "@babel/plugin-proposal-class-properties": "7.7.4", 
+        "@babel/preset-env": "7.7.4", 
+        "@babel/preset-react": "7.7.4", 
+        "babel-jest": "24.9.0", 
+        "babel-loader": "8.0.6", 
+        "concurrently": "5.0.0", 
+        "nodemon": "2.0.1", 
+        "webpack": "4.41.2", 
+        "webpack-cli": "3.3.10", 
         "webpack-dev-server": "3.9.0"
-    },
-    "keywords": [],
-    "license": "LGPL-3.0",
-    "main": "index.js",
-    "name": "ajax",
+    }, 
+    "engines": {
+        "node": "^10.0.0"
+    }, 
+    "keywords": [], 
+    "license": "LGPL-3.0", 
+    "main": "index.js", 
+    "name": "ajax", 
     "scripts": {
-        "build": "webpack --mode production",
-        "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"",
-        "start": "node src/server/server.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "watch:client": "webpack --watch --mode development",
+        "build": "webpack --mode production", 
+        "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"", 
+        "start": "node src/server/server.js", 
+        "test": "echo \"Error: no test specified\" && exit 1", 
+        "watch:client": "webpack --watch --mode development", 
         "watch:server": "nodemon src/server/server.js --watch src/server --watch public/bundle.js"
-    },
+    }, 
     "version": "1.0.0"
 }

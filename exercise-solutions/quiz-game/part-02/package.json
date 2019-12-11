@@ -3,31 +3,34 @@
         "presets": [
             "@babel/env"
         ]
-    },
+    }, 
     "devDependencies": {
-       "@babel/cli": "7.7.4",
-        "@babel/core": "7.7.4",
-        "@babel/preset-env": "7.7.4",
-        "babel-jest": "24.9.0",
-        "jest": "24.9.0",
-        "webpack": "4.41.2",
-        "webpack-cli": "3.3.10",
+        "@babel/cli": "7.7.4", 
+        "@babel/core": "7.7.4", 
+        "@babel/preset-env": "7.7.4", 
+        "babel-jest": "24.9.0", 
+        "jest": "24.9.0", 
+        "webpack": "4.41.2", 
+        "webpack-cli": "3.3.10", 
         "webpack-dev-server": "3.9.0"
-    },
+    }, 
+    "engines": {
+        "node": "^10.0.0"
+    }, 
     "jest": {
         "collectCoverageFrom": [
             "src/**.(js|jsx)"
-        ],
+        ], 
         "testRegex": "tests/.*-test\\.(js|jsx)$"
-    },
-    "license": "LGPL-3.0",
-    "main": "index.js",
-    "name": "part-02",
-    "repository": {},
+    }, 
+    "license": "LGPL-3.0", 
+    "main": "index.js", 
+    "name": "part-02", 
+    "repository": {}, 
     "scripts": {
-        "build": "webpack --mode production",
-        "dev": "webpack-dev-server --open --mode development",
+        "build": "webpack --mode production", 
+        "dev": "webpack-dev-server --open --mode development", 
         "test": "jest --coverage"
-    },
+    }, 
     "version": "1.0.0"
 }

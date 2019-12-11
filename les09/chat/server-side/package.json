@@ -1,18 +1,21 @@
 {
-    "author": "",
+    "author": "", 
     "dependencies": {
-        "cors": "^2.8.4",
+        "cors": "^2.8.4", 
         "express": "4.17.1"
-    },
-    "description": "",
-    "keywords": [],
-    "license": "LGPL-3.0",
-    "main": "index.js",
-    "name": "server-side",
+    }, 
+    "description": "", 
+    "engines": {
+        "node": "^10.0.0"
+    }, 
+    "keywords": [], 
+    "license": "LGPL-3.0", 
+    "main": "index.js", 
+    "name": "server-side", 
     "scripts": {
-        "dev": "npm run start",
-        "start": "node src/server/server.js",
+        "dev": "npm run start", 
+        "start": "node src/server/server.js", 
         "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    }, 
     "version": "1.0.0"
 }

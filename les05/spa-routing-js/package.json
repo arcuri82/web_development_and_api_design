@@ -1,19 +1,22 @@
 {
-    "author": "",
-    "description": "",
+    "author": "", 
+    "description": "", 
     "devDependencies": {
-        "webpack": "4.41.2",
-        "webpack-cli": "3.3.10",
+        "webpack": "4.41.2", 
+        "webpack-cli": "3.3.10", 
         "webpack-dev-server": "3.9.0"
-    },
-    "keywords": [],
-    "license": "LGPL-3.0",
-    "main": "index.js",
-    "name": "spa-routing-js",
+    }, 
+    "engines": {
+        "node": "^10.0.0"
+    }, 
+    "keywords": [], 
+    "license": "LGPL-3.0", 
+    "main": "index.js", 
+    "name": "spa-routing-js", 
     "scripts": {
-        "build": "webpack --mode production",
-        "dev": "webpack-dev-server --open --mode development",
+        "build": "webpack --mode production", 
+        "dev": "webpack-dev-server --open --mode development", 
         "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    }, 
     "version": "1.0.0"
 }
