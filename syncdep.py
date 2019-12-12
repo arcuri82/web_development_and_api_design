@@ -93,7 +93,7 @@ def analyze_json(path):
 
         # Frontend
         updated |= handle_dependency(data, "lodash", "4.17.15")
-        updated |= handle_dependency(data, "react", "16.12.0")
+        updated |= handle_dependency(data, "react", "16.12.0") # if updating, check if react-href XSS still works
         updated |= handle_dependency(data, "react-dom", "16.12.0")
         updated |= handle_dependency(data, "react-router", "5.1.2")
         updated |= handle_dependency(data, "react-router-dom", "5.1.2")
