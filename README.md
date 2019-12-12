@@ -3,6 +3,8 @@
 
 ![](docs/img/stephen-leonardi-369733-unsplash-compressed.jpg "Photo by Stephen Leonardi on Unsplash")
 
+[![Build Status](https://travis-ci.com/arcuri82/web_development_and_api_design.svg?branch=master)](https://travis-ci.com/arcuri82/web_development_and_api_design)
+
 ## Summary
 
 This repository contains all the material used in the PG6301 course 
