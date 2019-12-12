@@ -1,41 +1,56 @@
 {
-  "name": "part-04",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": {},
-  "license": "LGPL-3.0",
-  "scripts": {
-    "test": "jest --coverage",
-    "dev": "webpack-dev-server --open --mode development",
-    "build": "webpack --mode production"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^23.4.0",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "jest": "^23.4.1",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jsdom": "^11.12.0",
-    "react-addons-test-utils": "^15.6.2",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
-  },
-  "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/jest-setup.js",
-    "testRegex": "tests/.*-test\\.(js|jsx)$",
-    "collectCoverageFrom": [
-      "src/**.(js|jsx)"
-    ]
-  }
+    "author": "Andrea Arcuri", 
+    "babel": {
+        "plugins": [
+            "@babel/plugin-proposal-class-properties"
+        ], 
+        "presets": [
+            "@babel/env", 
+            "@babel/react"
+        ]
+    }, 
+    "dependencies": {
+        "react": "16.12.0", 
+        "react-dom": "16.12.0"
+    }, 
+    "devDependencies": {
+        "@babel/cli": "7.7.4", 
+        "@babel/core": "7.7.4", 
+        "@babel/plugin-proposal-class-properties": "7.7.4", 
+        "@babel/preset-env": "7.7.4", 
+        "@babel/preset-react": "7.7.4", 
+        "babel-jest": "24.9.0", 
+        "babel-loader": "8.0.6", 
+        "enzyme": "3.10.0", 
+        "enzyme-adapter-react-16": "1.15.1", 
+        "jest": "24.9.0", 
+        "jsdom": "15.2.1", 
+        "react-addons-test-utils": "^15.6.2", 
+        "webpack": "4.41.2", 
+        "webpack-cli": "3.3.10", 
+        "webpack-dev-server": "3.9.0"
+    }, 
+    "engines": {
+        "node": "^12.0.0"
+    }, 
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**.(js|jsx)"
+        ], 
+        "setupFilesAfterEnv": [
+            "<rootDir>/tests/jest-setup.js"
+        ], 
+        "testEnvironment": "node", 
+        "testRegex": "tests/.*-test\\.(js|jsx)$"
+    }, 
+    "license": "LGPL-3.0", 
+    "main": "index.js", 
+    "name": "part-04", 
+    "repository": {}, 
+    "scripts": {
+        "build": "webpack --mode production", 
+        "dev": "webpack-dev-server --open --mode development", 
+        "test": "jest --coverage"
+    }, 
+    "version": "1.0.0"
 }

@@ -35,6 +35,12 @@ export class Home extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        if(this.socket){
+            this.socket.close();
+        }
+    }
+
     onNameChange = (event) => {
         this.setState({name: event.target.value});
     };

@@ -81,6 +81,10 @@ class App extends React.Component {
                 <p>
                     <b>javascript:alert('Welcome to XSS!')</b>
                 </p>
+                <p>
+                    React knows about this issue, but for now (2019) it just issues a warning in the console.
+                    Future versions of React might block it.
+                </p>
 
             </div>
 

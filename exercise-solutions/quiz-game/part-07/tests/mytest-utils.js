@@ -1,3 +1,5 @@
+// Origin: shared/mytest-utils.js
+
 const request = require('supertest');
 
 
@@ -9,7 +11,7 @@ const request = require('supertest');
     accessing response.json() is itself a function returning another Promise.
     Here, we resolve these Promises immediately.
  */
-function stubFetch(
+export function stubFetch(
     // http status to return, eg 200
     status,
     //the json payload
@@ -42,20 +44,26 @@ function stubFetch(
 /*
     Override fetch() to make calls to the backend using SuperTest
  */
-function overrideFetch(app){
+export function overrideFetch(app){
+
+    const agent = request.agent(app);
 
     global.fetch = async (url, init) => {
 
         let response;
 
         if(!init || !init.method || init.method.toUpperCase() === "GET"){
-            response = await request(app).get(url);
+            response = await agent.get(url);
         } else if(init.method.toUpperCase() === "POST"){
-            response = await request(app).post(url);
+            response = await agent.post(url)
+                .send(init.body)
+                .set('Content-Type', init.headers ? init.headers['Content-Type'] : "application/json");
         } else if(init.method.toUpperCase() === "PUT"){
-            response = await request(app).put(url);
+            response = await agent.put(url)
+                .send(init.body)
+                .set('Content-Type', init.headers ? init.headers['Content-Type'] : "application/json");
         } else if(init.method.toUpperCase() === "DELETE"){
-            response = await request(app).delete(url);
+            response = await agent.delete(url);
         } else {
             throw "Unhandled HTTP method: " + init.method;
         }
@@ -82,7 +90,7 @@ function overrideFetch(app){
     We check the predicate every intervalMS.
     If timeout elapses, then the Promise resolves to false.
  */
-function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
+export function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
 
     const start = Date.now();
 
@@ -91,7 +99,7 @@ function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
     });
 }
 
-function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolve){
+export function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolve){
     const elapsed = Date.now() - start;
     if(elapsed > totalTimeMS){
         resolve(false);
@@ -116,9 +124,11 @@ function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolv
     with setTimeout(), or when there are chains of Promises revolved after different
     ticks of the main event-loop.
  */
-
-function flushPromises() {
+export function flushPromises() {
     return new Promise(resolve => setImmediate(resolve));
 }
 
-module.exports = {stubFetch, flushPromises, overrideFetch, asyncCheckCondition};
+
+
+
+

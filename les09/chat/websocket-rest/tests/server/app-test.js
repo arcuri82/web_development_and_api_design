@@ -2,8 +2,8 @@ const request = require('supertest');
 const {app, clearMessages} = require('../../src/server/app');
 const WS = require('ws');
 
-const {asyncCheckCondition, checkConnectedWS} = require('../mytest-utils');
-
+const {asyncCheckCondition} = require('../mytest-utils');
+const {checkConnectedWS} = require('../mytest-utils-ws');
 
 /*
     As for WS we are not using SuperTest directly, we need to start
@@ -21,8 +21,8 @@ beforeAll(done => {
     });
 });
 
-afterAll(() => {
-    server.close();
+afterAll(done => {
+    server && server.close(done);
 });
 
 
@@ -82,6 +82,8 @@ test("Test notify 1 user with WS", async () =>{
 
     const ok = await asyncCheckCondition(()=> received.length>0, 2000, 100);
     expect(ok).toBe(true);
+
+    ws.close()
 });
 
 
@@ -126,6 +128,9 @@ test("Test notify 2 users with WS", async () =>{
     resGet = await request(app).get('/api/messages');
     expect(resGet.statusCode).toBe(200);
     expect(resGet.body.length).toBe(1);
+
+    first.close();
+    second.close();
 });
 
 

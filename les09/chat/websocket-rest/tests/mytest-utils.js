@@ -1,5 +1,7 @@
+// Origin: shared/mytest-utils.js
+
 const request = require('supertest');
-const WS = require('ws');
+
 
 /*
     Here, we stub away the calls to "fetch", as not available in NodeJS (ie, they
@@ -9,7 +11,7 @@ const WS = require('ws');
     accessing response.json() is itself a function returning another Promise.
     Here, we resolve these Promises immediately.
  */
-function stubFetch(
+export function stubFetch(
     // http status to return, eg 200
     status,
     //the json payload
@@ -42,7 +44,7 @@ function stubFetch(
 /*
     Override fetch() to make calls to the backend using SuperTest
  */
-function overrideFetch(app){
+export function overrideFetch(app){
 
     const agent = request.agent(app);
 
@@ -88,7 +90,7 @@ function overrideFetch(app){
     We check the predicate every intervalMS.
     If timeout elapses, then the Promise resolves to false.
  */
-function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
+export function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
 
     const start = Date.now();
 
@@ -97,7 +99,7 @@ function asyncCheckCondition(predicate, totalTimeMS, intervalMS){
     });
 }
 
-function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolve){
+export function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolve){
     const elapsed = Date.now() - start;
     if(elapsed > totalTimeMS){
         resolve(false);
@@ -122,81 +124,11 @@ function recursiveTimeoutCheck(predicate, totalTimeMS, intervalMS, start, resolv
     with setTimeout(), or when there are chains of Promises revolved after different
     ticks of the main event-loop.
  */
-function flushPromises() {
+export function flushPromises() {
     return new Promise(resolve => setImmediate(resolve));
 }
 
 
-/*
-    A WebSocket connection can take some time to open (e.g., handshake messages).
-    So, here we return a Promise which resolves to a boolean, specifying whether
-    the WS was opened within a certain amount of timeoutMs milliseconds
- */
-function checkConnectedWS(ws, timeoutMs){
-
-    /*
-        Here we create 2 Promises:
-        (1) that resolves to "false" within timeoutMs milliseconds
-        (2) that resolves to "true" once the "open" callback is executed on the WS
-     */
-
-    let id;
-
-    const timedOut = new Promise(resolve => {
-        /*
-            if the WS opens within the timeout, then we will need to
-            cancel this callaback. To do that, we need to know its
-            id, and so we store it in a variable.
-         */
-        id = setTimeout(() => resolve(false), timeoutMs);
-    });
-
-    const opened = new Promise(resolve => {
-        ws.on('open', () => resolve(true));
-    });
-
-    /*
-        Here, we return a "race" between the 2 Promises: this is a new Promise
-        which resolves to the first of these 2 Promises that is resolved.
-        However, after any of these 2 Promises is resolved, we need to clear the
-        timeout. This is not strictly necessary (ie not changing semantics, as
-        the race is resolved only once), but it is good for debugging and avoiding
-        having dangling timeout callbacks on the event-loop.
-        Also notice that this "then()" Promise has to return the same result
-        resolved in the race (ie, a boolean "x" coming from "resolve(x)").
-     */
-
-    return Promise.race([opened, timedOut])
-        .then(result => {
-            if(result) {
-                //if WS was opened, and so result===resolve(true), then clear the timeout
-                clearTimeout(id);
-            }
-            return result;
-        });
-}
-
-
-class WsStub extends WS{
-
-    constructor(url){
-        super(url);
-
-        this.on('message', data => {
-            this.onmessage({data});
-        });
-
-        this.on('open', data => {
-            this.onopen({data});
-        });
-    }
-}
-
-
-function overrideWebSocket(){
-    global.WebSocket = WsStub;
-}
 
 
 
-module.exports = {stubFetch, flushPromises, overrideFetch, asyncCheckCondition, checkConnectedWS, overrideWebSocket};

@@ -15,7 +15,7 @@
 <p>
     We use <a href="https://yarnpkg.com/en/">YARN</a>
     to download the library
-    <a href="https://lodash.com/">loadash</a>.
+    <a href="https://lodash.com/">lodash</a>.
     This is a very popular library providing several utility functions.
     Here, we just use some of them related to arrays.
     When YARN is run on a project, it will read the content of the
@@ -23,7 +23,7 @@
 </p>
 
 <p>
-    Because <em>loadash</em> is a library, it needs to be imported in this HTML file besides
+    Because <em>lodash</em> is a library, it needs to be imported in this HTML file besides
     our own JavaScript code.
     We use <a href="https://webpack.js.org/">WebPack</a> to bundle all the JS code
     together into a single <em>bundle.js</em> file.
@@ -49,7 +49,7 @@
 </p>
 
 
-<h3>Example With Loadash</h3>
+<h3>Example With Lodash</h3>
 
 <p>
     Array value: <span id="arrayStringId"></span>
@@ -70,14 +70,14 @@
         files like <em>package.json</em>.
         This can be seen like a <em>pom.xml</em> file in Maven/Java.
         Libraries need to be installed with <em>yarn install</em>.
-        Here we need both <em>WebPack</em> and <em>loadash</em>.
+        Here we need both <em>WebPack</em> and <em>lodash</em>.
         When a library is "installed", it will be downloaded under
         the <em>node_modules</em> folder (and also cached on your home folder).
         Note: it is very important to do NOT add such folder on Git.
     </p>
 
     <p>
-        <em>Loadash</em> will be part of our final code, whereas  <em>WebPack</em>
+        <em>Lodash</em> will be part of our final code, whereas  <em>WebPack</em>
         is just a tool/plugin to build the project.
         See the differences between <em>dependencies</em> and <em>devDependencies</em>
         in the <em>package.json</em> file.
@@ -86,7 +86,7 @@
     <p>
         When you work on an existing project, where the <em>package.json</em>
         and <em>yarn.lock</em> are already there in the Git repository,
-        you just need to run <em>npm install</em> to download all the libraries
+        you just need to run <em>yarn install</em> to download all the libraries
         defined in <em>package.json</em> into <em>node_modules</em>.
     </p>
 

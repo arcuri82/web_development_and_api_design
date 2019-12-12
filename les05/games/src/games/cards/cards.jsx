@@ -158,8 +158,8 @@ export class Cards extends React.Component {
 
     clickCard = (index) => {
 
-        if (this.state.secondChoice !== null) {
-            //game is finished, nothing to do
+        if (this.state.secondChoice !== null || this.state.uncovered === index) {
+            //game is finished, nothing to do, or clicked on uncovered card
             return;
         }
 
