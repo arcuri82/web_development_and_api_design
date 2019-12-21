@@ -151,7 +151,7 @@ the code as comments.
 
 ## Exam
 
-A PDF of a mock exam for this course can be found [here](docs/exams/mock_exam_0.pdf). 
+A PDF of a mock exam for this course can be found [here](docs/exams/mock_exam.pdf). 
 
 ## License & Copyright
 
