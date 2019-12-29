@@ -1,4 +1,4 @@
-html, body {
+/* html, body {
     margin: 0px;
     background-color: rgb(243, 239, 231);
     color: rgb(71, 53, 25);
@@ -25,4 +25,37 @@ html, body {
     display: inline-block;
     font-size: 1em;
     font-weight: bold;
+} */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    align-items: center;
+}
+
+.heading {
+    font-size: 4em;
+    margin: 2rem 0;
+}
+
+.questions {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.answer {
+    background-color: #ebe9e4;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #787774;
+    border-radius: 5px;
+    width: 80%;
 }
