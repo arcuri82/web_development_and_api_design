@@ -4,9 +4,7 @@ import {Match} from "./match";
 
 const App = () => {
         return (
-            <>
                 <Match/>
-            </>
         );
 };
 
