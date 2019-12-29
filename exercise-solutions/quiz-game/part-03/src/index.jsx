@@ -32,11 +32,14 @@ class App extends React.Component {
         const quiz = this.state.quiz;
 
         return (
-            /*This <></> is a shorthand React fragment, full tag is <React.Fragment></React.Fragment>, 
-            the shorthand is just so much cleaner. 
-            It is usfull when we dont want another html tag, 
-            like a div to be added to the html three but need something that collects other elemnts. 
-            If you look at this from the development tools in your browser, it wont be visable. 
+            /*
+            This <></> is a shorthand for React fragment.
+            The full tag is <React.Fragment></React.Fragment>.
+            Using a shorthand is just  easier/cleaner.
+            It is useful when we dont want another html tag,
+            like a div to be added to the html three but need something that collects other elements.
+            Note: the "return" must return only a single tag (with possibly children), and not a list.
+            If you look at this <></> from the development tools in your browser, it wont be visible.
             Doc: https://reactjs.org/docs/fragments.html
             */
             <>
