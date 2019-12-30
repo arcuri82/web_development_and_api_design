@@ -8,7 +8,7 @@ function checkQuizIsDisplayed(driver){
     const questions = driver.find('.question');
     expect(questions.length).toEqual(1);
 
-    const answers = driver.find('.gameBtn');
+    const answers = driver.find('.answer');
     expect(answers.length).toEqual(4);
 }
 
@@ -27,7 +27,7 @@ test("Test do answer", () => {
 
     global.alert = (s) => {msg = s};
 
-    const first = driver.find('.gameBtn').at(0);
+    const first = driver.find('.answer').at(0);
     first.simulate('click');
 
     checkQuizIsDisplayed(driver);
