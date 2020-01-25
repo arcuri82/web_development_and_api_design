@@ -158,15 +158,15 @@ export class Cards extends React.Component {
 
     clickCard = (index) => {
 
-        if (this.state.secondChoice !== null || this.state.uncovered === index) {
+        if (this.state.secondChoice || this.state.uncovered === index) {
             //game is finished, nothing to do, or clicked on uncovered card
             return;
         }
 
         this.setState(prev => {
-            if (prev.secondChoice !== null) {
+            if (prev.secondChoice) {
                 return {};
-            } else if (prev.firstChoice === null) {
+            } else if (!prev.firstChoice) {
 
                 const options = positions.filter(p => p !== index && p !== this.state.jokerPosition);
                 const toDisplay = options[Math.floor(Math.random() * options.length)];

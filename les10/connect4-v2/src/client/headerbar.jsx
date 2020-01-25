@@ -66,7 +66,7 @@ class HeaderBar extends React.Component {
     const userId = this.props.userId;
 
     let content;
-    if (userId === null || userId === undefined) {
+    if (!userId) {
       content = this.renderNotLoggedIn();
     } else {
       content = this.renderLoggedIn(userId);

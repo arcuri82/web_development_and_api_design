@@ -77,9 +77,9 @@ export class Home extends React.Component {
 
         let table;
 
-        if (this.state.error !== null) {
+        if (this.state.error) {
             table = <p>{this.state.error}</p>
-        } else if (this.state.books === null || this.state.books.length === 0) {
+        } else if (!this.state.books || this.state.books.length === 0) {
             table = <p>There is no book registered in the database</p>
         } else {
             table = <div>

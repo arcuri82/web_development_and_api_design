@@ -23,12 +23,8 @@ export class Match extends React.Component {
         const quizzes = await getRandomQuizzes(3);
 
         this.setState(
-            quizzes === null ?
-                {
-                    error: "Error when connecting to server"
-                }
-                :
-                {
+            !quizzes ? {error: "Error when connecting to server"}
+                : {
                     error: null,
                     match: {
                         victory: false,

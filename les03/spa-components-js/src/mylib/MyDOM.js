@@ -90,7 +90,7 @@ const findComponent = function(current, id){
 
     for(let i=0; i<current.children.length; i++){
         const k = findComponent(current.children[i], id);
-        if(k !== null){
+        if(k){
             return k;
         }
     }

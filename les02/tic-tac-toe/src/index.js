@@ -31,7 +31,7 @@ class HtmlBoardRenderer{
 
         const div = this.cellDivs[index];
 
-        if(value === null){
+        if(!value){
             div.innerHTML = "";
             div.style.cursor = "pointer";
         } else {

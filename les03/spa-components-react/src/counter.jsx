@@ -66,7 +66,7 @@ export class Counter extends React.Component{
 
     render(){
 
-        const name = this.props.name != null ? this.props.name : "Default";
+        const name = this.props.name ? this.props.name : "Default";
 
         return(
             <div>

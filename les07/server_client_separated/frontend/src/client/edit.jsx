@@ -13,13 +13,13 @@ export class Edit extends React.Component{
 
         this.bookId = new URLSearchParams(window.location.search).get("bookId");
 
-        if(this.bookId === null){
+        if(!this.bookId){
             this.state.error = "Unspecified book id";
         }
     }
 
     componentDidMount(){
-        if(this.state.error === null) {
+        if(!this.state.error) {
             this.fetchBook();
         }
     }
@@ -83,7 +83,7 @@ export class Edit extends React.Component{
 
     render(){
 
-        if(this.state.error !== null){
+        if(this.state.error){
             return(
                 <div>
                     <p>Cannot edit book. {this.state.error}</p>
@@ -91,7 +91,7 @@ export class Edit extends React.Component{
             );
         }
 
-        if(this.state.book === null){
+        if(!this.state.book){
             return(<p>Loading...</p>);
         }
 

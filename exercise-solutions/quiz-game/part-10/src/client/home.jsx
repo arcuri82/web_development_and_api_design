@@ -16,7 +16,6 @@ export class Home extends React.Component {
 
     render() {
         const user = this.props.user;
-        const loggedIn = user !== null && user !== undefined;
 
         return (
             <div>
@@ -37,7 +36,7 @@ export class Home extends React.Component {
                 </div>
 
 
-                {loggedIn ? (
+                {user ? (
                     <div>
                         <div className="btnPart">
                             <Link to={"/match"} className={"btn"}>

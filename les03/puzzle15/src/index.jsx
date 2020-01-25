@@ -33,7 +33,7 @@ class App extends React.Component{
     static coordinatesOfFree(board){
         for(let r=0; r<4; r++) {
             for (let c = 0; c < 4; c++) {
-                if(board[r][c] === null){
+                if(!board[r][c]){
                     return {r,c}
                 }
             }

@@ -42,7 +42,7 @@ export class Counter extends React.Component{
             references as properties in "this.props".
          */
 
-        const name = this.props.name != null ? this.props.name : "Default";
+        const name = this.props.name ? this.props.name : "Default";
 
         return(
             <div>

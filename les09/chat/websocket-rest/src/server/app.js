@@ -23,7 +23,7 @@ app.get('/api/messages', (req, res) => {
 
     const data = messages;
 
-    if (since !== undefined && since !== null) {
+    if (since) {
         res.json(data.filter(m => m.id > since));
     } else {
         res.json(data);

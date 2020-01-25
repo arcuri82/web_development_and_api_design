@@ -84,7 +84,7 @@ class App extends React.Component {
 
             this.setState(
                 prev => {
-                    if(prev.messages === null){
+                    if(!prev.messages){
                         return {messages: payload};
                     } else {
                         return {messages: prev.messages.concat(payload)};
@@ -102,7 +102,7 @@ class App extends React.Component {
 
         let messages = <div></div>;
 
-        if(this.state.messages !== null){
+        if(this.state.messages){
             messages = <div>
                 {this.state.messages.map(m =>
                     <p key={"msg_key_" + m.id}> {m.author + ": " + m.text}</p>

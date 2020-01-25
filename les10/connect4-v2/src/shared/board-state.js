@@ -9,7 +9,7 @@ const COLUMNS = 7;
 class BoardState {
 
     constructor(dto) {
-        if(dto === undefined || dto === null){
+        if(!dto){
             this.resetBoard();
         } else {
             this.cells = cloneMatrix(dto.cells);
@@ -144,7 +144,7 @@ class BoardState {
 
         const pos = this.computeWinningPositions(m);
 
-        if (pos === null) {
+        if (!pos) {
             if (counter >= (ROWS * COLUMNS) - 1) {
                 //tie
                 return {resultCode: 3, positions: null}

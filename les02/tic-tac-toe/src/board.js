@@ -19,7 +19,7 @@ export class Board {
     }
 
     selectCell(index) {
-        if (this.cells[index] !== null || this.isVictory()) {
+        if (this.cells[index] || this.isVictory()) {
             //nothing to do
             return;
         }

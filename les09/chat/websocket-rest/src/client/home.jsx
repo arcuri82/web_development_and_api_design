@@ -25,7 +25,7 @@ export class Home extends React.Component {
 
             this.setState(
                 prev => {
-                    if (prev.messages === null) {
+                    if (!prev.messages) {
                         return {messages: [msg]};
                     } else {
                         return {messages: [...prev.messages, msg]};
@@ -83,7 +83,7 @@ export class Home extends React.Component {
     fetchMessages = async () => {
 
         let since = "";
-        if (this.state.messages !== null && this.state.messages.length !== 0) {
+        if (this.state.messages && this.state.messages.length !== 0) {
             since = "?since=" + Math.max(...this.state.messages.map(m => m.id));
         }
 
@@ -104,7 +104,7 @@ export class Home extends React.Component {
 
             this.setState(
                 prev => {
-                    if (prev.messages === null) {
+                    if (!prev.messages) {
                         return {messages: payload};
                     } else {
                         return {messages: prev.messages.concat(payload)};
