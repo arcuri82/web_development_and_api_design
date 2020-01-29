@@ -8,6 +8,8 @@ You will also likely need to update the `index.html` file.
 
 Because JSX is not JS, you need to use *Babel* (e.g., with `react` preset)
 to transform the JSX code when it is bundled with *WebPack*.
+This means adding the proper `module:rules` in `webpack-config.js`.
+Then, `libraryTarget` and `library` can be removed, as no longer needed. 
 
 `quizzes.js` should be left as it is, with the test cases still working correctly
 with *Jest*. 
