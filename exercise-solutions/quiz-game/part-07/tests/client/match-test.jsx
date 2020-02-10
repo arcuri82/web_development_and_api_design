@@ -11,7 +11,7 @@ function isQuizDisplayed(driver) {
 
     const quiz = driver.find('.quiz');
     const questions = driver.find('.question');
-    const answers = driver.find('.gameBtn');
+    const answers = driver.find('.answer');
 
     return quiz.length === 1 && questions.length === 1 && answers.length === 4;
 }
@@ -59,7 +59,7 @@ test("Test do answer wrongly", async () => {
     const quiz = getDisplayedQuiz(driver);
     const wrong = (quiz.indexOfRightAnswer + 1) % 4;
 
-    const first = driver.find('.gameBtn').at(wrong);
+    const first = driver.find('.answer').at(wrong);
     first.simulate('click');
 
     const lost = driver.html().includes("Lost");
@@ -82,7 +82,7 @@ test("Test do answer correctly", async () => {
     const quiz = getDisplayedQuiz(driver);
     const correct = quiz.indexOfRightAnswer ;
 
-    const first = driver.find('.gameBtn').at(correct);
+    const first = driver.find('.answer').at(correct);
     first.simulate('click');
 
     const lost = driver.html().includes("Lost");
@@ -108,7 +108,7 @@ test("Test win match", async () => {
         const quiz = getDisplayedQuiz(driver);
         const correct = quiz.indexOfRightAnswer;
 
-        const first = driver.find('.gameBtn').at(correct);
+        const first = driver.find('.answer').at(correct);
         first.simulate('click');
 
         driver.update();
