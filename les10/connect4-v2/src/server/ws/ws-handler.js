@@ -19,7 +19,7 @@ function init(app) {
 
         socket.on('message', (data) => {
 
-            if (data === null || data === undefined) {
+            if (!data) {
                 socket.send(JSON.stringify({topic: "update", error: "No payload provided"}));
                 return;
             }
@@ -28,14 +28,14 @@ function init(app) {
 
             const topic = dto.topic;
 
-            if(topic === null || topic === undefined){
+            if(!topic){
                 socket.send(JSON.stringify({topic: "update", error: "No defined topic"}));
                 return;
             }
 
             const handler = socket.messageHandlers.get(topic);
 
-            if(handler === null || handler === undefined){
+            if(!handler){
                 socket.send(JSON.stringify({topic: "update", error: "Unrecognized topic: " + topic}));
                 return;
             }
@@ -84,7 +84,7 @@ function handleLogin(dto, socket) {
 
     const token = dto.wstoken;
 
-    if (token === null || token === undefined) {
+    if (!token) {
         socket.send(JSON.stringify({topic: "update", error: "Missing token"}));
         return;
     }
@@ -92,7 +92,7 @@ function handleLogin(dto, socket) {
     //token can be used only once to authenticate only a single socket
     const userId = Tokens.consumeToken(token);
 
-    if (userId === null || userId === undefined) {
+    if (!userId) {
         socket.send(JSON.stringify({topic: "update", error: "Invalid token"}));
         return;
     }

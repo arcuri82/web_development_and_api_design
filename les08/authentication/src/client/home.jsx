@@ -26,7 +26,7 @@ export class Home extends React.Component {
   };
 
   transferMoney = async () => {
-    if (this.props.userId === null || this.props.userId === undefined) {
+    if (!this.props.userId) {
       return;
     }
 
@@ -154,14 +154,14 @@ export class Home extends React.Component {
     const userId = this.props.userId;
     let pageContent;
 
-    if (userId === null || userId === undefined) {
+    if (!userId) {
       pageContent = this.renderNotLoggedIn();
     } else {
       pageContent = this.renderLoggedIn();
     }
 
     let error = <div />;
-    if (this.state.errorMsg !== null) {
+    if (this.state.errorMsg) {
       error = (
         <div className="errorMsg">
           <p>{this.state.errorMsg}</p>

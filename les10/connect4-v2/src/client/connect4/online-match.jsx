@@ -27,7 +27,7 @@ export class OnlineMatch extends React.Component {
          */
 
         const userId = this.props.userId;
-        if (userId === null) {
+        if (!userId) {
             this.setState({errorMsg: "You should log in first"});
             return;
         }
@@ -47,12 +47,12 @@ export class OnlineMatch extends React.Component {
 
             const dto = JSON.parse(event.data);
 
-            if (dto === null || dto === undefined || dto.topic !== "update") {
+            if (!dto || dto.topic !== "update") {
                 this.setState({errorMsg: "Invalid response from server."});
                 return;
             }
 
-            if (dto.error !== null && dto.error !== undefined) {
+            if (dto.error) {
                 this.setState({errorMsg: dto.error});
                 return;
             }
@@ -198,12 +198,11 @@ export class OnlineMatch extends React.Component {
 
     render() {
 
-        if (this.state.errorMsg !== null) {
+        if (this.state.errorMsg) {
             return <div><p>[FAILURE] {this.state.errorMsg}</p></div>
         }
 
-        if (this.state.matchId === null) {
-
+        if (!this.state.matchId) {
             return <div><h3>Searching for a worthy opponent</h3></div>
         }
 

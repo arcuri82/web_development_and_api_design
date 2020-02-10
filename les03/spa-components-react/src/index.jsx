@@ -1,27 +1,31 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Container} from "./container";
+import { Container } from "./container";
 
 const App = () => {
-    /*
+  /*
         Note that the following is neither a "" string, nor regular JS: it is JSX syntax.
         Furthermore, it should be only a single tag with children (if any).
         If you want several tags at the same level (ie siblings), you need to put
         them inside a <div> for example.
-        If you remove the <div> and have the <h2> and <Container> one after the
+        If you do not want to add a tag to your html-tree, you can use a React fragment.
+        The full tag is <React.Fragment></React.Fragment>, whereas the shorthand looks like this <></>.
+        If you look at this <></> from the development tools in your browser, it will not be visible.
+        More info at: https://reactjs.org/docs/fragments.html
+        If you remove the <>, and have the <h2> and <Container> one after the
         other, you will get an error.
      */
-    return(
-        <div>
-            <h2>Example of Single-Page Application Components with React</h2>
-            {/*
+  return (
+    <>
+      <h2>Example of Single-Page Application Components with React</h2>
+      {/*
                 This will render the HTML from the Container component with
                 3 Counter components inside it.
                 We simply call the name of component inside a tag.
             */}
-            <Container ncounters={3}/>
-        </div>
-    );
+      <Container ncounters={3} />
+    </>
+  );
 };
 
 /*

@@ -54,7 +54,7 @@ class App extends React.Component {
 
             const dto = JSON.parse(event.data);
 
-            if (dto === null || dto === undefined || !dto.userCount) {
+            if (!dto || !dto.userCount) {
                 this.setState({userCount: "ERROR"});
                 return;
             }

@@ -18,7 +18,7 @@ function verifyUser(id, password){
 
     const user = getUser(id);
 
-    if(user === undefined){
+    if(!user){
         return false;
     }
 
@@ -27,7 +27,7 @@ function verifyUser(id, password){
 
 function createUser(id, password){
 
-    if(getUser(id) !== undefined ){
+    if(getUser(id)){
         return false;
     }
 

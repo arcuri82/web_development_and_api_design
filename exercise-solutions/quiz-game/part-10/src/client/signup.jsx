@@ -73,7 +73,7 @@ export class SignUp extends React.Component{
     render(){
 
         let error = <div></div>;
-        if(this.state.errorMsg !== null){
+        if(this.state.errorMsg){
             error = <div className="errorMsg"><p>{this.state.errorMsg}</p></div>
         }
 

@@ -20,7 +20,7 @@ export  class OpponentOnline{
             socket "update".
          */
 
-        if(lastInsertedColumn === null || lastInsertedColumn=== undefined){
+        if(!lastInsertedColumn){
             //first round, no need to inform server
             return;
         }

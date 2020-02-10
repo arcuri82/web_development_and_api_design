@@ -8,7 +8,6 @@ export class Home extends React.Component {
 
   render() {
     const userId = this.props.userId;
-    const loggedIn = userId !== null && userId !== undefined;
 
     return (
       <div>
@@ -32,7 +31,7 @@ export class Home extends React.Component {
           <Link to={"/match/ai"} className={"btn"}>
             AI Match
           </Link>
-          {loggedIn ? (
+          {userId ? (
             <Link to={"/match/online"} className={"btn"}>
               Online Match
             </Link>

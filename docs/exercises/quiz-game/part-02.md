@@ -22,6 +22,7 @@ Add *WebPack* to create a `bundle.js` file, to be generated into the `public` fo
 The `index.html` will use this JS bundle file.
 Note: be careful of how JS functions can be exported in *WebPack*, as you will need to
 use them from the HTML.
+In particular, you will need to setup the `libraryTarget` and `library` properties.
 
 Configure *Jest* in `package.json`.
 Add a *Jest* test file called `quizzes-test.js` in the `tests` folder.

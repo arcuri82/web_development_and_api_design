@@ -20,7 +20,7 @@ export class Container extends React.Component {
 
     render() {
 
-        const n = this.props.ncounters != null ? this.props.ncounters : 1;
+        const n = this.props.ncounters ? this.props.ncounters : 1;
 
         return (
             <div>

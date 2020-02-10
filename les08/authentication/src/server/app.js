@@ -93,7 +93,7 @@ passport.deserializeUser(function (id, done) {
 
     const user = Repository.getUser(id);
 
-    if (user !== undefined) {
+    if (user) {
         done(null, user);
     } else {
         done(null, false);

@@ -10,7 +10,7 @@ export function Counter(props) {
      */
     const [count, setCount] = useState(0);
 
-    const name = props.name != null ? props.name : "Default";
+    const name = props.name ? props.name : "Default";
 
     return (
         <div>

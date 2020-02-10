@@ -5,7 +5,7 @@ function createMatrix (rows, columns, value){
 
 
 function cloneMatrix(matrix){
-    if(matrix === null){
+    if(!matrix){
         return null;
     }
     return matrix.map(e => e.slice());

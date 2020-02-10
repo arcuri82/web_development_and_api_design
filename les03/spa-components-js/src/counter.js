@@ -19,7 +19,7 @@ export class Counter extends MyComponent {
 
     render() {
 
-        const name = this.name != null ? this.name : "Default";
+        const name = this.name  ? this.name : "Default";
 
         return (
             "<div>" +

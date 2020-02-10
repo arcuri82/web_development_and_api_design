@@ -1,4 +1,17 @@
+/*
+    When we "import" the default object exported by a library, we can give it any name
+    we want, eg., "_" in this case.
+    Such name is then use as a variable in the rest of this module
+ */
 import _ from 'lodash';
+
+/*
+    A library/module could export several different objects/functions.
+    In such case, a common approach is to "import" an object definition
+    where each element we want to use from that module is declared.
+    This creates variables associated to those names, which then can be
+    used directly.
+ */
 import {computeMin, computeMax, computeMean, computeSum} from "./my-math.js";
 
 

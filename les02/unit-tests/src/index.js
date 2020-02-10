@@ -68,7 +68,7 @@ export function updatePage() {
     document.getElementById("meanId").innerHTML = mean;
     document.getElementById("sumId").innerHTML = sum;
 
-    if(inputField.oninput === null){
+    if(!inputField.oninput){
         inputField.oninput = updatePage;
     }
 }

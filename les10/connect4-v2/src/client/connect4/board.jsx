@@ -119,7 +119,7 @@ export class Board extends React.Component {
         const toInsert = this.state.posToInsert;
 
         if (this.playerIsNext()
-            && toInsert !== null
+            && toInsert
             && toInsert[0] === row
             && toInsert[1] === column) {
 
@@ -131,7 +131,7 @@ export class Board extends React.Component {
             winning 4 cells with a different color, based on whether we won or lost.
          */
         const winningPos = board.winningPositions;
-        if (winningPos !== null) {
+        if (winningPos) {
 
             const won = this.state.isX ? board.result === 1 : board.result === 2;
 

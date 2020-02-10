@@ -27,7 +27,7 @@ function startMatch(firstId, secondId){
 
 function deleteMatch(matchId){
     const match = matchIdToMatch.get(matchId);
-    if(match === undefined){
+    if(!match){
         return;
     }
 
@@ -38,7 +38,7 @@ function deleteMatch(matchId){
 function forfeit(userId){
 
     const match = userIdToMatch.get(userId);
-    if(match === undefined){
+    if(!match){
         return;
     }
 

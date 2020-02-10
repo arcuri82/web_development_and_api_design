@@ -52,7 +52,7 @@ module.exports = {
 
     createUser: (id, name, middlename, surname, email) => {
 
-        if (id === null || id === undefined || users[id]) {
+        if (!id || users[id]) {
             return false;
         }
 

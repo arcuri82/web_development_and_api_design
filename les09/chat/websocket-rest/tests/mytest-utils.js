@@ -16,14 +16,14 @@ export function stubFetch(
     status,
     //the json payload
     payload,
-    // a function that checks if the inputs in "fetch(url, init)" are valid
+    // an optional function that checks if the inputs in "fetch(url, init)" are valid
     predicate) {
 
     //define fetch method at global level, as it is not available on NodeJS
     global.fetch = (url, init) => {
 
-        //crash if the predicate is not satisfied
-        if(predicate !== null) {
+        //if defined, crash if the predicate is not satisfied
+        if(predicate) {
             predicate(url, init);
         }
 

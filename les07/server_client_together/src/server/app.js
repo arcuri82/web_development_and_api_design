@@ -22,7 +22,7 @@ app.get('/api/books', (req, res) => {
      */
     const since = req.query["since"];
 
-    if (since !== undefined && since !== null) {
+    if (since) {
         res.json(repository.getAllBooksSince(since));
     } else {
         res.json(repository.getAllBooks());
@@ -38,7 +38,7 @@ app.get('/api/books/:id', (req, res) => {
 
     const book = repository.getBook(req.params["id"]);
 
-    if (book === undefined || book === null) {
+    if (!book) {
         res.status(404);
         res.send()
     } else {
