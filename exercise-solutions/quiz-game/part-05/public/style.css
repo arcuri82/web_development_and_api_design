@@ -47,7 +47,11 @@ The least you can do is to leave the Default browser style and then add the same
 read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/*/
 }
 
-
+.quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .question {

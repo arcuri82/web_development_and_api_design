@@ -1,47 +1,85 @@
-body {
-    background-color: green;
-}
-
-#root {
-    margin: 30px;
-}
-
-.gameBtn {
-    height: 50px;
-    background-color: rgb(207, 205, 200);
-    font-size: 1em;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
+.container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
-    margin-left: 5%;
-    margin-right: 5%;
 }
 
-.btnPart {
-    display: inline-flex;
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    align-items: center;
 }
 
-.btn {
-    width: 90px;
-    height: 20px;
-    background-color: rgb(207, 205, 200);
-    color: black;
-    font-size: 1em;
-    text-align: center;
-    padding: 5px;
-    border: 2px solid black;
+.heading {
+    font-size: 4em;
+    margin: 2rem 0;
+}
+
+.welcome-text {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+}
+.action {
+    padding: 1rem 0;
+}
+
+.play {
+    background-color: #ebe9e4;
+    color: #000000;
+    padding: 1rem;
+    border: 1px solid #787774;
     border-radius: 5px;
-    margin: 5px;
-    cursor: pointer;
-    text-decoration: none;
+    margin-top: 1rem;
+}
+    .play:focus,
+    .play:hover{
+    background-color: #2d1ed6;
+    color: #ebe9e4;
+
+    /* the focus selector is important for universal design. 
+Especially for users navigating with keyboard. Sadly it is often forgotten 
+and alot of designers request frontend developers to remove the browsers default focus, 
+without adding a custom one. This should never be done! 
+If you do this you make it very hard for a keyboard user to navigate. 
+The least you can do is to leave the Default browser style and then add the same style as on hover.
+read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/*/
+}
+
+.quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .question {
-    display: inline-block;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: bold;
+}
+
+.answer {
+    background-color: #ebe9e4;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #787774;
+    border-radius: 5px;
+    width: 80%;
+}
+.answer:hover,
+.answer:focus{
+    background-color: #2d1ed6;
+    color: #ebe9e4;
+}
+
+
+.game-result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.new-game-button{
+    align-self: center;
 }
