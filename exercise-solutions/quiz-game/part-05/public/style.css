@@ -48,6 +48,12 @@
     */
 }
 
+.quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .question {
     font-size: 1.5em;
