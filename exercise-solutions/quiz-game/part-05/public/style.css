@@ -48,15 +48,12 @@
     */
 }
 
-<<<<<<< HEAD
 .quiz{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-=======
->>>>>>> master
 
 .question {
     font-size: 1.5em;
