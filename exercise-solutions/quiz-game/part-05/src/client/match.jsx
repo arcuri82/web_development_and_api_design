@@ -55,8 +55,14 @@ export class Match extends React.Component {
 
 
     renderAnswerTag(prefix, answer, correct) {
-        return <div className='gameBtn' onClick={() => this.handleClick(correct)}> {prefix + answer} </div>;
+        return <div className='answer' onClick={() => this.handleClick(correct)} tabindex="0"> {prefix + answer} </div>;
     }
+    /* Tabindex is important to add for universal design. Tabindex make html elements able to reach from the key tab. 
+    Like in this case where we use a <div></div> as a button. If we did not add tabindex inside the div, 
+    it whould not have been possibøle to navigate to it with the keyboard. With tabindex we can also decide the order of tab-able elements. 
+    As we now have it set to 0 we use default order. But by giving them nr 1-2-3-4 we can decide the order, but this is considered bad practice.
+    more info: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex 
+    */
 
     render() {
 
@@ -66,18 +72,22 @@ export class Match extends React.Component {
 
         if (this.state.match.victory) {
             return (
-                <div>
+                <div className="game-result">
                     <h2>You Won!</h2>
-                    <div className="btn" onClick={this.startNewMatch}>New Match</div>
+                    <div className="action">
+                        <button className="play new-game-button" onClick={this.startNewMatch}>New Match</button>
+                    </div>
                 </div>
             );
         }
 
         if (this.state.match.defeat) {
             return (
-                <div>
+                <div className="game-result">
                     <h2>Wrong Answer! You Lost!</h2>
-                    <div className="btn" onClick={this.startNewMatch}>New Match</div>
+                    <div className="action">
+                        <button className="play new-game-button" onClick={this.startNewMatch}>New Match</button>
+                    </div>
                 </div>
             );
         }
