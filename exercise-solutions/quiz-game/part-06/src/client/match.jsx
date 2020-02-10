@@ -63,14 +63,16 @@ export class Match extends React.Component {
     renderAnswerTag(prefix, answer, correct) {
         return <div className='answer' onClick={() => this.handleClick(correct)} tabindex="0"> {prefix + answer} </div>;
     }
-    /* Tabindex is important to add for universal design. Tabindex make html elements able to reach from the key tab. 
-    Like in this case where we use a <div></div> as a button. If we did not add tabindex inside the div, 
-    it whould not have been possibøle to navigate to it with the keyboard. With tabindex we can also decide the order of tab-able elements. 
-    As we now have it set to 0 we use default order. But by giving them nr 1-2-3-4 we can decide the order, but this is considered bad practice.
-    more info: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex 
+    /*
+    Tabindex is important to add for universal design.
+    Tabindex make html elements able to reach from the key tab.
+    Like in this case where we use a <div></div> as a button.
+    If we did not add tabindex inside the div, it would not have been possible to navigate to it with the keyboard.
+    With tabindex we can also decide the order of tab-able elements.
+    As we now have it set to 0, we use default order.
+    By giving them nr 1-2-3-4 we can decide the order, but this is considered bad practice.
+    More info: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
     */
-
-
     render() {
 
         if (this.state.error) {
