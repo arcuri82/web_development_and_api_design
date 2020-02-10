@@ -33,26 +33,30 @@
     border-radius: 5px;
     margin-top: 1rem;
 }
-    .play:focus,
-    .play:hover{
+
+.play:focus,.play:hover{
     background-color: #2d1ed6;
     color: #ebe9e4;
-
-    /* the focus selector is important for universal design. 
-Especially for users navigating with keyboard. Sadly it is often forgotten 
-and alot of designers request frontend developers to remove the browsers default focus, 
-without adding a custom one. This should never be done! 
-If you do this you make it very hard for a keyboard user to navigate. 
-The least you can do is to leave the Default browser style and then add the same style as on hover.
-read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/*/
+    /*
+    The focus selector is important for universal design.
+    Especially for users navigating with keyboard. Sadly it is often forgotten
+    and a lot of designers request frontend developers to remove the browsers default focus,
+    without adding a custom one. This should not be done!
+    If you do this you make it very hard for a keyboard user to navigate.
+    The least you can do is to leave the Default browser style and then add the same style as on hover.
+    Read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/
+    */
 }
 
+<<<<<<< HEAD
 .quiz{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+=======
+>>>>>>> master
 
 .question {
     font-size: 1.5em;
@@ -67,12 +71,11 @@ read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focu
     border-radius: 5px;
     width: 80%;
 }
-.answer:hover,
-.answer:focus{
+
+.answer:hover, .answer:focus{
     background-color: #2d1ed6;
     color: #ebe9e4;
 }
-
 
 .game-result{
     display: flex;
@@ -81,6 +84,7 @@ read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focu
     align-items: center;
 
 }
+
 .new-game-button{
     align-self: center;
 }
