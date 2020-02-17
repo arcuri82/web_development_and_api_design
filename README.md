@@ -91,7 +91,7 @@ the code as comments.
 
 <br />
 
-* **Lesson 08**: Authentication and CSRF 
+* **Lesson 08**: Authentication, CORS and CSRF 
 
   Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_08.pdf)  
    
