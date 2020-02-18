@@ -36,3 +36,12 @@ To run these examples, you need:
   In `index-ajax-get.html`, the AJAX GET request will be made, but then
   JS will not be able to read the response, not even the status code (which
   will get a 0 default value).
+
+
+### 2020 Update
+
+Since Chrome 80 released in February 2020, the default "SameSite=Lax" would block this kind of simple CSRF attacks.
+However, when accessing from same domain (e.g., `localhost`), the attacks would go through even if 2 different servers use
+different TCP ports (e.g., 8080 from NodeJS and whatever ephemeral port WebStorm gets).
+To test "SameSite=Lax" blocking it, you can simply just change `localhost` into `127.0.0.1` in the malware page's 
+address bar.  
