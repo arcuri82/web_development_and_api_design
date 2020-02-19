@@ -31,7 +31,7 @@
     }, 
     "jest": {
         "collectCoverageFrom": [
-            "src/**.(js|jsx)"
+            "src/**/*.(js|jsx)"
         ], 
         "testRegex": "tests/.*-test\\.(js|jsx)$"
     }, 

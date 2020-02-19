@@ -14,7 +14,7 @@
     }, 
     "jest": {
         "collectCoverageFrom": [
-            "src/**.(js|jsx)"
+            "src/**/*.(js|jsx)"
         ], 
         "testEnvironment": "node", 
         "testRegex": "tests/.*-test\\.(js|jsx)$"
