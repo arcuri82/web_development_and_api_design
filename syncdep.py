@@ -156,11 +156,13 @@ def copyShared():
     copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils.js")
     copyfile("shared/mytest-utils.js", "les07/server_client_together/tests/mytest-utils.js")
     copyfile("shared/mytest-utils.js", "les09/chat/websocket-rest/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les10/connect4-v2/tests/mytest-utils.js")
 
     # mytest-utils-ws.js
     copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-09/tests/mytest-utils-ws.js")
     copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils-ws.js")
     copyfile("shared/mytest-utils-ws.js", "les09/chat/websocket-rest/tests/mytest-utils-ws.js")
+    copyfile("shared/mytest-utils-ws.js", "les10/connect4-v2/tests/mytest-utils-ws.js")
 
 
 scan_folder(".")
