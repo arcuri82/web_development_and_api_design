@@ -35,7 +35,7 @@ const example = function(){
 
     blockingSleep(100);
 
-    console.log("F");
+    console.log("E");
 };
 
 
@@ -44,14 +44,14 @@ example();
 /*
 Output:
 A
-F
+E
 B
 D
 C
 
 Why?
 A: first one
-F: before any callback can be executed on the event-loop, the current method
+E: before any callback can be executed on the event-loop, the current method
    call example() has to be completed.
 B: once example() is completed, and only then, the callback can be executed.
    Note that setTimeout(callback, 1) does not guarantee that the callback will
@@ -60,5 +60,5 @@ B: once example() is completed, and only then, the callback can be executed.
    infinite loop, then the callback will never be executed.
    In our case, it is blocked for 100ms, and so callback cannot be executed
    exactly after 1ms.
-D: same reason as for F
+D: same reason as for E
  */

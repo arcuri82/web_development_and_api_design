@@ -40,7 +40,7 @@ const example = async function(){
 
     await sleep(200);
 
-    console.log("F");
+    console.log("E");
 };
 
 example();
@@ -51,7 +51,7 @@ A
 B
 C
 D
-F
+E
 
 Why?
 A: first one
@@ -64,5 +64,5 @@ C: as the first callback itself is marked async, the second callback can be
    executed while waiting for it, because the event-loop is free.
 D: when C is printed, the setTimeout has been called twice, and will push two
    blocks back on the queue at the given times. The one for 50ms will come
-   before the one for 200ms, and so D is printed before F.
+   before the one for 200ms, and so D is printed before E.
  */
