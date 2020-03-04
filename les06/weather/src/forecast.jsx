@@ -37,12 +37,12 @@ export class Forecast extends React.Component {
     render() {
 
         let msg = <div/>;
-        if (this.state.message !== null) {
+        if (this.state.message) {
             msg = <div className="forecastMsg">{this.state.message}</div>;
         }
 
         let forecast = <div/>;
-        if (this.state.forecast !== null) {
+        if (this.state.forecast) {
             forecast = <table id="weatherTable">
                 <thead>
                 <tr>
