@@ -5,7 +5,7 @@ export const MyHomeLink = () =>{
 
     return(
         <div>
-            Link back to <Link to={"/"}>Home</Link>.
+            Link back to <Link to={"/"} id="homeLink">Home</Link>.
         </div>
     );
 };

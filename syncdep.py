@@ -144,6 +144,7 @@ def copyShared():
     copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-09/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "exercise-solutions/quiz-game/part-10/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les04/connect4/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les05/spa-routing-react/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les06/weather/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les07/server_client_together/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les09/chat/websocket-full/tests/jest-setup.js")

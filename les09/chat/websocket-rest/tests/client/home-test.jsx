@@ -22,7 +22,7 @@ beforeAll(done => {
 
     server = app.listen(0, ()=> {
         port = server.address().port;
-        setUpDomEnvironment(port);
+        setUpDomEnvironment('http://localhost:' + port+"/");
         done();
     });
 });

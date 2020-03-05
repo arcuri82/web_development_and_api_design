@@ -14,9 +14,9 @@ const Adapter = require('enzyme-adapter-react-16');
     Note the overriding of some global variables to point to JSDOM.
  */
 
-export function setUpDomEnvironment(port) {
+export function setUpDomEnvironment(url) {
     const { JSDOM } = jsdom;
-    const dom = new JSDOM('<!doctype html><html><body></body></html>', {url: 'http://localhost:'+port+"/"});
+    const dom = new JSDOM('<!doctype html><html><body></body></html>', {url: url});
     const { window } = dom;
 
     global.window = window;
@@ -34,6 +34,6 @@ function copyProps(src, target) {
     Object.defineProperties(target, props);
 }
 
-setUpDomEnvironment(80);
+setUpDomEnvironment('http://localhost:80/');
 
 
