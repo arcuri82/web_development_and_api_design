@@ -16,18 +16,38 @@ class Book extends React.Component {
         this.ok = this.props.ok ? this.props.ok : "Ok";
     }
 
-     onFormSubmit = async (event) => {
+    onFormSubmit = async (event) => {
+        /*
+            in this component, we have an actual HTML form.
+            when it is submitted, we want to prevent it from doing
+            an actual POST using x-www-form-urlencoded format, we need JSON.
+         */
         event.preventDefault();
 
+        /*
+            here we make the call with AJAX, on which we have full control
+         */
         const completed = await this.props.okCallback(
             this.state.author,
             this.state.title,
             this.state.year,
             this.props.bookId);
 
+        /*
+            when the call is completed, we need to decide what to do.
+            If there was no problem, then we need to tell the browser
+            to go to the homepage.
+            otherwise, should issue an error
+         */
+
         if(completed) {
+            /*
+                this will change the address bar, and so trigger
+                a re-rendering of React-Router
+             */
             this.props.history.push('/');
         } else {
+            //we use alert() just for simplicity for this example...
             alert("Failed to create new Book")
         }
     };
