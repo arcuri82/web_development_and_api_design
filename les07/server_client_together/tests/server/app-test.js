@@ -6,6 +6,13 @@ beforeEach(() => {rep.initWithSomeBooks();});
 
 test("Test get all", async () =>{
 
+    /*
+        request(app) will start the application on an ephemeral port, if not already started.
+        The "get" will do an actual HTTP call toward such running server.
+        These tests must be async, as the tests and the backend API are running on the same
+        event-loop thread
+     */
+
     const response = await request(app).get('/api/books');
 
     expect(response.statusCode).toBe(200);
