@@ -18,7 +18,7 @@ app.get('/api/books', (req, res) => {
     /*
         Read the query parameters, if any, eg:
 
-        http://localhost:8080/books?since=2001
+        http://localhost:8080/api/books?since=2001
      */
     const since = req.query["since"];
 
