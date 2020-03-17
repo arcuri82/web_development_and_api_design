@@ -32,6 +32,11 @@
   border-radius: 5px;
   margin: 1rem 1rem 0 1rem;
 }
+.header-button:focus,
+.header-button:hover {
+  background-color: #2d1ed6;
+  color: #ebe9e4;
+}
 
 .action-buttons {
   margin-top: 2rem;

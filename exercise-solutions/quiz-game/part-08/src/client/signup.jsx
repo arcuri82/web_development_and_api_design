@@ -115,9 +115,9 @@ class SignUp extends React.Component {
 
         {error}
 
-        <div className="button" onClick={this.doSignUp}>
+        <button className="button" onClick={this.doSignUp}>
           Sign Up
-        </div>
+        </button>
       </div>
     );
   }

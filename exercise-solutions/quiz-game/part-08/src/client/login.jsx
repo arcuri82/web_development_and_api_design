@@ -91,9 +91,9 @@ class Login extends React.Component {
 
         {error}
 
-        <div className="button" onClick={this.doLogIn}>
+        <button className="button" onClick={this.doLogIn}>
           Log In
-        </div>
+        </button>
         <Link className="button" tabIndex="0" to={"/signup"}>
           Register
         </Link>

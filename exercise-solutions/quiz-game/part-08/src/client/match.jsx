@@ -83,13 +83,13 @@ export class Match extends React.Component {
 
   renderAnswerTag(prefix, answer, correct) {
     return (
-      <div
+      <button
         className="answer"
         onClick={() => this.handleClick(correct)}
         tabIndex="0"
       >
         {prefix + answer}
-      </div>
+      </button>
     );
   }
 
