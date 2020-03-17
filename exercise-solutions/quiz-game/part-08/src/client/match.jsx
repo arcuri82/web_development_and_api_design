@@ -104,11 +104,11 @@ export class Match extends React.Component {
 
     if (this.state.match.victory) {
       return (
-        <div className="game-result">
+        <div className="center">
           <h2>You Won!</h2>
           <div className="action">
             <button
-              className="play new-game-button"
+              className="button new-game-button"
               onClick={this.startNewMatch}
             >
               New Match
@@ -120,11 +120,11 @@ export class Match extends React.Component {
 
     if (this.state.match.defeat) {
       return (
-        <div className="game-result">
+        <div className="center">
           <h2>Wrong Answer! You Lost!</h2>
           <div className="action">
             <button
-              className="play new-game-button"
+              className="button new-game-button"
               onClick={this.startNewMatch}
             >
               New Match

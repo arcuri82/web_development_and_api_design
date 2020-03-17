@@ -29,7 +29,7 @@ export class Home extends React.Component {
 
         {loggedIn ? (
           <div>
-            <Link to={"/match"} className={"play"}>
+            <Link to={"/match"} className={"button"}>
               Play
             </Link>
             <div className="action">

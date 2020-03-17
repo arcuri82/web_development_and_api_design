@@ -71,7 +71,7 @@ class Login extends React.Component {
     }
 
     return (
-      <div className="game-result">
+      <div className="center">
         <div>
           <p>User Id:</p>
           <input
@@ -91,10 +91,10 @@ class Login extends React.Component {
 
         {error}
 
-        <div className="play" onClick={this.doLogIn}>
+        <div className="button" onClick={this.doLogIn}>
           Log In
         </div>
-        <Link className="play" tabIndex="0" to={"/signup"}>
+        <Link className="button" tabIndex="0" to={"/signup"}>
           Register
         </Link>
       </div>

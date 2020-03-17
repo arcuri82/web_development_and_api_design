@@ -49,7 +49,7 @@
   padding: 1rem 0;
 }
 
-.play {
+.button {
   background-color: #ebe9e4;
   color: #000000;
   padding: 1rem;
@@ -57,8 +57,8 @@
   border-radius: 5px;
   margin-top: 1rem;
 }
-.play:focus,
-.play:hover {
+.button:focus,
+.button:hover {
   background-color: #2d1ed6;
   color: #ebe9e4;
   /*
@@ -97,7 +97,7 @@
   color: #ebe9e4;
 }
 
-.game-result {
+.center {
   display: flex;
   flex-direction: column;
   justify-content: center;
