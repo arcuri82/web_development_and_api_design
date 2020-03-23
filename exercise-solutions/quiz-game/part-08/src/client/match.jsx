@@ -51,6 +51,12 @@ export class Match extends React.Component {
       return null;
     }
 
+    if(response.status === 401){
+      this.props.updateLoggedInUser(null);
+      this.props.history.push('/');
+      return null;
+    }
+
     if (response.status !== 201) {
       return null;
     }
