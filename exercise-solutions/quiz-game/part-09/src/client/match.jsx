@@ -84,9 +84,9 @@ export class Match extends React.Component {
 
   answerDiv = (prefix, index) => {
     return (
-      <div className={"quizBtn"} onClick={() => this.doAnswer(index)}>
+      <button className="answer" onClick={() => this.doAnswer(index)}>
         {prefix + this.state.match.currentQuiz.answers[index]}
-      </div>
+      </button>
     );
   };
 
@@ -149,10 +149,15 @@ export class Match extends React.Component {
 
     if (this.state.match.victory) {
       return (
-        <div>
+        <div className="center">
           <h2>You Won!</h2>
-          <div className="btn" onClick={this.startNewMatch}>
-            New Match
+          <div className="action">
+            <button
+              className="button new-game-button"
+              onClick={this.startNewMatch}
+            >
+              New Match
+            </button>
           </div>
           {this.props.user ? this.victoriesDefeatsDiv() : <div />}
         </div>
@@ -161,10 +166,15 @@ export class Match extends React.Component {
 
     if (this.state.match.defeat) {
       return (
-        <div>
+        <div className="center">
           <h2>Wrong Answer! You Lost!</h2>
-          <div className="btn" onClick={this.startNewMatch}>
-            New Match
+          <div className="action">
+            <button
+              className="button new-game-button"
+              onClick={this.startNewMatch}
+            >
+              New Match
+            </button>
           </div>
           {this.props.user ? this.victoriesDefeatsDiv() : <div />}
         </div>
@@ -176,7 +186,7 @@ export class Match extends React.Component {
 
     return (
       <div className={"quiz"} id={"quiz_" + match.currentQuiz.id}>
-        <p className={"quizQuestion"}>
+        <p className={"question"}>
           Question {count}: {match.currentQuiz.question}
         </p>
         {this.answerDiv("A: ", 0)}
