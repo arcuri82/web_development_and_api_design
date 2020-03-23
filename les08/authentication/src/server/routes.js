@@ -83,6 +83,16 @@ router.post("/api/transfers", (req, res) => {
     const to = dto.to;
     const amount = dto.amount;
 
+    /*
+        The user is authenticated... but is s/he "authorized" to make such transfer?
+        For example, it would be easy to steal money by specifying the "from" field being
+        someone else different from "user".
+        If a user is not authorized to do an action, then we should return a 403.
+        However, here the "from" is not part of the body payload of the request, but
+        rather derived on the server based on the sent cookie.
+        And, as such, in "theory" it should always be correct...
+     */
+
     const transferred = Repository.transferMoney(from, to, amount);
 
     /*
