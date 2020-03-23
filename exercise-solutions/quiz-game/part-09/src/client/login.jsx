@@ -71,7 +71,7 @@ class Login extends React.Component {
     }
 
     return (
-      <div>
+      <div className="center">
         <div>
           <p>User Id:</p>
           <input
@@ -91,10 +91,12 @@ class Login extends React.Component {
 
         {error}
 
-        <div className="btn" onClick={this.doLogIn}>
+        <div className="button" onClick={this.doLogIn}>
           Log In
         </div>
-        <Link to={"/signup"}>Register</Link>
+        <Link className="button" to={"/signup"}>
+          Register
+        </Link>
       </div>
     );
   }
