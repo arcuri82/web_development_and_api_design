@@ -33,32 +33,31 @@ class HeaderBar extends React.Component {
 
   renderLoggedIn(userId) {
     return (
-      <div className="msgDiv">
-        <h3 className="notLoggedInMsg">
+      <React.Fragment>
+        <p className="header-text">
           Welcome {userId}
           !!!
-        </h3>
-
-        <div className="btn btnPartHeader" onClick={this.doLogout}>
+        </p>
+        <button className="header-button" onClick={this.doLogout}>
           Logout
-        </div>
-      </div>
+        </button>
+      </React.Fragment>
     );
   }
 
   renderNotLoggedIn() {
     return (
-      <div className="msgDiv">
-        <div className="notLoggedInMsg">You are not logged in</div>
-        <div className="btnPartHeader">
-          <Link className="btn" to="/login">
+      <React.Fragment>
+        <p className="header-text">You are not logged in</p>
+        <div className="action-buttons">
+          <Link className="header-button" to="/login" tabIndex="0">
             LogIn
           </Link>
-          <Link className="btn" to="/signup">
+          <Link className="header-button" to="/signup" tabIndex="0">
             SignUp
           </Link>
         </div>
-      </div>
+      </React.Fragment>
     );
   }
 
@@ -66,16 +65,16 @@ class HeaderBar extends React.Component {
     const userId = this.props.userId;
 
     let content;
-    if (! userId) {
+    if (!userId) {
       content = this.renderNotLoggedIn();
     } else {
       content = this.renderLoggedIn(userId);
     }
 
     return (
-      <div className={"headerBar"}>
-        <Link className="btn home" to={"/"}>
-          Home
+      <div className="header">
+        <Link className="header-logo" to={"/"} tabIndex="0">
+          Quiz
         </Link>
         {content}
       </div>
