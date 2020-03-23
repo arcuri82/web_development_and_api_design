@@ -86,7 +86,7 @@ class SignUp extends React.Component {
     }
 
     return (
-      <div>
+      <div className="center">
         <div>
           <p>User Id:</p>
           <input
@@ -115,7 +115,7 @@ class SignUp extends React.Component {
 
         {error}
 
-        <div className="btn" onClick={this.doSignUp}>
+        <div className="button" onClick={this.doSignUp}>
           Sign Up
         </div>
       </div>
