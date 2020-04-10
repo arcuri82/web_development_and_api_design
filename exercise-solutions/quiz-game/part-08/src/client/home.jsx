@@ -8,6 +8,11 @@ export class Home extends React.Component {
 
   componentDidMount() {
     if (this.props.user) {
+      /*
+        If we are authenticated, we still want to update info from the server,
+        e.g., the current number of victories and defeats, as the current info
+        we hold might be outdated
+       */
       this.props.fetchAndUpdateUserInfo();
     }
   }
