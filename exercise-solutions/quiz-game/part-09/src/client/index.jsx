@@ -21,7 +21,7 @@ class App extends React.Component {
 
     this.state = {
       user: null,
-      userCount: 1
+      userCount: 1,
     };
   }
 
@@ -47,7 +47,7 @@ class App extends React.Component {
 
     this.socket = new WebSocket(protocol + "//" + window.location.host);
 
-    this.socket.onmessage = event => {
+    this.socket.onmessage = (event) => {
       const dto = JSON.parse(event.data);
 
       if (!dto || !dto.userCount) {
@@ -70,7 +70,7 @@ class App extends React.Component {
 
     try {
       response = await fetch(url, {
-        method: "get"
+        method: "get",
       });
     } catch (err) {
       this.setState({ errorMsg: "Failed to connect to server: " + err });
@@ -91,7 +91,7 @@ class App extends React.Component {
     }
   };
 
-  updateLoggedInUser = user => {
+  updateLoggedInUser = (user) => {
     this.setState({ user: user });
   };
 
@@ -122,7 +122,7 @@ class App extends React.Component {
             <Route
               exact
               path="/match"
-              render={props => (
+              render={(props) => (
                 <Match
                   {...props}
                   user={this.state.user}
@@ -134,7 +134,7 @@ class App extends React.Component {
             <Route
               exact
               path="/login"
-              render={props => (
+              render={(props) => (
                 <Login
                   {...props}
                   fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
@@ -144,7 +144,7 @@ class App extends React.Component {
             <Route
               exact
               path="/signup"
-              render={props => (
+              render={(props) => (
                 <SignUp
                   {...props}
                   fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
@@ -154,7 +154,7 @@ class App extends React.Component {
             <Route
               exact
               path="/"
-              render={props => (
+              render={(props) => (
                 <Home
                   {...props}
                   user={this.state.user}

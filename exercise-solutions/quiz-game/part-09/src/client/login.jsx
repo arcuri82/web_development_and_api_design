@@ -8,15 +8,15 @@ class Login extends React.Component {
     this.state = {
       userId: "",
       password: "",
-      errorMsg: null
+      errorMsg: null,
     };
   }
 
-  onUserIdChange = event => {
+  onUserIdChange = (event) => {
     this.setState({ userId: event.target.value });
   };
 
-  onPasswordChange = event => {
+  onPasswordChange = (event) => {
     this.setState({ password: event.target.value });
   };
 
@@ -33,9 +33,9 @@ class Login extends React.Component {
       response = await fetch(url, {
         method: "post",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
       });
     } catch (err) {
       this.setState({ errorMsg: "Failed to connect to server: " + err });
@@ -50,7 +50,7 @@ class Login extends React.Component {
     if (response.status !== 204) {
       this.setState({
         errorMsg:
-          "Error when connecting to server: status code " + response.status
+          "Error when connecting to server: status code " + response.status,
       });
       return;
     }
@@ -91,9 +91,9 @@ class Login extends React.Component {
 
         {error}
 
-        <div className="button" onClick={this.doLogIn}>
+        <button className="button" onClick={this.doLogIn}>
           Log In
-        </div>
+        </button>
         <Link className="button" to={"/signup"}>
           Register
         </Link>
