@@ -62,7 +62,7 @@
     }, 
     "license": "LGPL-3.0", 
     "main": "index.js", 
-    "name": "part-09", 
+    "name": "part-10",
     "repository": {}, 
     "scripts": {
         "build": "webpack --mode production", 
