@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Should be kept in sync with .travis.yml
+# Should be kept in sync with ci.yml
 
 DIR=`pwd`
 
