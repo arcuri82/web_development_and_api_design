@@ -8,25 +8,31 @@ export class Home extends React.Component {
 
   componentDidMount() {
     if (this.props.user) {
+      /*
+        If we are authenticated, we still want to update info from the server,
+        e.g., the current number of victories and defeats, as the current info
+        we hold might be outdated
+       */
       this.props.fetchAndUpdateUserInfo();
     }
   }
 
   render() {
     const user = this.props.user;
+    const loggedIn = user !== null && user !== undefined;
 
     return (
       <div className="main-content">
         <h2 className="heading">Play the Quiz Game</h2>
+
         <p>
           Welcome to the Quiz Game! In this game, you will get a series of
           questions, each one with 4 possible answers. Only 1 out of the 4
           answers is correct. If you answer wrongly to any of the questions, you
           lose! You win if you manage to answer correctly to all questions.
         </p>
-        <p>Number of online players: {this.props.userCount}</p>
 
-        {user ? (
+        {loggedIn ? (
           <div>
             <Link to={"/match"} className={"button"}>
               Play

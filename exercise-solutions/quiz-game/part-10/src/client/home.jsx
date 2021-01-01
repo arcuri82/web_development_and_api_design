@@ -24,7 +24,7 @@ export class Home extends React.Component {
           answers is correct. If you answer wrongly to any of the questions, you
           lose! You win if you manage to answer correctly to all questions.
         </p>
-        <p>Number of online players: {this.props.userCount}</p>
+
 
         {user ? (
           <div>

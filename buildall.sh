@@ -34,8 +34,9 @@ cd $DIR/exercise-solutions/quiz-game/part-03      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-04      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-05      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-06      && yarn install && yarn build
-cd $DIR/exercise-solutions/quiz-game/part-07      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-08      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-09      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-10      && yarn install && yarn test
+cd $DIR/exercise-solutions/quiz-game/part-11      && yarn install && yarn test
+cd $DIR/exercise-solutions/quiz-game/part-12      && yarn install && yarn test
 cd $DIR/extra-graphql/forum                       && yarn install && yarn test

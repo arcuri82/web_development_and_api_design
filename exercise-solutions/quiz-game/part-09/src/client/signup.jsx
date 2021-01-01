@@ -9,19 +9,19 @@ class SignUp extends React.Component {
       userId: "",
       password: "",
       confirm: "",
-      errorMsg: null,
+      errorMsg: null
     };
   }
 
-  onUserIdChange = (event) => {
+  onUserIdChange = event => {
     this.setState({ userId: event.target.value, errorMsg: null });
   };
 
-  onPasswordChange = (event) => {
+  onPasswordChange = event => {
     this.setState({ password: event.target.value, errorMsg: null });
   };
 
-  onConfirmChange = (event) => {
+  onConfirmChange = event => {
     this.setState({ confirm: event.target.value, errorMsg: null });
   };
 
@@ -43,9 +43,9 @@ class SignUp extends React.Component {
       response = await fetch(url, {
         method: "post",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json"
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify(payload)
       });
     } catch (err) {
       this.setState({ errorMsg: "Failed to connect to server: " + err });
@@ -60,7 +60,7 @@ class SignUp extends React.Component {
     if (response.status !== 201) {
       this.setState({
         errorMsg:
-          "Error when connecting to server: status code " + response.status,
+          "Error when connecting to server: status code " + response.status
       });
       return;
     }

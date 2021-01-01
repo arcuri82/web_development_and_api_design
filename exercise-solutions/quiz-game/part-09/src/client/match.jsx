@@ -6,141 +6,102 @@ export class Match extends React.Component {
     super(props);
 
     this.state = {
-      errorMsg: null,
-      match: null
+      match: null,
+      error: null
     };
   }
 
   componentDidMount() {
-    this.fetchCurrentMatch();
+    this.startNewMatch();
   }
 
-  fetchCurrentMatch = async () => {
-    const url = "/api/matches/ongoing";
+  startNewMatch = async () => {
+    //because getRandomQuizzes is async, it does return a Promise we can await on
+    const quizzes = await this.getRandomQuizzes(3);
 
-    let response;
-
-    try {
-      response = await fetch(url, {
-        method: "get"
-      });
-    } catch (err) {
-      this.setState({ errorMsg: "Failed to connect to server: " + err });
-      return;
-    }
-
-    if (response.status === 401) {
-      this.props.updateLoggedInUser(null);
-      this.props.history.push("/");
-      return;
-    }
-
-    if (response.status === 404) {
-      await this.startNewMatch();
-      return;
-    }
-
-    if (response.status !== 200) {
-      this.setState({
-        errorMsg: "Failed connection to server. Status " + response.status
-      });
-      return;
-    }
-
-    const match = await response.json();
-    this.setState({ match: match, errorMsg: null });
+    this.setState(
+      !quizzes
+        ? { error: "Error when connecting to server" }
+        : {
+            error: null,
+            match: {
+              victory: false,
+              defeat: false,
+              quizzes: quizzes,
+              currentIndex: 0,
+              numberOfQuizzes: quizzes.length
+            }
+          }
+    );
   };
 
-  startNewMatch = async () => {
-    const url = "/api/matches";
-
-    let response;
-
-    try {
-      response = await fetch(url, {
-        method: "post"
-      });
-    } catch (err) {
-      this.setState({ errorMsg: "Failed to connect to server: " + err });
-      return;
+  getRandomQuizzes = async numberOfQuizzes => {
+    if (numberOfQuizzes < 1) {
+      throw "Invalid number of requested quizzes: " + n;
     }
 
-    if (response.status === 401) {
+    const url = "/api/matches";
+    let response;
+    let payload;
+
+    try {
+      response = await fetch(url, { method: "post" });
+      payload = await response.json();
+    } catch (err) {
+      return null;
+    }
+
+    if(response.status === 401){
       this.props.updateLoggedInUser(null);
-      this.props.history.push("/");
-      return;
+      this.props.history.push('/');
+      return null;
     }
 
     if (response.status !== 201) {
-      this.setState({
-        errorMsg: "Failed connection to server. Status " + response.status
-      });
-      return;
+      return null;
     }
 
-    const match = await response.json();
-    this.setState({ match: match, errorMsg: null });
+    return payload;
   };
 
-  answerDiv = (prefix, index) => {
+  handleClick = correct => {
+    if (correct) {
+      if (
+        this.state.match.currentIndex ===
+        this.state.match.numberOfQuizzes - 1
+      ) {
+        //last quiz
+        this.setState({ match: { victory: true } });
+      } else {
+        //go on to next quiz
+        this.setState(prev => ({
+          match: {
+            currentIndex: prev.match.currentIndex + 1,
+            quizzes: prev.match.quizzes,
+            numberOfQuizzes: prev.match.numberOfQuizzes
+          }
+        }));
+      }
+    } else {
+      this.setState({ match: { defeat: true } });
+    }
+  };
+
+  renderAnswerTag(prefix, answer, correct) {
     return (
-      <button className="answer" onClick={() => this.doAnswer(index)}>
-        {prefix + this.state.match.currentQuiz.answers[index]}
+      <button
+        className="answer"
+        onClick={() => this.handleClick(correct)}
+        tabIndex="0"
+      >
+        {prefix + answer}
       </button>
     );
-  };
-
-  doAnswer = async index => {
-    const url = "/api/matches/ongoing";
-
-    let response;
-
-    try {
-      response = await fetch(url, {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ answerIndex: index })
-      });
-    } catch (err) {
-      this.setState({ errorMsg: "Failed to connect to server: " + err });
-      return;
-    }
-
-    if (response.status === 401) {
-      this.props.updateLoggedInUser(null);
-      this.props.history.push("/");
-      return;
-    }
-
-    if (response.status !== 201) {
-      this.setState({
-        errorMsg: "Failed connection to server. Status " + response.status
-      });
-      return;
-    }
-
-    const match = await response.json();
-    this.setState({ match: match, errorMsg: null });
-
-    if (match.victory || match.defeat) {
-      await this.props.fetchAndUpdateUserInfo();
-    }
-  };
-
-  victoriesDefeatsDiv = () => {
-    return (
-      <div>
-        <p>Victories: {this.props.user.victories}</p>
-        <p>Defeats: {this.props.user.defeats}</p>
-      </div>
-    );
-  };
+  }
 
   render() {
-    if (this.state.errorMsg) {
-      return <h2>ERROR: {this.state.errorMsg}</h2>;
+    if (this.state.error) {
+      return <h2>{this.state.error}</h2>;
     }
 
     if (!this.state.match) {
@@ -159,7 +120,6 @@ export class Match extends React.Component {
               New Match
             </button>
           </div>
-          {this.props.user ? this.victoriesDefeatsDiv() : <div />}
         </div>
       );
     }
@@ -176,23 +136,39 @@ export class Match extends React.Component {
               New Match
             </button>
           </div>
-          {this.props.user ? this.victoriesDefeatsDiv() : <div />}
         </div>
       );
     }
 
     const match = this.state.match;
     const count = "" + (match.currentIndex + 1) + "/" + match.numberOfQuizzes;
+    const quiz = match.quizzes[match.currentIndex];
 
     return (
-      <div className={"quiz"} id={"quiz_" + match.currentQuiz.id}>
-        <p className={"question"}>
-          Question {count}: {match.currentQuiz.question}
+      <div id={"quiz_" + quiz.id} className="quiz">
+        <p className="question">
+          Question {count}: {quiz.question}{" "}
         </p>
-        {this.answerDiv("A: ", 0)}
-        {this.answerDiv("B: ", 1)}
-        {this.answerDiv("C: ", 2)}
-        {this.answerDiv("D: ", 3)}
+        {this.renderAnswerTag(
+          "A: ",
+          quiz.answers[0],
+          quiz.indexOfRightAnswer === 0
+        )}
+        {this.renderAnswerTag(
+          "B: ",
+          quiz.answers[1],
+          quiz.indexOfRightAnswer === 1
+        )}
+        {this.renderAnswerTag(
+          "C: ",
+          quiz.answers[2],
+          quiz.indexOfRightAnswer === 2
+        )}
+        {this.renderAnswerTag(
+          "D: ",
+          quiz.answers[3],
+          quiz.indexOfRightAnswer === 3
+        )}
       </div>
     );
   }

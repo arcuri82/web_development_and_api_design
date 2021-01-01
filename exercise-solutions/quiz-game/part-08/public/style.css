@@ -1,113 +1,88 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
 .main-content {
-  margin: auto;
-  width: 50%;
-}
-
-.header {
-  display: flex;
-  padding: 1rem 4rem;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-/*Uselly in the left corner there is a logo that is linked home. So we make on with css.*/
-.header-logo {
-  font-family: "Times New Roman", Times, serif;
-  font-size: 5rem;
-  text-decoration: none;
-  background: -webkit-linear-gradient(#eee, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.header-text {
-  align-self: center;
-  font-size: large;
-}
-.header-button {
-  background-color: #ebe9e4;
-  color: #000000;
-  padding: 1rem;
-  border: 1px solid #787774;
-  border-radius: 5px;
-  margin: 1rem 1rem 0 1rem;
-}
-.header-button:focus,
-.header-button:hover {
-  background-color: #2d1ed6;
-  color: #ebe9e4;
-}
-
-.action-buttons {
-  margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    align-items: center;
 }
 
 .heading {
-  margin: 2rem 0;
+    font-size: 4em;
+    margin: 2rem 0;
 }
 
 .welcome-text {
-  font-size: 1.5em;
-  margin-bottom: 1rem;
+    font-size: 1.5em;
+    margin-bottom: 1rem;
 }
 .action {
-  padding: 1rem 0;
+    padding: 1rem 0;
 }
 
-.button {
-  background-color: #ebe9e4;
-  color: #000000;
-  padding: 1rem;
-  border: 1px solid #787774;
-  border-radius: 5px;
-  margin-top: 1rem;
+.play {
+    background-color: #ebe9e4;
+    color: #000000;
+    padding: 1rem;
+    border: 1px solid #787774;
+    border-radius: 5px;
+    margin-top: 1rem;
 }
-.button:focus,
-.button:hover {
-  background-color: #2d1ed6;
-  color: #ebe9e4;
-  /*
-  The focus selector is important for universal design.
-  Especially for users navigating with keyboard. Sadly it is often forgotten
-  and a lot of designers request frontend developers to remove the browsers default focus,
-  without adding a custom one. This should not be done!
-  If you do this you make it very hard for a keyboard user to navigate.
-  The least you can do is to leave the Default browser style and then add the same style as on hover.
-  Read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/
-  */
+    .play:focus,
+    .play:hover{
+    background-color: #2d1ed6;
+    color: #ebe9e4;
+    /*
+    The focus selector is important for universal design.
+    Especially for users navigating with keyboard. Sadly it is often forgotten
+    and a lot of designers request frontend developers to remove the browsers default focus,
+    without adding a custom one. This should not be done!
+    If you do this you make it very hard for a keyboard user to navigate.
+    The least you can do is to leave the Default browser style and then add the same style as on hover.
+    Read more: https://www.deque.com/blog/give-site-focus-tips-designing-usable-focus-indicators/
+    */
 }
 
-.quiz {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+
+
+.quiz{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .question {
-  font-size: 1.5em;
-  font-weight: bold;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .answer {
-  background-color: #ebe9e4;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  border: 1px solid #787774;
-  border-radius: 5px;
-  width: 80%;
+    background-color: #ebe9e4;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #787774;
+    border-radius: 5px;
+    width: 80%;
 }
 .answer:hover,
-.answer:focus {
-  background-color: #2d1ed6;
-  color: #ebe9e4;
+.answer:focus{
+    background-color: #2d1ed6;
+    color: #ebe9e4;
 }
 
-.center {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+.game-result{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
-.new-game-button {
-  align-self: center;
+.new-game-button{
+    align-self: center;
 }

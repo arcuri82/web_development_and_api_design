@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 export class Match extends React.Component {
   constructor(props) {
@@ -51,12 +50,6 @@ export class Match extends React.Component {
       return null;
     }
 
-    if(response.status === 401){
-      this.props.updateLoggedInUser(null);
-      this.props.history.push('/');
-      return null;
-    }
-
     if (response.status !== 201) {
       return null;
     }
@@ -89,15 +82,25 @@ export class Match extends React.Component {
 
   renderAnswerTag(prefix, answer, correct) {
     return (
-      <button
+      <div
         className="answer"
         onClick={() => this.handleClick(correct)}
         tabIndex="0"
       >
         {prefix + answer}
-      </button>
+      </div>
     );
   }
+  /*
+    Tabindex is important to add for universal design.
+    Tabindex make html elements able to reach from the key tab.
+    Like in this case where we use a <div></div> as a button.
+    If we did not add tabindex inside the div, it would not have been possible to navigate to it with the keyboard.
+    With tabindex we can also decide the order of tab-able elements.
+    As we now have it set to 0, we use default order.
+    By giving them nr 1-2-3-4 we can decide the order, but this is considered bad practice.
+    More info: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex
+    */
 
   render() {
     if (this.state.error) {
@@ -110,11 +113,11 @@ export class Match extends React.Component {
 
     if (this.state.match.victory) {
       return (
-        <div className="center">
+        <div className="game-result">
           <h2>You Won!</h2>
           <div className="action">
             <button
-              className="button new-game-button"
+              className="play new-game-button"
               onClick={this.startNewMatch}
             >
               New Match
@@ -126,11 +129,11 @@ export class Match extends React.Component {
 
     if (this.state.match.defeat) {
       return (
-        <div className="center">
+        <div className="game-result">
           <h2>Wrong Answer! You Lost!</h2>
           <div className="action">
             <button
-              className="button new-game-button"
+              className="play new-game-button"
               onClick={this.startNewMatch}
             >
               New Match
@@ -173,5 +176,3 @@ export class Match extends React.Component {
     );
   }
 }
-
-export default withRouter(Match);

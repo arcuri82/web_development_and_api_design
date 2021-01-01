@@ -3,7 +3,7 @@
 
 ![](docs/img/stephen-leonardi-369733-unsplash-compressed.jpg "Photo by Stephen Leonardi on Unsplash")
 
-[![Build Status](https://travis-ci.com/arcuri82/web_development_and_api_design.svg?branch=master)](https://travis-ci.com/arcuri82/web_development_and_api_design)
+![CI](https://github.com/arcuri82/web_development_and_api_design/workflows/CI/badge.svg)
 
 ## Summary
 
@@ -95,7 +95,7 @@ the code as comments.
 
   Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_08.pdf)
 
-  Exercises: [quiz-game-part-07](docs/exercises/quiz-game/part-07.md)
+  Exercises: [quiz-game-part-08](docs/exercises/quiz-game/part-08.md)
 
 <br />
 
@@ -103,7 +103,7 @@ the code as comments.
 
   Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_09.pdf)  
    
-  Exercises: [quiz-game-part-08](docs/exercises/quiz-game/part-08.md)
+  Exercises: [quiz-game-part-09](docs/exercises/quiz-game/part-09.md)
 
 <br />
 
@@ -112,7 +112,7 @@ the code as comments.
 
   Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_10.pdf)
 
-  Exercises: [quiz-game-part-09](docs/exercises/quiz-game/part-09.md)
+  Exercises: [quiz-game-part-10](docs/exercises/quiz-game/part-10.md)
 
 <br />
 
@@ -121,7 +121,7 @@ the code as comments.
 
   Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_11.pdf)  
    
-  Exercises: [quiz-game-part-09](docs/exercises/quiz-game/part-09.md)
+  Exercises: [quiz-game-part-11](docs/exercises/quiz-game/part-11.md)
 
 <br />
 
@@ -129,7 +129,7 @@ the code as comments.
 
   Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)  
    
-  Exercises: [quiz-game-part-10](docs/exercises/quiz-game/part-10.md)
+  Exercises: [quiz-game-part-12](docs/exercises/quiz-game/part-12.md)
     
 
 <br />
