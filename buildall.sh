@@ -2,6 +2,9 @@
 
 # Should be kept in sync with ci.yml
 
+# exit when any command fails
+set -e
+
 DIR=`pwd`
 
 cd $DIR/les02/libraries                           && yarn install && yarn build
