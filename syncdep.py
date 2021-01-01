@@ -83,7 +83,7 @@ def analyze_json(path):
 
 
         # make properties the same in all modules
-        updated |= add_or_override_subproperty(data, "engines", "node", "^12.0.0")
+        updated |= add_or_override_subproperty(data, "engines", "node", "^14.0.0")
         updated |= add_or_override_property(data, "author", "Andrea Arcuri")
         updated |= add_or_override_property(data, "license", "LGPL-3.0")
         updated |= add_or_override_property(data, "version", "1.0.0")

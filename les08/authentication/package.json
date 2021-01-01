@@ -1,67 +1,67 @@
 {
-    "author": "Andrea Arcuri", 
+    "author": "Andrea Arcuri",
     "babel": {
         "plugins": [
             "@babel/plugin-proposal-class-properties"
-        ], 
+        ],
         "presets": [
             [
-                "@babel/env", 
+                "@babel/env",
                 {
                     "targets": {
                         "node": "current"
                     }
                 }
-            ], 
+            ],
             "@babel/react"
         ]
-    }, 
+    },
     "dependencies": {
-        "cors": "^2.8.4", 
-        "express": "4.17.1", 
-        "express-session": "1.17.0", 
-        "passport": "^0.4.0", 
-        "passport-local": "^1.0.0", 
-        "react": "16.12.0", 
-        "react-dom": "16.12.0", 
+        "cors": "^2.8.4",
+        "express": "4.17.1",
+        "express-session": "1.17.0",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "react": "16.12.0",
+        "react-dom": "16.12.0",
         "react-router-dom": "5.1.2"
-    }, 
-    "description": "", 
+    },
+    "description": "",
     "devDependencies": {
-        "@babel/core": "7.7.4", 
-        "@babel/plugin-proposal-class-properties": "7.7.4", 
-        "@babel/preset-env": "7.7.4", 
-        "@babel/preset-react": "7.7.4", 
-        "babel-jest": "24.9.0", 
-        "babel-loader": "8.0.6", 
-        "concurrently": "5.0.0", 
-        "jest": "24.9.0", 
-        "nodemon": "2.0.1", 
-        "supertest": "4.0.2", 
-        "webpack": "4.41.2", 
+        "@babel/core": "7.7.4",
+        "@babel/plugin-proposal-class-properties": "7.7.4",
+        "@babel/preset-env": "7.7.4",
+        "@babel/preset-react": "7.7.4",
+        "babel-jest": "24.9.0",
+        "babel-loader": "8.0.6",
+        "concurrently": "5.0.0",
+        "jest": "24.9.0",
+        "nodemon": "2.0.1",
+        "supertest": "4.0.2",
+        "webpack": "4.41.2",
         "webpack-cli": "3.3.10"
-    }, 
+    },
     "engines": {
-        "node": "^12.0.0"
-    }, 
+        "node": "^14.0.0"
+    },
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.(js|jsx)"
-        ], 
-        "testEnvironment": "node", 
+        ],
+        "testEnvironment": "node",
         "testRegex": "tests/.*-test\\.(js|jsx)$"
-    }, 
-    "keywords": [], 
-    "license": "LGPL-3.0", 
-    "main": "index.js", 
-    "name": "authentication", 
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "authentication",
     "scripts": {
-        "build": "webpack --mode production", 
-        "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"", 
-        "start": "node src/server/server.js", 
-        "test": "jest --coverage", 
-        "watch:client": "webpack --watch --mode development", 
+        "build": "webpack --mode production",
+        "dev": "concurrently \"yarn watch:client\" \"yarn watch:server\"",
+        "start": "node src/server/server.js",
+        "test": "jest --coverage",
+        "watch:client": "webpack --watch --mode development",
         "watch:server": "nodemon src/server/server.js --watch src/server --watch public/bundle.js"
-    }, 
+    },
     "version": "1.0.0"
 }
