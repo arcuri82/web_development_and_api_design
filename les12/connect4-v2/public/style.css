@@ -1,0 +1,116 @@
+body {
+  background-color: green;
+}
+
+#root {
+  margin: 30px;
+}
+
+.headerBar {
+  margin-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 2px solid black;
+  height: 50px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+.msgDiv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+}
+.notLoggedInMsg {
+  justify-self: flex-start;
+}
+.home {
+  float: left;
+}
+.btnPartHeader {
+  float: right;
+  margin: 30px;
+}
+
+.index {
+  float: left;
+  font-size: 12px;
+  text-align: center;
+  width: 30px;
+  border: 1px solid transparent;
+  margin-right: -1px;
+  margin-top: -1px;
+}
+
+.cell-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.cell {
+  float: left;
+  background: white;
+  border: 1px solid gray;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+  margin-right: -1px;
+  margin-top: -1px;
+}
+
+.cell-victory {
+  background: lightskyblue;
+}
+
+.cell-defeat {
+  background: red;
+}
+
+.cell-to-insert {
+  background: yellow;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-top: 30px;
+  margin-left: 20px;
+  font-weight: bold;
+}
+.btnPart {
+  display: inline-flex;
+}
+.btn {
+  width: 90px;
+  height: 20px;
+  background-color: rgb(207, 205, 200);
+  color: black;
+  font-size: 1em;
+  text-align: center;
+  padding: 5px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btnDeActive {
+  width: 90px;
+  background-color: rgb(207, 205, 200);
+  color: rgb(153, 153, 153);
+  font-size: 1em;
+  text-align: center;
+  padding: 5px;
+  border: 2px solid rgb(153, 153, 153);
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}

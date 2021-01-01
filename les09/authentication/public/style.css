@@ -1,0 +1,92 @@
+html,
+body {
+  margin: 0px;
+  background-color: rgb(243, 239, 231);
+  color: rgb(71, 53, 25);
+  text-align: center;
+  position: relative;
+  font-size: 1em;
+}
+.headerBar {
+  margin-top: 30px;
+}
+
+.btn {
+  border: 2px solid rgb(30, 30, 30);
+  border-radius: 5px;
+  background-color: rgb(207, 205, 200);
+  color: rgb(71, 53, 25);
+  text-decoration: none;
+  padding: 5px;
+  margin: 5px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.btnPart {
+  float: right;
+  margin: 30px;
+}
+
+.home {
+  float: left;
+  margin: 30px;
+}
+
+.msgDiv {
+  display: inline-flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  position: relative;
+  width: 100%;
+}
+
+.notLoggedInMsg {
+  display: inline;
+}
+.bankLogo {
+  font-size: 3em;
+  border-bottom: 1px solid rgb(30, 30, 30);
+  padding-bottom: 0px;
+}
+
+.mainContent {
+  text-align: center;
+}
+.signupArea {
+  width: 100px;
+  padding-top: 50px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.logOutBtn {
+  float: right;
+  border: 2px solid rgb(30, 30, 30);
+  border-radius: 5px;
+  background-color: rgb(207, 205, 200);
+  color: rgb(71, 53, 25);
+  text-decoration: none;
+  padding: 5px;
+  margin: 35px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.lastInput {
+  margin-bottom: 5px;
+}
+
+.transBtn {
+  font-size: 1em;
+  padding: 5px;
+  margin: 5px;
+  width: 115px;
+}
+
+.errorMsg {
+  color: red;
+  font-size: 2em;
+}

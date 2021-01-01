@@ -19,17 +19,16 @@ cd $DIR/les05/spa-routing-js                      && yarn install && yarn build
 cd $DIR/les05/spa-routing-react                   && yarn install && yarn build
 cd $DIR/les05/spa-routing-ssr                     && yarn install && yarn build
 cd $DIR/les06/weather                             && yarn install && yarn build
-cd $DIR/les07/server_client_separated/frontend    && yarn install && yarn build
-cd $DIR/les07/server_client_separated/rest        && yarn install && yarn test
-cd $DIR/les07/server_client_together              && yarn install && yarn test
-cd $DIR/les08/authentication                      && yarn install && yarn test
-cd $DIR/les09/chat/ajax                           && yarn install && yarn build
-cd $DIR/les09/chat/server-side                    && yarn install
-cd $DIR/les09/chat/websocket-full                 && yarn install && yarn test
-cd $DIR/les09/chat/websocket-rest                 && yarn install && yarn test
-cd $DIR/les09/xss/react-href                      && yarn install && yarn build
-cd $DIR/les10/connect4-v2                         && yarn install && yarn test
-cd $DIR/les11/forum                               && yarn install && yarn test
+cd $DIR/les08/server_client_separated/frontend    && yarn install && yarn build
+cd $DIR/les08/server_client_separated/rest        && yarn install && yarn test
+cd $DIR/les08/server_client_together              && yarn install && yarn test
+cd $DIR/les09/authentication                      && yarn install && yarn test
+cd $DIR/les10/xss/react-href                      && yarn install && yarn build
+cd $DIR/les11/chat/ajax                           && yarn install && yarn build
+cd $DIR/les11/chat/server-side                    && yarn install
+cd $DIR/les11/chat/websocket-full                 && yarn install && yarn test
+cd $DIR/les11/chat/websocket-rest                 && yarn install && yarn test
+cd $DIR/les12/connect4-v2                         && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-02      && yarn install && yarn build
 cd $DIR/exercise-solutions/quiz-game/part-03      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-04      && yarn install && yarn test
@@ -39,3 +38,4 @@ cd $DIR/exercise-solutions/quiz-game/part-07      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-08      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-09      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-10      && yarn install && yarn test
+cd $DIR/extra-graphql/forum                       && yarn install && yarn test

@@ -29,17 +29,16 @@ jobs:
       - run: cd les05/spa-routing-react                   && yarn install && yarn build
       - run: cd les05/spa-routing-ssr                     && yarn install && yarn build
       - run: cd les06/weather                             && yarn install && yarn build
-      - run: cd les07/server_client_separated/frontend    && yarn install && yarn build
-      - run: cd les07/server_client_separated/rest        && yarn install && yarn test
-      - run: cd les07/server_client_together              && yarn install && yarn test
-      - run: cd les08/authentication                      && yarn install && yarn test
-      - run: cd les09/chat/ajax                           && yarn install && yarn build
-      - run: cd les09/chat/server-side                    && yarn install
-      - run: cd les09/chat/websocket-full                 && yarn install && yarn test
-      - run: cd les09/chat/websocket-rest                 && yarn install && yarn test
-      - run: cd les09/xss/react-href                      && yarn install && yarn build
-      - run: cd les10/connect4-v2                         && yarn install && yarn test
-      - run: cd les11/forum                               && yarn install && yarn test
+      - run: cd les08/server_client_separated/frontend    && yarn install && yarn build
+      - run: cd les08/server_client_separated/rest        && yarn install && yarn test
+      - run: cd les08/server_client_together              && yarn install && yarn test
+      - run: cd les09/authentication                      && yarn install && yarn test
+      - run: cd les10/xss/react-href                      && yarn install && yarn build
+      - run: cd les11/chat/ajax                           && yarn install && yarn build
+      - run: cd les11/chat/server-side                    && yarn install
+      - run: cd les11/chat/websocket-full                 && yarn install && yarn test
+      - run: cd les11/chat/websocket-rest                 && yarn install && yarn test
+      - run: cd les12/connect4-v2                         && yarn install && yarn test
       - run: cd exercise-solutions/quiz-game/part-02      && yarn install && yarn build
       - run: cd exercise-solutions/quiz-game/part-03      && yarn install && yarn test
       - run: cd exercise-solutions/quiz-game/part-04      && yarn install && yarn test
@@ -49,4 +48,5 @@ jobs:
       - run: cd exercise-solutions/quiz-game/part-08      && yarn install && yarn test
       - run: cd exercise-solutions/quiz-game/part-09      && yarn install && yarn test
       - run: cd exercise-solutions/quiz-game/part-10      && yarn install && yarn test
+      - run: cd extra-graphql/forum                       && yarn install && yarn test
 

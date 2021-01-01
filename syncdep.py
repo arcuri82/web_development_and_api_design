@@ -146,24 +146,24 @@ def copyShared():
     copyfile("shared/jest-setup.js", "les04/connect4/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les05/spa-routing-react/tests/jest-setup.js")
     copyfile("shared/jest-setup.js", "les06/weather/tests/jest-setup.js")
-    copyfile("shared/jest-setup.js", "les07/server_client_together/tests/jest-setup.js")
-    copyfile("shared/jest-setup.js", "les09/chat/websocket-full/tests/jest-setup.js")
-    copyfile("shared/jest-setup.js", "les09/chat/websocket-rest/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les08/server_client_together/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les11/chat/websocket-full/tests/jest-setup.js")
+    copyfile("shared/jest-setup.js", "les11/chat/websocket-rest/tests/jest-setup.js")
 
     # mytest-utils.js
     copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-07/tests/mytest-utils.js")
     copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-08/tests/mytest-utils.js")
     copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-09/tests/mytest-utils.js")
     copyfile("shared/mytest-utils.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils.js")
-    copyfile("shared/mytest-utils.js", "les07/server_client_together/tests/mytest-utils.js")
-    copyfile("shared/mytest-utils.js", "les09/chat/websocket-rest/tests/mytest-utils.js")
-    copyfile("shared/mytest-utils.js", "les10/connect4-v2/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les08/server_client_together/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les11/chat/websocket-rest/tests/mytest-utils.js")
+    copyfile("shared/mytest-utils.js", "les12/connect4-v2/tests/mytest-utils.js")
 
     # mytest-utils-ws.js
     copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-09/tests/mytest-utils-ws.js")
     copyfile("shared/mytest-utils-ws.js", "exercise-solutions/quiz-game/part-10/tests/mytest-utils-ws.js")
-    copyfile("shared/mytest-utils-ws.js", "les09/chat/websocket-rest/tests/mytest-utils-ws.js")
-    copyfile("shared/mytest-utils-ws.js", "les10/connect4-v2/tests/mytest-utils-ws.js")
+    copyfile("shared/mytest-utils-ws.js", "les11/chat/websocket-rest/tests/mytest-utils-ws.js")
+    copyfile("shared/mytest-utils-ws.js", "les12/connect4-v2/tests/mytest-utils-ws.js")
 
 
 scan_folder(".")

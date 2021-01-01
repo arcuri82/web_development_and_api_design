@@ -1,0 +1,11 @@
+# Needed for running:
+# heroku builds:create -a <app>
+#
+# Remember you first need to install the "builds" plugin:
+# heroku plugins:install heroku-builds
+
+node_modules
+coverage
+.idea
+.git
+
