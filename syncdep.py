@@ -90,6 +90,7 @@ def analyze_json(path):
 
 
         # for checking updates, use "yarn outdated"
+        # also, everytime we add/remove a dependency, need to update "dependencies" module
 
         # Frontend
         updated |= handle_dependency(data, "lodash", "4.17.15")
@@ -104,6 +105,9 @@ def analyze_json(path):
         updated |= handle_dependency(data, "express-ws", "4.0.0")  # is this dead?
         updated |= handle_dependency(data, "graphql", "14.5.8")
         updated |= handle_dependency(data, "apollo-server-express", "2.9.12")
+        updated |= handle_dependency(data, "passport", "0.4.0")
+        updated |= handle_dependency(data, "passport-local", "1.0.0")
+        updated |= handle_dependency(data, "cors", "2.8.4")
 
         # Webpack
         updated |= handle_devDependency(data, "webpack", "4.41.2")
@@ -125,6 +129,7 @@ def analyze_json(path):
         updated |= handle_devDependency(data, "supertest", "4.0.2")
         updated |= handle_devDependency(data, "enzyme", "3.10.0")
         updated |= handle_devDependency(data, "enzyme-adapter-react-16", "1.15.1")
+        updated |= handle_devDependency(data, "react-addons-test-utils", "15.6.2")
 
         # Misc
         updated |= handle_devDependency(data, "nodemon", "2.0.1")

@@ -35,7 +35,7 @@
         "enzyme-adapter-react-16": "1.15.1",
         "jest": "24.9.0",
         "jsdom": "15.2.1",
-        "react-addons-test-utils": "^15.6.2",
+        "react-addons-test-utils": "15.6.2",
         "webpack": "4.41.2",
         "webpack-cli": "3.3.10",
         "webpack-dev-server": "3.9.0"

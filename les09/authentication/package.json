@@ -17,11 +17,11 @@
         ]
     },
     "dependencies": {
-        "cors": "^2.8.4",
+        "cors": "2.8.4",
         "express": "4.17.1",
         "express-session": "1.17.0",
-        "passport": "^0.4.0",
-        "passport-local": "^1.0.0",
+        "passport": "0.4.0",
+        "passport-local": "1.0.0",
         "react": "16.12.0",
         "react-dom": "16.12.0",
         "react-router-dom": "5.1.2"

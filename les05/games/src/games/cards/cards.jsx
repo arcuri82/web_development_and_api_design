@@ -3,10 +3,6 @@ import React from "react";
 //Note the use of "alias" in webpack.config.js to handle "~"
 import {MyHomeLink} from "~/my_home_link";
 
-//See "style-loader" and  "css-loader" in webpack.config.js, which need to be installed
-//Note: this is installed globally, and not just for this component
-import "./cards.css"
-
 const positions = [0, 1, 2];
 
 const spadesImg = "games/cards/img/2_of_spades.png";
@@ -20,7 +16,6 @@ export class Cards extends React.Component {
         super(props);
 
         this.state = this.defaultState();
-        this.startGame();
     }
 
     defaultState(){
@@ -150,7 +145,7 @@ export class Cards extends React.Component {
         return (
             <div>
                 {cards.map((e,i) =>
-                    <img className={e.className} src={e.src} onClick={() => this.clickCard(i)}/>
+                    <img className={e.className} src={e.src} onClick={() => this.clickCard(i)} key={"card_"+i}/>
                 )}
             </div>
         );
@@ -164,9 +159,9 @@ export class Cards extends React.Component {
         }
 
         this.setState(prev => {
-            if (prev.secondChoice) {
+            if (prev.secondChoice !== null) {
                 return {};
-            } else if (!prev.firstChoice) {
+            } else if (prev.firstChoice === null) {
 
                 const options = positions.filter(p => p !== index && p !== this.state.jokerPosition);
                 const toDisplay = options[Math.floor(Math.random() * options.length)];
