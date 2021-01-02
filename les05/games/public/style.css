@@ -1,0 +1,15 @@
+@import url("games/cards/cards.css");
+@import url("games/silly/silly.css");
+
+
+html, body {
+    margin: 0px;
+    background-color: rgb(243, 239, 231);
+    color: rgb(71, 53, 25);
+    font-size: 1.2em;
+    position: relative;
+}
+
+#root{
+    margin: 30px;
+}

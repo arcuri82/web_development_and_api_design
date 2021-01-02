@@ -3,7 +3,7 @@
 
 ![](docs/img/stephen-leonardi-369733-unsplash-compressed.jpg "Photo by Stephen Leonardi on Unsplash")
 
-[![Build Status](https://travis-ci.com/arcuri82/web_development_and_api_design.svg?branch=master)](https://travis-ci.com/arcuri82/web_development_and_api_design)
+![CI](https://github.com/arcuri82/web_development_and_api_design/workflows/CI/badge.svg)
 
 ## Summary
 
@@ -11,12 +11,12 @@ This repository contains all the material used in the PG6301 course
 on *Web Development and API Design*, taught at 
 the university college [Høyskolen Kristiania](https://kristiania.no/), Oslo, Norway.
 
-The goal of this course is to teach the principles of *Single-Page-Applications* (SPA)
-and the basics of web services (e.g., *REST* and *GraphQL*) and *web-sockets*.
+The goal of this course is to teach the principles of *Single-Page-Applications* (SPA),
+ the basics of web services (e.g., *REST APIs*) and *web-sockets*.
 
 The programming language used in this course is *JavaScript*, with *NodeJS* as runtime.
 Some of the used technologies are: *YARN*, *WebPack*, *Babel*, *React*, *React-Router*, 
-*Jest*, *Express*, *Apollo*, and *Passport*. 
+*Jest*, *Express*, and *Passport*. 
 
 This course puts particular emphasis on **testing** and **security**, but not on 
 frontend *design* (i.e., UI/UX).
@@ -83,23 +83,23 @@ the code as comments.
 <br />
 
 
-* **Lesson 07**: RESTful APIs
+* **Lesson 07**: RESTful APIs Theory
 
-  Code in the [les07](les07) folder. Slides here: [PDF](docs/slides/lesson_07.pdf)  
-   
+  No code. Slides here: [PDF](docs/slides/lesson_07.pdf)
+
   Exercises: [quiz-game-part-07](docs/exercises/quiz-game/part-07.md)
 
 <br />
 
-* **Lesson 08**: Authentication, CORS and CSRF 
+* **Lesson 08**: RESTful APIs Practice
 
-  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_08.pdf)  
-   
+  Code in the [les08](les08) folder. Slides here: [PDF](docs/slides/lesson_08.pdf)
+
   Exercises: [quiz-game-part-08](docs/exercises/quiz-game/part-08.md)
 
 <br />
 
-* **Lesson 09**: WebSockets and XSS
+* **Lesson 09**: Authentication and Authorization 
 
   Code in the [les09](les09) folder. Slides here: [PDF](docs/slides/lesson_09.pdf)  
    
@@ -107,25 +107,39 @@ the code as comments.
 
 <br />
 
-* **Lesson 10**: Online Multi-Player Game
 
-  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_10.pdf)  
-   
+* **Lesson 10**: CORS, CSRF and XSS
+
+  Code in the [les10](les10) folder. Slides here: [PDF](docs/slides/lesson_10.pdf)
+
   Exercises: [quiz-game-part-10](docs/exercises/quiz-game/part-10.md)
+
+<br />
+
+
+* **Lesson 11**: WebSockets 
+
+  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_11.pdf)  
+   
+  Exercises: [quiz-game-part-11](docs/exercises/quiz-game/part-11.md)
+
+<br />
+
+* **Lesson 12**: Online Multi-Player Game
+
+  Code in the [les12](les12) folder. Slides here: [PDF](docs/slides/lesson_12.pdf)  
+   
+  Exercises: [quiz-game-part-12](docs/exercises/quiz-game/part-12.md)
     
 
 <br />
 
-* **Lesson 11**: GraphQL APIs
+* **Extra**: GraphQL APIs
 
-  Code in the [les11](les11) folder. Slides here: [PDF](docs/slides/lesson_11.pdf)  
+  Code in the [extra-graphql](extra-graphql) folder. Slides here: [PDF](docs/slides/lesson_graphql.pdf)  
    
   Exercises: none
 
-
-<br />
-
-* **Lesson 12**: Revision
 
 
 ## Useful Links

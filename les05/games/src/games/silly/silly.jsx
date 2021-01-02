@@ -3,10 +3,6 @@ import React from "react";
 //Note the use of "alias" in webpack.config.js to handle "~"
 import {MyHomeLink} from "~/my_home_link";
 
-//See "style-loader" and  "css-loader" in webpack.config.js, which need to be installed.
-//Note: this is installed globally, and not just for this component
-import "./silly.css"
-
 export class Silly extends React.Component {
 
     constructor(props) {

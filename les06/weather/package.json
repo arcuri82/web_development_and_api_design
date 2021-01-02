@@ -1,63 +1,63 @@
 {
-    "author": "Andrea Arcuri", 
+    "author": "Andrea Arcuri",
     "babel": {
         "plugins": [
             "@babel/plugin-proposal-class-properties"
-        ], 
+        ],
         "presets": [
             [
-                "@babel/env", 
+                "@babel/env",
                 {
                     "targets": {
                         "node": "current"
                     }
                 }
-            ], 
+            ],
             "@babel/react"
         ]
-    }, 
+    },
     "dependencies": {
-        "react": "16.12.0", 
+        "react": "16.12.0",
         "react-dom": "16.12.0"
-    }, 
-    "description": "", 
+    },
+    "description": "",
     "devDependencies": {
-        "@babel/core": "7.7.4", 
-        "@babel/plugin-proposal-class-properties": "7.7.4", 
-        "@babel/preset-env": "7.7.4", 
-        "@babel/preset-react": "7.7.4", 
-        "babel-jest": "24.9.0", 
-        "babel-loader": "8.0.6", 
-        "enzyme": "3.10.0", 
-        "enzyme-adapter-react-16": "1.15.1", 
-        "jest": "24.9.0", 
-        "jsdom": "15.2.1", 
-        "react-addons-test-utils": "^15.6.2", 
-        "webpack": "4.41.2", 
-        "webpack-cli": "3.3.10", 
-        "webpack-dev-server": "3.9.0"
-    }, 
+        "@babel/core": "7.12.10",
+        "@babel/plugin-proposal-class-properties": "7.12.1",
+        "@babel/preset-env": "7.12.11",
+        "@babel/preset-react": "7.12.10",
+        "babel-jest": "24.9.0",
+        "babel-loader": "8.2.2",
+        "enzyme": "3.11.0",
+        "enzyme-adapter-react-16": "1.15.5",
+        "jest": "24.9.0",
+        "jsdom": "16.4.0",
+        "react-addons-test-utils": "15.6.2",
+        "webpack": "5.11.1",
+        "webpack-cli": "4.3.1",
+        "webpack-dev-server": "3.11.1"
+    },
     "engines": {
-        "node": "^12.0.0"
-    }, 
+        "node": "^14.0.0"
+    },
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.(js|jsx)"
-        ], 
+        ],
         "setupFilesAfterEnv": [
             "<rootDir>/tests/jest-setup.js"
-        ], 
-        "testEnvironment": "node", 
+        ],
+        "testEnvironment": "node",
         "testRegex": "tests/.*-test\\.(js|jsx)$"
-    }, 
-    "keywords": [], 
-    "license": "LGPL-3.0", 
-    "main": "index.js", 
-    "name": "weather", 
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "weather",
     "scripts": {
-        "build": "webpack --mode production", 
-        "dev": "webpack-dev-server --open --mode development", 
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
         "test": "jest --coverage"
-    }, 
+    },
     "version": "1.0.0"
 }

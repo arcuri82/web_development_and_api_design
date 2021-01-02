@@ -7,7 +7,6 @@ import {Silly} from "./games/silly/silly";
 import {Cards} from "./games/cards/cards";
 import {NotFound} from "./not_found";
 
-import "./style.css"
 
 const App = () => {
 

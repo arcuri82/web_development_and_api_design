@@ -1,38 +1,38 @@
 {
-    "author": "Andrea Arcuri", 
+    "author": "Andrea Arcuri",
     "babel": {
         "presets": [
             "@babel/env"
         ]
-    }, 
-    "description": "", 
+    },
+    "description": "",
     "devDependencies": {
-        "@babel/cli": "7.7.4", 
-        "@babel/core": "7.7.4", 
-        "@babel/preset-env": "7.7.4", 
-        "babel-jest": "24.9.0", 
-        "jest": "24.9.0", 
-        "webpack": "4.41.2", 
-        "webpack-cli": "3.3.10", 
-        "webpack-dev-server": "3.9.0"
-    }, 
+        "@babel/cli": "7.12.10",
+        "@babel/core": "7.12.10",
+        "@babel/preset-env": "7.12.11",
+        "babel-jest": "24.9.0",
+        "jest": "24.9.0",
+        "webpack": "5.11.1",
+        "webpack-cli": "4.3.1",
+        "webpack-dev-server": "3.11.1"
+    },
     "engines": {
-        "node": "^12.0.0"
-    }, 
+        "node": "^14.0.0"
+    },
     "jest": {
         "collectCoverageFrom": [
             "src/**/*.(js|jsx)"
-        ], 
+        ],
         "testRegex": "tests/.*-test\\.(js|jsx)$"
-    }, 
-    "keywords": [], 
-    "license": "LGPL-3.0", 
-    "main": "index.js", 
-    "name": "unit-tests", 
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "unit-tests",
     "scripts": {
-        "build": "webpack --mode production", 
-        "dev": "webpack-dev-server --open --mode development", 
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
         "test": "jest --coverage"
-    }, 
+    },
     "version": "1.0.0"
 }

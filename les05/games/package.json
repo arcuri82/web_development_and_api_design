@@ -1,41 +1,39 @@
 {
-    "author": "Andrea Arcuri", 
+    "author": "Andrea Arcuri",
     "babel": {
         "plugins": [
             "@babel/plugin-proposal-class-properties"
-        ], 
+        ],
         "presets": [
             "@babel/react"
         ]
-    }, 
+    },
     "dependencies": {
-        "react": "16.12.0", 
-        "react-dom": "16.12.0", 
-        "react-router-dom": "5.1.2"
-    }, 
-    "description": "", 
+        "react": "16.12.0",
+        "react-dom": "16.12.0",
+        "react-router-dom": "5.2.0"
+    },
+    "description": "",
     "devDependencies": {
-        "@babel/core": "7.7.4", 
-        "@babel/plugin-proposal-class-properties": "7.7.4", 
-        "@babel/preset-react": "7.7.4", 
-        "babel-loader": "8.0.6", 
-        "css-loader": "^1.0.0", 
-        "style-loader": "^0.22.1", 
-        "webpack": "4.41.2", 
-        "webpack-cli": "3.3.10", 
-        "webpack-dev-server": "3.9.0"
-    }, 
+        "@babel/core": "7.12.10",
+        "@babel/plugin-proposal-class-properties": "7.12.1",
+        "@babel/preset-react": "7.12.10",
+        "babel-loader": "8.2.2",
+        "webpack": "5.11.1",
+        "webpack-cli": "4.3.1",
+        "webpack-dev-server": "3.11.1"
+    },
     "engines": {
-        "node": "^12.0.0"
-    }, 
-    "keywords": [], 
-    "license": "LGPL-3.0", 
-    "main": "index.js", 
-    "name": "games", 
+        "node": "^14.0.0"
+    },
+    "keywords": [],
+    "license": "LGPL-3.0",
+    "main": "index.js",
+    "name": "games",
     "scripts": {
-        "build": "webpack --mode production", 
-        "dev": "webpack-dev-server --open --mode development", 
+        "build": "webpack --mode production",
+        "dev": "webpack-dev-server --open --mode development",
         "test": "echo \"Error: no test specified\" && exit 1"
-    }, 
+    },
     "version": "1.0.0"
 }

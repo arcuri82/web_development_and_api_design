@@ -4,27 +4,7 @@ const {Match} = require("../../src/client/match");
 const {quizzes} = require("../../src/server/db/quizzes");
 const {overrideFetch, asyncCheckCondition} = require('../mytest-utils');
 const app = require('../../src/server/app');
-const {resetAllUsers} = require('../../src/server/db/users');
 
-
-beforeEach(() => {
-    resetAllUsers();
-});
-
-
-async function signup(userId, password) {
-
-    const response = await fetch('/api/signup', {
-            method: "post",
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({userId: userId, password: password})
-        }
-    );
-
-    return response.status === 201;
-}
 
 
 function isQuizDisplayed(driver) {
@@ -46,12 +26,12 @@ function getDisplayedQuiz(driver) {
     return quiz;
 }
 
-async function waitForQuizDisplayed(driver) {
+async function waitForQuizDisplayed(driver){
 
-    const displayed = await asyncCheckCondition(() => {
+    const displayed = await asyncCheckCondition(()=>{
         driver.update();
         return isQuizDisplayed(driver);
-    }, 2000, 200);
+    }, 2000 ,200);
 
     return displayed;
 }
@@ -59,9 +39,6 @@ async function waitForQuizDisplayed(driver) {
 test("Test rendered quiz", async () => {
 
     overrideFetch(app);
-
-    const signedup = await signup("foo", "bar");
-    expect(signedup).toEqual(true);
 
     const driver = mount(<Match/>);
 
@@ -74,7 +51,6 @@ test("Test rendered quiz", async () => {
 test("Test do answer wrongly", async () => {
 
     overrideFetch(app);
-    await signup("foo", "bar");
 
     const driver = mount(<Match/>);
 
@@ -94,17 +70,17 @@ test("Test do answer wrongly", async () => {
 });
 
 
+
 test("Test do answer correctly", async () => {
 
     overrideFetch(app);
-    await signup("foo", "bar");
 
     const driver = mount(<Match/>);
 
     await waitForQuizDisplayed(driver);
 
     const quiz = getDisplayedQuiz(driver);
-    const correct = quiz.indexOfRightAnswer;
+    const correct = quiz.indexOfRightAnswer ;
 
     const first = driver.find('.answer').at(correct);
     first.simulate('click');
@@ -123,13 +99,12 @@ test("Test do answer correctly", async () => {
 test("Test win match", async () => {
 
     overrideFetch(app);
-    await signup("foo", "bar");
 
     const driver = mount(<Match/>);
 
     await waitForQuizDisplayed(driver);
 
-    for (let i = 0; i < 3; i++) {
+    for(let i=0; i<3; i++) {
         const quiz = getDisplayedQuiz(driver);
         const correct = quiz.indexOfRightAnswer;
 

@@ -20,8 +20,7 @@ class App extends React.Component {
          */
 
     this.state = {
-      user: null,
-      userCount: 1,
+      user: null
     };
   }
 
@@ -39,29 +38,8 @@ class App extends React.Component {
      */
   componentDidMount() {
     this.fetchAndUpdateUserInfo();
-
-    let protocol = "ws:";
-    if (window.location.protocol.toLowerCase() === "https:") {
-      protocol = "wss:";
-    }
-
-    this.socket = new WebSocket(protocol + "//" + window.location.host);
-
-    this.socket.onmessage = (event) => {
-      const dto = JSON.parse(event.data);
-
-      if (!dto || !dto.userCount) {
-        this.setState({ userCount: "ERROR" });
-        return;
-      }
-
-      this.setState({ userCount: dto.userCount });
-    };
   }
 
-  componentWillUnmount() {
-    this.socket.close();
-  }
 
   fetchAndUpdateUserInfo = async () => {
     const url = "/api/user";
@@ -158,7 +136,6 @@ class App extends React.Component {
                 <Home
                   {...props}
                   user={this.state.user}
-                  userCount={this.state.userCount}
                   fetchAndUpdateUserInfo={this.fetchAndUpdateUserInfo}
                 />
               )}

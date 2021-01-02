@@ -1,4 +1,6 @@
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
+
 
 module.exports = {
     entry: './src/index.jsx',
@@ -17,10 +19,6 @@ module.exports = {
                 use: {
                     loader: "babel-loader"
                 }
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -29,6 +27,12 @@ module.exports = {
         alias: {
             ['~']: path.resolve(__dirname + '/src')
         }
+    },
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin({
+            extractComments: false,
+        })]
     }
 
 };

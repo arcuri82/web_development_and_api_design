@@ -1,5 +1,5 @@
 const request = require('supertest');
-const {app} = require('../../../src/server/app');
+const app = require('../../../src/server/app');
 
 
 test("Test create match no auth", async () =>{
@@ -23,4 +23,5 @@ test("Test create match with auth", async () =>{
     const response = await user.post('/api/matches');
 
     expect(response.statusCode).toBe(201);
+    expect(response.body.length).toBe(3);
 });
