@@ -39,7 +39,7 @@ echo LESSON 11
 cd $DIR/les11/chat/ajax                           && yarn install && yarn build
 cd $DIR/les11/chat/server-side                    && yarn install
 cd $DIR/les11/chat/websocket-full                 && yarn install && yarn build && yarn test
-cd $DIR/les11/chat/websocket-rest                 && yarn install && yarn build && yarn test
+cd $DIR/les11/chat/websocket-rest                 && yarn install && yarn test
 echo LESSON 12
 cd $DIR/les12/connect4-v2                         && yarn install && yarn build && yarn test
 echo LESSON QUIZ-GAME
@@ -57,3 +57,5 @@ echo EXTRA
 cd $DIR/extra-graphql/forum                       && yarn install && yarn build && yarn test
 echo DEPENDENCIES
 cd $DIR/dependencies                              && yarn install
+
+echo BUILD COMPLETED SUCCESFULLY

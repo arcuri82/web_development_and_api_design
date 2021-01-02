@@ -30,7 +30,7 @@ jobs:
       - run: cd les05/spa-routing-ssr                     && yarn install && yarn build
       - run: cd les06/weather                             && yarn install && yarn build
       - run: cd les08/server_client_separated/frontend    && yarn install && yarn build
-      - run: cd les08/server_client_separated/rest        && yarn install && yarn build && yarn test
+      - run: cd les08/server_client_separated/rest        && yarn install && yarn test
       - run: cd les08/server_client_together              && yarn install && yarn build && yarn test
       - run: cd les09/authentication                      && yarn install && yarn build && yarn test
       - run: cd les10/xss/react-href                      && yarn install && yarn build
