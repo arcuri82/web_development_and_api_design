@@ -12,7 +12,7 @@ cd $DIR/les02/libraries                           && yarn install && yarn build
 cd $DIR/les02/unit-tests                          && yarn install && yarn build && yarn test
 cd $DIR/les02/tic-tac-toe                         && yarn install && yarn build && yarn test
 echo LESSON 3
-cd $DIR/les03/puzzle15                            && yarn install && yarn build
+cd $DIR/les03/puzzle15                            && yarn install && yarn build && yarn test
 cd $DIR/les03/spa-components-js                   && yarn install && yarn build
 cd $DIR/les03/spa-components-react                && yarn install && yarn build
 cd $DIR/les03/spa-components-react-hooks          && yarn install && yarn build

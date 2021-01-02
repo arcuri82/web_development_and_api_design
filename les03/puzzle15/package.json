@@ -5,6 +5,7 @@
             "@babel/plugin-proposal-class-properties"
         ],
         "presets": [
+            "@babel/env",
             "@babel/react"
         ]
     },
@@ -18,10 +19,20 @@
         "@babel/core": "7.12.10",
         "@babel/plugin-proposal-class-properties": "7.12.1",
         "@babel/preset-react": "7.12.10",
+        "@babel/preset-env": "7.12.11",
         "babel-loader": "8.2.2",
+        "babel-jest": "24.9.0",
+        "jest": "24.9.0",
         "webpack": "5.11.1",
         "webpack-cli": "4.3.1",
         "webpack-dev-server": "3.11.1"
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.(js|jsx)"
+        ],
+        "testEnvironment": "node",
+        "testRegex": "tests/.*-test\\.(js|jsx)$"
     },
     "engines": {
         "node": "^14.0.0"
@@ -33,7 +44,7 @@
     "scripts": {
         "build": "webpack --mode production",
         "dev": "webpack-dev-server --open --mode development",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest --coverage"
     },
     "version": "1.0.0"
 }
