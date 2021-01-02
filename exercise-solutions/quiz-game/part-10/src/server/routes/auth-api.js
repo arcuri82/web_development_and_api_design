@@ -34,6 +34,7 @@ router.post('/signup', function (req, res) {
 router.post('/logout', function (req, res) {
 
     req.logout();
+    req.session.destroy();
     res.status(204).send();
 });
 
