@@ -93,21 +93,21 @@ def analyze_json(path):
         # also, everytime we add/remove a dependency, need to update "dependencies" module
 
         # Frontend
-        updated |= handle_dependency(data, "lodash", "4.17.15")
+        updated |= handle_dependency(data, "lodash", "4.17.20")
         updated |= handle_dependency(data, "react", "16.12.0") # if updating, check if react-href XSS still works
-        updated |= handle_dependency(data, "react-dom", "16.12.0")
+        updated |= handle_dependency(data, "react-dom", "16.12.0") # 17 is out, but Enzyme does not support it yet
         updated |= handle_dependency(data, "react-router", "5.1.2")
         updated |= handle_dependency(data, "react-router-dom", "5.1.2")
 
         # Backend
         updated |= handle_dependency(data, "express", "4.17.1")
-        updated |= handle_dependency(data, "express-session", "1.17.0")
+        updated |= handle_dependency(data, "express-session", "1.17.1")
         updated |= handle_dependency(data, "express-ws", "4.0.0")  # is this dead?
         updated |= handle_dependency(data, "graphql", "14.5.8")
         updated |= handle_dependency(data, "apollo-server-express", "2.9.12")
-        updated |= handle_dependency(data, "passport", "0.4.0")
+        updated |= handle_dependency(data, "passport", "0.4.1")
         updated |= handle_dependency(data, "passport-local", "1.0.0")
-        updated |= handle_dependency(data, "cors", "2.8.4")
+        updated |= handle_dependency(data, "cors", "2.8.5")
 
         # Webpack
         updated |= handle_devDependency(data, "webpack", "4.41.2")
@@ -115,25 +115,25 @@ def analyze_json(path):
         updated |= handle_devDependency(data, "webpack-dev-server", "3.9.0")
 
         # Babel
-        updated |= handle_devDependency(data, "@babel/core", "7.7.4")
-        updated |= handle_devDependency(data, "@babel/cli", "7.7.4")
-        updated |= handle_devDependency(data, "@babel/preset-env", "7.7.4")
-        updated |= handle_devDependency(data, "@babel/preset-react", "7.7.4")
-        updated |= handle_devDependency(data, "@babel/plugin-proposal-class-properties", "7.7.4")
-        updated |= handle_devDependency(data, "babel-loader", "8.0.6")
-        updated |= handle_devDependency(data, "babel-jest", "24.9.0")
+        updated |= handle_devDependency(data, "@babel/core", "7.12.10")
+        updated |= handle_devDependency(data, "@babel/cli", "7.12.10")
+        updated |= handle_devDependency(data, "@babel/preset-env", "7.12.11")
+        updated |= handle_devDependency(data, "@babel/preset-react", "7.12.10")
+        updated |= handle_devDependency(data, "@babel/plugin-proposal-class-properties", "7.12.1")
+        updated |= handle_devDependency(data, "babel-loader", "8.2.2")
+        updated |= handle_devDependency(data, "babel-jest", "24.9.0") # 26.6.3 breaks enzyme
 
         # Testing
         updated |= handle_devDependency(data, "jest", "24.9.0")
-        updated |= handle_devDependency(data, "jsdom", "15.2.1")
+        updated |= handle_devDependency(data, "jsdom", "16.4.0")
         updated |= handle_devDependency(data, "supertest", "4.0.2")
-        updated |= handle_devDependency(data, "enzyme", "3.10.0")
+        updated |= handle_devDependency(data, "enzyme", "3.11.0")
         updated |= handle_devDependency(data, "enzyme-adapter-react-16", "1.15.1")
         updated |= handle_devDependency(data, "react-addons-test-utils", "15.6.2")
 
         # Misc
-        updated |= handle_devDependency(data, "nodemon", "2.0.1")
-        updated |= handle_devDependency(data, "concurrently", "5.0.0")
+        updated |= handle_devDependency(data, "nodemon", "2.0.6")
+        updated |= handle_devDependency(data, "concurrently", "5.3.0")
 
     if updated:
         with open(path, 'w') as outfile:
