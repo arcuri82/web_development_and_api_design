@@ -55,3 +55,5 @@ cd $DIR/exercise-solutions/quiz-game/part-11      && yarn install && yarn test
 cd $DIR/exercise-solutions/quiz-game/part-12      && yarn install && yarn test
 echo EXTRA
 cd $DIR/extra-graphql/forum                       && yarn install && yarn test
+echo DEPENDENCIES
+cd $DIR/dependencies                              && yarn install
