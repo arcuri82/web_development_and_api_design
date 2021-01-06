@@ -52,7 +52,7 @@
     "repository": {},
     "scripts": {
         "build": "webpack --mode production",
-        "dev": "webpack-dev-server --open --mode development",
+        "dev": "webpack serve --open --mode development",
         "start": "node src/server/server.js",
         "test": "jest --coverage"
     },

@@ -49,7 +49,7 @@
     "name": "connect4",
     "scripts": {
         "build": "webpack --mode production",
-        "dev": "webpack-dev-server --open --mode development",
+        "dev": "webpack serve --open --mode development",
         "test": "jest --coverage"
     },
     "version": "1.0.0"

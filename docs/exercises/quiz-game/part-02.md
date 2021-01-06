@@ -32,7 +32,7 @@ You need to add *Babel* (i.e., in `package.json`) with `env` preset to be able t
 In the `package.json`, besides adding all the needed dependencies
 (e.g., *WebPack*, *Jest* and *Babel*), add the following 3 commands under `scripts`:
 * `"test": "jest --coverage"`
-* `"dev": "webpack-dev-server --open --mode development"`
+* `"dev": "webpack serve --open --mode development"`
 * `"build": "webpack --mode production"`
 
 From command-line, first install all needed dependencies with `yarn install`.

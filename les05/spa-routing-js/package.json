@@ -15,7 +15,7 @@
     "name": "spa-routing-js",
     "scripts": {
         "build": "webpack --mode production",
-        "dev": "webpack-dev-server --open --mode development",
+        "dev": "webpack serve --open --mode development",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "version": "1.0.0"
