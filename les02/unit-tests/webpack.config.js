@@ -14,6 +14,9 @@ module.exports = {
             In this case, the module will be called 'EntryPoint', which is a 'var'.
             Note: this is just an example. In general, we will not need to do something
             like this, as all the code we will run is from bundle.js itself
+
+            NOTE: this does not work yet in WebPack 5 (regression bug)... so need to use v4.
+            Anyway, this the only case in the course in which are going to do something like this
          */
         libraryTarget: 'var',
         library: 'EntryPoint'
