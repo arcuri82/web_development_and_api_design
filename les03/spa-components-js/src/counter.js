@@ -23,7 +23,7 @@ export class Counter extends MyComponent {
 
         return (
             "<div>" +
-            "<div>Counter for " + this.name + ": " + this.state.value + "</div>" +
+            "<div>Counter for " + name + ": " + this.state.value + "</div>" +
             "<div class='btn' onclick="+ this.methodHandler(this.increase)+">+</div>" +
             "<div class='btn' onclick="+ this.methodHandler(this.decrease)+">-</div>" +
             "</div>"
