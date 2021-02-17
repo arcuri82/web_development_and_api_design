@@ -4,7 +4,8 @@ In your project, under `src` create two new folders: `client` and `server`.
 Move your JavaScript code under the `client` folder, and update `webpack.config.js` accordingly
 with the new path of your `index.jsx` file.
 
-Add *React Router* to your project.
+Add *React Router* to your project (i.e., the dependency `react-router-dom
+`).
 In `client`, create a new `home.jsx`. This should be your home page, with a welcome message,
 and a button to go to the `match.jsx` page to a start a new match. 
 You need to update your `index.jsx` to handle React routes between those 2 web pages.
