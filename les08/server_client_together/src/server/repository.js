@@ -65,7 +65,7 @@ function updateBook(book){
 
 function getAllBooksSince(year){
 
-    return books.values().filter(b => b.year >= year);
+    return Array.from(books.values()).filter(b => b.year >= year);
 }
 
 module.exports = {initWithSomeBooks, getAllBooks, getAllBooksSince,

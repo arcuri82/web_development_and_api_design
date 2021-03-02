@@ -19,6 +19,14 @@ test("Test get all", async () =>{
     expect(response.body.length).toBe(5);
 });
 
+test("Test retrieve since specified year", async () =>{
+
+    const response = await request(app).get('/api/books?since=1990');
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body.length).toBe(2);
+});
+
 
 test("Test not found book", async () => {
 

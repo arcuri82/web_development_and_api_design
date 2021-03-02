@@ -13,6 +13,15 @@ test("Test get all", async () =>{
 });
 
 
+test("Test retrieve since specified year", async () =>{
+
+    const response = await request(app).get('/books?since=1990');
+
+    expect(response.statusCode).toBe(200);
+    expect(response.body.length).toBe(2);
+});
+
+
 test("Test not found book", async () => {
 
     const response = await request(app).get('/books/-3');
@@ -117,3 +126,4 @@ test("Update book", async () => {
     expect(resGet.statusCode).toBe(200);
     expect(resGet.body.title).toBe(modified);
 });
+
