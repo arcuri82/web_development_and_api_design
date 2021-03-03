@@ -20,6 +20,10 @@ When doing these modifications, your current tests will fail.
 For now, ignore them, as in the next exercise we will do major changes again (i.e., we will write our own
 web service for quizzes, instead of relying on an external one).
 
+Also make sure to update the Babel configuration to properly handle the `async/await` keywords 
+(see the `package.json` file in the Lesson 06 examples).
+
+
 Solutions to this exercise can be found under the *exercise-solutions* folder.
 However, the solutions rely on an external service, which could go down or change its API at any
 moment. So the solutions could fail to work. In such a case, please create an `issue` on the GitHub
