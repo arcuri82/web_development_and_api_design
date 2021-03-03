@@ -18,6 +18,10 @@ import {Forecast} from "./forecast";
     It comes without saying that, if you want to build your own app that
     does access http://api.openweathermap.org, you should register a new
     user and use a different key, instead of the following.
+
+    WARNING: it is a bad practice to have API keys on GitHub, as anyone can steal them...
+    so, don't do it for your APIs... but here this one is here just for simplicity, and as it
+    is not paid, not a big deal if it get stolen...
  */
 const API_KEY = "bde08c38dcc24dfbffc449466cea7e44";
 
